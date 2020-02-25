@@ -6,6 +6,7 @@
  * @author nlarson002
  *
  */
+package CMC;
 public class UserUI {
 
 	public void login(String username, String password) {

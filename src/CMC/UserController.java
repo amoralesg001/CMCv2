@@ -6,6 +6,7 @@
  * @author nlarson002
  *
  */
+package CMC;
 public class UserController {
 	
 	public String getUsername(Account account) {

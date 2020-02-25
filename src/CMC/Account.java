@@ -6,6 +6,7 @@
  * @author nlarson002
  *
  */
+package CMC;
 public class Account {
 	private String username;
 	private String password;
