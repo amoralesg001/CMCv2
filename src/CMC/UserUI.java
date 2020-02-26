@@ -9,12 +9,15 @@
 package CMC;
 public class UserUI {
 
+	private UniversityController universityController = new UniversityController();
+	
 	public void login(String username, String password) {
 		int i = 0;
 	}
 	
 	public void goToPage() {
-		
+		String schoolName = " ";
+		this.universityController.getUniversity(schoolName);
 	}
 	
 	public void saveUserInfo(String username, String password, String firstName, String lastName) {
