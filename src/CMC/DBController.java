@@ -1,8 +1,9 @@
 package CMC;
 public class DBController {
+	private Account user; 
 	
-	public void getAccount() {
-		
+	public Account getAccountDB(String name) {
+		return user; 
 	}
 	
 	public void getSavedSchools() {
