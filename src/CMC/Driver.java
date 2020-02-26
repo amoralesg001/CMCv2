@@ -33,7 +33,10 @@ public class Driver {
 	/**
 	 * 
 	 */
-	public void u5() {}
+	public void u5() {
+		this.userUI.goToPage();
+		this.userUI.displaySchoolInfo(School school);
+	}
 	/**
 	 * 
 	 */
