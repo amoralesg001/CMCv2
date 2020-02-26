@@ -8,14 +8,20 @@ package CMC;
  *
  */
 public class Driver {
+	private UserController userControl = new UserController();
+	private UserUI userUI = new UserUI();
 	/**
 	 * 
 	 */
 	public void u1() {}
 	/**
-	 * 
+	 * U2: List Saved Schools
 	 */
-	public void u2() {}
+	public void u2() {
+		private String u = "";
+		userControl.getUsername(u);
+		userUI.displaySavedList();
+	}
 	/**
 	 * 
 	 */
@@ -27,7 +33,10 @@ public class Driver {
 	/**
 	 * 
 	 */
-	public void u5() {}
+	public void u5() {
+		this.userUI.goToPage();
+		this.userUI.displaySchoolInfo(School school);
+	}
 	/**
 	 * 
 	 */

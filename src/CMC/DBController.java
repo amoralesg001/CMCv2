@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 	package CMC;
 	public class DBController {
 		private Account user; 
@@ -55,5 +56,47 @@
 		public void updateProfile() {
 			
 		}
+=======
+package CMC;
+public class DBController {
+	private Account user; 
+	private School school;
+	
+	public Account getAccountDB(String name) {
+		return user; 
+	}
+	
+	public void getSavedSchools() {
+		
+	}
+	
+	public School getSchool(String schoolName) {
+		return school;
+	}
+	
+	public void getUserInfo(String username) {
+		
+	}
+	
+	
+	public void searchSchools(String schooName) {
+		
+	}
+	
+	public void updateSavedSchools() {
+		
+	}
+	
+	public void updateProfile() {
+		
+	}
+	
+	public void login(String username, String password) {
+		
+	}
+	
+	public void removeSchool(String schoolName) {
+		
+>>>>>>> 9aebfed6e2fcda6d0356fc2000ed9629cfda274f
 	}
 	

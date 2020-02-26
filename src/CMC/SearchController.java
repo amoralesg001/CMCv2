@@ -3,7 +3,7 @@
  */
 
 /**
- * @author nlarson002
+ * @author nlarson002, Jengh001
  *
  */
 package CMC;
