@@ -81,6 +81,11 @@ public class UserController {
 		
 	}
 	
+	public void removeSchool(School school) {
+		this.DBController.removeSchool(school);
+		this.Account.removeSchool(school);
+	}
+	
 }
 
 
