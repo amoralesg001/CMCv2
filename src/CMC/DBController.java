@@ -1,102 +1,59 @@
 <<<<<<< HEAD
 	package CMC;
 	public class DBController {
-		private Account user; 
-		private School university; 
+		private Account account = new Account(); 
+		private School university = new School(); 
+		private User userArray[]; //should we do an array or list?  
+		private School schoolArray[];
 		
 		public Account getAccountDB(String name) {
-			return user; 
+			return account; 
 		}
 		public School getUniversityDB(String name) {
 			return university; 
 		}
-		public void updateUniversity(School schoolName) {
+		public void updateUniversityDB(School schoolName) {
+			
 			
 		}
 		public void updateBlackListDB(School schoolName) {
 			
 		}
-		public void searchSchools(String schooName) {
-			
+		public School searchSchool(String schooName) {	// should return a school i assume but diagram doesnt
+			return university; 
 		}
-		public void addSchool(String schoolName) {//is this adding all information of a school or just on the saved list? 
-		
+		public School addSchool(String schoolName) {//is this adding all information of a school or just on the saved list? 
+		return university; 
 		}
 		public void updateSavedSchools() {
 		
 		}
-		public void getSavedSchools() {
-			
+		public School[] getAllSchools() {	//how to return an array 
+			return schoolArray; 
+		}
+		public User[] getAllUsers() {		//how to return an array 
+			return userArray; 
 		}
 		
-		public void getAllSchools() {	//how to return an array 
-			
-		}
-		public void getAllUsers() {		//how to return an array 
-			
-		}
-		
-		public void updateAccountDB(Account user) {
+		public void updateAccountDB(Account user) {	//would updating return an array ? 
 			
 		}
 		
 		public Account login(String username, String password) {
-			return user;
+			return account;
 		}
 		
 		public void removeSchool(String schoolName) {
 			
 		}
-		public School lookUpSchools(String schoolName) {
+		public School lookUpSchool(String schoolName) {
 			return university ;
 		}
 		public Account lookUpAccount(String accountName) {
-			return user; 
+			return account; 
 		}
 		public void updateProfile() {
 			
 		}
-=======
-package CMC;
-public class DBController {
-	private Account user; 
-	private School school;
-	
-	public Account getAccountDB(String name) {
-		return user; 
-	}
-	
-	public void getSavedSchools() {
-		
-	}
-	
-	public School getSchool(String schoolName) {
-		return school;
-	}
-	
-	public void getUserInfo(String username) {
-		
-	}
-	
-	
-	public void searchSchools(String schooName) {
-		
-	}
-	
-	public void updateSavedSchools() {
-		
-	}
-	
-	public void updateProfile() {
-		
-	}
-	
-	public void login(String username, String password) {
-		
-	}
-	
-	public void removeSchool(String schoolName) {
-		
->>>>>>> 9aebfed6e2fcda6d0356fc2000ed9629cfda274f
 	}
 	
