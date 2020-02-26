@@ -31,6 +31,7 @@ public class Driver {
 	 */
 	public void u4() {}
 	/**
+	 * U5: View Individual School
 	 * 
 	 */
 	public void u5() {
