@@ -13,6 +13,7 @@ public class Account {
 	private String firstName;
 	private String lastName;
 	private String userType;
+	private boolean loginStatus;
 	
 	public String getUsername() {
 		return this.username;
@@ -32,5 +33,14 @@ public class Account {
 	
 	public String getUserType() {
 		return this.userType;
+	}
+	public void login() {
+		
+	}
+	public boolean verify(String username, String password) {
+		return false;
+	}
+	public void updateAccountInfo(String userName, String password, String fName, String lName) {
+		
 	}
 }
