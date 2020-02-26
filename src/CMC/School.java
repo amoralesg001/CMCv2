@@ -1,6 +1,5 @@
 package CMC;
 import java.util.ArrayList;
-import java.util.List;
 
 public class School {
 	
@@ -25,6 +24,45 @@ public class School {
 	 */
 	public String getSchoolName() {
 		return schoolName;
+	}
+	/**
+	 * @param schoolName
+	 * @param state
+	 * @param location
+	 * @param numStudents
+	 * @param femalePer
+	 * @param verSAT
+	 * @param mathSAT
+	 * @param tuition
+	 * @param finAid
+	 * @param numApplicants
+	 * @param admitPer
+	 * @param enrolledPer
+	 * @param academicScale
+	 * @param socialScale
+	 * @param qoaSCale
+	 * @param emphasis
+	 */
+	public School(String schoolName, String state, String location, Long numStudents, int femalePer, int verSAT,
+			int mathSAT, double tuition, double finAid, double numApplicants, int admitPer, int enrolledPer,
+			int academicScale, int socialScale, int qoaSCale, ArrayList<String> emphasis) {
+		super();
+		this.schoolName = schoolName;
+		this.state = state;
+		this.location = location;
+		this.numStudents = numStudents;
+		this.femalePer = femalePer;
+		this.verSAT = verSAT;
+		this.mathSAT = mathSAT;
+		this.tuition = tuition;
+		this.finAid = finAid;
+		this.numApplicants = numApplicants;
+		this.admitPer = admitPer;
+		this.enrolledPer = enrolledPer;
+		this.academicScale = academicScale;
+		this.socialScale = socialScale;
+		this.qoaSCale = qoaSCale;
+		this.emphasis = emphasis;
 	}
 	/**
 	 * @param schoolName the schoolName to set
