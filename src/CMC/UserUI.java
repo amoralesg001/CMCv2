@@ -10,7 +10,7 @@ package CMC;
 public class UserUI {
 
 	public void login(String username, String password) {
-		
+		int i = 0;
 	}
 	
 	public void goToPage() {
