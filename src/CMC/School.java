@@ -18,6 +18,7 @@ public class School {
 	private int academicScale;
 	private int socialScale;
 	private int qoaSCale;
+	private boolean blacklist;
 	private ArrayList<String> emphasis;
 	/**
 	 * @return the schoolName
@@ -249,6 +250,18 @@ public class School {
 	 */
 	public void setEmphasis(ArrayList<String> emphasis) {
 		this.emphasis = emphasis;
+	}
+	/**
+	 * @return whether or not the school is blacklisted
+	 */
+	public boolean isBlacklisted() {
+		return blacklist;
+	}
+	/**
+	 * @param blacklist change whether or not the school is blacklisted
+	 */
+	public void setBlacklist(boolean blacklist) {
+		this.blacklist = blacklist;
 	}
 	
 }
