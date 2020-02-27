@@ -101,6 +101,11 @@ public class UserUI {
 	public void removeSchool(School school) {
 		this.UserController.removeSchool(school);
 	}
+
+	public void displaySavedList() {
+		// TODO Auto-generated method stub
+		
+	}
 	
 }
 
