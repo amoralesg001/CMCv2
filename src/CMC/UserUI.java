@@ -10,14 +10,17 @@
 package CMC;
 
 public class UserUI {
+
 	String user;
 	String pass;
 
 	private UniversityController universityController = new UniversityController();
+
 	
 	public void login(String username, String password) {
 		System.out.println("Enter User");
 		System.out.println("Enter Password");
+
 	}
 	
 	public void goToPage() {
