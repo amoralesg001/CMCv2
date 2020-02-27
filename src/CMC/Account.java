@@ -51,7 +51,7 @@ public class Account {
 		else {
 		return false;
 		}
-			
+			 
 	}
 	
 	public void removeSchool(School schoolName) {
