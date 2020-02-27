@@ -17,7 +17,7 @@ public class UserUI {
 	
 	public void login(String username, String password) {
 		System.out.println("Enter User");
-		System.our.println("Enter Password");
+		System.out.println("Enter Password");
 	}
 	
 	public void goToPage() {
