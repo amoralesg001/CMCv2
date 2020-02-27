@@ -44,9 +44,10 @@
 			return account;
 		}
 		
-		public void removeSchool(String schoolName) {
+		public void removeSchool(School schoolName) {
 			
 		}
+		
 		public School lookUpSchool(String schoolName) {
 			return university ;
 		}
@@ -59,5 +60,6 @@
 		public School getSchool(String schoolName) {
 			return university;
 		}
+		
 	}
 	
