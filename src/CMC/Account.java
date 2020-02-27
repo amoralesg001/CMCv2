@@ -53,4 +53,8 @@ public class Account {
 	public void updateAccountInfo(String userName, String password, String fName, String lName) {
 		
 	}
+	
+	public void removeSchool(School schoolName) {
+		
+	}
 }
