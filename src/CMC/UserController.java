@@ -91,6 +91,11 @@ public class UserController {
 		this.dBController.removeSchool(school);
 		this.account.removeSchool(school);
 	}
+
+	public void getUsername(String u) {
+		// TODO Auto-generated method stub
+		
+	}
 	
 }
 
