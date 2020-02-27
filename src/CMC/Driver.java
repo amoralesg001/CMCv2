@@ -9,27 +9,16 @@ package CMC;
  *
  */
 public class Driver {
-	
 	private UserController userControl = new UserController();
 	private UserUI userUI = new UserUI();
-<<<<<<< HEAD
 	private DBController dbController = new DBController();
-=======
-	private SearchController searchController = new SearchController();
-	
->>>>>>> c5e0b90c053a4fa69303c4dcf277cb0ba1b0b1a0
 	/**
 	 * U1: LogIn
 	 */
-	public static void main(String[] args) {
-		System.out.println("test");
-
-	}
-	
 	public void u1() {
-		private String u = "";
-		private String pw = "";
-		userUI.logIn(u, pw);
+		userUI.logIn(String x, String y);
+		userControl.verify();
+		userControl.getAccount();
 	}
 	
 	/**
@@ -44,26 +33,21 @@ public class Driver {
 	/**
 	 * 
 	 */
-<<<<<<< HEAD
 	public void u3() {
 		private string userName= "peter";
 		userUI.goToPage(); 
-		userController.getUserInfo(userName);
-		Account account =DBController.getAccountDB(username);
-		userUI.displayUserInfo(account); 
+		Account account = userController.getUserInfo(userName);
+		
+		ArrayList<String> accountInfo = this.account.getUSerInfo();
+		for (int i=0; account.getUserInfo.length();i++) {
+			System.out.println(accountInfo[i]);
+		}
+			
 	}
-=======
-	public void u3() {}
-	
->>>>>>> c5e0b90c053a4fa69303c4dcf277cb0ba1b0b1a0
 	/**
-	 * U4: Search for Schools
+	 * 
 	 */
-	public void u4() {
-		private String schoolName = "Saint John's University";
-		School school = this.searchController.searchSchools(schoolName);
-		System.out.println(school.getSchoolName());
-	}
+	public void u4() {}
 	/**
 	 * U5: View Individual School
 	 * 
