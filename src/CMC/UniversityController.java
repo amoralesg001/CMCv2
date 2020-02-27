@@ -13,6 +13,7 @@ import java.util.ArrayList;
 public class UniversityController {
 	
 	private DBController dbController;
+	private Account account;
 	private School school;
 	private ArrayList<School> blackList;
 	
@@ -137,6 +138,7 @@ public class UniversityController {
 	 */
 	public void removeSchool(String schoolName) {
 		this.dbController.removeSchool(schoolName);
+		this.account.removeSchool(schoolName);
 	}
 	
 	/**

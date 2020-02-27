@@ -9,6 +9,9 @@
 package CMC;
 public class UserController {
 	
+	private DBController dBController;
+	private Account account;
+	
 	public String getUsername(Account account) {
 		return account.getUserName();
 	}
@@ -33,31 +36,32 @@ public class UserController {
 		
 	}
 		
-	public void login(String username, String password) {
+	public boolean login(String username, String password) {
+		boolean logged;
 		if(username.equals("") && password.equals(""))
 		{
-			System.out.println("logged");
+			logged = true;
+		}
+		else {
+		logged = false;
 		}
 	}
 	
 	public void logout() {
-		
+			return false;
 	}
 	
 	public void goToLoginMenu() {
-		
+		int i = 0;
 	}
 	
 	public void goToMenu() {
-		
+		int i = 0
 	}
 	
-	public String returnUserInfo() {
-		
-	}
 	
 	public String displaySavedList() {
-		
+		return "";
 	}
 	
 	public void removeSchool(String s) {
@@ -65,7 +69,7 @@ public class UserController {
 	}
 	
 	public void saveUserInfo(String username, String password, String firstName, String lastName) {
-		
+		//todo
 	}
 	
 	public void getAllUsers() {
@@ -85,8 +89,13 @@ public class UserController {
 	}
 	
 	public void removeSchool(School school) {
-		this.DBController.removeSchool(school);
-		this.Account.removeSchool(school);
+		this.dBController.removeSchool(school);
+		this.account.removeSchool(school);
+	}
+
+	public void getUsername(String u) {
+		// TODO Auto-generated method stub
+		
 	}
 	
 }

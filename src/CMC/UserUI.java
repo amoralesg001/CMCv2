@@ -4,21 +4,26 @@
 
 /**
  * @author nlarson002
+
  *
  */
 package CMC;
+
 public class UserUI {
 <<<<<<< HEAD
-	String user;
-	String pass;
-=======
+
 
 	private UniversityController universityController = new UniversityController();
->>>>>>> 7182e092936372e2e9fabea73c7edcb66d01f75a
+
+=======
+	String user;
+	String pass;
+
+	private UniversityController universityController = new UniversityController();
+>>>>>>> c0e17b61039b531c4cac50679efd75c44b2e7be6
 	
 	public void login(String username, String password) {
-		System.out.println("Enter User");
-		System.our.println("Enter Password");
+
 	}
 	
 	public void goToPage() {
@@ -96,6 +101,15 @@ public class UserUI {
 		
 	}
 	public void displayUserInfo() {		//need to add to class diagram
+		
+	}
+	
+	public void removeSchool(School school) {
+		this.UserController.removeSchool(school);
+	}
+
+	public void displaySavedList() {
+		// TODO Auto-generated method stub
 		
 	}
 	
