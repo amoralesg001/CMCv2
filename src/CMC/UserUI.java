@@ -4,9 +4,11 @@
 
 /**
  * @author nlarson002
+
  *
  */
 package CMC;
+
 public class UserUI {
 <<<<<<< HEAD
 	String user;
