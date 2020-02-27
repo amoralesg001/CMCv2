@@ -9,6 +9,9 @@
 package CMC;
 public class UserController {
 	
+	private DBController dBController;
+	private Account account;
+	
 	public String getUsername(Account account) {
 		return account.getUserName();
 	}
@@ -85,8 +88,13 @@ public class UserController {
 	}
 	
 	public void removeSchool(School school) {
-		this.DBController.removeSchool(school);
-		this.Account.removeSchool(school);
+		this.dBController.removeSchool(school);
+		this.account.removeSchool(school);
+	}
+
+	public void getUsername(String u) {
+		// TODO Auto-generated method stub
+		
 	}
 	
 }
