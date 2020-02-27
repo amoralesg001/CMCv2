@@ -34,9 +34,8 @@ public class Driver {
 	 * U2: List Saved Schools
 	 */
 	public void u2() {
-		private String u = "";
+		private String u = "test";
 		userControl.getUsername(u);
-		userUI.displaySavedList();
 		
 	}
 	/**
