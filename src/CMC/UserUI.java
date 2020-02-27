@@ -9,19 +9,35 @@
  */
 package CMC;
 
-public class UserUI {
 <<<<<<< HEAD
+=======
+import java.util.ArrayList;
 
+>>>>>>> 693ed6df07cf70833e6cf0323d7246987964b565
+public class UserUI {
 
+<<<<<<< HEAD
 	private UniversityController universityController = new UniversityController();
 
 
+=======
+	String user;
+	String pass;
+	UniversityController universityController;
+	
+>>>>>>> 86d99290d77c236ae63c376ce6223298a2b241a9
 
 	private UniversityController universityController = new UniversityController();
 
 	
 	public void login(String username, String password) {
+<<<<<<< HEAD
 		
+=======
+		System.out.println("Enter User");
+		System.out.println("Enter Password");
+
+>>>>>>> 86d99290d77c236ae63c376ce6223298a2b241a9
 	}
 	
 	public void goToPage() {
@@ -54,16 +70,17 @@ public class UserUI {
 		System.out.println("Average Ver. SAT score: " + school.getVerSAT());
 		System.out.println("Average Math SAT score: " + school.getMathSAT());
 		System.out.println("Tuition Costs: " + school.getTuition());
-		System.out.println("Average Financial Aid: " + school.getFinancialAid());
-		System.out.println("Number of Applicants: " + getNumApplicants());
-		System.out.println("Percentage of Admitted Applicants: " + getAdmitPer());
-		System.out.println("Percentange of Enrolled: " + getEnrolledPer());
-		System.out.println("Academic Scale: " + getAcademicScale());
-		System.out.println("Social Scale: " + getSocialScale());
-		System.out.println("QOA Scale: " + getQoaScale());
+		System.out.println("Average Financial Aid: " + school.getFinAid());
+		System.out.println("Number of Applicants: " + school.getNumApplicants());
+		System.out.println("Percentage of Admitted Applicants: " + school.getAdmitPer());
+		System.out.println("Percentange of Enrolled: " + school.getEnrolledPer());
+		System.out.println("Academic Scale: " + school.getAcademicScale());
+		System.out.println("Social Scale: " + school.getSocialScale());
+		System.out.println("QOA Scale: " + school.getQoaScale());
 		System.out.println("Emphasis:");
-		for (int i = 0; i < emphasis.length; i++) {
-			System.out.println(emphasis[i]);
+		ArrayList<String> array = school.getEmphasis();
+		for (int i = 0; i < array.size(); i++) {
+			System.out.println(array.get(i));
 		}
 	}
 	
@@ -98,9 +115,12 @@ public class UserUI {
 	public void viewResults() {
 		
 	}
+	public void displayUserInfo() {		//need to add to class diagram
+		
+	}
 	
-	public void removeSchool(School school) {
-		this.UserController.removeSchool(school);
+	public void removeSchool(String school) {
+		this.universityController.removeSchool(school);
 	}
 
 	public void displaySavedList() {

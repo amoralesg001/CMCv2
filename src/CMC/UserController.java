@@ -62,10 +62,6 @@ public class UserController {
 		return "";
 	}
 	
-	public void removeSchool(String s) {
-		
-	}
-	
 	public void saveUserInfo(String username, String password, String firstName, String lastName) {
 		//todo
 	}
@@ -85,17 +81,16 @@ public class UserController {
 	public void addSchoolToList(School school) {
 		
 	}
-	
-	public void removeSchool(School school) {
-		this.dBController.removeSchool(school);
-		this.account.removeSchool(school);
-	}
 
 	public void getUsername(String u) {
 		// TODO Auto-generated method stub
 		
 	}
-	
+	public Account getUserInfo(String username)
+	{
+	account = dBController.getAccountDB(username);
+	return account; 
+	}
 }
 
 

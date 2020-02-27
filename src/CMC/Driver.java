@@ -4,52 +4,87 @@
  */
 package CMC;
 
+
+import java.util.Scanner;
+
+import java.util.ArrayList;
+
 /**
  * @author jengh001
  *
  */
 public class Driver {
-	
-	private UserController userControl = new UserController();
+	private UserController userController = new UserController();
 	private UserUI userUI = new UserUI();
-	private SearchController searchController = new SearchController();
+	private DBController dbController = new DBController();
+	private Account account = new Account();
 	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
 	/**
 	 * U1: LogIn
 	 */
-	public static void main(String[] args) {
-		System.out.println("test");
 
+	public void main(String[] args) {
+		Scanner input = new Scanner(System. in);
+		System.out.println("test");
+		System.out.println("Enter a school you want to remove");
+		String schoolToRemove = input.nextLine();
+		u6(schoolToRemove);
 	}
-	
+
 	public void u1() {
+<<<<<<< HEAD
 		private String u = "";
 		private String pw = "";
+<<<<<<< HEAD
 		userUI.logIn(u, pw);
 		
+=======
+		userUI.login(u, pw);
+=======
+		userUI.logIn(String x, String y);
+		userControl.verify();
+		userControl.getAccount();
+>>>>>>> 1bb4d336c72c6989d642e5f426aeec19d6b83d98
+>>>>>>> 86d99290d77c236ae63c376ce6223298a2b241a9
 	}
 	
 	/**
 	 * U2: List Saved Schools
 	 */
 	public void u2() {
-		private String u = "";
-		userControl.getUsername(u);
-		userUI.displaySavedList();
+		private String u = "test";
+		ArrayList<School> = userController.getUsername(u);
+		
 	}
 	/**
 	 * 
 	 */
-	public void u3() {}
-	
+	public void u3() {
+		String userName= "peter";
+		userUI.goToPage(); 
+		
+		account = userController.getUserInfo(userName);
+		
+		ArrayList<String> accountArray = this.account.getUserInfo();
+		for (int i=0; i<accountArray.size();i++) {
+			System.out.println(accountArray.get(i));
+		}
+			
+	}
 	/**
-	 * U4: Search for Schools
+	 * 
 	 */
+
 	public void u4() {
 		private String schoolName = "Saint John's University";
 		School school = this.searchController.searchSchools(schoolName);
-		System.out.println(school.getSchoolName());
+		System.out.println("School: " + this.school.getSchoolName());
 	}
+
 	/**
 	 * U5: View Individual School
 	 * 
@@ -61,7 +96,7 @@ public class Driver {
 	/**
 	 * 
 	 */
-	public void u6(School school) {
+	public void u6(String school) {
 		this.userUI.removeSchool(school);
 	}
 	/**
