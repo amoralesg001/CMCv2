@@ -14,10 +14,11 @@ public class Driver {
 	/**
 	 * U1: LogIn
 	 */
+	
 	public void u1() {
-		userUI.logIn(String x, String y);
-		userControl.verify();
-		userControl.getAccount();
+		private String u = "";
+		private String pw = "";
+		userUI.logIn(u, pw);
 	}
 	
 	/**
