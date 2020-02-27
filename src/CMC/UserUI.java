@@ -9,6 +9,8 @@
  */
 package CMC;
 
+import java.util.ArrayList;
+
 public class UserUI {
 	String user;
 	String pass;
@@ -50,16 +52,17 @@ public class UserUI {
 		System.out.println("Average Ver. SAT score: " + school.getVerSAT());
 		System.out.println("Average Math SAT score: " + school.getMathSAT());
 		System.out.println("Tuition Costs: " + school.getTuition());
-		System.out.println("Average Financial Aid: " + school.getFinancialAid());
-		System.out.println("Number of Applicants: " + getNumApplicants());
-		System.out.println("Percentage of Admitted Applicants: " + getAdmitPer());
-		System.out.println("Percentange of Enrolled: " + getEnrolledPer());
-		System.out.println("Academic Scale: " + getAcademicScale());
-		System.out.println("Social Scale: " + getSocialScale());
-		System.out.println("QOA Scale: " + getQoaScale());
+		System.out.println("Average Financial Aid: " + school.getFinAid());
+		System.out.println("Number of Applicants: " + school.getNumApplicants());
+		System.out.println("Percentage of Admitted Applicants: " + school.getAdmitPer());
+		System.out.println("Percentange of Enrolled: " + school.getEnrolledPer());
+		System.out.println("Academic Scale: " + school.getAcademicScale());
+		System.out.println("Social Scale: " + school.getSocialScale());
+		System.out.println("QOA Scale: " + school.getQoaScale());
 		System.out.println("Emphasis:");
-		for (int i = 0; i < emphasis.length; i++) {
-			System.out.println(emphasis[i]);
+		ArrayList<String> array = school.getEmphasis();
+		for (int i = 0; i < array.size(); i++) {
+			System.out.println(array.get(i));
 		}
 	}
 	

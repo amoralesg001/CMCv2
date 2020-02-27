@@ -17,7 +17,7 @@ public class School {
 	private int enrolledPer;
 	private int academicScale;
 	private int socialScale;
-	private int qoaSCale;
+	private int qoaScale;
 	private boolean blacklist;
 	private ArrayList<String> emphasis;
 	/**
@@ -62,7 +62,7 @@ public class School {
 		this.enrolledPer = enrolledPer;
 		this.academicScale = academicScale;
 		this.socialScale = socialScale;
-		this.qoaSCale = qoaSCale;
+		this.qoaScale = qoaScale;
 		this.emphasis = emphasis;
 	}
 	/**
@@ -228,16 +228,16 @@ public class School {
 		this.socialScale = socialScale;
 	}
 	/**
-	 * @return the qoaSCale
+	 * @return the qoaScale
 	 */
-	public int getQoaSCale() {
-		return qoaSCale;
+	public int getQoaScale() {
+		return qoaScale;
 	}
 	/**
-	 * @param qoaSCale the qoaSCale to set
+	 * @param qoaScale the qoaSCale to set
 	 */
-	public void setQoaSCale(int qoaSCale) {
-		this.qoaSCale = qoaSCale;
+	public void setQoaScale(int qoaScale) {
+		this.qoaScale = qoaScale;
 	}
 	/**
 	 * @return the emphasis

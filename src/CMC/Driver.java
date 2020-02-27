@@ -25,7 +25,7 @@ public class Driver {
 	public void u1() {
 		private String u = "";
 		private String pw = "";
-		userUI.logIn(u, pw);
+		userUI.login(u, pw);
 	}
 	
 	/**
