@@ -18,12 +18,12 @@ public class Driver {
 	private UserUI userUI = new UserUI();
 	private DBController dbController = new DBController();
 	private Account account = new Account();
-	
+
 	/**
 	 * U1: LogIn
 	 */
 
-	public void main(String[] args) {
+	public static void main(String[] args) {
 		Scanner input = new Scanner(System. in);
 		System.out.println("test");
 		System.out.println("Enter a school you want to remove");
@@ -32,11 +32,11 @@ public class Driver {
 	}
 
 	public void u1() {
-		private String u = "";
-		private String pw = "";
-		userUI.logIn(String x, String y);
-		userControl.verify();
-		userControl.getAccount();
+
+		String u = "";
+		String pw = "";
+		userUI.login(u, pw);
+
 	}
 	
 	/**
