@@ -12,14 +12,17 @@ package CMC;
 import java.util.ArrayList;
 
 public class UserUI {
+
 	String user;
 	String pass;
 
 	private UniversityController universityController = new UniversityController();
+
 	
 	public void login(String username, String password) {
 		System.out.println("Enter User");
-		System.our.println("Enter Password");
+		System.out.println("Enter Password");
+
 	}
 	
 	public void goToPage() {
@@ -95,6 +98,9 @@ public class UserUI {
 	}
 		
 	public void viewResults() {
+		
+	}
+	public void displayUserInfo() {		//need to add to class diagram
 		
 	}
 	
