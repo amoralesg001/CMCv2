@@ -36,20 +36,9 @@ public class Driver {
 	}
 
 	public void u1() {
-<<<<<<< HEAD
 		private String u = "";
 		private String pw = "";
-<<<<<<< HEAD
 		userUI.logIn(u, pw);
-		
-=======
-		userUI.login(u, pw);
-=======
-		userUI.logIn(String x, String y);
-		userControl.verify();
-		userControl.getAccount();
->>>>>>> 1bb4d336c72c6989d642e5f426aeec19d6b83d98
->>>>>>> 86d99290d77c236ae63c376ce6223298a2b241a9
 	}
 	
 	/**
