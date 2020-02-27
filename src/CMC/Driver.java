@@ -49,7 +49,15 @@ public class Driver {
 	/**
 	 * 
 	 */
+<<<<<<< HEAD
 	public void u4() {}
+=======
+	public void u4() {
+		private String schoolName = "Saint John's University";
+		School school = this.searchController.searchSchools(schoolName);
+		System.out.println("School: " + this.school.getSchoolName());
+	}
+>>>>>>> b9a52f4a2381a26f76f95032649b8eb1883c8dfd
 	/**
 	 * U5: View Individual School
 	 * 
