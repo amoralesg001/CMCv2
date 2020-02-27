@@ -9,16 +9,27 @@ package CMC;
  *
  */
 public class Driver {
+	
 	private UserController userControl = new UserController();
 	private UserUI userUI = new UserUI();
+<<<<<<< HEAD
 	private DBController dbController = new DBController();
+=======
+	private SearchController searchController = new SearchController();
+	
+>>>>>>> c5e0b90c053a4fa69303c4dcf277cb0ba1b0b1a0
 	/**
 	 * U1: LogIn
 	 */
+	public static void main(String[] args) {
+		System.out.println("test");
+
+	}
+	
 	public void u1() {
-		userUI.logIn(String x, String y);
-		userControl.verify();
-		userControl.getAccount();
+		private String u = "";
+		private String pw = "";
+		userUI.logIn(u, pw);
 	}
 	
 	/**
@@ -33,6 +44,7 @@ public class Driver {
 	/**
 	 * 
 	 */
+<<<<<<< HEAD
 	public void u3() {
 		private string userName= "peter";
 		userUI.goToPage(); 
@@ -40,10 +52,18 @@ public class Driver {
 		Account account =DBController.getAccountDB(username);
 		userUI.displayUserInfo(account); 
 	}
+=======
+	public void u3() {}
+	
+>>>>>>> c5e0b90c053a4fa69303c4dcf277cb0ba1b0b1a0
 	/**
-	 * 
+	 * U4: Search for Schools
 	 */
-	public void u4() {}
+	public void u4() {
+		private String schoolName = "Saint John's University";
+		School school = this.searchController.searchSchools(schoolName);
+		System.out.println(school.getSchoolName());
+	}
 	/**
 	 * U5: View Individual School
 	 * 

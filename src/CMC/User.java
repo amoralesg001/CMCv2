@@ -9,21 +9,21 @@
 package CMC;
 public class User {
 	
-	// Need to create an Account object here used to call the 'set' methods on.
+	private Account account = new Account();
 	
 	public void setUserName(String name) {
-		// TODO
+		this.account.updateAccountInfo(name, this.account.getPassword(), this.account.getFirstName(), this.account.getLastName());
 	}
 	
 	public void setUserPassword(String password) {
-		// TODO
+		this.account.updateAccountInfo(this.account.getUsername(), password, this.account.getFirstName(), this.account.getLastName());
 	}
 	
 	public void setUserFirstName(String firstName) {
-		// TODO
+		this.account.updateAccountInfo(this.account.getUsername(), this.account.getPassword(), firstName, this.account.getLastName());
 	}
 	
 	public void setUserLastName(String lastName) {
-		// TODO
+		this.account.updateAccountInfo(this.account.getUsername(), this.account.getPassword(), this.account.getFirstName(), lastName);
 	}
 }
