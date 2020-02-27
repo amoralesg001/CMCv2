@@ -4,6 +4,7 @@ CS230 project by group Thumb Thumbs at SJU.
 [Alex Morales-Garcia](https://github.com/amoralesg001), [Carter Huberty](https://github.com/chuberty001), [John Engh](https://github.com/bluebous), [Jack Young](https://github.com/jyoung001), [Nick Larson](https://github.com/nlarson002), and [Readyson Vang](https://github.com/readysonvang).
 # Use Cases
 ## U1: Login
+> Created by Alex
 ### Name: 
 U1: Login
 ### Actors:
@@ -25,6 +26,7 @@ User must be registered
     1. Screen displayed
  2. User can re-enter password
 ## U2: List Saved Schools
+> Created by Alex
 ### Name: 
 U2: List Saved Schools (Extends U1)
 ### Actors:
@@ -42,6 +44,7 @@ User clicks on "manage saved schools" from home page
 ### Alternate:
 N/a
 ## U3: Manage Profile
+> Created by John
 ### Name: 
 U3: Manage profile (Extends U1)
 ### Actors:
@@ -58,6 +61,7 @@ Manage profile screen is displayed
 ### Alternate:
 N/A
 ## U4: Search for Schools
+> Created by John
 ### Name: 
 U4: Search for Schools (Extends U1, U11)
 ### Actors:
@@ -78,6 +82,7 @@ User is shown search page relating to search query
     1.	User is prompted to enter query and continues with step 3
 Post-conditions: none
 ## U5: View Individual School
+> Created by Jack
 ### Name: 
 U5: View Individual School (Extends U2, U8)
 ### Actors:
@@ -96,6 +101,7 @@ User is shown a page displaying all the school's individual statistics and infor
 ### Alternate:
 N/A
 ## U6: Remove Schools from List
+> Created by Jack
 ### Name: 
 U6: Remove School from List (Extends U2)
 ### Actors:
@@ -116,6 +122,7 @@ User (Primary)
 ### Alternate:
 N/A
 ## U7: Edit User Information
+> Created by Nick
 ### Name: 
 U7: Edit User Information (Extends U3)
 ### Actors:
@@ -139,6 +146,7 @@ User has changed and saved information
 Postconditions: User is brought back to main menu
 
 ## U8: View Search Results
+> Created by Carter
 ### Name: 
 
 ### Actors:
@@ -154,6 +162,7 @@ Postconditions: User is brought back to main menu
 ### Alternate:
 
 ## U9: Save School to List
+> Created by Carter
 ### Name: 
 
 ### Actors:
@@ -199,6 +208,7 @@ Postconditions: User is brought back to main menu
 ### Alternate:
 
 ## U12: Add University
+> Created by Readyson
 ### Name: 
 
 ### Actors:
@@ -214,6 +224,7 @@ Postconditions: User is brought back to main menu
 ### Alternate:
 
 ## U13: Logout
+> Created by Readyson
 ### Name: 
 
 ### Actors:
@@ -274,6 +285,7 @@ Postconditions: User is brought back to main menu
 ### Alternate:
 
 ## U17: Blacklist University
+> Created by Nick
 ### Name: 
 
 ### Actors:
