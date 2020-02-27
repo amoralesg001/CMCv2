@@ -83,12 +83,6 @@ public class UserController {
 	public void addSchoolToList(School school) {
 		
 	}
-	
-	public void removeSchool(String school) {
-		this
-		this.dBController.removeSchool(school);
-		this.account.removeSchool(school);
-	}
 
 	public void getUsername(String u) {
 		// TODO Auto-generated method stub

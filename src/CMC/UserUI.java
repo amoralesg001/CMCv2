@@ -13,7 +13,7 @@ public class UserUI {
 
 	String user;
 	String pass;
-	UserController userController;
+	UniversityController universityController;
 	
 
 	private UniversityController universityController = new UniversityController();
@@ -104,7 +104,7 @@ public class UserUI {
 	}
 	
 	public void removeSchool(String school) {
-		this.userController.removeSchool(school);
+		this.universityController.removeSchool(school);
 	}
 
 	public void displaySavedList() {
