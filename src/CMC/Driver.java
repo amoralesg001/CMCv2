@@ -17,10 +17,15 @@ public class Driver {
 	/**
 	 * U1: LogIn
 	 */
+	public static void main(String[] args) {
+		System.out.println("test");
+
+	}
+	
 	public void u1() {
-		userUI.logIn(String x, String y);
-		userControl.verify();
-		userControl.getAccount();
+		private String u = "";
+		private String pw = "";
+		userUI.logIn(u, pw);
 	}
 	
 	/**

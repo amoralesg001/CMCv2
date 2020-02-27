@@ -10,31 +10,34 @@ package CMC;
 public class UserController {
 	
 	public String getUsername(Account account) {
-		
+		return account.getUserName();
 	}
 	
 	public String getPassowrd(Account account) {
+		return account.getPassword();	
+	}	
 		
-	}
-		
-	public String getFirstName() {
-		
+	public String getFirstName(Account account) {
+		return account.getFirstName();
 	}
 	
-	public String getLastName() {
-		
+	public String getLastName(Account account) {
+		return account.getLastName();
 	}
 	
 	public String getAccountType() {
-		
+		return account.getUserType();
 	}
 	
-	public void addSavedSchools() {
+	public void addSavedSchools(School schoolName) {
 		
 	}
 		
 	public void login(String username, String password) {
-		
+		if(username.equals("") && password.equals(""))
+		{
+			System.out.println("logged");
+		}
 	}
 	
 	public void logout() {
