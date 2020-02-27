@@ -9,8 +9,11 @@ package CMC;
  *
  */
 public class Driver {
+	
 	private UserController userControl = new UserController();
 	private UserUI userUI = new UserUI();
+	private SearchController searchController = new SearchController();
+	
 	/**
 	 * U1: LogIn
 	 */
@@ -32,10 +35,15 @@ public class Driver {
 	 * 
 	 */
 	public void u3() {}
+	
 	/**
-	 * 
+	 * U4: Search for Schools
 	 */
-	public void u4() {}
+	public void u4() {
+		private String schoolName = "Saint John's University";
+		this.searchController.searchSchools(schoolName);
+		
+	}
 	/**
 	 * U5: View Individual School
 	 * 
