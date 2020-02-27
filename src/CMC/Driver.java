@@ -14,9 +14,15 @@ import java.util.ArrayList;
  *
  */
 public class Driver {
-	private UserController userControl = new UserController();
+	private UserController userController = new UserController();
 	private UserUI userUI = new UserUI();
 	private DBController dbController = new DBController();
+	private Account account = new Account();
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
 	/**
 	 * U1: LogIn
 	 */
@@ -30,18 +36,23 @@ public class Driver {
 	}
 
 	public void u1() {
+<<<<<<< HEAD
+		private String u = "";
+		private String pw = "";
+		userUI.login(u, pw);
+=======
 		userUI.logIn(String x, String y);
 		userControl.verify();
 		userControl.getAccount();
+>>>>>>> 1bb4d336c72c6989d642e5f426aeec19d6b83d98
 	}
 	
 	/**
 	 * U2: List Saved Schools
 	 */
 	public void u2() {
-		private String u = "";
-		userControl.getUsername(u);
-		userUI.displaySavedList();
+		private String u = "test";
+		ArrayList<School> = userController.getUsername(u);
 		
 	}
 	/**
@@ -50,7 +61,8 @@ public class Driver {
 	public void u3() {
 		String userName= "peter";
 		userUI.goToPage(); 
-		Account account = userController.getUserInfo(userName);
+		
+		account = userController.getUserInfo(userName);
 		
 		ArrayList<String> accountArray = this.account.getUserInfo();
 		for (int i=0; i<accountArray.size();i++) {
