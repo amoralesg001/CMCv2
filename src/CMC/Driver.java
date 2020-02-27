@@ -44,7 +44,8 @@ public class Driver {
 	 */
 	public void u2() {
 		private String u = "test";
-		ArrayList<School> = userController.getUsername(u);
+		Account user = userController.getUsername(u);
+		ArrayList<School> schools = user.getSavedSchool();
 		
 	}
 	/**
