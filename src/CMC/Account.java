@@ -39,7 +39,7 @@ public class Account {
 	public String getUserType() {
 		return this.userType;
 	}
-	public void login() {
+	public void login(String username, String password) {
 		
 	}
 	public boolean verify(String username, String password) {
@@ -70,5 +70,18 @@ public class Account {
 		info.add(lastName);
 		info.add(userType);
 		return info; 
+
+	}
+	
+	public void removeSchool(School schoolName) {
+		
+	}
+
+	public ArrayList<School> getSavedSchool() {
+		ArrayList<School> schools = new ArrayList<School>();
+		School school = new School(firstName, firstName, firstName, null, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, null);
+		schools.add(school);
+		return schools;
+		
 	}
 }

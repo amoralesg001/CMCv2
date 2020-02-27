@@ -9,9 +9,15 @@
  */
 package CMC;
 
+<<<<<<< HEAD
 public class UserUI {
 <<<<<<< HEAD
 
+=======
+import java.util.ArrayList;
+
+public class UserUI {
+>>>>>>> 59bda25e1343fa9c6fe96d926eba2ac7ad41b9d1
 
 	private UniversityController universityController = new UniversityController();
 

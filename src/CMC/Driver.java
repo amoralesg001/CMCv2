@@ -18,27 +18,45 @@ public class Driver {
 	private UserUI userUI = new UserUI();
 	private DBController dbController = new DBController();
 	private Account account = new Account();
-	
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+	private SearchController searchController = new SearchController();
 
-	}
 	/**
 	 * U1: LogIn
 	 */
 
-	public void main(String[] args) {
+	public static void main(String[] args) {
 		Scanner input = new Scanner(System. in);
 		System.out.println("test");
 		System.out.println("Enter a school you want to remove");
 		String schoolToRemove = input.nextLine();
 		u6(schoolToRemove);
+		
+		u3();
 	}
 
 	public void u1() {
+<<<<<<< HEAD
 		private String u = "";
 		private String pw = "";
 		userUI.logIn(u, pw);
+=======
+
+
+		private String u = "";
+		private String pw = "";
+		
+
+		userUI.logIn(String x, String y);
+		userControl.verify();
+		userControl.getAccount();
+
+
+		String u = "";
+		String pw = "";
+		userUI.login(u, pw);
+
+>>>>>>> b4bff4fba58a603e5ec4e364a303316826da29a7
+>>>>>>> 59bda25e1343fa9c6fe96d926eba2ac7ad41b9d1
 	}
 	
 	/**
@@ -46,7 +64,8 @@ public class Driver {
 	 */
 	public void u2() {
 		private String u = "test";
-		ArrayList<School> = userController.getUsername(u);
+		Account user = userController.getUsername(u);
+		ArrayList<School> schools = user.getSavedSchool();
 		
 	}
 	/**
@@ -69,9 +88,9 @@ public class Driver {
 	 */
 
 	public void u4() {
-		private String schoolName = "Saint John's University";
+		String schoolName = "Saint John's University";
 		School school = this.searchController.searchSchools(schoolName);
-		System.out.println("School: " + this.school.getSchoolName());
+		System.out.println("School: " + school.getSchoolName());
 	}
 
 	/**
