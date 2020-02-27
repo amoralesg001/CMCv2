@@ -18,7 +18,7 @@ public class Account {
 	private String firstName;
 	private String lastName;
 	private String userType;
-	private boolean loginStatus;// would we need this?
+	private boolean loginStatus;
 	
 	public String getUsername() {
 		return this.username; 

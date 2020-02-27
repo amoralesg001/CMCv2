@@ -45,9 +45,8 @@ public class School {
 	 * @param emphasis
 	 */
 	public School(String schoolName, String state, String location, Long numStudents, int femalePer, int verSAT,
-			int mathSAT, double tuition, double finAid, double numApplicants, int admitPer, int enrolledPer,
-			int academicScale, int socialScale, int qoaSCale, ArrayList<String> emphasis) {
-		super();
+		int mathSAT, double tuition, double finAid, double numApplicants, int admitPer, int enrolledPer,
+		int academicScale, int socialScale, int qoaSCale, ArrayList<String> emphasis) {
 		this.schoolName = schoolName;
 		this.state = state;
 		this.location = location;
