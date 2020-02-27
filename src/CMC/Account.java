@@ -74,8 +74,9 @@ public class Account {
 
 	public ArrayList<School> getSavedSchool() {
 		ArrayList<School> schools = new ArrayList<School>();
+		School school = new School(firstName, firstName, firstName, null, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, null);
+		schools.add(school);
 		return schools;
-		// TODO Auto-generated method stub
 		
 	}
 }
