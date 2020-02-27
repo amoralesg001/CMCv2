@@ -13,6 +13,13 @@ Events | 1. User enters credentials  2. Username Entered
 Post-Conditions | 1. User is brought to home page
 Alternate Scenarios | 1. User has invalid Username and/or Password
 ## U2: List Saved Schools
+### Name: 
+U2: List Saved Schools (Extends U1)
+### Actors:
+User (Primary)
+### Triggers:
+User clicks on "manage saved schools" from home page
+### 
 ## U3: Manage Profile
 ## U4: Search for Schools
 ## U5: View Individual School
