@@ -10,6 +10,6 @@ package CMC;
 public class SearchController {
 
 	public void searchSchools(String schooName) {
-		
+		private ArrayList<>
 	}
 }
