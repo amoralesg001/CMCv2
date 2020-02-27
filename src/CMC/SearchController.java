@@ -8,8 +8,10 @@
  */
 package CMC;
 public class SearchController {
+	
+	private DBController dbController = new DBController();
 
-	public void searchSchools(String schooName) {
-		
+	public School searchSchools(String schooName) { // Should this method return a School object???
+		private School school = this.dbController.searchSchool(schoolName);
 	}
 }
