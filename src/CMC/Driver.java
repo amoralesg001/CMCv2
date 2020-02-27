@@ -19,10 +19,6 @@ public class Driver {
 	private DBController dbController = new DBController();
 	private Account account = new Account();
 	
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
-	}
 	/**
 	 * U1: LogIn
 	 */
@@ -36,15 +32,11 @@ public class Driver {
 	}
 
 	public void u1() {
-<<<<<<< HEAD
 		private String u = "";
 		private String pw = "";
-		userUI.login(u, pw);
-=======
 		userUI.logIn(String x, String y);
 		userControl.verify();
 		userControl.getAccount();
->>>>>>> 1bb4d336c72c6989d642e5f426aeec19d6b83d98
 	}
 	
 	/**
