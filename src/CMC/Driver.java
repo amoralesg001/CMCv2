@@ -14,6 +14,10 @@ public class Driver {
 	/**
 	 * U1: LogIn
 	 */
+	public static void main(String[] args) {
+		System.out.println("test");
+
+	}
 	
 	public void u1() {
 		private String u = "";
