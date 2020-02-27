@@ -19,7 +19,7 @@ public class Driver {
 	/**
 	 * U1: LogIn
 	 */
-	public static void main(String[] args) {
+	public void main(String[] args) {
 		Scanner input = new Scanner(System. in);
 		System.out.println("test");
 		System.out.println("Enter a school you want to remove");
@@ -64,7 +64,7 @@ public class Driver {
 	/**
 	 * 
 	 */
-	public static void u6(String school) {
+	public void u6(String school) {
 		this.userUI.removeSchool(school);
 	}
 	/**

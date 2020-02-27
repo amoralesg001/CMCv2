@@ -101,9 +101,7 @@ public class UniversityController {
 	 * 
 	 * @param schoolName school name to get the school object
 	 */
-	public School getUniversity(String schoolName) {
-		return this.dbController.getSchool(schoolName);
-		
+	
 >>>>>>> b7262778c18955aacfd9c10b95e6ce4164f38c19
 	}
 	

@@ -63,10 +63,6 @@ public class UserController {
 		
 	}
 	
-	public void removeSchool(String s) {
-		
-	}
-	
 	public void saveUserInfo(String username, String password, String firstName, String lastName) {
 		
 	}
@@ -87,7 +83,8 @@ public class UserController {
 		
 	}
 	
-	public void removeSchool(School school) {
+	public void removeSchool(String school) {
+		this
 		this.dBController.removeSchool(school);
 		this.account.removeSchool(school);
 	}

@@ -12,6 +12,8 @@ package CMC;
 public class UserUI {
 	String user;
 	String pass;
+	UserController userController;
+	
 
 	private UniversityController universityController = new UniversityController();
 	
@@ -95,8 +97,8 @@ public class UserUI {
 		
 	}
 	
-	public void removeSchool(School school) {
-		this.UserController.removeSchool(school);
+	public void removeSchool(String school) {
+		this.userController.removeSchool(school);
 	}
 
 	public void displaySavedList() {
