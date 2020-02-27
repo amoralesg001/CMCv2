@@ -9,11 +9,8 @@
  */
 package CMC;
 
-<<<<<<< HEAD
-=======
 import java.util.ArrayList;
 
->>>>>>> 693ed6df07cf70833e6cf0323d7246987964b565
 public class UserUI {
 
 	String user;

@@ -71,4 +71,11 @@ public class Account {
 		info.add(userType);
 		return info; 
 	}
+
+	public ArrayList<School> getSavedSchool() {
+		ArrayList<School> schools = new ArrayList<School>();
+		return schools;
+		// TODO Auto-generated method stub
+		
+	}
 }
