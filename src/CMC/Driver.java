@@ -18,6 +18,7 @@ public class Driver {
 	private UserUI userUI = new UserUI();
 	private DBController dbController = new DBController();
 	private Account account = new Account();
+
 	/**
 	 * U1: LogIn
 	 */
@@ -31,6 +32,7 @@ public class Driver {
 	}
 
 	public void u1() {
+
 		String u = "";
 		String pw = "";
 		userUI.login(u, pw);
