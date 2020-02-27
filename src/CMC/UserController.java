@@ -97,7 +97,11 @@ public class UserController {
 		// TODO Auto-generated method stub
 		
 	}
-	
+	public Account getUserInfo(String username)
+	{
+	account = dBController.getAccountDB(username);
+	return account; 
+	}
 }
 
 

@@ -17,14 +17,7 @@ public class UniversityController {
 	private School school;
 	private ArrayList<School> blackList;
 	
-<<<<<<< HEAD
-	/**
-	 * Gets the university by name from the database.
-	 * @param schoolName
-	 */
-	public void getUniversity(String schoolName) {
-		this.dbController.getSchool(schoolName);
-=======
+
 	public void addSchool(String schoolName)
 	{
 		this.dbController.getSchool(schoolName).setSchoolName();
@@ -104,7 +97,6 @@ public class UniversityController {
 	public School getUniversity(String schoolName) {
 		return this.dbController.getSchool(schoolName);
 		
->>>>>>> b7262778c18955aacfd9c10b95e6ce4164f38c19
 	}
 	
 	/**
