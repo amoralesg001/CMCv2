@@ -7,6 +7,9 @@
  *
  */
 package CMC;
+
+import java.util.ArrayList;
+
 public class Account {
 	private DBController dbController = new DBController();
 	
@@ -52,5 +55,14 @@ public class Account {
 	}
 	public void updateAccountInfo(String userName, String password, String fName, String lName) {
 		
+	}
+	public ArrayList<String> getUserInfo(){		// need to add this on class diagram. John had it on his communication diagram for U3 but not on class diagram
+		ArrayList<String> info = new ArrayList<String>(); 	//or should I just make getUser, getPassword, etc.?
+		info.add(username);
+		info.add(password);
+		info.add(firstName);
+		info.add(lastName);
+		info.add(userType);
+		return info; 
 	}
 }

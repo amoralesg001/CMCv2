@@ -10,6 +10,7 @@ package CMC;
 public class Driver {
 	private UserController userControl = new UserController();
 	private UserUI userUI = new UserUI();
+	private DBController dbController = new DBController();
 	/**
 	 * 
 	 */
@@ -21,11 +22,18 @@ public class Driver {
 		private String u = "";
 		userControl.getUsername(u);
 		userUI.displaySavedList();
+		
 	}
 	/**
 	 * 
 	 */
-	public void u3() {}
+	public void u3() {
+		private string userName= "peter";
+		userUI.goToPage(); 
+		userController.getUserInfo(userName);
+		Account account =DBController.getAccountDB(username);
+		userUI.displayUserInfo(account); 
+	}
 	/**
 	 * 
 	 */
