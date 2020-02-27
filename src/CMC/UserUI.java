@@ -4,14 +4,23 @@
 
 /**
  * @author nlarson002
+
  *
  */
 package CMC;
+
 public class UserUI {
+<<<<<<< HEAD
 
 
 	private UniversityController universityController = new UniversityController();
 
+=======
+	String user;
+	String pass;
+
+	private UniversityController universityController = new UniversityController();
+>>>>>>> c0e17b61039b531c4cac50679efd75c44b2e7be6
 	
 	public void login(String username, String password) {
 
@@ -89,6 +98,15 @@ public class UserUI {
 	}
 		
 	public void viewResults() {
+		
+	}
+	
+	public void removeSchool(School school) {
+		this.UserController.removeSchool(school);
+	}
+
+	public void displaySavedList() {
+		// TODO Auto-generated method stub
 		
 	}
 	
