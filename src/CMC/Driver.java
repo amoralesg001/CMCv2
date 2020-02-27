@@ -4,6 +4,8 @@
  */
 package CMC;
 
+import java.util.Scanner;
+
 /**
  * @author jengh001
  *
@@ -18,10 +20,12 @@ public class Driver {
 	 * U1: LogIn
 	 */
 	public static void main(String[] args) {
+		Scanner input = new Scanner(System. in);
 		System.out.println("test");
-
+		System.out.println("Enter a school you want to remove");
+		String schoolToRemove = input.nextLine();
+		u6(schoolToRemove);
 	}
-	
 	public void u1() {
 		private String u = "";
 		private String pw = "";
@@ -60,7 +64,7 @@ public class Driver {
 	/**
 	 * 
 	 */
-	public void u6(School school) {
+	public static void u6(String school) {
 		this.userUI.removeSchool(school);
 	}
 	/**
