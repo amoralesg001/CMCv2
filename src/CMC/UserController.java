@@ -36,15 +36,13 @@ public class UserController {
 		
 	}
 		
-	public boolean login(String username, String password) {
-		boolean logged;
+	public String login(String username, String password) {
+		String logged = "failed to log in";
 		if(username.equals("") && password.equals(""))
 		{
-			logged = true;
+			return logged = "Logged in";
 		}
-		else {
-		logged = false;
-		}
+		return logged;
 	}
 	
 	public void logout() {
