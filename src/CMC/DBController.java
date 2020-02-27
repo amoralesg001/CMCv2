@@ -1,10 +1,11 @@
-<<<<<<< HEAD
+
 	package CMC;
 	public class DBController {
 		private Account account = new Account(); 
 		private School university = new School(); 
 		private User userArray[]; //should we do an array or list?  
 		private School schoolArray[];
+		private String userName;
 		
 		public Account getAccountDB(String name) {
 			return account; 
@@ -54,6 +55,9 @@
 		}
 		public void updateProfile() {
 			
+		}
+		public School getSchool(String schoolName) {
+			return university;
 		}
 	}
 	
