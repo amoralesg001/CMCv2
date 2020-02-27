@@ -15,6 +15,11 @@ public class Driver {
 	private UserUI userUI = new UserUI();
 	private DBController dbController = new DBController();
 	private Account account = new Account();
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
 	/**
 	 * U1: LogIn
 	 */
@@ -35,7 +40,7 @@ public class Driver {
 	 */
 	public void u2() {
 		private String u = "test";
-		userControl.getUsername(u);
+		ArrayList<School> = userController.getUsername(u);
 		
 	}
 	/**
