@@ -25,10 +25,10 @@ public class Driver {
 	 */
 
 	public void main(String[] args) {
-
+		String schoolToRemove = "";
 		u1();
-		//u6(schoolToRemove);
-		
+		u6(schoolToRemove);
+		System.out.println("Testing...");
 		//u3();
 	}
 
