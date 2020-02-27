@@ -53,10 +53,15 @@ public class Account {
 		}
 			
 	}
+	
+	public void removeSchool(School schoolName) {
+		
+	}
+	
 	public void updateAccountInfo(String userName, String password, String fName, String lName) {
 		
 	}
-<<<<<<< HEAD
+
 	public ArrayList<String> getUserInfo(){		// need to add this on class diagram. John had it on his communication diagram for U3 but not on class diagram
 		ArrayList<String> info = new ArrayList<String>(); 	//or should I just make getUser, getPassword, etc.?
 		info.add(username);
@@ -65,10 +70,5 @@ public class Account {
 		info.add(lastName);
 		info.add(userType);
 		return info; 
-=======
-	
-	public void removeSchool(School schoolName) {
-		
->>>>>>> 8f8002f51a026921685c8c05899a9aa8ef904a8b
 	}
 }
