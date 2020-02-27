@@ -2,7 +2,7 @@
 	package CMC;
 	public class DBController {
 		private Account account = new Account(); 
-		private School university = new School(); 
+		private School university = new School("Saint John's University", "Minnesota", "United States", 2500, 0, 0, 0, 40000, 0, 0, 0, 0, 0, 0, 0, new ArrayList<String>()); 
 		private User userArray[]; //should we do an array or list?  
 		private School schoolArray[];
 		private String userName;
