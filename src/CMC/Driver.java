@@ -4,6 +4,8 @@
  */
 package CMC;
 
+import java.util.ArrayList;
+
 /**
  * @author jengh001
  *
@@ -34,13 +36,13 @@ public class Driver {
 	 * 
 	 */
 	public void u3() {
-		private string userName= "peter";
+		String userName= "peter";
 		userUI.goToPage(); 
 		Account account = userController.getUserInfo(userName);
 		
-		ArrayList<String> accountInfo = this.account.getUSerInfo();
-		for (int i=0; account.getUserInfo.length();i++) {
-			System.out.println(accountInfo[i]);
+		ArrayList<String> accountArray = this.account.getUserInfo();
+		for (int i=0; i<accountArray.size();i++) {
+			System.out.println(accountArray.get(i));
 		}
 			
 	}
