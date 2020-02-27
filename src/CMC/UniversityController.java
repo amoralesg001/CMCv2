@@ -12,7 +12,7 @@ import java.util.ArrayList;
 
 public class UniversityController {
 	
-	private DBController dbController;
+	private DBController dBController;
 	private Account account;
 	private School school;
 	private ArrayList<School> blackList;
@@ -57,16 +57,6 @@ public class UniversityController {
 		this.dbController.getSchool(schoolName).setEmphasis();
 	}
 	
-	/* this method removes a school from the system.
-	 * 
-	 * @param Strring schoolName school name for getting school object
-	 * 
-	 */
-	public void removeSchool(String schoolName)
-	{
-		this.dbController.getSchool(schoolName);
-	}
-	
 	/*
 	 * this method returns a list of school
 	 *
@@ -94,9 +84,14 @@ public class UniversityController {
 	 * 
 	 * @param schoolName school name to get the school object
 	 */
+<<<<<<< HEAD
+	
+>>>>>>> b7262778c18955aacfd9c10b95e6ce4164f38c19
+=======
 	public School getUniversity(String schoolName) {
 		return this.dbController.getSchool(schoolName);
 		
+>>>>>>> 1bb4d336c72c6989d642e5f426aeec19d6b83d98
 	}
 	
 	/**
@@ -128,9 +123,10 @@ public class UniversityController {
 	 * Removes a school from the database by name.
 	 * @param schoolName
 	 */
-	public void removeSchool(String schoolName) {
-		this.dbController.removeSchool(schoolName);
-		this.account.removeSchool(schoolName);
+	public void removeSchool(String school) {
+		School schoolToRemove = this.dBController.getSchool(school);
+		this.dBController.removeSchool(schoolToRemove);
+		this.account.removeSchool(schoolToRemove);
 	}
 	
 	/**

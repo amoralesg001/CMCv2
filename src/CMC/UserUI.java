@@ -18,6 +18,8 @@ public class UserUI {
 
 	String user;
 	String pass;
+	UniversityController universityController;
+	
 
 	private UniversityController universityController = new UniversityController();
 
@@ -107,8 +109,8 @@ public class UserUI {
 		
 	}
 	
-	public void removeSchool(School school) {
-		this.UserController.removeSchool(school);
+	public void removeSchool(String school) {
+		this.universityController.removeSchool(school);
 	}
 
 	public void displaySavedList() {

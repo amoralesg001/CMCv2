@@ -53,6 +53,11 @@ public class Account {
 		}
 			
 	}
+	
+	public void removeSchool(School schoolName) {
+		
+	}
+	
 	public void updateAccountInfo(String userName, String password, String fName, String lName) {
 		
 	}
@@ -65,10 +70,10 @@ public class Account {
 		info.add(lastName);
 		info.add(userType);
 		return info; 
+
 	}
 	
 	public void removeSchool(School schoolName) {
 		
-
 	}
 }
