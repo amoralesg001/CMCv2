@@ -8,9 +8,12 @@
  */
 package CMC;
 public class UserUI {
-
+	String user;
+	String pass;
+	
 	public void login(String username, String password) {
-		int i = 0;
+		System.out.println("Enter User");
+		System.our.println("Enter Password");
 	}
 	
 	public void goToPage() {

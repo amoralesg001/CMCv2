@@ -11,9 +11,14 @@ public class Driver {
 	private UserController userControl = new UserController();
 	private UserUI userUI = new UserUI();
 	/**
-	 * 
+	 * U1: LogIn
 	 */
-	public void u1() {}
+	public void u1() {
+		userUI.logIn(String x, String y);
+		userControl.verify();
+		userControl.getAccount();
+	}
+	
 	/**
 	 * U2: List Saved Schools
 	 */
