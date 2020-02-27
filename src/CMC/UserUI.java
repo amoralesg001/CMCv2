@@ -96,6 +96,10 @@ public class UserUI {
 		
 	}
 	
+	public void removeSchool(School school) {
+		this.UserController.removeSchool(school);
+	}
+	
 }
 
 

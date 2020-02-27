@@ -47,7 +47,9 @@ public class Driver {
 	/**
 	 * 
 	 */
-	public void u6() {}
+	public void u6(School school) {
+		this.userUI.removeSchool(school);
+	}
 	/**
 	 * 
 	 */
