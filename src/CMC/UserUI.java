@@ -97,6 +97,9 @@ public class UserUI {
 	public void viewResults() {
 		
 	}
+	public void displayUserInfo() {		//need to add to class diagram
+		
+	}
 	
 	public void removeSchool(School school) {
 		this.UserController.removeSchool(school);

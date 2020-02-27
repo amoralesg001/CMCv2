@@ -4,28 +4,23 @@
  */
 package CMC;
 
+import java.util.ArrayList;
+
 /**
  * @author jengh001
  *
  */
 public class Driver {
-	
 	private UserController userControl = new UserController();
 	private UserUI userUI = new UserUI();
-	private SearchController searchController = new SearchController();
-	
+	private DBController dbController = new DBController();
 	/**
 	 * U1: LogIn
 	 */
-	public static void main(String[] args) {
-		System.out.println("test");
-
-	}
-	
 	public void u1() {
-		private String u = "";
-		private String pw = "";
-		userUI.logIn(u, pw);
+		userUI.logIn(String x, String y);
+		userControl.verify();
+		userControl.getAccount();
 	}
 	
 	/**
@@ -35,20 +30,34 @@ public class Driver {
 		private String u = "";
 		userControl.getUsername(u);
 		userUI.displaySavedList();
+		
 	}
 	/**
 	 * 
 	 */
-	public void u3() {}
-	
+	public void u3() {
+		String userName= "peter";
+		userUI.goToPage(); 
+		Account account = userController.getUserInfo(userName);
+		
+		ArrayList<String> accountArray = this.account.getUserInfo();
+		for (int i=0; i<accountArray.size();i++) {
+			System.out.println(accountArray.get(i));
+		}
+			
+	}
 	/**
-	 * U4: Search for Schools
+	 * 
 	 */
+<<<<<<< HEAD
+	public void u4() {}
+=======
 	public void u4() {
 		private String schoolName = "Saint John's University";
 		School school = this.searchController.searchSchools(schoolName);
 		System.out.println("School: " + this.school.getSchoolName());
 	}
+>>>>>>> b9a52f4a2381a26f76f95032649b8eb1883c8dfd
 	/**
 	 * U5: View Individual School
 	 * 
