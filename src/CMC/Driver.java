@@ -4,9 +4,6 @@
  */
 package CMC;
 
-
-import java.util.Scanner;
-
 import java.util.ArrayList;
 
 /**
@@ -14,52 +11,25 @@ import java.util.ArrayList;
  *
  */
 public class Driver {
-	private UserController userController = new UserController();
+	private UserController userControl = new UserController();
 	private UserUI userUI = new UserUI();
 	private DBController dbController = new DBController();
-	private Account account = new Account();
-	private SearchController searchController = new SearchController();
-
 	/**
 	 * U1: LogIn
 	 */
-
-	public static void main(String[] args) {
-		Scanner input = new Scanner(System. in);
-		System.out.println("test");
-		System.out.println("Enter a school you want to remove");
-		String schoolToRemove = input.nextLine();
-		u6(schoolToRemove);
-		
-		u3();
-	}
-
 	public void u1() {
-
-
-		private String u = "";
-		private String pw = "";
-		
-
 		userUI.logIn(String x, String y);
 		userControl.verify();
 		userControl.getAccount();
-
-
-		String u = "";
-		String pw = "";
-		userUI.login(u, pw);
-
->>>>>>> b4bff4fba58a603e5ec4e364a303316826da29a7
 	}
 	
 	/**
 	 * U2: List Saved Schools
 	 */
 	public void u2() {
-		private String u = "test";
-		Account user = userController.getUsername(u);
-		ArrayList<School> schools = user.getSavedSchool();
+		private String u = "";
+		userControl.getUsername(u);
+		userUI.displaySavedList();
 		
 	}
 	/**
@@ -68,8 +38,7 @@ public class Driver {
 	public void u3() {
 		String userName= "peter";
 		userUI.goToPage(); 
-		
-		account = userController.getUserInfo(userName);
+		Account account = userController.getUserInfo(userName);
 		
 		ArrayList<String> accountArray = this.account.getUserInfo();
 		for (int i=0; i<accountArray.size();i++) {
@@ -82,9 +51,9 @@ public class Driver {
 	 */
 
 	public void u4() {
-		String schoolName = "Saint John's University";
+		private String schoolName = "Saint John's University";
 		School school = this.searchController.searchSchools(schoolName);
-		System.out.println("School: " + school.getSchoolName());
+		System.out.println("School: " + this.school.getSchoolName());
 	}
 
 	/**
@@ -98,7 +67,7 @@ public class Driver {
 	/**
 	 * 
 	 */
-	public void u6(String school) {
+	public void u6(School school) {
 		this.userUI.removeSchool(school);
 	}
 	/**
