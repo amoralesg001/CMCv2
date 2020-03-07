@@ -10,8 +10,15 @@ public class DBController {
 		private School schoolArray[];
 		private String userName;
 		
-		public Account getAccountDB(String name) {
-			return account; 
+		public Account getAccountDB(String name, String password ) {
+			if (account.equals("") && password.equals("")) {
+				return account;
+			}
+			else {
+
+				return null;
+			}
+			 
 		}
 		public School getUniversityDB(String name) {
 			return university; 

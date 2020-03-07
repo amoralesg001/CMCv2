@@ -16,14 +16,17 @@ public class UserUI {
 	String user;
 	String pass;
 	UniversityController universityController;
-	
-
-	private UniversityController universityController = new UniversityController();
-
+	UserController userController;
 	
 	public void login(String username, String password) {
-		System.out.println("Enter User");
-		System.out.println("Enter Password");
+		
+		boolean loggedIn = userController.login(username, password);
+		if (loggedIn == true) {
+			goToPage();
+		}
+		else {
+			return;
+		}
 
 	}
 	
@@ -102,7 +105,7 @@ public class UserUI {
 	public void viewResults() {
 		
 	}
-	public void displayUserInfo() {		//need to add to class diagram
+	public void displayUserInfo(School school) {		//need to add to class diagram
 		
 	}
 	

@@ -16,7 +16,7 @@ public class UserController {
 		return account.getUserName();
 	}
 	
-	public String getPassowrd(Account account) {
+	public String getPassword(Account account) {
 		return account.getPassword();	
 	}	
 		
@@ -37,13 +37,22 @@ public class UserController {
 	}
 		
 	public boolean login(String username, String password) {
-		boolean logged;
-		if(username.equals("") && password.equals(""))
-		{
-			logged = true;
+		//boolean logged;
+		//if(username.equals("") && password.equals(""))
+		//{
+		//	logged = true;
+		//}
+		//else {
+		//logged = false;
+		//}
+		if (dBController.getAccountDB(username, password) == null) {
+			System.out.println("Username or password is invalid");
+			return false;
 		}
 		else {
-		logged = false;
+			
+			return true;
+			
 		}
 	}
 	

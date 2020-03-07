@@ -21,15 +21,37 @@ public class Driver {
 		userUI.logIn(String x, String y);
 		userControl.verify();
 		userControl.getAccount();
+\
+
+	public void main(String[] args) {
+		String schoolToRemove = "";
+		u1();
+		u6(schoolToRemove);
+		System.out.println("Testing...");
+		//u3();
+	}
+
+	public void u1() {
+
+
+		String u = "";
+		String pw = "";
+		userUI.login(u, pw);
+
 	}
 	
 	/**
 	 * U2: List Saved Schools
 	 */
 	public void u2() {
+
 		private String u = "";
 		userControl.getUsername(u);
 		userUI.displaySavedList();
+
+		String user = userController.getUsername(account);
+		ArrayList<School> schools = account.getSavedSchool();
+
 		
 	}
 	/**
@@ -62,7 +84,8 @@ public class Driver {
 	 */
 	public void u5() {
 		this.userUI.goToPage();
-		this.userUI.displaySchoolInfo(School school);
+		School school = null;
+		this.userUI.displaySchoolInfo(school);
 	}
 	/**
 	 * 
