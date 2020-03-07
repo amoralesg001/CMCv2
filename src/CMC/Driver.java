@@ -59,8 +59,7 @@ public class Driver {
 	 */
 	public void u3() {
 		String userName= "peter";
-		userUI.goToPage(); 
-		Account account = userController.getUserInfo(userName);
+		userUI.getUserInfo(userName); 
 		
 		ArrayList<String> accountArray = this.account.getUserInfo();
 		for (int i=0; i<accountArray.size();i++) {

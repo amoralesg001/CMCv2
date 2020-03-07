@@ -45,6 +45,9 @@ public class DBController {
 		public User[] getAllUsers() {		//how to return an array 
 			return userArray; 
 		}
+		public Account getUserInfo(String username) {
+			return account;
+		}
 		
 		public void updateAccountDB(Account user) {	//would updating return an array ? 
 			
