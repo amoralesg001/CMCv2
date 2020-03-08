@@ -10,10 +10,13 @@
 package CMC;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 public class UserUI {
 <<<<<<< HEAD
 
 =======
+=======
+>>>>>>> 59bda25e1343fa9c6fe96d926eba2ac7ad41b9d1
 import java.util.ArrayList;
 
 public class UserUI {

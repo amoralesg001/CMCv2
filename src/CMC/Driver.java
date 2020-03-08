@@ -35,15 +35,19 @@ public class Driver {
 	}
 
 	public void u1() {
-<<<<<<< HEAD
+
+
 		private String u = "";
 		private String pw = "";
+<<<<<<< HEAD
 		userUI.logIn(u, pw);
 =======
 
 
 		private String u = "";
 		private String pw = "";
+=======
+>>>>>>> 59bda25e1343fa9c6fe96d926eba2ac7ad41b9d1
 		
 
 		userUI.logIn(String x, String y);
@@ -56,6 +60,9 @@ public class Driver {
 		userUI.login(u, pw);
 
 >>>>>>> b4bff4fba58a603e5ec4e364a303316826da29a7
+<<<<<<< HEAD
+>>>>>>> 59bda25e1343fa9c6fe96d926eba2ac7ad41b9d1
+=======
 >>>>>>> 59bda25e1343fa9c6fe96d926eba2ac7ad41b9d1
 	}
 	
