@@ -5,9 +5,9 @@ import java.util.ArrayList;
 
 public class DBController {
 		private Account account = new Account(); 
-		private School university = new School("Saint John's University", "Minnesota", "United States", (long) 2500, 0, 0, 0, 40000, 0, 0, 0, 0, 0, 0, 0, new ArrayList<String>()); 
+		private University university = new University("Saint John's University", "Minnesota", "United States", (long) 2500, 0, 0, 0, 40000, 0, 0, 0, 0, 0, 0, 0, new ArrayList<String>()); 
 		private User userArray[]; //should we do an array or list?  
-		private School schoolArray[];
+		private University universityArray[];
 		private String userName;
 		
 		public Account getAccountDB(String name, String password ) {
@@ -20,32 +20,32 @@ public class DBController {
 			}
 			 
 		}
-		public School getUniversityDB(String name) {
+		public University getUniversityDB(String name) {
 			return university; 
 		}
-		public void updateUniversityDB(School schoolName) {
+		public void updateUniversityDB(University universityName) {
 			
 			
 		}
-		public void updateBlackListDB(School schoolName) {
+		public void updateBlackListDB(University universityName) {
 			
 		}
-		public School searchSchool(String schooName) {	// should return a school i assume but diagram doesnt
+		public University searchUniversity(String schooName) {	// should return a university i assume but diagram doesnt
 			return university; 
 		}
-		public School addSchool(String schoolName) {//is this adding all information of a school or just on the saved list? 
+		public University addUniversity(String universityName) {//is this adding all information of a university or just on the saved list? 
 		return university; 
 		}
-		public void updateSavedSchools() {
+		public void updateSavedUniversitys() {
 		
 		}
-		public School[] getAllSchools() {	//how to return an array 
-			return schoolArray; 
+		public University[] getAllUniversitys() {	//how to return an array 
+			return universityArray; 
 		}
 		public User[] getAllUsers() {		//how to return an array 
 			return userArray; 
 		}
-		public Account getUserInfo(String username) {
+		public static Account getUserInfo(String username) {
 			return account;
 		}
 		
@@ -57,11 +57,11 @@ public class DBController {
 			return account;
 		}
 		
-		public void removeSchool(School schoolName) {
+		public void removeUniversity(University universityName) {
 			
 		}
 		
-		public School lookUpSchool(String schoolName) {
+		public University lookUpUniversity(String universityName) {
 			return university ;
 		}
 		public Account lookUpAccount(String accountName) {
@@ -70,7 +70,7 @@ public class DBController {
 		public void updateProfile() {
 			
 		}
-		public School getSchool(String schoolName) {
+		public University getUniversity(String universityName) {
 			return university;
 		}
 		

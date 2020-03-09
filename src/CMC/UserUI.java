@@ -35,8 +35,8 @@ public class UserUI {
 		this.universityController.getUniversity(schoolName);
 	}
 	//instead of using the goToPage method for my use case, I changed the method to this. Its more specific
-	public void getUserInfo(String username) { 
-		this.userController.getUserInfo(username);
+	public static void getUserInfo(String username) { 
+		UserController.getUserInfo(username);
 	}
 	
 	public void saveUserInfo(String username, String password, String firstName, String lastName) {

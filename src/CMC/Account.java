@@ -54,7 +54,7 @@ public class Account {
 			 
 	}
 	
-	public void removeSchool(School schoolName) {
+	public void removeUniversity(University universityName) {
 		
 	}
 	
@@ -73,15 +73,15 @@ public class Account {
 
 	}
 	
-	public void removeSchool(School schoolName) {
+	public void removeUniversity(University universityName) {
 		
 	}
 
-	public ArrayList<School> getSavedSchool() {
-		ArrayList<School> schools = new ArrayList<School>();
-		School school = new School(firstName, firstName, firstName, null, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, null);
-		schools.add(school);
-		return schools;
+	public ArrayList<University> getSavedUniversity() {
+		ArrayList<University> universitys = new ArrayList<University>();
+		University university = new University(firstName, firstName, firstName, null, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, null);
+		universitys.add(university);
+		return universitys;
 		
 	}
 }
