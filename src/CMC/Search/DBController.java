@@ -8,7 +8,7 @@ import CMC.University.*;
 
 public class DBController {
 		private static Account account = new Account(); 
-		private University university = new University("Saint John's University", "Minnesota", "United States", (long) 2500, 0, 0, 0, 40000, 0, 0, 0, 0, 0, 0, 0, new ArrayList<String>()); 
+		private static University university = new University("Saint John's University", "Minnesota", "United States", (long) 2500, 0, 0, 0, 40000, 0, 0, 0, 0, 0, 0, 0, new ArrayList<String>()); 
 		private User userArray[]; //should we do an array or list?  
 		private University universityArray[];
 		
@@ -52,7 +52,7 @@ public class DBController {
 			return account;
 		}
 		
-		public void removeUniversity(University universityName) {
+		public static void removeUniversity(University universityName) {
 			
 		}
 		
@@ -65,7 +65,7 @@ public class DBController {
 		public void updateProfile() {
 			
 		}
-		public University getUniversity(String universityName) {
+		public static University getUniversity(String universityName) {
 			return university;
 		}
 		/**

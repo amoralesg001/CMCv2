@@ -7,12 +7,11 @@
 
  *
  */
-package User;
+package CMC.User;
 
 import java.util.ArrayList;
 
-import CMC.User.*;
-import CMC.University.UniversityController;
+import CMC.University.*;
 
 public class UserUI {
 
