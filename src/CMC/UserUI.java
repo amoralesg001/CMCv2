@@ -25,17 +25,39 @@ public class UserUI {
 	private UniversityController universityController = new UniversityController();
 
 
+<<<<<<< HEAD
 
 	private UniversityController universityController = new UniversityController();
 
 	
 	public void login(String username, String password) {
 		
+=======
+	String user;
+	String pass;
+	UniversityController universityController;
+	UserController userController;
+	
+	public void login(String username, String password) {
+		
+		boolean loggedIn = userController.login(username, password);
+		if (loggedIn == true) {
+			goToPage();
+		}
+		else {
+			return;
+		}
+
+>>>>>>> 92c3e460c943bc77554d2be6e753bc9aa56a4019
 	}
 	
 	public void goToPage() {
 		String schoolName = " ";
 		this.universityController.getUniversity(schoolName);
+	}
+	//instead of using the goToPage method for my use case, I changed the method to this. Its more specific
+	public void getUserInfo(String username) { 
+		this.userController.getUserInfo(username);
 	}
 	
 	public void saveUserInfo(String username, String password, String firstName, String lastName) {
@@ -107,6 +129,12 @@ public class UserUI {
 	public void viewResults() {
 		
 	}
+<<<<<<< HEAD
+=======
+	public void displayUserInfo(School school) {		//need to add to class diagram
+		
+	}
+>>>>>>> 92c3e460c943bc77554d2be6e753bc9aa56a4019
 	
 	public void removeSchool(School school) {
 		this.UserController.removeSchool(school);

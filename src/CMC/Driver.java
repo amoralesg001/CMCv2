@@ -4,9 +4,6 @@
  */
 package CMC;
 
-
-import java.util.Scanner;
-
 import java.util.ArrayList;
 
 /**
@@ -14,29 +11,30 @@ import java.util.ArrayList;
  *
  */
 public class Driver {
-	private UserController userController = new UserController();
+	private UserController userControl = new UserController();
 	private UserUI userUI = new UserUI();
 	private DBController dbController = new DBController();
-	private Account account = new Account();
-	private SearchController searchController = new SearchController();
-
 	/**
 	 * U1: LogIn
 	 */
+	public void u1() {
+		userUI.logIn(String x, String y);
+		userControl.verify();
+		userControl.getAccount();
+\
 
-	public static void main(String[] args) {
-		Scanner input = new Scanner(System. in);
-		System.out.println("test");
-		System.out.println("Enter a school you want to remove");
-		String schoolToRemove = input.nextLine();
+	public void main(String[] args) {
+		String schoolToRemove = "";
+		u1();
 		u6(schoolToRemove);
-		
-		u3();
+		System.out.println("Testing...");
+		//u3();
 	}
 
 	public void u1() {
 
 
+<<<<<<< HEAD
 		private String u = "";
 		private String pw = "";
 <<<<<<< HEAD
@@ -55,24 +53,34 @@ public class Driver {
 		userControl.getAccount();
 
 
+=======
+>>>>>>> 92c3e460c943bc77554d2be6e753bc9aa56a4019
 		String u = "";
 		String pw = "";
 		userUI.login(u, pw);
 
+<<<<<<< HEAD
 >>>>>>> b4bff4fba58a603e5ec4e364a303316826da29a7
 <<<<<<< HEAD
 >>>>>>> 59bda25e1343fa9c6fe96d926eba2ac7ad41b9d1
 =======
 >>>>>>> 59bda25e1343fa9c6fe96d926eba2ac7ad41b9d1
+=======
+>>>>>>> 92c3e460c943bc77554d2be6e753bc9aa56a4019
 	}
 	
 	/**
 	 * U2: List Saved Schools
 	 */
 	public void u2() {
-		private String u = "test";
-		Account user = userController.getUsername(u);
-		ArrayList<School> schools = user.getSavedSchool();
+
+		private String u = "";
+		userControl.getUsername(u);
+		userUI.displaySavedList();
+
+		String user = userController.getUsername(account);
+		ArrayList<School> schools = account.getSavedSchool();
+
 		
 	}
 	/**
@@ -80,9 +88,7 @@ public class Driver {
 	 */
 	public void u3() {
 		String userName= "peter";
-		userUI.goToPage(); 
-		
-		account = userController.getUserInfo(userName);
+		userUI.getUserInfo(userName); 
 		
 		ArrayList<String> accountArray = this.account.getUserInfo();
 		for (int i=0; i<accountArray.size();i++) {
@@ -95,9 +101,9 @@ public class Driver {
 	 */
 
 	public void u4() {
-		String schoolName = "Saint John's University";
+		private String schoolName = "Saint John's University";
 		School school = this.searchController.searchSchools(schoolName);
-		System.out.println("School: " + school.getSchoolName());
+		System.out.println("School: " + this.school.getSchoolName());
 	}
 
 	/**
@@ -106,12 +112,13 @@ public class Driver {
 	 */
 	public void u5() {
 		this.userUI.goToPage();
-		this.userUI.displaySchoolInfo(School school);
+		School school = null;
+		this.userUI.displaySchoolInfo(school);
 	}
 	/**
 	 * 
 	 */
-	public void u6(String school) {
+	public void u6(School school) {
 		this.userUI.removeSchool(school);
 	}
 	/**

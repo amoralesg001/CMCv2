@@ -16,7 +16,7 @@ public class UserController {
 		return account.getUserName();
 	}
 	
-	public String getPassowrd(Account account) {
+	public String getPassword(Account account) {
 		return account.getPassword();	
 	}	
 		
@@ -36,11 +36,31 @@ public class UserController {
 		
 	}
 		
+<<<<<<< HEAD
 	public String login(String username, String password) {
 		String logged = "failed to log in";
 		if(username.equals("") && password.equals(""))
 		{
 			return logged = "Logged in";
+=======
+	public boolean login(String username, String password) {
+		//boolean logged;
+		//if(username.equals("") && password.equals(""))
+		//{
+		//	logged = true;
+		//}
+		//else {
+		//logged = false;
+		//}
+		if (dBController.getAccountDB(username, password) == null) {
+			System.out.println("Username or password is invalid");
+			return false;
+		}
+		else {
+			
+			return true;
+			
+>>>>>>> 92c3e460c943bc77554d2be6e753bc9aa56a4019
 		}
 		return logged;
 	}
@@ -86,10 +106,9 @@ public class UserController {
 		// TODO Auto-generated method stub
 		
 	}
-	public Account getUserInfo(String username)
+	public void getUserInfo(String username)
 	{
-	account = dBController.getAccountDB(username);
-	return account; 
+	this.dBController.getAccountDB(username);
 	}
 }
 
