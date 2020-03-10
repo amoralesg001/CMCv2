@@ -1,36 +1,23 @@
 
 import java.util.ArrayList;
-<<<<<<< HEAD
+
 import University.University;
 import Search.DBController;
+import User.Account;
 import User.UserUI;
 
-=======
-import Search.DBController;
-import CMC.User.*;
-import CMC.University.University;
-import Search.DBController;
-import User.UserUI;
->>>>>>> 06a85cfc146471df19da72c75c9904ffa2c8b035
 
 /**
  * @author Thumb Thumbs
  *
  */
 public class Driver {
-<<<<<<< HEAD
+
 	private UserController userControl = new UserController();
 	private UserUI userUI = new UserUI();
 	private DBController dbController = new DBController();
 	private University university = new University()
 
-=======
-
-	private UserController userControl = new UserController();
-	private UserUI userUI = new UserUI();
-	private DBController dbController = new DBController();
-	private University university = new University();
->>>>>>> 06a85cfc146471df19da72c75c9904ffa2c8b035
 
 	public void main(String[] args) {
 		String universityToRemove = "";
@@ -73,15 +60,12 @@ public class Driver {
 	/**
 	 * 
 	 */
-	public void u3() {
-		String userName= "peter";
-		UserUI.getUserInfo(userName); 
-		
-		ArrayList<String> accountArray = this.account.getUserInfo();
-		for (int i=0; i<accountArray.size();i++) {
-			System.out.println(accountArray.get(i));
-		}
-			
+	public void u3(String username) {
+
+		Account account = UserUI.getUserInfo(username);
+		String usernameTest = account.getUsername();	
+		System.out.println(usernameTest);
+		System.out.println("Output should have been: " + username);	
 	}
 	/**
 	 * 

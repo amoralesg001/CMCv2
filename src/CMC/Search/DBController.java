@@ -1,10 +1,10 @@
 
-package CMC.Search;
+package Search;
 
 import java.util.ArrayList;
 
-import CMC.User.*;
-import CMC.University.*;
+import User.*;
+import University.*;
 
 public class DBController {
 		private static Account account = new Account(); 
@@ -29,7 +29,7 @@ public class DBController {
 			return university; 
 		}
 		public University addUniversity(String universityName) {//is this adding all information of a university or just on the saved list? 
-		return university; 
+			 university; 
 		}
 		public void updateSavedUniversitys() {
 		
