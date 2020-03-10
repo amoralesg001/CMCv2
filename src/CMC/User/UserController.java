@@ -9,6 +9,7 @@
 package User;
 
 import  CMC.University.*;
+import CMC.Search.*;
 import University.University;
 
 import java.util.ArrayList;
@@ -74,8 +75,8 @@ public class UserController {
 		//todo
 	}
 	
-	public void getAllUsers() {
-		
+	public User[] getAllUsers() {
+		return DBController.getAllUsers();
 	}
 	
 	public void lookup(String accountName, String schoolName) {

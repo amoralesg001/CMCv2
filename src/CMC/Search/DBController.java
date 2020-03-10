@@ -1,12 +1,10 @@
 
-package Search;
+package CMC.Search;
 
 import java.util.ArrayList;
 
-import User.User;
-import User.Account;
-import University.University;
 import CMC.User.*;
+import CMC.University.*;
 
 public class DBController {
 		private static Account account = new Account(); 
@@ -39,7 +37,7 @@ public class DBController {
 		public University[] getAllUniversitys() {	//how to return an array 
 			return universityArray; 
 		}
-		public User[] getAllUsers() {		//how to return an array 
+		public static User[] getAllUsers() {		//how to return an array 
 			return userArray; 
 		}
 		public static Account getUserInfo(String username) {
