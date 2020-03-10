@@ -9,7 +9,7 @@ import CMC.University.*;
 public class DBController {
 		private static Account account = new Account(); 
 		private University university = new University("Saint John's University", "Minnesota", "United States", (long) 2500, 0, 0, 0, 40000, 0, 0, 0, 0, 0, 0, 0, new ArrayList<String>()); 
-		private User userArray[]; //should we do an array or list?  
+		private static User userArray[]; //should we do an array or list?  
 		private University universityArray[];
 		
 		public static Account getAccountDB(String name, String password ) {

@@ -136,7 +136,7 @@ public class Driver {
 	 * @author John Engh
 	 */
 	public void u10() {
-		UserController.getAllUsers();
+		UserUI.manageUsers();
 	
 	}
 	/**
