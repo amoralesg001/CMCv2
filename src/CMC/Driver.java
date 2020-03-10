@@ -1,14 +1,11 @@
 
-/**
- * 
- */
-package CMC;
-
 import java.util.ArrayList;
 import CMC.User.*;
 import CMC.University.University;
 import CMC.Search.DBController;
 import CMC.User.UserUI;
+
+
 
 /**
  * @author Thumb Thumbs
@@ -19,13 +16,14 @@ public class Driver {
 	private UserController userControl = new UserController();
 	private UserUI userUI = new UserUI();
 	private DBController dbController = new DBController();
-	private University university = new University();
+	private University university = new University()
+
 
 	public void main(String[] args) {
 		String universityToRemove = "";
-		u1();
-		u2();
-		u6(universityToRemove);
+		//u1();
+		//u2();
+		//u6(universityToRemove);
 		System.out.println("Testing...");
 		//u3();
 	}
@@ -62,15 +60,12 @@ public class Driver {
 	/**
 	 * 
 	 */
-	public void u3() {
-		String userName= "peter";
-		UserUI.getUserInfo(userName); 
-		
-		ArrayList<String> accountArray = this.account.getUserInfo();
-		for (int i=0; i<accountArray.size();i++) {
-			System.out.println(accountArray.get(i));
-		}
-			
+	public void u3(String username) {
+
+		Account account = UserUI.getUserInfo(username);
+		String usernameTest = account.getUsername();	
+		System.out.println(usernameTest);
+		System.out.println("Output should have been: " + username);	
 	}
 	/**
 	 * 

@@ -8,13 +8,11 @@
  */
 package User;
 
-import  CMC.University.*;
-import CMC.Search.*;
-import University.University;
-
+import University.*;
+import Search.*;
 import java.util.ArrayList;
 
-import CMC.Search.*;
+import Search.*;
 
 public class UserController {
 	
@@ -95,9 +93,10 @@ public class UserController {
 		// TODO Auto-generated method stub
 		
 	}
-	public static void getUserInfo(String username)
+	public static Account getUserInfo(String username)
 	{
-	DBController.getUserInfo(username);
+		Account temp = DBController.getUserInfo(username);
+		return temp;
 	}
 	/**
 	 * This method goes to DBController to retrieve an account

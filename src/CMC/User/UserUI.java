@@ -10,7 +10,14 @@
 package CMC.User;
 
 import java.util.ArrayList;
+<<<<<<< HEAD
+
+
+import University.University;
+import University.UniversityController;
+=======
 import CMC.University.*;
+>>>>>>> d22f374aa8619233fe8bff4d33ed0454176a642c
 
 public class UserUI {
 
