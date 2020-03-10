@@ -39,7 +39,7 @@ public class DBController {
 		public University[] getAllUniversitys() {	//how to return an array 
 			return universityArray; 
 		}
-		public User[] getAllUsers() {		//how to return an array 
+		public static User[] getAllUsers() {		//how to return an array 
 			return userArray; 
 		}
 		public static Account getUserInfo(String username) {
