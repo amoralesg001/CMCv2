@@ -6,7 +6,12 @@ package CMC;
 
 import java.util.ArrayList;
 
+<<<<<<< HEAD
 import CMC.University.University;
+=======
+import Search.DBController;
+import User.UserUI;
+>>>>>>> 37d7dd46f741c0a44d61aa23e022aa2d9aa5776d
 
 /**
  * @author Thumb Thumbs
@@ -24,7 +29,7 @@ public class Driver {
 		userUI.logIn(String x, String y);
 		userControl.verify();
 		userControl.getAccount();
-\
+
 
 	public void main(String[] args) {
 		String universityToRemove = "";
@@ -35,6 +40,21 @@ public class Driver {
 	}
 
 	public void u1() {
+
+
+		private String u = "";
+		private String pw = "";
+		userUI.logIn(u, pw);
+
+
+
+		private String u = "";
+		private String pw = "";
+
+
+		userUI.logIn(String x, String y);
+		userControl.verify();
+		userControl.getAccount();
 
 
 		String u = "";
@@ -96,13 +116,19 @@ public class Driver {
 		this.userUI.removeUniversity(university);
 	}
 	/**
-	 * 
+	 * Edit User Information
 	 */
-	public void u7() {}
+	public void u7() {
+		// TODO @Jack
+	}
+	
 	/**
-	 * 
+	 * View Search Results
 	 */
-	public void u8() {}
+	public void u8() {
+		this.userUI.viewResults();
+	}
+	
 	/**
 	 * 
 	 */

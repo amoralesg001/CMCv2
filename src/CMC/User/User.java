@@ -6,7 +6,7 @@
  * @author nlarson002
  *
  */
-package CMC.User;
+package User;
 public class User {
 	
 	private Account account = new Account();

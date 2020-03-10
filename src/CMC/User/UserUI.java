@@ -7,9 +7,13 @@
 
  *
  */
-package CMC.User;
+package User;
 
 import java.util.ArrayList;
+
+
+import University.University;
+import University.UniversityController;
 
 public class UserUI {
 
@@ -55,8 +59,8 @@ public class UserUI {
 	 * 
 	 * @param school School you want to display information about
 	 */
-	public void displaySchoolInfo(School school) {
-		System.out.println("School Name:"  + school.getSchoolName());
+	public void displaySchoolInfo(University school) {
+		System.out.println("School Name:"  + school.getuniversityName());
 		System.out.println("School State Location: " + school.getState());
 		System.out.println("School Location: " + school.getLocation());
 		System.out.println("Number of Students: " + school.getNumStudents());
@@ -86,15 +90,15 @@ public class UserUI {
 		
 	}
 	
-	public void blacklistSchool(School school) {
+	public void blacklistSchool(University school) {
 		
 	}
 	
-	public void saveUniversityInfo(School school) {
+	public void saveUniversityInfo(University school) {
 		
 	}
 	
-	public void addSchool(School school) {
+	public void addSchool(University school) {
 		
 	}
 	
@@ -109,12 +113,12 @@ public class UserUI {
 	public void viewResults() {
 		
 	}
-	public void displayUserInfo(School school) {		//need to add to class diagram
+	public void displayUserInfo(University school) {		//need to add to class diagram
 		
 	}
 	
 	public void removeSchool(String school) {
-		this.universityController.removeSchool(school);
+		this.universityController.removeUniversity(school);
 	}
 
 	public void displaySavedList() {
