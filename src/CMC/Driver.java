@@ -6,14 +6,17 @@ package CMC;
 
 import java.util.ArrayList;
 
+import CMC.University.University;
+
 /**
- * @author jengh001
+ * @author Thumb Thumbs
  *
  */
 public class Driver {
 	private UserController userControl = new UserController();
 	private UserUI userUI = new UserUI();
 	private DBController dbController = new DBController();
+	private University university = new University()
 	/**
 	 * U1: LogIn
 	 */
