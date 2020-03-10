@@ -6,13 +6,11 @@
  * @author nlarson002
  *
  */
-package User;
+package CMC.User;
 
-import University.*;
-import Search.*;
+import CMC.University.*;
+import CMC.Search.*;
 import java.util.ArrayList;
-
-import Search.*;
 
 public class UserController {
 	
