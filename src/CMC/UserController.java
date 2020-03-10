@@ -7,6 +7,7 @@
  *
  */
 package CMC;
+import CMC.Search.*;
 public class UserController {
 	
 	private DBController dBController = new DBController();
@@ -86,8 +87,8 @@ public class UserController {
 		//todo
 	}
 	
-	public void getAllUsers() {
-		
+	public static void getAllUsers() {
+		DBController.getAlluers();
 	}
 	
 	public void lookup(String accountName, String schoolName) {
