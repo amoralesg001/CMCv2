@@ -9,30 +9,21 @@
  */
 package CMC;
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 public class UserUI {
-<<<<<<< HEAD
 
-=======
-=======
->>>>>>> 59bda25e1343fa9c6fe96d926eba2ac7ad41b9d1
+
 import java.util.ArrayList;
 
 public class UserUI {
->>>>>>> 59bda25e1343fa9c6fe96d926eba2ac7ad41b9d1
 
 	private UniversityController universityController = new UniversityController();
-
-
-<<<<<<< HEAD
 
 	private UniversityController universityController = new UniversityController();
 
 	
 	public void login(String username, String password) {
 		
-=======
+
 	String user;
 	String pass;
 	UniversityController universityController;
@@ -48,7 +39,6 @@ public class UserUI {
 			return;
 		}
 
->>>>>>> 92c3e460c943bc77554d2be6e753bc9aa56a4019
 	}
 	
 	public void goToPage() {
@@ -129,12 +119,10 @@ public class UserUI {
 	public void viewResults() {
 		
 	}
-<<<<<<< HEAD
-=======
+
 	public void displayUserInfo(School school) {		//need to add to class diagram
 		
 	}
->>>>>>> 92c3e460c943bc77554d2be6e753bc9aa56a4019
 	
 	public void removeSchool(School school) {
 		this.UserController.removeSchool(school);
