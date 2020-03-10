@@ -108,13 +108,19 @@ public class Driver {
 		this.userUI.removeUniversity(university);
 	}
 	/**
-	 * 
+	 * Edit User Information
 	 */
-	public void u7() {}
+	public void u7() {
+		
+	}
+	
 	/**
-	 * 
+	 * View Search Results
 	 */
-	public void u8() {}
+	public void u8() {
+		this.userUI.viewResults();
+	}
+	
 	/**
 	 * 
 	 */
