@@ -111,7 +111,9 @@ public class Driver {
 	 * @author John Engh
 	 */
 	public void u9() {
-		
+		String SName = "";
+		String AName = "";
+		UserUI.addSavedSchool(SName, AName);
 		
 		
 	}

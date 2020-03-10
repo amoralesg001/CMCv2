@@ -76,6 +76,15 @@ public class Account {
 	public void removeUniversity(University universityName) {
 		
 	}
+	/**
+	 * Adds university to saved schools list
+	 * @author jengh001
+	 * @param uni university to add to list
+	 * @return Returns if university successfully added to saved list
+	 */
+	public boolean addUniversity(University uni) {
+		
+	}
 
 	public ArrayList<University> getSavedUniversity() {
 		ArrayList<University> universitys = new ArrayList<University>();

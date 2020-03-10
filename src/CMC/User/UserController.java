@@ -36,9 +36,13 @@ public class UserController {
 	public String getAccountType() {
 		return account.getUserType();
 	}
-	
-	public void addSavedSchools(University schoolName) {
-		
+	/**
+	 * @author jengh001
+	 * @param SName Name of University as string 
+	 * @param AName Username of account as string
+	 */
+	public void addSavedSchools(String SName, String AName) {
+		University Uni = DBController.searchUniversity(SName);
 	}
 		
 	public static void login(String username, String password) {

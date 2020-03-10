@@ -10,14 +10,8 @@
 package CMC.User;
 
 import java.util.ArrayList;
-<<<<<<< HEAD
-
-
-import University.University;
-import University.UniversityController;
-=======
 import CMC.University.*;
->>>>>>> d22f374aa8619233fe8bff4d33ed0454176a642c
+
 
 public class UserUI {
 
@@ -82,6 +76,12 @@ public class UserUI {
 	public void getSavedList(Account account) {
 		
 	}
+	/**
+	 * Adds a specified school to users saved school list
+	 * @Author John Engh
+	 * @param SName Name of university as string
+	 * @param AName Account username as string
+	 */
 	public static void addSavedSchool(String SName, String AName) {
 		
 	}
