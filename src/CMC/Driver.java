@@ -5,9 +5,12 @@
 package CMC;
 
 import java.util.ArrayList;
+
 import Search.DBController;
 import CMC.User.*;
+
 import CMC.University.University;
+=======
 import Search.DBController;
 import User.UserUI;
 
@@ -95,8 +98,8 @@ public class Driver {
 	/**
 	 * 
 	 */
-	public void u6(University university) {
-		this.userUI.removeUniversity(university);
+	public void u6(String university) {
+		UserUI.removeUniversity(university);
 	}
 	/**
 	 * Edit User Information
@@ -113,22 +116,13 @@ public class Driver {
 	}
 	
 	/**
-	 * Save Schools to list
-	 * @author John Engh
+	 * 
 	 */
-	public void u9() {
-		
-		
-		
-	}
+	public void u9() {}
 	/**
-	 * Manage Users
-	 * @author John Engh
+	 * 
 	 */
-	public void u10() {
-		UserController.getAllUsers();
-	
-	}
+	public void u10() {}
 	/**
 	 * 
 	 */

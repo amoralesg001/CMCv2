@@ -11,10 +11,8 @@ package User;
 
 import java.util.ArrayList;
 
-
-import University.University;
-import University.UniversityController;
 import CMC.User.*;
+import CMC.University.UniversityController;
 
 public class UserUI {
 
@@ -110,10 +108,6 @@ public class UserUI {
 	public void displayUserInfo(University school) {		//need to add to class diagram
 		
 	}
-	
-	public void removeSchool(String school) {
-		this.universityController.removeUniversity(school);
-	}
 
 	public void displaySavedList() {
 		// TODO Auto-generated method stub
@@ -136,6 +130,12 @@ public class UserUI {
 	public static void goToLoginPage() {
 		System.out.println("logged in");
 	}
+
+	public static void removeUniversity(String university) {
+		UniversityController.removeUniversity(university);
+		
+	}
+
 }
 
 
