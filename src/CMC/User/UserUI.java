@@ -75,6 +75,9 @@ public class UserUI {
 	public void getSavedList(Account account) {
 		
 	}
+	public static void addSavedSchool(String SName, String AName) {
+		
+	}
 	
 	public void displaySavedSchool(Account account) {
 		

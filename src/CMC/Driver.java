@@ -5,11 +5,10 @@
 package CMC;
 
 import java.util.ArrayList;
-import Search.DBController;
 import CMC.User.*;
 import CMC.University.University;
-import Search.DBController;
-import User.UserUI;
+import CMC.Search.DBController;
+import CMC.User.UserUI;
 
 /**
  * @author Thumb Thumbs
