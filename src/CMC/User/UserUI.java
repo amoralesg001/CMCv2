@@ -136,6 +136,10 @@ public class UserUI {
 	public static void goToLoginPage() {
 		System.out.println("logged in");
 	}
+	public static void manageUsers() {
+		UserController.getAllUsers();
+		
+	}
 }
 
 

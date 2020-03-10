@@ -75,7 +75,7 @@ public class UserController {
 		//todo
 	}
 	
-	public User[] getAllUsers() {
+	public static User[] getAllUsers() {
 		return DBController.getAllUsers();
 	}
 	
