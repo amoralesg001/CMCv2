@@ -9,7 +9,7 @@
 package CMC;
 public class UserController {
 	
-	private DBController dBController;
+	private DBController dBController = new DBController();
 	private Account account;
 	
 	public String getUsername(Account account) {
@@ -106,9 +106,9 @@ public class UserController {
 		// TODO Auto-generated method stub
 		
 	}
-	public void getUserInfo(String username)
+	public static void getUserInfo(String username)
 	{
-	this.dBController.getAccountDB(username);
+	DBController.getUserInfo(username);
 	}
 }
 

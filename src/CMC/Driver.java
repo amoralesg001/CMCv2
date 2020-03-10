@@ -24,9 +24,9 @@ public class Driver {
 \
 
 	public void main(String[] args) {
-		String schoolToRemove = "";
+		String universityToRemove = "";
 		u1();
-		u6(schoolToRemove);
+		u6(universityToRemove);
 		System.out.println("Testing...");
 		//u3();
 	}
@@ -70,16 +70,16 @@ public class Driver {
 	}
 	
 	/**
-	 * U2: List Saved Schools
+	 * U2: List Saved Universitys
 	 */
 	public void u2() {
 
 		private String u = "";
 		userControl.getUsername(u);
-		userUI.displaySavedList();
+		UserUI.displaySavedList();
 
 		String user = userController.getUsername(account);
-		ArrayList<School> schools = account.getSavedSchool();
+		ArrayList<University> universitys = account.getSavedUniversity();
 
 		
 	}
@@ -88,7 +88,7 @@ public class Driver {
 	 */
 	public void u3() {
 		String userName= "peter";
-		userUI.getUserInfo(userName); 
+		UserUI.getUserInfo(userName); 
 		
 		ArrayList<String> accountArray = this.account.getUserInfo();
 		for (int i=0; i<accountArray.size();i++) {
@@ -101,25 +101,25 @@ public class Driver {
 	 */
 
 	public void u4() {
-		private String schoolName = "Saint John's University";
-		School school = this.searchController.searchSchools(schoolName);
-		System.out.println("School: " + this.school.getSchoolName());
+		private String universityName = "Saint John's University";
+		University university = this.searchController.searchUniversitys(universityName);
+		System.out.println("University: " + this.university.getUniversityName());
 	}
 
 	/**
-	 * U5: View Individual School
+	 * U5: View Individual University
 	 * 
 	 */
 	public void u5() {
 		this.userUI.goToPage();
-		School school = null;
-		this.userUI.displaySchoolInfo(school);
+		University university = null;
+		this.userUI.displayUniversityInfo(university);
 	}
 	/**
 	 * 
 	 */
-	public void u6(School school) {
-		this.userUI.removeSchool(school);
+	public void u6(University university) {
+		this.userUI.removeUniversity(university);
 	}
 	/**
 	 * 

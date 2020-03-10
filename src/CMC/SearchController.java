@@ -11,7 +11,7 @@ public class SearchController {
 	
 	private DBController dbController = new DBController();
 
-	public School searchSchools(String schooName) { // Should this method return a School object???
-		private School school = this.dbController.searchSchool(schoolName);
+	public University searchUniversitys(String schooName) { // Should this method return a University object???
+		private University university = this.dbController.searchUniversity(universityName);
 	}
 }
