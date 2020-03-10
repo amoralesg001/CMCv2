@@ -130,13 +130,22 @@ public class Driver {
 	}
 	
 	/**
-	 * 
+	 * Save Schools to list
+	 * @author John Engh
 	 */
-	public void u9() {}
+	public void u9() {
+		
+		
+		
+	}
 	/**
-	 * 
+	 * Manage Users
+	 * @author John Engh
 	 */
-	public void u10() {}
+	public void u10() {
+		UserController.getAllUsers();
+	
+	}
 	/**
 	 * 
 	 */
