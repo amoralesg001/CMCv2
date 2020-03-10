@@ -6,14 +6,18 @@
  * @author nlarson002
  *
  */
-package CMC.User;
+package User;
+
+import Search.DBController;
+import University.University;
+
 public class UserController {
 	
 	private DBController dBController = new DBController();
 	private Account account;
 	
 	public String getUsername(Account account) {
-		return account.getUserName();
+		return account.getUsername();
 	}
 	
 	public String getPassword(Account account) {
@@ -32,7 +36,7 @@ public class UserController {
 		return account.getUserType();
 	}
 	
-	public void addSavedSchools(School schoolName) {
+	public void addSavedSchools(University schoolName) {
 		
 	}
 		
@@ -57,7 +61,7 @@ public class UserController {
 	}
 	
 	public void logout() {
-			return false;
+			return;
 	}
 	
 	public void goToLoginMenu() {
@@ -65,7 +69,7 @@ public class UserController {
 	}
 	
 	public void goToMenu() {
-		int i = 0
+		int i = 0;
 	}
 	
 	
@@ -89,7 +93,7 @@ public class UserController {
 		
 	}
 	
-	public void addSchoolToList(School school) {
+	public void addSchoolToList(University school) {
 		
 	}
 

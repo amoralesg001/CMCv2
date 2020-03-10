@@ -6,6 +6,8 @@ package CMC;
 
 import java.util.ArrayList;
 
+import Search.DBController;
+
 /**
  * @author jengh001
  *

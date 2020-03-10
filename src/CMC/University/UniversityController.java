@@ -6,55 +6,57 @@
  * @author nlarson002
  *
  */
-package CMC.University;
+package University;
 
 import java.util.ArrayList;
+
+import Search.DBController;
+import User.Account;
 
 public class UniversityController {
 	
 	private DBController dBController;
 	private Account account;
-	private University university;
 	private ArrayList<University> blackList;
 	
 
 	public void addUniversity(String universityName)
 	{
-		this.dbController.getUniversity(universityName).setUniversityName();
-		this.dbController.getUniversity(universityName).setState();
-		this.dbController.getUniversity(universityName).setLocation();
-		this.dbController.getUniversity(universityName).setNumStudents();
-		this.dbController.getUniversity(universityName).setFemalePer();
-		this.dbController.getUniversity(universityName).setVerSAT();
-		this.dbController.getUniversity(universityName).setMathSAT();
-		this.dbController.getUniversity(universityName).setTuition();
-		this.dbController.getUniversity(universityName).setFinAid();
-		this.dbController.getUniversity(universityName).setNumApplicants();
-		this.dbController.getUniversity(universityName).setAdmitPer();
-		this.dbController.getUniversity(universityName).ssetEnrolledPer();
-		this.dbController.getUniversity(universityName).setAcademicScale();
-		this.dbController.getUniversity(universityName).setSocialScale();
-		this.dbController.getUniversity(universityName).setQoaSCale();
-		this.dbController.getUniversity(universityName).setEmphasis();
+		this.dBController.getUniversity(universityName).setUniversityName(universityName);
+		this.dBController.getUniversity(universityName).setState(universityName);
+		this.dBController.getUniversity(universityName).setLocation(universityName);
+		this.dBController.getUniversity(universityName).setNumStudents(null);
+		this.dBController.getUniversity(universityName).setFemalePer(0);
+		this.dBController.getUniversity(universityName).setVerSAT(0);
+		this.dBController.getUniversity(universityName).setMathSAT(0);
+		this.dBController.getUniversity(universityName).setTuition(0);
+		this.dBController.getUniversity(universityName).setFinAid(0);
+		this.dBController.getUniversity(universityName).setNumApplicants(0);
+		this.dBController.getUniversity(universityName).setAdmitPer(0);
+		this.dBController.getUniversity(universityName).getEnrolledPer();
+		this.dBController.getUniversity(universityName).setAcademicScale(0);
+		this.dBController.getUniversity(universityName).setSocialScale(0);
+		this.dBController.getUniversity(universityName).setQoaScale(0);
+		this.dBController.getUniversity(universityName).setEmphasis(null);
 	}
 	
 	public void editUniversity(String universityName)
 	{
-		this.dbController.getUniversity(universityName).setState();
-		this.dbController.getUniversity(universityName).setLocation();
-		this.dbController.getUniversity(universityName).setNumStudents();
-		this.dbController.getUniversity(universityName).setFemalePer();
-		this.dbController.getUniversity(universityName).setVerSAT();
-		this.dbController.getUniversity(universityName).setMathSAT();
-		this.dbController.getUniversity(universityName).setTuition();
-		this.dbController.getUniversity(universityName).setFinAid();
-		this.dbController.getUniversity(universityName).setNumApplicants();
-		this.dbController.getUniversity(universityName).setAdmitPer();
-		this.dbController.getUniversity(universityName).ssetEnrolledPer();
-		this.dbController.getUniversity(universityName).setAcademicScale();
-		this.dbController.getUniversity(universityName).setSocialScale();
-		this.dbController.getUniversity(universityName).setQoaSCale();
-		this.dbController.getUniversity(universityName).setEmphasis();
+		this.dBController.getUniversity(universityName).setState(universityName);
+		this.dBController.getUniversity(universityName).setLocation(universityName);
+		this.dBController.getUniversity(universityName).setNumStudents(null);
+		this.dBController.getUniversity(universityName).setFemalePer(0);
+		this.dBController.getUniversity(universityName).setVerSAT(0);
+		this.dBController.getUniversity(universityName).setMathSAT(0);
+		this.dBController.getUniversity(universityName).setTuition(0);
+		this.dBController.getUniversity(universityName).setFinAid(0);
+		this.dBController.getUniversity(universityName).setNumApplicants(0);
+		this.dBController.getUniversity(universityName).setAdmitPer(0);
+		this.dBController.getUniversity(universityName).getEnrolledPer();
+		this.dBController.getUniversity(universityName).setAcademicScale(0);
+		this.dBController.getUniversity(universityName).setSocialScale(0);
+		this.dBController.getUniversity(universityName).getQoaScale();
+		this.dBController.getUniversity(universityName).setEmphasis(null);
 	}
 	
 	/*
@@ -63,19 +65,16 @@ public class UniversityController {
 	 */
 	public void getAllUniversities()
 	{
-				for(University university: dbController)
-				{
-					System.out.println(university.getUniversityName());
-				}
+
 	}
 	
-	/*this method blacklists universitys
+	/*this method blacklists university
 	 * 
 	 * @param String universityName takes university object and puts in blacklist
 	 */
 	public void blackListUniversity(String universityName)
 	{
-		University blackListUniversity = dbController.getUniversity(universityName);
+		University blackListUniversity = dBController.getUniversity(universityName);
 		blackList.add(blackListUniversity);
 	}
 	
@@ -133,12 +132,8 @@ public class UniversityController {
 		// TODO
 	}
 	
-	/**
-	 * Gets a list of all the universities.
-	 */
-	public void getAllUniversities() {
-		// TODO
-	}
+
+
 	
 	/**
 	 * Adds the university to the blacklist.
