@@ -14,7 +14,6 @@ import java.util.ArrayList;
 
 import University.University;
 import University.UniversityController;
-import CMC.User.*;
 
 public class UserUI {
 
