@@ -14,6 +14,7 @@ import java.util.ArrayList;
 
 import University.University;
 import University.UniversityController;
+import CMC.User.*;
 
 public class UserUI {
 
@@ -22,16 +23,9 @@ public class UserUI {
 	UniversityController universityController;
 	UserController userController;
 	
-	public void login(String username, String password) {
+	public static void login(String username, String password) {
 		
-		boolean loggedIn = userController.login(username, password);
-		if (loggedIn == true) {
-			goToPage();
-		}
-		else {
-			return;
-		}
-
+	UserController.login(username, password);
 	}
 	
 	public void goToPage() {
@@ -125,7 +119,23 @@ public class UserUI {
 		// TODO Auto-generated method stub
 		
 	}
-	
+	/**
+	 * This method goes to the UserController
+	 * @param username the username of Account
+	 */
+	public static void getSavedUniversity(String username) {
+		UserController.getSavedUniversity(username);
+	}
+	/**
+	 * this method displays the saved universities from the specific account
+	 * @param account
+	 */
+	public static void displaySavedUniversity(Account account) {
+		System.out.println("Here are the schools");
+	}
+	public static void goToLoginPage() {
+		System.out.println("logged in");
+	}
 }
 
 

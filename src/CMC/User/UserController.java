@@ -8,8 +8,12 @@
  */
 package User;
 
-import Search.DBController;
+import  CMC.University.*;
 import University.University;
+
+import java.util.ArrayList;
+
+import CMC.Search.*;
 
 public class UserController {
 	
@@ -40,23 +44,12 @@ public class UserController {
 		
 	}
 		
-	public boolean login(String username, String password) {
-		//boolean logged;
-		//if(username.equals("") && password.equals(""))
-		//{
-		//	logged = true;
-		//}
-		//else {
-		//logged = false;
-		//}
-		if (dBController.getAccountDB(username, password) == null) {
-			System.out.println("Username or password is invalid");
-			return false;
-		}
-		else {
-			
-			return true;
-			
+	public static void login(String username, String password) {
+		Account account = DBController.getAccountDB(username, password);
+		Boolean verify = account.verifyAccount(username,password,account);	//not sure how to verify.
+		if (verify == true)
+		{
+		UserUI.gotToLoginPage();
 		}
 	}
 	
@@ -104,6 +97,18 @@ public class UserController {
 	public static void getUserInfo(String username)
 	{
 	DBController.getUserInfo(username);
+	}
+	/**
+	 * This method goes to DBController to retrieve an account
+	 * then uses the UserUI to display the SavedUniversityList
+	 * of the account retrieved.
+	 * @param username
+	 */
+	public static void getSavedUniversity(String username) {
+	Account account = DBController.getSavedUniversityList(username);
+	
+	ArrayList <String> saveUnivList = account.getSavedUniversity();
+	UserUI.displaySavedUniversity(account);
 	}
 }
 

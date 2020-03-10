@@ -5,76 +5,59 @@
 package CMC;
 
 import java.util.ArrayList;
-
-<<<<<<< HEAD
+import Search.DBController;
+import CMC.User.*;
 import CMC.University.University;
-=======
 import Search.DBController;
 import User.UserUI;
->>>>>>> 37d7dd46f741c0a44d61aa23e022aa2d9aa5776d
 
 /**
  * @author Thumb Thumbs
  *
  */
 public class Driver {
+
 	private UserController userControl = new UserController();
 	private UserUI userUI = new UserUI();
 	private DBController dbController = new DBController();
-	private University university = new University()
-	/**
-	 * U1: LogIn
-	 */
-	public void u1() {
-		userUI.logIn(String x, String y);
-		userControl.verify();
-		userControl.getAccount();
-
+	private University university = new University();
 
 	public void main(String[] args) {
 		String universityToRemove = "";
 		u1();
+		u2();
 		u6(universityToRemove);
 		System.out.println("Testing...");
 		//u3();
 	}
-
+	/**
+	 * u1: login
+	 *@author amoralesg001
+	 *this use case logins the user from their username 
+	 *and password they entered
+	 */
 	public void u1() {
-
-
-		private String u = "";
-		private String pw = "";
-		userUI.logIn(u, pw);
-
-
-
-		private String u = "";
-		private String pw = "";
-
-
-		userUI.logIn(String x, String y);
-		userControl.verify();
-		userControl.getAccount();
-
-
-		String u = "";
-		String pw = "";
-		userUI.login(u, pw);
+		String username = "amoralesg001";
+		String password = "thumb thumb";
+		UserUI.login(username, password);
 
 	}
 	
 	/**
 	 * U2: List Saved Universitys
+	 * @author amoralesg001
+	 * This use case displays the saved Unversities from the Account.
 	 */
 	public void u2() {
 
-		private String u = "";
-		userControl.getUsername(u);
-		UserUI.displaySavedList();
+		//private String u = "";
+		//userControl.getUsername(u);
+		//UserUI.displaySavedList();
 
-		String user = userController.getUsername(account);
-		ArrayList<University> universitys = account.getSavedUniversity();
-
+		//String user = userController.getUsername(account);
+		//ArrayList<University> universitys = account.getSavedUniversity();
+		String username = "amoralesg001";
+		UserUI.getSavedUniversity(username);
 		
 	}
 	/**
