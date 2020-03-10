@@ -116,8 +116,11 @@ public class UserUI {
 		
 	}
 		
+	/**
+	 * Displays the search results for the user.
+	 */
 	public void viewResults() {
-		
+		// TODO @Jack
 	}
 
 	public void displayUserInfo(School school) {		//need to add to class diagram
