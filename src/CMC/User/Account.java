@@ -9,6 +9,7 @@
 package User;
 
 import java.util.ArrayList;
+import CMC.University.*;
 
 import Search.DBController;
 import University.University;
@@ -45,10 +46,9 @@ public class Account {
 	public void login(String username, String password) {
 		
 	}
-	public boolean verify(String username, String password) {
-		if (this.username == username && this.password == password)
+	public boolean verify(String username, String password,Account account) {
+		if (this.account.getUsername() == username && this.account.getPassword() == password)
 		{
-		 
 		return true;
 		}
 		else {
