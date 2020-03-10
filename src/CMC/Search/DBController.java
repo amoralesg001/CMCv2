@@ -1,12 +1,10 @@
 
-package Search;
+package CMC.Search;
 
 import java.util.ArrayList;
 
-import User.User;
-import User.Account;
-import University.University;
 import CMC.User.*;
+import CMC.University.*;
 
 public class DBController {
 		private static Account account = new Account(); 
