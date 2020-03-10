@@ -163,35 +163,44 @@ Postconditions: User is brought back to main menu
 
 ## U9: Save School to List
 > Created by Carter
-### Name: 
-
-### Actors:
-
-### Triggers:
-
-### Preconditions:
-
+### Name: U9: 
+Save School to List (Extends U5, U8) 
+### Actors: 
+User (Primary) 
+### Triggers: 
+User Clicks “Save” Button 
+### Preconditions: 
+User is logged in 
 ### Events:
-
-### Post-conditions:
-
+1. User is doing U8: View Search Results 
+    1. User Clicks Save School
+    2. User is notified the school is saved
+2. User is doing U5: View Individual School  
+    1. User Clicks Save School
+    2. User is notified the school is saved
+### Post-conditions: 
+School is Saved to the List 
 ### Alternate:
-
+1. School is already in Saved Schools List 
+    1. User is notified the school is already in the list 
+    2. Post-Condition: None
 ## U10: Manage Users
 ### Name: 
-
+U10: Manage Users. (Extends U1: Login) 
 ### Actors:
-
+Admin (Primary) 
 ### Triggers:
-
+Admin clicks Manage Users button 
 ### Preconditions:
-
+1. User must be admin 
+2. User must be logged in 
 ### Events:
-
+1. User clicks on Manage Users 
+2. User is brought to page to view users 
 ### Post-conditions:
-
+User is brought to Manage Users page  
 ### Alternate:
-
+N/A 
 ## U11: Manage Universities
 ### Name: 
 

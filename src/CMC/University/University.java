@@ -46,7 +46,7 @@ public class University {
 	 */
 	public University(String universityName, String state, String location, Long numStudents, int femalePer, int verSAT,
 		int mathSAT, double tuition, double finAid, double numApplicants, int admitPer, int enrolledPer,
-		int academicScale, int socialScale, int qoaSCale, ArrayList<String> emphasis) {
+		int academicScale, int socialScale, int qoaScale, ArrayList<String> emphasis) {
 		this.universityName = universityName;
 		this.state = state;
 		this.location = location;
