@@ -1,11 +1,18 @@
 
 import java.util.ArrayList;
+import CMC.User.*;
+import CMC.University.University;
+import CMC.Search.DBController;
+import CMC.User.UserUI;
 
+<<<<<<< HEAD
 import University.University;
 import Search.DBController;
 import Search.SearchController;
 import User.Account;
 import User.UserUI;
+=======
+>>>>>>> 5531061dd5eb2a6223f6597daee8d88ce79e14ed
 
 
 /**

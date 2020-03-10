@@ -9,10 +9,9 @@
 package User;
 
 import University.*;
+import Search.DBController;
 import Search.*;
 import java.util.ArrayList;
-
-import Search.*;
 
 public class UserController {
 	
@@ -105,10 +104,10 @@ public class UserController {
 	 * @param username
 	 */
 	public static void getSavedUniversity(String username) {
-	Account account = DBController.getSavedUniversityList(username);
+		Account account = DBController.getSavedUniversityList(username);
 	
-	ArrayList <String> saveUnivList = account.getSavedUniversity();
-	UserUI.displaySavedUniversity(account);
+		ArrayList <String> saveUnivList = account.getSavedUniversity();
+		UserUI.displaySavedUniversity(account);
 	}
 }
 
