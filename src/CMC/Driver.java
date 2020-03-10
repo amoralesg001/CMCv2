@@ -3,6 +3,7 @@ import java.util.ArrayList;
 
 import University.University;
 import Search.DBController;
+import Search.SearchController;
 import User.Account;
 import User.UserUI;
 
@@ -72,9 +73,9 @@ public class Driver {
 	 */
 
 	public void u4() {
-		private String universityName = "Saint John's University";
-		University university = this.searchController.searchUniversitys(universityName);
-		System.out.println("University: " + this.university.getUniversityName());
+		String universityName = "Saint John's University";
+		University university = SearchController.searchUniversitys(universityName);
+		System.out.println("University: " + university.getuniversityName());
 	}
 
 	/**
