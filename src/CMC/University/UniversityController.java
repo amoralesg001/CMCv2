@@ -6,87 +6,86 @@
  * @author nlarson002
  *
  */
-package CMC.University;
+package University;
 
 import java.util.ArrayList;
 
+import Search.DBController;
+import User.Account;
+
 public class UniversityController {
 	
-	private DBController dBController;
-	private Account account;
-	private University university;
-	private ArrayList<University> blackList;
+	private static DBController dBController;
+	private static Account account;
+	private static ArrayList<University> blackList;
 	
 
-	public void addUniversity(String universityName)
+	public static void addUniversity(String universityName)
 	{
-		this.dbController.getUniversity(universityName).setUniversityName();
-		this.dbController.getUniversity(universityName).setState();
-		this.dbController.getUniversity(universityName).setLocation();
-		this.dbController.getUniversity(universityName).setNumStudents();
-		this.dbController.getUniversity(universityName).setFemalePer();
-		this.dbController.getUniversity(universityName).setVerSAT();
-		this.dbController.getUniversity(universityName).setMathSAT();
-		this.dbController.getUniversity(universityName).setTuition();
-		this.dbController.getUniversity(universityName).setFinAid();
-		this.dbController.getUniversity(universityName).setNumApplicants();
-		this.dbController.getUniversity(universityName).setAdmitPer();
-		this.dbController.getUniversity(universityName).ssetEnrolledPer();
-		this.dbController.getUniversity(universityName).setAcademicScale();
-		this.dbController.getUniversity(universityName).setSocialScale();
-		this.dbController.getUniversity(universityName).setQoaSCale();
-		this.dbController.getUniversity(universityName).setEmphasis();
+		dBController.getUniversity(universityName).setUniversityName(universityName);
+		dBController.getUniversity(universityName).setState(universityName);
+		dBController.getUniversity(universityName).setLocation(universityName);
+		dBController.getUniversity(universityName).setNumStudents(null);
+		dBController.getUniversity(universityName).setFemalePer(0);
+		dBController.getUniversity(universityName).setVerSAT(0);
+		dBController.getUniversity(universityName).setMathSAT(0);
+		dBController.getUniversity(universityName).setTuition(0);
+		dBController.getUniversity(universityName).setFinAid(0);
+		dBController.getUniversity(universityName).setNumApplicants(0);
+		dBController.getUniversity(universityName).setAdmitPer(0);
+		dBController.getUniversity(universityName).getEnrolledPer();
+		dBController.getUniversity(universityName).setAcademicScale(0);
+		dBController.getUniversity(universityName).setSocialScale(0);
+		dBController.getUniversity(universityName).setQoaScale(0);
+		dBController.getUniversity(universityName).setEmphasis(null);
 	}
 	
-	public void editUniversity(String universityName)
+	public static void editUniversity(String universityName)
 	{
-		this.dbController.getUniversity(universityName).setState();
-		this.dbController.getUniversity(universityName).setLocation();
-		this.dbController.getUniversity(universityName).setNumStudents();
-		this.dbController.getUniversity(universityName).setFemalePer();
-		this.dbController.getUniversity(universityName).setVerSAT();
-		this.dbController.getUniversity(universityName).setMathSAT();
-		this.dbController.getUniversity(universityName).setTuition();
-		this.dbController.getUniversity(universityName).setFinAid();
-		this.dbController.getUniversity(universityName).setNumApplicants();
-		this.dbController.getUniversity(universityName).setAdmitPer();
-		this.dbController.getUniversity(universityName).ssetEnrolledPer();
-		this.dbController.getUniversity(universityName).setAcademicScale();
-		this.dbController.getUniversity(universityName).setSocialScale();
-		this.dbController.getUniversity(universityName).setQoaSCale();
-		this.dbController.getUniversity(universityName).setEmphasis();
+		dBController.getUniversity(universityName).setState(universityName);
+		dBController.getUniversity(universityName).setLocation(universityName);
+		dBController.getUniversity(universityName).setNumStudents(null);
+		dBController.getUniversity(universityName).setFemalePer(0);
+		dBController.getUniversity(universityName).setVerSAT(0);
+		dBController.getUniversity(universityName).setMathSAT(0);
+		dBController.getUniversity(universityName).setTuition(0);
+		dBController.getUniversity(universityName).setFinAid(0);
+		dBController.getUniversity(universityName).setNumApplicants(0);
+		dBController.getUniversity(universityName).setAdmitPer(0);
+		dBController.getUniversity(universityName).getEnrolledPer();
+		dBController.getUniversity(universityName).setAcademicScale(0);
+		dBController.getUniversity(universityName).setSocialScale(0);
+		dBController.getUniversity(universityName).getQoaScale();
+		dBController.getUniversity(universityName).setEmphasis(null);
 	}
 	
 	/*
-	 * this method returns a list of university
+	 *  method returns a list of university
 	 *
 	 */
-	public void getAllUniversities()
+	public static void getAllUniversities()
 	{
-				for(University university: dbController)
-				{
-					System.out.println(university.getUniversityName());
-				}
+
 	}
 	
-	/*this method blacklists universitys
+	/* method blacklists university
 	 * 
 	 * @param String universityName takes university object and puts in blacklist
 	 */
-	public void blackListUniversity(String universityName)
+	public static void blackListUniversity(String universityName)
 	{
-		University blackListUniversity = dbController.getUniversity(universityName);
+		University blackListUniversity = dBController.getUniversity(universityName);
 		blackList.add(blackListUniversity);
 	}
 	
 	/*
-	 * this method gets the university object for the user
+	 *  method gets the university object for the user
 	 * 
 	 * @param universityName university name to get the university object
 	 */
 
 	public University getUniversity(String universityName) {
-		return this.dBController.getUniversity(universityName);
+		return dBController.getUniversity(universityName);
 		
 
 	}
@@ -110,7 +109,7 @@ public class UniversityController {
 	 * @param qoaSCale
 	 * @param emphasis
 	 */
-	public void addUniversity(String universityName, String state, String location, Long numStudents, int femalePer, int verSAT,
+	public static void addUniversity(String universityName, String state, String location, Long numStudents, int femalePer, int verSAT,
 			int mathSAT, double tuition, double finAid, double numApplicants, int admitPer, int enrolledPer,
 			int academicScale, int socialScale, int qoaSCale, ArrayList<String> emphasis) {
 		// TODO
@@ -120,25 +119,21 @@ public class UniversityController {
 	 * Removes a university from the database by name.
 	 * @param universityName
 	 */
-	public void removeUniversity(String university) {
-		University universityToRemove = this.dBController.getUniversity(university);
-		this.dBController.removeUniversity(universityToRemove);
-		this.account.removeUniversity(universityToRemove);
+	public static void removeUniversity(String university) {
+		University universityToRemove = dBController.getUniversity(university);
+		dBController.removeUniversity(universityToRemove);
+		account.removeUniversity(universityToRemove);
 	}
 	
 	/**
 	 * Edits the university information. 
 	 */
-	public void editUniversityInfo() {
+	public static void editUniversityInfo() {
 		// TODO
 	}
 	
-	/**
-	 * Gets a list of all the universities.
-	 */
-	public void getAllUniversities() {
-		// TODO
-	}
+
+
 	
 	/**
 	 * Adds the university to the blacklist.

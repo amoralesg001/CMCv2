@@ -6,6 +6,9 @@ package CMC;
 
 import java.util.ArrayList;
 
+import Search.DBController;
+import User.UserUI;
+
 /**
  * @author jengh001
  *
@@ -21,7 +24,7 @@ public class Driver {
 		userUI.logIn(String x, String y);
 		userControl.verify();
 		userControl.getAccount();
-\
+
 
 	public void main(String[] args) {
 		String universityToRemove = "";
