@@ -1,20 +1,36 @@
 
 import java.util.ArrayList;
+<<<<<<< HEAD
 import University.University;
 import Search.DBController;
 import User.UserUI;
 
+=======
+import Search.DBController;
+import CMC.User.*;
+import CMC.University.University;
+import Search.DBController;
+import User.UserUI;
+>>>>>>> 06a85cfc146471df19da72c75c9904ffa2c8b035
 
 /**
  * @author Thumb Thumbs
  *
  */
 public class Driver {
+<<<<<<< HEAD
 	private UserController userControl = new UserController();
 	private UserUI userUI = new UserUI();
 	private DBController dbController = new DBController();
 	private University university = new University()
 
+=======
+
+	private UserController userControl = new UserController();
+	private UserUI userUI = new UserUI();
+	private DBController dbController = new DBController();
+	private University university = new University();
+>>>>>>> 06a85cfc146471df19da72c75c9904ffa2c8b035
 
 	public void main(String[] args) {
 		String universityToRemove = "";
@@ -107,13 +123,22 @@ public class Driver {
 	}
 	
 	/**
-	 * 
+	 * Save Schools to list
+	 * @author John Engh
 	 */
-	public void u9() {}
+	public void u9() {
+		
+		
+		
+	}
 	/**
-	 * 
+	 * Manage Users
+	 * @author John Engh
 	 */
-	public void u10() {}
+	public void u10() {
+		UserController.getAllUsers();
+	
+	}
 	/**
 	 * 
 	 */
