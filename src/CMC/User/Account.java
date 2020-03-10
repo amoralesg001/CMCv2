@@ -6,9 +6,12 @@
  * @author nlarson002
  *
  */
-package CMC.User;
+package User;
 
 import java.util.ArrayList;
+
+import Search.DBController;
+import University.University;
 
 public class Account {
 	private DBController dbController = new DBController();
