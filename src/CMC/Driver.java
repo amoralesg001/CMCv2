@@ -3,6 +3,7 @@ import CMC.User.*;
 import CMC.University.University;
 import CMC.Search.DBController;
 import CMC.User.UserUI;
+import CMC.Search.SearchController;
 
 
 /**
@@ -15,7 +16,7 @@ public class Driver {
 	private UserController userControl = new UserController();
 	private UserUI userUI = new UserUI();
 	private DBController dbController = new DBController();
-	private University university = new University(null, null, null, null, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, null)
+	private University university = new University(null, null, null, null, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, null);
 
 
 	public void main(String[] args) {
@@ -72,8 +73,7 @@ public class Driver {
 
 	public void u4() {
 		String universityName = "Saint John's University";
-		University university = SearchController.searchUniversitys(universityName);
-		System.out.println("University: " + university.getuniversityName());
+		SearchController.searchUniversities(universityName);
 	}
 
 	/**

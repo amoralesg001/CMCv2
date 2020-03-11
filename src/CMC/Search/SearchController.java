@@ -6,16 +6,14 @@
  * @author nlarson002, Jengh001
  *
  */
-package Search;
+package CMC.Search;
 
-import University.University;
+import CMC.University.University;
 
 public class SearchController {
-	
-	private DBController dbController = new DBController();
 
-	public static University searchUniversitys(String universityName) { // Should this method return a University object???
-		University university = this.dbController.searchUniversity(universityName);
+	public static University searchUniversities(String universityName) { // Should this method return a University object???
+		University university = DBController.searchUniversity(universityName);
 		return university;
 	}
 }
