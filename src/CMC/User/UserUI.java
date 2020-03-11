@@ -19,12 +19,18 @@ public class UserUI {
 	String pass;
 	UniversityController universityController;
 	UserController userController;
-	
+	/**
+	 * 
+	 * @param username
+	 * @param password
+	 */
 	public static void login(String username, String password) {
 		
 	UserController.login(username, password);
 	}
-	
+	/**
+	 * 
+	 */
 	public void goToPage() {
 		String schoolName = " ";
 		this.universityController.getUniversity(schoolName);
@@ -44,11 +50,15 @@ public class UserUI {
 	public static void saveUserInfo(String username, String password, String firstName, String lastName) {
 		UserController.saveUserInfo(username, password, firstName, lastName);
 	}
-	
+	/**
+	 * 
+	 */
 	public void editSchool() {
 		
 	}
-	
+	/**
+	 * 
+	 */
 	public void manageSchool() {
 		
 	}
@@ -92,27 +102,44 @@ public class UserUI {
 	public static void addSavedSchool(String SName, String AName) {
 		
 	}
-	
+	/**
+	 * 
+	 * @param account
+	 */
 	public void displaySavedSchool(Account account) {
 		
 	}
-	
+	/**
+	 * 
+	 * @param school
+	 */
 	public void blacklistSchool(University school) {
 		
 	}
-	
+	/**
+	 * 
+	 * @param school
+	 */
 	public void saveUniversityInfo(University school) {
 		
 	}
-	
+	/**
+	 * 
+	 * @param school
+	 */
 	public void addSchool(University school) {
 		
 	}
-	
+	/**
+	 * 
+	 */
 	public void logOut() {
 		
 	}
-	
+	/**
+	 * 
+	 * @param account
+	 */
 	public void lookup(Account account) {
 		
 	}
@@ -124,14 +151,23 @@ public class UserUI {
 		// TODO @Jack
 	}
 	
+	/**
+	 * 
+	 * @param school
+	 */
 	public void displayUserInfo(University school) {		//need to add to class diagram
 		
 	}
-	
+	/**
+	 * 
+	 * @param school
+	 */
 	public void removeSchool(String school) {
 		UniversityController.removeUniversity(school);
 	}
-
+	/**
+	 * 
+	 */
 	public void displaySavedList() {
 		// TODO Auto-generated method stub
 		
@@ -150,9 +186,15 @@ public class UserUI {
 	public static void displaySavedUniversity(Account account) {
 		System.out.println("Here are the schools");
 	}
+	/**
+	 * 
+	 */
 	public static void goToLoginPage() {
 		System.out.println("logged in");
 	}
+	/**
+	 * 
+	 */
 	public static void manageUsers() {
 		UserController.getAllUsers();
 		

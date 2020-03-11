@@ -1,8 +1,6 @@
-/**
- * 
- */
 
 /**
+ * University controller manages all universities in the system
  * @author nlarson002
  *
  */
@@ -14,7 +12,7 @@ import CMC.Search.DBController;
 import CMC.User.Account;
 
 public class UniversityController {
-	
+	//DB Controller 
 	private static DBController dBController;
 	private static Account account;
 	private static ArrayList<University> blackList;
