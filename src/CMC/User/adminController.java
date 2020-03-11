@@ -6,7 +6,8 @@
  * @author nlarson002
  *
  */
-package User;
+package CMC.User;
+
 public class adminController {
 
 	public String getUsername() {

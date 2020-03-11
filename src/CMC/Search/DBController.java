@@ -8,29 +8,15 @@ import CMC.University.*;
 
 public class DBController {
 		private static Account account = new Account(); 
-<<<<<<< HEAD
-<<<<<<< HEAD
-		private static University university = new University("Saint John's University", "Minnesota", "United States", (long) 2500, 0, 0, 0, 40000, 0, 0, 0, 0, 0, 0, 0, new ArrayList<String>()); 
-		private User userArray[]; //should we do an array or list?  
-=======
-		private University university = new University("Saint John's University", "Minnesota", "United States", (long) 2500, 0, 0, 0, 40000, 0, 0, 0, 0, 0, 0, 0, new ArrayList<String>()); 
-=======
-		private static University university = new University("Saint John's University", "Minnesota", "United States", (long) 2500, 0, 0, 0, 40000, 0, 0, 0, 0, 0, 0, 0, new ArrayList<String>()); 
->>>>>>> 19d96e3d8b6c9df77e6acdc0587a37595b98a055
+
 		private static User userArray[]; //should we do an array or list?  
->>>>>>> 4ace9004f43502b1f85fb5ace27b5ed6a777c09f
-		private University universityArray[];
+
+		private static University university;
+		private static University universityArray[];
+
 		
 		public static Account getAccountDB(String name, String password ) {
 			return account; 
-		}
-		/**
-		 * 
-		 * @param name
-		 * @return
-		 */
-		public University getUniversityDB(String name) {
-			return university; 
 		}
 		/**
 		 * 
@@ -52,16 +38,20 @@ public class DBController {
 		 * @param schooName
 		 * @return
 		 */
-		public static University searchUniversity(String schooName) {	// should return a university i assume but diagram doesnt
-			return university; 
+		public static University searchUniversity(String schoolName) {	// should return a university i assume but diagram doesnt
+			for (int i = 0; i < universityArray.length; i++)
+				if (universityArray[i].getuniversityName() == schoolName) {
+					return universityArray[i];
+				}	
+			return null;
 		}
 		/**
 		 * 
 		 * @param universityName
 		 * @return
 		 */
-		public University addUniversity(University universityName) {//is this adding all information of a university or just on the saved list? 
-			 return university; 
+		public static University addUniversity(University universityName) {//is this adding all information of a university or just on the saved list? 
+			 return null; 
 		}
 		/**
 		 * 
@@ -73,7 +63,7 @@ public class DBController {
 		 * 
 		 * @return
 		 */
-		public University[] getAllUniversitys() {	//how to return an array 
+		public static University[] getAllUniversities() {	//how to return an array 
 			return universityArray; 
 		}
 		/**
@@ -122,7 +112,7 @@ public class DBController {
 		 * @return
 		 */
 		public University lookUpUniversity(String universityName) {
-			return university ;
+			return university;
 		}
 		/**
 		 * 

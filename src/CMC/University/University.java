@@ -6,7 +6,7 @@ public class University {
 	private String universityName;
 	private String state;
 	private String location;
-	private int numStudents;
+	private Long numStudents;
 	private int femalePer;
 	private int verSAT;
 	private int mathSAT;
@@ -50,7 +50,7 @@ public class University {
 		this.universityName = universityName;
 		this.state = state;
 		this.location = location;
-		this.numStudents = numStudents2;
+		this.numStudents = (long) numStudents2;
 		this.femalePer = femalePer;
 		this.verSAT = verSAT;
 		this.mathSAT = mathSAT;
@@ -98,7 +98,7 @@ public class University {
 	 * @return the numStudents
 	 */
 	public Long getNumStudents() {
-		return numStudents;
+		return (long) numStudents;
 	}
 	/**
 	 * @param numStudents the numStudents to set

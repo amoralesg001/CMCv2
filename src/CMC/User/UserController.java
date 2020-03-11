@@ -11,8 +11,6 @@ import java.util.ArrayList;
 
 public class UserController {
 
-	
-	private Account account;
 
 	//DBController should be static so delete variable
 	private DBController dBController = new DBController();
@@ -54,12 +52,12 @@ public class UserController {
 		boolean verify = account.verify(username,password,account);	//not sure how to verify.
 		if (verify == true)
 		{
-		UserUI.goToLoginPage();
-		return true; 
+			UserUI.goToLoginPage();
+			return true; 
 		}
 		else
 		{
-		return false;
+			return false;
 		}
 	}
 	
@@ -130,13 +128,13 @@ public class UserController {
 	 */
 
 	public static ArrayList<String> getSavedUniversityList(String username) {
-	Account account = DBController.getSavedUniversityList(username);	
-	return account.getSavedUniversityList();
-
+		Account account = DBController.getSavedUniversityList(username);	
+		return account.getSavedUniversityList();
+	}
 	public static void getSavedUniversity(String username) {
 		Account account = DBController.getSavedUniversityList(username);
 	
-		ArrayList <String> saveUnivList = account.getSavedUniversity();
+		ArrayList<String> saveUnivList = account.getSavedUniversityList();
 		UserUI.displaySavedUniversity(account);
 
 	}
