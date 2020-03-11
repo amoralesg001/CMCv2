@@ -19,14 +19,19 @@ public class UserUI {
 	String pass;
 	UniversityController universityController;
 	UserController userController;
+<<<<<<< HEAD
+	
+	public static Boolean login(String username, String password) {
+=======
 	/**
 	 * 
 	 * @param username
 	 * @param password
 	 */
 	public static void login(String username, String password) {
+>>>>>>> 822e8286b9c3d720647e8f8c0dbcb433bccb5ea6
 		
-	UserController.login(username, password);
+	return UserController.login(username, password);
 	}
 	
 	public static void goToPage() {
@@ -184,21 +189,21 @@ public class UserUI {
 	 * This method goes to the UserController
 	 * @param username the username of Account
 	 */
-	public static void getSavedUniversity(String username) {
-		UserController.getSavedUniversity(username);
+	public static ArrayList<String> getSavedUniversityList(String username) {
+		return UserController.getSavedUniversityList(username);
 	}
 	/**
 	 * this method displays the saved universities from the specific account
 	 * @param account
 	 */
-	public static void displaySavedUniversity(Account account) {
+	public static void displaySavedUniversity(ArrayList<String> universityList) {
 		System.out.println("Here are the schools");
 	}
 	/**
 	 * 
 	 */
 	public static void goToLoginPage() {
-		System.out.println("logged in");
+		
 	}
 	/**
 
@@ -217,10 +222,22 @@ public class UserUI {
 		
 	}
 	
+<<<<<<< HEAD
 	public static void getUniversity(String university) {
 		UniversityController.getUniversity(university);
 	}
 
+=======
+	/**
+	 * Displays the account information to the UserUI.
+	 * @param account
+	 */
+	public static void displayAccountInfo(Account account) {
+		System.out.println(account.getUsername());
+		System.out.println(account.getFirstName());
+		System.out.println(account.getLastName());
+	}
+>>>>>>> 72ba97d3e81a8d077642695849c429ca067257f9
 }
 
 

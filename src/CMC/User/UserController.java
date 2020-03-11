@@ -10,9 +10,14 @@ import CMC.Search.*;
 import java.util.ArrayList;
 
 public class UserController {
+
+	
+	private Account account;
+
 	//DBController should be static so delete variable
 	private DBController dBController = new DBController();
 	private static Account account;
+
 	
 	public String getUsername(Account account) {
 		return account.getUsername();
@@ -39,15 +44,22 @@ public class UserController {
 	 * @param AName Username of account as string
 	 */
 	public void addSavedSchools(String SName, String AName) {
-		University Uni = DBController.searchUniversity(SName);
+		University uni = DBController.searchUniversity(SName);
+		Account acc = DBController.getUserInfo(AName);
+		acc.addUniversity(uni);
 	}
 		
-	public static void login(String username, String password) {
+	public static boolean login(String username, String password) {
 		Account account = DBController.getAccountDB(username, password);
-		Boolean verify = account.verifyAccount(username,password,account);	//not sure how to verify.
+		boolean verify = account.verify(username,password,account);	//not sure how to verify.
 		if (verify == true)
 		{
-		UserUI.gotToLoginPage();
+		UserUI.goToLoginPage();
+		return true; 
+		}
+		else
+		{
+		return false;
 		}
 	}
 	
@@ -68,11 +80,20 @@ public class UserController {
 		return "";
 	}
 	
+	/**
+	 * Saves the user information in the database, then updates the Account class and displays the 
+	 * information to the UserUI if the Account object is not null.
+	 * @param username
+	 * @param password
+	 * @param firstName
+	 * @param lastName
+	 */
 	public static void saveUserInfo(String username, String password, String firstName, String lastName) {
 		Account user = DBController.getAccountDB(username, password);
 		DBController.updateAccountDB(user);
 		if (user != null) {
 			account.updateAccountInfo(username, password, firstName, lastName);
+			UserUI.displayAccountInfo(user);
 		}
 	}
 	
@@ -107,11 +128,17 @@ public class UserController {
 	 * of the account retrieved.
 	 * @param username
 	 */
+
+	public static ArrayList<String> getSavedUniversityList(String username) {
+	Account account = DBController.getSavedUniversityList(username);	
+	return account.getSavedUniversityList();
+
 	public static void getSavedUniversity(String username) {
 		Account account = DBController.getSavedUniversityList(username);
 	
 		ArrayList <String> saveUnivList = account.getSavedUniversity();
 		UserUI.displaySavedUniversity(account);
+
 	}
 }
 
