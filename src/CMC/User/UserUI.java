@@ -27,7 +27,7 @@ public class UserUI {
 	
 	public static void goToPage() {
 		String schoolName = " ";
-		this.universityController.getUniversity(schoolName);
+		UniversityController.getUniversity(schoolName);
 	}
 	//instead of using the goToPage method for my use case, I changed the method to this. Its more specific
 	public static void getUserInfo(String username) { 
@@ -129,10 +129,18 @@ public class UserUI {
 	public static void goToLoginPage() {
 		System.out.println("logged in");
 	}
-
+	/**
+	 * Calls UniversityController to pass on to DBController and Account
+	 * 
+	 * @param university
+	 */
 	public static void removeUniversity(String university) {
 		UniversityController.removeUniversity(university);
 		
+	}
+	
+	public static void getUniversity(String university) {
+		UniversityController.getUniversity(university);
 	}
 
 }

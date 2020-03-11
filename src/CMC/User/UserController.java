@@ -1,22 +1,16 @@
 /**
- * 
- */
-
-/**
+ * User controller manages all user accounts in the system
  * @author nlarson002
  *
  */
-package User;
+package CMC.User;
 
-import  CMC.University.*;
-import University.University;
-
+import CMC.University.*;
+import CMC.Search.*;
 import java.util.ArrayList;
 
-import CMC.Search.*;
-
 public class UserController {
-	
+	//DBController should be static so delete variable
 	private DBController dBController = new DBController();
 	private Account account;
 	
@@ -39,9 +33,13 @@ public class UserController {
 	public String getAccountType() {
 		return account.getUserType();
 	}
-	
-	public void addSavedSchools(University schoolName) {
-		
+	/**
+	 * @author jengh001
+	 * @param SName Name of University as string 
+	 * @param AName Username of account as string
+	 */
+	public void addSavedSchools(String SName, String AName) {
+		University Uni = DBController.searchUniversity(SName);
 	}
 		
 	public static void login(String username, String password) {
@@ -74,8 +72,8 @@ public class UserController {
 		//todo
 	}
 	
-	public void getAllUsers() {
-		
+	public static User[] getAllUsers() {
+		return DBController.getAllUsers();
 	}
 	
 	public void lookup(String accountName, String schoolName) {
@@ -94,9 +92,10 @@ public class UserController {
 		// TODO Auto-generated method stub
 		
 	}
-	public static void getUserInfo(String username)
+	public static Account getUserInfo(String username)
 	{
-	DBController.getUserInfo(username);
+		Account temp = DBController.getUserInfo(username);
+		return temp;
 	}
 	/**
 	 * This method goes to DBController to retrieve an account
@@ -105,10 +104,10 @@ public class UserController {
 	 * @param username
 	 */
 	public static void getSavedUniversity(String username) {
-	Account account = DBController.getSavedUniversityList(username);
+		Account account = DBController.getSavedUniversityList(username);
 	
-	ArrayList <String> saveUnivList = account.getSavedUniversity();
-	UserUI.displaySavedUniversity(account);
+		ArrayList <String> saveUnivList = account.getSavedUniversity();
+		UserUI.displaySavedUniversity(account);
 	}
 }
 

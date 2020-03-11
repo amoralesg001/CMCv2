@@ -6,7 +6,7 @@
  * @author nlarson002
  *
  */
-package University;
+package CMC.University;
 
 import java.util.ArrayList;
 

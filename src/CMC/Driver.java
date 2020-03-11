@@ -6,13 +6,10 @@ package CMC;
 
 import java.util.ArrayList;
 
-import Search.DBController;
+import CMC.Search.*;
 import CMC.User.*;
+import CMC.University.*;
 
-import CMC.University.University;
-=======
-import Search.DBController;
-import User.UserUI;
 
 /**
  * @author Thumb Thumbs
@@ -89,14 +86,17 @@ public class Driver {
 	/**
 	 * U5: View Individual University
 	 * 
+	 * @param String university name
 	 */
-	public void u5() {
+	public void u5(String universityName) {
 		UserUI.goToPage();
 		University university = null;
 		UserUI.displayUniversityInfo(university);
 	}
 	/**
+	 * u6: Remove School From List
 	 * 
+	 * @param String name of university
 	 */
 	public void u6(String university) {
 		UserUI.removeUniversity(university);
