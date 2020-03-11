@@ -19,6 +19,7 @@ public class Driver {
 		String universityToRemove = "";
 		u1();
 		System.out.println("u1 done");
+		System.out.println("Output should be: Invalid Credentials");
 		//u2();
 		System.out.println("u2 done");
 		u3("Saint John's University");
@@ -27,6 +28,7 @@ public class Driver {
 		//u5(universityToRemove);
 		//u6(universityToRemove);
 		//u7(universityToRemove, universityToRemove, universityToRemove, universityToRemove);
+		System.out.println("Beginning u8");
 		u8();
 		System.out.println("u8 done");
 		u9();
@@ -53,24 +55,24 @@ public class Driver {
 		String password = "thumb thumb";
 		boolean verify = UserUI.login(username, password);
 		if (verify == true) {
-		System.out.println("logged in");	
+			System.out.println("logged in");	
 		}
 		else {
-		System.out.println("Invalid credentials");	
+			System.out.println("Invalid credentials");	
 		}	
 	}
 	
 	/**
 	 * U2: List Saved Universities
 	 * @author amoralesg001
-	 * This use case displays the saved Unversities from the Account.
+	 * This use case displays the saved Universities from the Account.
 	 */
 	public static void u2() {
 
 		String username = "amoralesg001";
 		ArrayList<String> savedUniversities = UserUI.getSavedUniversityList(username);
 		for(int i = 0; i<savedUniversities.size();i++) {
-		System.out.println(savedUniversities.get(i));
+			System.out.println(savedUniversities.get(i));
 		}
 	}
 	/**
@@ -95,9 +97,9 @@ public class Driver {
 	public static void u4() {
 
 		String universityName = "Saint John's University";
-		University uni = SearchController.searchUniversities(universityName);
-		if (uni.getuniversityName() == universityName) {
-			System.out.println(uni.getuniversityName());
+		String uni = SearchController.searchUniversities(universityName);
+		if (uni == universityName) {
+			System.out.println(uni);
 		}
 		else {
 			System.out.println("School not found");
@@ -123,25 +125,46 @@ public class Driver {
 	/**
 	 * Edit User Information
 	 */
-	public static void u7(String username, String password, String firstName, String lastName) {
-		UserUI.saveUserInfo(username, password, firstName, lastName);
+	public static void u7(String username, String password, String firstName, String lastName, String userType) {
+		Account user = UserUI.saveUserInfo(username, password, firstName, lastName, userType);
+		System.out.println(user.getUsername());
+		System.out.println(user.getFirstName());
+		System.out.println(user.getLastName());
 	}
 	
 	/**
 	 * View Search Results
 	 */
 	public static void u8() {
-		UserUI.viewResults();
+		String results = UserUI.viewResults();
+		System.out.println(results);
 	}
 	
 	/**
-	 * 
+	 * U9: Save School to list 
+	 * @author jengh001
 	 */
-	public static void u9() {}
+
+	public static void u9() {
+		String SName = "Saint John's University";
+		String AName = "jengh001";
+		boolean success = UserUI.addSavedSchool(SName, AName);
+		if (success) {
+		   System.out.println("Saved Successfully");
+		}
+		else {
+			System.out.println("Saved Unsuccessfully");
+		}
+	}
+
 	/**
-	 * 
+	 * U10: Manage Users
+	 * @author jengh001
 	 */
-	public static void u10() {}
+	public static void u10() {
+		User[] users = UserUI.manageUsers();
+		System.out.println(users);
+	}
 	/**
 	 * 
 	 */

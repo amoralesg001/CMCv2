@@ -7,7 +7,7 @@ import CMC.User.*;
 import CMC.University.*;
 
 public class DBController {
-		private static Account account = new Account(); 
+		private static Account account = new Account(null, null, null, null, null); 
 
 		private static User userArray[]; //should we do an array or list?  
 
@@ -38,13 +38,13 @@ public class DBController {
 		 * @param schooName
 		 * @return
 		 */
-		public static University searchUniversity(String schoolName) {	// should return a university i assume but diagram doesnt
+		public static String searchUniversity(String schoolName) {	// should return a university i assume but diagram doesnt
 			//for (int i = 0; i < universityArray.length; i++)
 				//if (universityArray[i].getuniversityName() == schoolName) {
 					//return universityArray[i];
 				//}	
 			//return null;
-			return university;
+			return university.getuniversityName();
 		}
 		/**
 		 * 

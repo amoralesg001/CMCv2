@@ -11,6 +11,9 @@ import CMC.Search.DBController;
 
 public class Account {
 
+
+	
+	
 	//DBController should be static delete variable
 	private DBController dbController = new DBController();
 
@@ -25,6 +28,14 @@ public class Account {
 	private ArrayList<String> universityNamesList; //im only doing this for no2. Sooner or later i will need an ArrayList to. Will need a constructure that holds the arrays of the universities
 	
 
+	public Account(String username, String password, String firstName, String lastName, String userType) {
+		this.username = username;
+		this.password = password;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.userType = userType;
+	}
+	
 	private ArrayList<University> universities = new ArrayList<University>();
 	/**
 	 * 
@@ -77,11 +88,12 @@ public class Account {
 	}
 	
 	
-	public void updateAccountInfo(String username, String password, String firstName, String lastName) {
+	public void updateAccountInfo(String username, String password, String firstName, String lastName, String userType) {
 		this.username = username;
 		this.password = password;
 		this.firstName = firstName;
 		this.lastName = lastName;
+		this.userType = userType;
 	}
 
 	public ArrayList<String> getUserInfo(){		// need to add this on class diagram. John had it on his communication diagram for U3 but not on class diagram
