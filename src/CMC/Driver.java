@@ -1,6 +1,10 @@
 import java.util.ArrayList;
 import CMC.User.*;
 import CMC.University.University;
+
+import Search.DBController;
+import User.UserUI;
+=======
 import CMC.Search.DBController;
 import CMC.User.UserUI;
 
@@ -12,10 +16,14 @@ import CMC.User.UserUI;
  */
 public class Driver {
 
+
+	private University university = new University();
+
 	private UserController userControl = new UserController();
 	private UserUI userUI = new UserUI();
 	private DBController dbController = new DBController();
 	private University university = new University(null, null, null, null, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, null)
+
 
 
 	public void main(String[] args) {
@@ -35,8 +43,13 @@ public class Driver {
 	public void u1() {
 		String username = "amoralesg001";
 		String password = "thumb thumb";
-		UserUI.login(username, password);
-
+		boolean verify = UserUI.login(username, password);
+		if (verify == true) {
+		System.out.println("logged in");	
+		}
+		else {
+		System.out.println("Invalid credentials");	
+		}	
 	}
 	
 	/**
@@ -46,15 +59,11 @@ public class Driver {
 	 */
 	public void u2() {
 
-		//private String u = "";
-		//userControl.getUsername(u);
-		//UserUI.displaySavedList();
-
-		//String user = userController.getUsername(account);
-		//ArrayList<University> universitys = account.getSavedUniversity();
 		String username = "amoralesg001";
-		UserUI.getSavedUniversity(username);
-		
+		ArrayList<String> savedUniversities = UserUI.getSavedUniversityList(username);
+		for(int i = 0; i<savedUniversities.size();i++) {
+		System.out.println(savedUniversities.get(i));
+		}
 	}
 	/**
 	 * 
