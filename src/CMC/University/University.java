@@ -1,4 +1,4 @@
-package University;
+package CMC.University;
 import java.util.ArrayList;
 
 public class University {
