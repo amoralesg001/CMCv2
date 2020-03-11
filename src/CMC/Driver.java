@@ -15,11 +15,42 @@ public class Driver {
 
 	private University university = new University(null, null, null, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, null);
 
-	public void main(String[] args) {
+	public static void main(String[] args) {
 		String universityToRemove = "";
+		System.out.println("u1 starting");
 		u1();
-		u2();
-		u6(universityToRemove);
+		System.out.println("u1 done");
+		System.out.println("Output should be: logged in");
+		//u2();
+		System.out.println("u2 done");
+		System.out.println("u3 starting");
+		u3("amoralesg001");
+		System.out.println("u3 done");
+		System.out.println("u4 starting");
+		u4();
+		System.out.println("u4 done");
+		//u5(universityToRemove);
+		//u6(universityToRemove);
+		//u7(universityToRemove, universityToRemove, universityToRemove, universityToRemove);
+		//System.out.println("u7 done");
+		System.out.println("u8 starting");
+		u8();
+		
+		System.out.println("u8 done");
+		System.out.println("u9 starting");
+		u9();
+		System.out.println("u9 done");
+		System.out.println("u10 starting");
+		u10();
+		System.out.println("u10 done");
+		System.out.println("u11 starting");
+		u11();
+		System.out.println("u11 done");
+		System.out.println("u12 starting");
+		u12();
+		System.out.println("u12 done");
+		
+
 		System.out.println("Testing...");
 		//u3();
 	}
@@ -29,35 +60,35 @@ public class Driver {
 	 *this use case logins the user from their username 
 	 *and password they entered
 	 */
-	public void u1() {
+	public static void u1() {
 		String username = "amoralesg001";
 		String password = "thumb thumb";
 		boolean verify = UserUI.login(username, password);
 		if (verify == true) {
-		System.out.println("logged in");	
+			System.out.println("logged in");	
 		}
 		else {
-		System.out.println("Invalid credentials");	
+			System.out.println("Invalid credentials");	
 		}	
 	}
 	
 	/**
 	 * U2: List Saved Universities
 	 * @author amoralesg001
-	 * This use case displays the saved Unversities from the Account.
+	 * This use case displays the saved Universities from the Account.
 	 */
-	public void u2() {
+	public static void u2() {
 
 		String username = "amoralesg001";
 		ArrayList<String> savedUniversities = UserUI.getSavedUniversityList(username);
 		for(int i = 0; i<savedUniversities.size();i++) {
-		System.out.println(savedUniversities.get(i));
+			System.out.println(savedUniversities.get(i));
 		}
 	}
 	/**
 	 * 
 	 */
-	public void u3(String username) {
+	public static void u3(String username) {
 
 		Account account = UserUI.getUserInfo(username);
 		String usernameTest = account.getUsername();	
@@ -73,12 +104,12 @@ public class Driver {
 	 * This allows the user to search for a school
 	 */
 
-	public void u4() {
+	public static void u4() {
 
 		String universityName = "Saint John's University";
-		University uni = SearchController.searchUniversities(universityName);
-		if (uni.getuniversityName() == universityName) {
-			System.out.println(uni.getuniversityName());
+		String uni = SearchController.searchUniversities(universityName);
+		if (uni == universityName) {
+			System.out.println(uni);
 		}
 		else {
 			System.out.println("School not found");
@@ -90,7 +121,7 @@ public class Driver {
 	 * 
 	 * @param String university name
 	 */
-	public void u5(String universityName) {
+	public static void u5(String universityName) {
 		UserUI.getUniversity(universityName);
 	}
 	/**
@@ -98,49 +129,62 @@ public class Driver {
 	 * 
 	 * @param String name of university
 	 */
-	public void u6(String university) {
+	public static void u6(String university) {
 		UserUI.removeUniversity(university);
 	}
 	/**
 	 * Edit User Information
 	 */
-	public void u7(String username, String password, String firstName, String lastName) {
-		UserUI.saveUserInfo(username, password, firstName, lastName);
+	public static void u7(String username, String password, String firstName, String lastName, String userType) {
+		Account user = UserUI.saveUserInfo(username, password, firstName, lastName, userType);
+		System.out.println(user.getUsername());
+		System.out.println(user.getFirstName());
+		System.out.println(user.getLastName());
 	}
 	
 	/**
 	 * View Search Results
 	 */
-	public void u8() {
-		UserUI.viewResults();
+	public static void u8() {
+		String results = UserUI.viewResults();
+		System.out.println(results);
 	}
 	
 	/**
 	 * U9: Save School to list 
 	 * @author jengh001
 	 */
-	public void u9() {
-		String SName = "";
-		String AName = "";
-		UserUI.addSavedSchool(SName, AName);
+
+	public static void u9() {
+		String SName = "Saint John's University";
+		String AName = "jengh001";
+		boolean success = UserUI.addSavedUniversties(SName, AName);
+		if (success) {
+		   System.out.println("Saved Successfully");
+		}
+		else {
+			System.out.println("Saved Unsuccessfully");
+		}
 	}
+
 	/**
 	 * U10: Manage Users
 	 * @author jengh001
 	 */
-	public void u10() {
-		UserUI.manageUsers();
+	public static void u10() {
+		User[] users = UserUI.manageUsers();
+		System.out.println(users);
 	}
 	/**
 	 * 
 	 */
-	public void u11() {
+	public static void u11() {
 		UserUI.manageSchool();
 	}
 	/**
 	 * 
 	 */
-	public void u12() {
+	public static void u12() {
 		String universityName = "SJU";
 		String state = "MN";
 		String location = "SC";

@@ -16,7 +16,6 @@ public class UserController {
 	private DBController dBController = new DBController();
 	private static Account account;
 
-	
 	public String getUsername(Account account) {
 		return account.getUsername();
 	}
@@ -41,7 +40,7 @@ public class UserController {
 	 * @param SName Name of University as string 
 	 * @param AName Username of account as string
 	 */
-	public void addSavedSchools(String SName, String AName) {
+	public static void addSavedUniversities(String SName, String AName) {
 		University uni = DBController.searchUniversity(SName);
 		Account acc = DBController.getUserInfo(AName);
 		acc.addUniversity(uni);
@@ -86,13 +85,14 @@ public class UserController {
 	 * @param firstName
 	 * @param lastName
 	 */
-	public static void saveUserInfo(String username, String password, String firstName, String lastName) {
+	public static Account saveUserInfo(String username, String password, String firstName, String lastName, String userType) {
 		Account user = DBController.getAccountDB(username, password);
 		DBController.updateAccountDB(user);
 		if (user != null) {
-			account.updateAccountInfo(username, password, firstName, lastName);
+			account.updateAccountInfo(username, password, firstName, lastName, userType);
 			UserUI.displayAccountInfo(user);
 		}
+		return user;
 	}
 	
 	public static User[] getAllUsers() {
@@ -117,8 +117,8 @@ public class UserController {
 	}
 	public static Account getUserInfo(String username)
 	{
-		Account temp = DBController.getUserInfo(username);
-		return temp;
+		return DBController.getUserInfo(username);
+		
 	}
 	/**
 	 * This method goes to DBController to retrieve an account

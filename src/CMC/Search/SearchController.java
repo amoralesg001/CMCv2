@@ -12,8 +12,8 @@ import CMC.University.University;
 
 public class SearchController {
 
-	public static University searchUniversities(String universityName) { // Should this method return a University object???
-		University university = DBController.searchUniversity(universityName);
+	public static String searchUniversities(String universityName) { // Should this method return a University object???
+		String university = DBController.searchUniversity(universityName);
 		return university;
 	}
 }

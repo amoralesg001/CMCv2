@@ -41,8 +41,9 @@ public class UserUI {
 	 * @param firstName
 	 * @param lastName
 	 */
-	public static void saveUserInfo(String username, String password, String firstName, String lastName) {
-		UserController.saveUserInfo(username, password, firstName, lastName);
+	public static Account saveUserInfo(String username, String password, String firstName, String lastName, String userType) {
+		Account user = UserController.saveUserInfo(username, password, firstName, lastName, userType);
+		return user;
 	}
 	/**
 	 * 
@@ -93,9 +94,10 @@ public class UserUI {
 	 * @Author John Engh
 	 * @param SName Name of university as string
 	 * @param AName Account username as string
+	 * @return 
 	 */
-	public static void addSavedSchool(String SName, String AName) {
-		
+	public static boolean addSavedUniversties(String SName, String AName) {
+		UserController.addSavedUniversities(SName, AName);
 	}
 
 	/**
@@ -137,8 +139,9 @@ public class UserUI {
 	/**
 	 * Displays the search results to the user.
 	 */
-	public static void viewResults() {
-		// TODO @Jack
+	public static String viewResults() {
+		String results = "Temporary search results";
+		return results;
 	}
 	
 	/**
@@ -196,8 +199,8 @@ public class UserUI {
 	/**
 	 * 
 	 */
-	public static void manageUsers() {
-		UserController.getAllUsers();
+	public static User[] manageUsers() {
+		return UserController.getAllUsers();
 		
 	}
 
