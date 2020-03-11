@@ -127,11 +127,35 @@ public class Driver {
 	/**
 	 * 
 	 */
-	public void u11() {}
+	public void u11() {
+		this.userUI.manageSchool();
+	}
 	/**
 	 * 
 	 */
-	public void u12() {}
+	public void u12() {
+		String universityName = "SJU";
+		String state = "MN";
+		String location = "SC";
+		int numStudents = 2000;
+		int femalePer = 0;
+		int verSAT = 1200;
+		int mathSAT = 1200;
+		double tuition = 60000;
+		double finAid = 20000;
+		double numApplicants = 4000;
+		int admitPer = 20;
+		int enrolledPer = 80;
+		int academicScale = 5;
+		int socialScale = 5;
+		int qoaScale = 5;
+		boolean blacklist = false;
+		ArrayList<String> emphasis = new ArrayList<String>();
+		
+		this.userUI.addSchool(universityName, state, location, numStudents, femalePer, verSAT, mathSAT,
+				tuition, finAid, numApplicants, admitPer, enrolledPer, academicScale, socialScale, qoaScale,
+				blacklist, emphasis);
+	}
 	/**
 	 * 
 	 */
