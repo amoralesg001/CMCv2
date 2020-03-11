@@ -87,8 +87,8 @@ public class DBController {
 		 * Updates the account in the database.
 		 * @param user
 		 */
-		public void updateAccountDB(Account user) {	//would updating return an array ? 
-			
+		public static void updateAccountDB(Account user) {	//would updating return an array ? 
+			//TODO @Jack once we have the actual database
 		}
 		/**
 		 * 

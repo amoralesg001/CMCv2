@@ -68,11 +68,20 @@ public class UserController {
 		return "";
 	}
 	
+	/**
+	 * Saves the user information in the database, then updates the Account class and displays the 
+	 * information to the UserUI if the Account object is not null.
+	 * @param username
+	 * @param password
+	 * @param firstName
+	 * @param lastName
+	 */
 	public static void saveUserInfo(String username, String password, String firstName, String lastName) {
 		Account user = DBController.getAccountDB(username, password);
 		DBController.updateAccountDB(user);
 		if (user != null) {
 			account.updateAccountInfo(username, password, firstName, lastName);
+			UserUI.displayAccountInfo(user);
 		}
 	}
 	
