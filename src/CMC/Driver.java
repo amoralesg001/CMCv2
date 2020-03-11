@@ -1,36 +1,25 @@
+/**
+ * 
+ */
+package CMC;
 import java.util.ArrayList;
+import CMC.Search.*;
 import CMC.User.*;
-import CMC.University.University;
-
-import Search.DBController;
-import User.UserUI;
-=======
-import CMC.Search.DBController;
-import CMC.Search.SearchController;
-
+import CMC.University.*;
 
 /**
- * Driver tests each use case of the CMC Program
  * @author Thumb Thumbs
  *
  */
 public class Driver {
 
-
-	private University university = new University();
-
-	private UserController userControl = new UserController();
-	private UserUI userUI = new UserUI();
-	private DBController dbController = new DBController();
-	private University university = new University(null, null, null, null, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, null);
-
-
+	private University university = new University(null, null, null, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, null);
 
 	public void main(String[] args) {
 		String universityToRemove = "";
-		//u1();
-		//u2();
-		//u6(universityToRemove);
+		u1();
+		u2();
+		u6(universityToRemove);
 		System.out.println("Testing...");
 		//u3();
 	}
@@ -55,7 +44,7 @@ public class Driver {
 	/**
 	 * U2: List Saved Universities
 	 * @author amoralesg001
-	 * This use case displays the saved Universities from the Account.
+	 * This use case displays the saved Unversities from the Account.
 	 */
 	public void u2() {
 
@@ -74,6 +63,7 @@ public class Driver {
 		String usernameTest = account.getUsername();	
 		System.out.println(usernameTest);
 		System.out.println("Output should have been: " + username);	
+			
 	}
 	
 	
@@ -84,6 +74,7 @@ public class Driver {
 	 */
 
 	public void u4() {
+
 		String universityName = "Saint John's University";
 		University uni = SearchController.searchUniversities(universityName);
 		if (uni.getuniversityName() == universityName) {
@@ -97,17 +88,18 @@ public class Driver {
 	/**
 	 * U5: View Individual University
 	 * 
+	 * @param String university name
 	 */
-	public void u5() {
-		this.userUI.goToPage();
-		University university = null;
-		this.userUI.displaySchoolInfo(university);
+	public void u5(String universityName) {
+		UserUI.getUniversity(universityName);
 	}
 	/**
+	 * u6: Remove School From List
 	 * 
+	 * @param String name of university
 	 */
-	public void u6(University university) {
-		userUI.removeUniversity(university);
+	public void u6(String university) {
+		UserUI.removeUniversity(university);
 	}
 	/**
 	 * Edit User Information
@@ -124,29 +116,18 @@ public class Driver {
 	}
 	
 	/**
-	 * Save Schools to list
-	 * @author Jengh001
+	 * 
 	 */
-	public void u9() {
-		String SName = "";
-		String AName = "";
-		UserUI.addSavedSchool(SName, AName);
-		
-		
-	}
+	public void u9() {}
 	/**
-	 * Manage Users
-	 * @author jengh001
+	 * 
 	 */
-	public void u10() {
-		UserUI.manageUsers();
-	
-	}
+	public void u10() {}
 	/**
 	 * 
 	 */
 	public void u11() {
-		this.userUI.manageSchool();
+		UserUI.manageSchool();
 	}
 	/**
 	 * 
@@ -170,7 +151,7 @@ public class Driver {
 		boolean blacklist = false;
 		ArrayList<String> emphasis = new ArrayList<String>();
 		
-		this.userUI.addSchool(universityName, state, location, numStudents, femalePer, verSAT, mathSAT,
+		UserUI.addSchool(universityName, state, location, numStudents, femalePer, verSAT, mathSAT,
 				tuition, finAid, numApplicants, admitPer, enrolledPer, academicScale, socialScale, qoaScale,
 				blacklist, emphasis);
 	}

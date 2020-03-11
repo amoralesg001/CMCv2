@@ -8,20 +8,15 @@ import CMC.University.*;
 
 public class DBController {
 		private static Account account = new Account(); 
-		private static University university = new University("Saint John's University", "Minnesota", "United States", (long) 2500, 0, 0, 0, 40000, 0, 0, 0, 0, 0, 0, 0, new ArrayList<String>()); 
+
 		private static User userArray[]; //should we do an array or list?  
+
+		private static University university;
 		private static University universityArray[];
+
 		
 		public static Account getAccountDB(String name, String password ) {
 			return account; 
-		}
-		/**
-		 * 
-		 * @param name
-		 * @return
-		 */
-		public University getUniversityDB(String name) {
-			return university; 
 		}
 		/**
 		 * 
@@ -55,8 +50,8 @@ public class DBController {
 		 * @param universityName
 		 * @return
 		 */
-		public University addUniversity(University universityName) {//is this adding all information of a university or just on the saved list? 
-			 return university; 
+		public static University addUniversity(University universityName) {//is this adding all information of a university or just on the saved list? 
+			 return null; 
 		}
 		/**
 		 * 
@@ -68,7 +63,7 @@ public class DBController {
 		 * 
 		 * @return
 		 */
-		public University[] getAllUniversitys() {	//how to return an array 
+		public static University[] getAllUniversities() {	//how to return an array 
 			return universityArray; 
 		}
 		/**
@@ -103,11 +98,12 @@ public class DBController {
 		public Account login(String username, String password) {
 			return account;
 		}
+
 		/**
 		 * 
 		 * @param universityName
 		 */
-		public void removeUniversity(University universityName) {
+		public static void removeUniversity(University universityName) {
 			
 		}
 		/**
@@ -116,7 +112,7 @@ public class DBController {
 		 * @return
 		 */
 		public University lookUpUniversity(String universityName) {
-			return university ;
+			return university;
 		}
 		/**
 		 * 
@@ -137,7 +133,7 @@ public class DBController {
 		 * @param universityName
 		 * @return
 		 */
-		public University getUniversity(String universityName) {
+		public static University getUniversity(String universityName) {
 			return university;
 		}
 		/**

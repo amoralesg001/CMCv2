@@ -10,8 +10,8 @@
 package CMC.User;
 
 import java.util.ArrayList;
-import CMC.University.*;
 
+import CMC.University.*;
 
 public class UserUI {
 
@@ -24,17 +24,11 @@ public class UserUI {
 	 * @param username
 	 * @param password
 	 */
-	public static void login(String username, String password) {
+	public static boolean login(String username, String password) {
 		
 		return UserController.login(username, password);
 	}
-	/**
-	 * 
-	 */
-	public void goToPage() {
-		String schoolName = " ";
-		this.universityController.getUniversity(schoolName);
-	}
+	
 	//instead of using the goToPage method for my use case, I changed the method to this. Its more specific
 	public static Account getUserInfo(String username) { 
 		return UserController.getUserInfo(username);
@@ -59,7 +53,7 @@ public class UserUI {
 	/**
 	 * 
 	 */
-	public void manageSchool() {
+	public static void manageSchool() {
 		UniversityController.getAllUniversities();
 	}
 	
@@ -67,7 +61,7 @@ public class UserUI {
 	 * 
 	 * @param school School you want to display information about
 	 */
-	public void displaySchoolInfo(University school) {
+	public static void displayUniversityInfo(University school) {
 		System.out.println("School Name:"  + school.getuniversityName());
 		System.out.println("School State Location: " + school.getState());
 		System.out.println("School Location: " + school.getLocation());
@@ -93,6 +87,7 @@ public class UserUI {
 	public void getSavedList(Account account) {
 		
 	}
+	
 	/**
 	 * Adds a specified school to users saved school list
 	 * @Author John Engh
@@ -102,6 +97,7 @@ public class UserUI {
 	public static void addSavedSchool(String SName, String AName) {
 		
 	}
+
 	/**
 	 * 
 	 * @param account
@@ -152,6 +148,7 @@ public class UserUI {
 	public void displayUserInfo(University school) {		//need to add to class diagram
 		
 	}
+
 	/**
 	 * 
 	 * @param school
@@ -159,6 +156,7 @@ public class UserUI {
 	public void removeSchool(String school) {
 		UniversityController.removeUniversity(school);
 	}
+	
 	/**
 	 * 
 	 */
@@ -177,7 +175,7 @@ public class UserUI {
 	 * this method displays the saved universities from the specific account
 	 * @param account
 	 */
-	public static void displaySavedUniversity(ArrayList<String> universityList) {
+	public static void displaySavedUniversity(Account account) {
 		System.out.println("Here are the schools");
 	}
 	/**
@@ -187,21 +185,32 @@ public class UserUI {
 		
 	}
 	/**
+
+	 * Calls UniversityController to pass on to DBController and Account
+	 * 
+	 * @param university
+	 */
+	public static void removeUniversity(String university) {
+		UniversityController.removeUniversity(university);
+	}
+	/**
 	 * 
 	 */
 	public static void manageUsers() {
 		UserController.getAllUsers();
 		
 	}
-<<<<<<< HEAD
-	public void addSchool(String universityName, String state, String location, int numStudents, int femalePer,
+
+	public static void addSchool(String universityName, String state, String location, int numStudents, int femalePer,
 			int verSAT, int mathSAT, double tuition, double finAid, double numApplicants, int admitPer, int enrolledPer,
 			int academicScale, int socialScale, int qoaScale, boolean blacklist, ArrayList<String> emphasis) {
 		// TODO Auto-generated method stub
 		UniversityController.addUniversity(universityName, state, location, numStudents, femalePer, verSAT, mathSAT, tuition, finAid, numApplicants, admitPer, enrolledPer, academicScale, socialScale, qoaScale, emphasis);
-		
-=======
-	
+	}
+
+	public static void getUniversity(String university) {
+		UniversityController.getUniversity(university);
+	}
 	/**
 	 * Displays the account information to the UserUI.
 	 * @param account
@@ -210,8 +219,9 @@ public class UserUI {
 		System.out.println(account.getUsername());
 		System.out.println(account.getFirstName());
 		System.out.println(account.getLastName());
->>>>>>> 72ba97d3e81a8d077642695849c429ca067257f9
+
 	}
+
 }
 
 

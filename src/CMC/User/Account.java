@@ -67,15 +67,11 @@ public class Account {
 	}
 	public boolean verify(String username, String password,Account account) {
 
-		if (account.getUsername() == username && account.getPassword() == password)
-
-		if (this.getUsername() == username && this.getPassword() == password)
-
-		{
-		return true;
+		if (this.getUsername() == username && this.getPassword() == password){
+			return true;
 		}
 		else {
-		return false;
+			return false;
 		}
 			 
 	}
@@ -99,8 +95,14 @@ public class Account {
 
 	}
 	
-	public void removeUniversity(University universityName) {
-		
+	/**
+	 * Removes the University from the Account Object
+	 * 
+	 * @param universityToRemove
+	 */
+	public static void removeUniversity(University universityToRemove) {
+		ArrayList<University> universitys = new ArrayList<University>();
+		universitys.remove(universityToRemove);
 	}
 	/**
 	 * Adds university to saved schools list
@@ -121,7 +123,7 @@ public class Account {
 		universityNamesList.add("University of Minnesota");
 		
 		return universityNamesList;
-
+	}
 	public ArrayList<University> getSavedUniversity() {
 		return universities;
 
