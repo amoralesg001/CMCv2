@@ -144,7 +144,7 @@ public class DBController {
 		 * @return
 		 */
 		public static University getUniversity(String universityName) {
-			return university
+			return university;
 		}
 		/**
 		 * this method returns an account to be used in UserController
