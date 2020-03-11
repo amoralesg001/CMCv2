@@ -199,6 +199,16 @@ public class UserUI {
 		UserController.getAllUsers();
 		
 	}
+	
+	/**
+	 * Displays the account information to the UserUI.
+	 * @param account
+	 */
+	public static void displayAccountInfo(Account account) {
+		System.out.println(account.getUsername());
+		System.out.println(account.getFirstName());
+		System.out.println(account.getLastName());
+	}
 }
 
 
