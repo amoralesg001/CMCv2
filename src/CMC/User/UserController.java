@@ -48,7 +48,7 @@ public class UserController {
 		boolean verify = account.verify(username,password,account);	//not sure how to verify.
 		if (verify == true)
 		{
-		UserUI.gotToLoginPage();
+		UserUI.goToLoginPage();
 		return true; 
 		}
 		else
@@ -108,9 +108,9 @@ public class UserController {
 	 * of the account retrieved.
 	 * @param username
 	 */
-	public static ArrayList<String> getSavedUniversity(String username) {
+	public static ArrayList<String> getSavedUniversityList(String username) {
 	Account account = DBController.getSavedUniversityList(username);	
-	return account.getSavedUniversity();
+	return account.getSavedUniversityList();
 	}
 }
 

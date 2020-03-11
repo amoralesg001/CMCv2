@@ -22,7 +22,7 @@ public class Account {
 	private String lastName;
 	private String userType;
 	private boolean loginStatus;
-	private ArrayList<String> universityNamesList; //im only doing this for not. Sooner or later i will need an ArrayList to. Will need a constructure that holds the arrays of the universities
+	private ArrayList<String> universityNamesList; //im only doing this for no2. Sooner or later i will need an ArrayList to. Will need a constructure that holds the arrays of the universities
 	
 	public String getUsername() {
 		return this.username; 
@@ -77,7 +77,7 @@ public class Account {
 		
 	}
 
-	public ArrayList<String> getSavedUniversity() {
+	public ArrayList<String> getSavedUniversityList() {
 		
 		universityNamesList.add("Saint Johns");
 		universityNamesList.add("Macalaster");

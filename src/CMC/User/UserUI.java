@@ -123,8 +123,8 @@ public class UserUI {
 	 * This method goes to the UserController
 	 * @param username the username of Account
 	 */
-	public static ArrayList<String> getSavedUniversity(String username) {
-		return UserController.getSavedUniversity(username);
+	public static ArrayList<String> getSavedUniversityList(String username) {
+		return UserController.getSavedUniversityList(username);
 	}
 	/**
 	 * this method displays the saved universities from the specific account

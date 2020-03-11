@@ -45,19 +45,18 @@ public class Driver {
 		}
 		else {
 		System.out.println("Invalid credentials");	
-		}
-		
+		}	
 	}
 	
 	/**
-	 * U2: List Saved Universitys
+	 * U2: List Saved Universities
 	 * @author amoralesg001
 	 * This use case displays the saved Unversities from the Account.
 	 */
 	public void u2() {
 
 		String username = "amoralesg001";
-		ArrayList<String> savedUniversities = UserUI.getSavedUniversity(username);
+		ArrayList<String> savedUniversities = UserUI.getSavedUniversityList(username);
 		for(int i = 0; i<savedUniversities.size();i++) {
 		System.out.println(savedUniversities.get(i));
 		}
