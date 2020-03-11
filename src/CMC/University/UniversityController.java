@@ -10,19 +10,19 @@ package University;
 
 import java.util.ArrayList;
 
-import Search.DBController;
-import User.Account;
+import CMC.Search.DBController;
+import CMC.User.Account;
 
 public class UniversityController {
 	
-	private static DBController dBController;
+
 	private static Account account;
 	private static ArrayList<University> blackList;
 	
 
 	public static void addUniversity(String universityName)
 	{
-		dBController.getUniversity(universityName).setUniversityName(universityName);
+		DBController.getUniversity(universityName).setUniversityName(universityName);
 		dBController.getUniversity(universityName).setState(universityName);
 		dBController.getUniversity(universityName).setLocation(universityName);
 		dBController.getUniversity(universityName).setNumStudents(null);
@@ -84,14 +84,15 @@ public class UniversityController {
 	 * @param universityName university name to get the university object
 	 */
 
-	public University getUniversity(String universityName) {
-		return dBController.getUniversity(universityName);
+	public static University getUniversity(String universityName) {
+		return DBController.getUniversity(universityName);
 		
 
 	}
 	
 	/**
 	 * Creates a new university and adds it to the database.
+	 * 
 	 * @param universityName
 	 * @param state
 	 * @param location
@@ -117,12 +118,14 @@ public class UniversityController {
 	
 	/**
 	 * Removes a university from the database by name.
-	 * @param universityName
+	 * 
+	 * @param String name of university
 	 */
 	public static void removeUniversity(String university) {
-		University universityToRemove = dBController.getUniversity(university);
-		dBController.removeUniversity(universityToRemove);
-		account.removeUniversity(universityToRemove);
+		University universityToRemove = DBController.getUniversity(university);
+		DBController.removeUniversity(universityToRemove);
+		Account.removeUniversity(universityToRemove);
+		
 	}
 	
 	/**

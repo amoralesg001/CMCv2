@@ -25,7 +25,7 @@ public class UserUI {
 	UserController.login(username, password);
 	}
 	
-	public void goToPage() {
+	public static void goToPage() {
 		String schoolName = " ";
 		this.universityController.getUniversity(schoolName);
 	}
@@ -50,7 +50,7 @@ public class UserUI {
 	 * 
 	 * @param school School you want to display information about
 	 */
-	public void displaySchoolInfo(University school) {
+	public static void displayUniversityInfo(University school) {
 		System.out.println("School Name:"  + school.getuniversityName());
 		System.out.println("School State Location: " + school.getState());
 		System.out.println("School Location: " + school.getLocation());

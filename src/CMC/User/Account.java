@@ -73,8 +73,14 @@ public class Account {
 
 	}
 	
-	public void removeUniversity(University universityName) {
-		
+	/**
+	 * Removes the University from the Account Object
+	 * 
+	 * @param universityToRemove
+	 */
+	public static void removeUniversity(University universityToRemove) {
+		ArrayList<University> universitys = new ArrayList<University>();
+		universitys.remove(universityToRemove);
 	}
 
 	public ArrayList<University> getSavedUniversity() {

@@ -91,9 +91,9 @@ public class Driver {
 	 * 
 	 */
 	public void u5() {
-		this.userUI.goToPage();
+		UserUI.goToPage();
 		University university = null;
-		this.userUI.displayUniversityInfo(university);
+		UserUI.displayUniversityInfo(university);
 	}
 	/**
 	 * 
