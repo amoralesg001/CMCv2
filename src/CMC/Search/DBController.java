@@ -13,7 +13,7 @@ public class DBController {
 		private University universityArray[];
 		
 		public static Account getAccountDB(String name, String password ) {
-		return account; 
+			return account; 
 		}
 		/**
 		 * 
@@ -82,8 +82,9 @@ public class DBController {
 		public static Account getUserInfo(String username) {
 			return account;
 		}
+
 		/**
-		 * 
+		 * Updates the account in the database.
 		 * @param user
 		 */
 		public void updateAccountDB(Account user) {	//would updating return an array ? 

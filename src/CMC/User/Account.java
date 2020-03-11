@@ -70,8 +70,11 @@ public class Account {
 	}
 	
 	
-	public void updateAccountInfo(String userName, String password, String fName, String lName) {
-		
+	public void updateAccountInfo(String username, String password, String firstName, String lastName) {
+		this.username = username;
+		this.password = password;
+		this.firstName = firstName;
+		this.lastName = lastName;
 	}
 
 	public ArrayList<String> getUserInfo(){		// need to add this on class diagram. John had it on his communication diagram for U3 but not on class diagram
