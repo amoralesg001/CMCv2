@@ -203,109 +203,153 @@ User is brought to Manage Users page
 N/A 
 ## U11: Manage Universities
 ### Name: 
-
+U10: Manage Universities (Extends U1)
 ### Actors:
-
+Admin (Primary)
 ### Triggers:
-
+Admin clicks “manage universities button”
 ### Preconditions:
-
+N/A
 ### Events:
-
+1.	Admin clicks “manage universities button”
 ### Post-conditions:
-
+Admin is taken to manage universities page
 ### Alternate:
-
+N/A
 ## U12: Add University
 > Created by Readyson
 ### Name: 
-
+U12: Add University. (Extends U11)
 ### Actors:
-
+Admin (primary)
 ### Triggers:
-
+Admin clicks Add a new University
 ### Preconditions:
-
+1.	Admins only
+2.	Must be logged in
+3.	Must enter a unique school name
 ### Events:
-
+1.	Admin clicks on Add a new University
+2.	Admin fills out required school information
+3.	Admin clicks Add School
+4.	School is added to list of schools
 ### Post-conditions:
-
+There is a new school added to the list.
 ### Alternate:
-
+1. Admin clicks Cancel Changes button
+    1. Information entered is deleted
+    2. Admin is brought back to Manage Universities menu
+    3. Post-Condition: Admin is now at Manage Universities menu
+2. Not all information is entered/not entered correctly/Information conflicts with existing university
+    1. Admin is given message about what needs to change
+    2. Post-Condition: None
 ## U13: Logout
 > Created by Readyson
 ### Name: 
-
+U13: Logout (Extended by U1)
 ### Actors:
-
+Admin (Primary), User (Primary)
 ### Triggers:
-
+User clicks the logout button
 ### Preconditions:
-
+1.	User must be registered
+2.	User must be already logged in
 ### Events:
-
+1.	User clicks logout button
+2.	User is logged out.
 ### Post-conditions:
-
+User is not logged in anymore. User is returned to the log in screen.
 ### Alternate:
-
+N/A
 ## U14: Add User
 ### Name: 
-
+U14: Add User
 ### Actors:
-
+Admin (Primary)
 ### Triggers:
-
+User click Add User button
 ### Preconditions:
-
+1.	User is logged in
+2.	User is admin
 ### Events:
-
+1.	User clicks on Add User button
+2.	User enters information necessary for each user
+3.	User clicks Add User button 
+4.	New user is successfully created
 ### Post-conditions:
-
+1.	New user is created
+2.	Admin is brought back to Manage Users menu
 ### Alternate:
-
+1.	User clicks Reset button after filling out partial/all information
+    1. Any information that has been entered is deleted
+    2. Post-Condition: Admin is left with blank Add User menu
+2.	User clicks Add User button before all information is entered
+    1. Admin is prompted to fill out all information
+    2. Post-Condition: None
+3. Information about new user conflicts with information about another user/information given does not meet user requirements
+    1. Message is given to user about information that needs to change
+    2. Post-Condition: None
 ## U15: Edit User
 ### Name: 
-
+U15: Edit User (Extends U10)
 ### Actors:
-
+Admin (Primary)
 ### Triggers:
-
+User clicks on Edit User button
 ### Preconditions:
-
+1.	User must be admin
+2.	User must be logged in
+3.	User must be at U10: Manage Users
 ### Events:
-
+1.	User may enter any information they would like to update/change
+2.	User clicks the Save User Information button
 ### Post-conditions:
-
+1.	New user information is saved to the DB
+    1. User is notified that the information has been saved successfully
+    2. User is brought back to U10: Manage Users
 ### Alternate:
-
+1.	User enters invalid Information
+    1. User is notified they have entered invalid information
+    2. Post-Condition: None
 ## U16: Edit University Information
 ### Name: 
-
+U16: Edit University Information (Extends U5)
 ### Actors:
-
+Admin (Primary)
 ### Triggers:
-
+User clicks the Edit University button
 ### Preconditions:
-
+1.	User must be admin
+2.	User must be logged in
+3.	User must be at U5: View Individual School
 ### Events:
-
+1.	User may enter any information they would like to update/change
+2.	User clicks the *Save University Information*
 ### Post-conditions:
-
+1.	New university information is saved to the School and DB
+    1. User is notified that the information has been saved successfully
+    2. User is brought back to U5: View Individual School
 ### Alternate:
-
+1.	User clicks Cancel Changes
+    1. All information is reverted to previous information
+    2. Post-Condition: None
 ## U17: Blacklist University
 > Created by Nick
 ### Name: 
-
+U18: Blacklist University (Extends U5)
 ### Actors:
-
+User (Primary)
 ### Triggers:
-
+User Clicks “Blacklist” Button
 ### Preconditions:
-
+N/A
 ### Events:
-
+1. User is doing U5: View Individual School
+    1. User Clicks Blacklist School
+    2. User is notified that the school is Blacklisted
 ### Post-conditions:
-
+School is Saved to the Blacklist
 ### Alternate:
-
+1.	School is already in Blacklist
+    1. User is notified the school is already in the list
+    2. Post-Condition: None
