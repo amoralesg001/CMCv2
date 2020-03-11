@@ -7,6 +7,7 @@ import CMC.User.UserUI;
 
 
 /**
+ * Driver tests each use case of the CMC Program
  * @author Thumb Thumbs
  *
  */
@@ -15,7 +16,7 @@ public class Driver {
 	private UserController userControl = new UserController();
 	private UserUI userUI = new UserUI();
 	private DBController dbController = new DBController();
-	private University university = new University()
+	private University university = new University(null, null, null, null, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, null)
 
 
 	public void main(String[] args) {
@@ -40,9 +41,9 @@ public class Driver {
 	}
 	
 	/**
-	 * U2: List Saved Universitys
+	 * U2: List Saved Universities
 	 * @author amoralesg001
-	 * This use case displays the saved Unversities from the Account.
+	 * This use case displays the saved Universities from the Account.
 	 */
 	public void u2() {
 
@@ -107,7 +108,7 @@ public class Driver {
 	
 	/**
 	 * Save Schools to list
-	 * @author John Engh
+	 * @author Jengh001
 	 */
 	public void u9() {
 		String SName = "";
@@ -118,7 +119,7 @@ public class Driver {
 	}
 	/**
 	 * Manage Users
-	 * @author John Engh
+	 * @author jengh001
 	 */
 	public void u10() {
 		UserUI.manageUsers();

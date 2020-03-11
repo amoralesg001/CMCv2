@@ -1,8 +1,5 @@
 /**
- * 
- */
-
-/**
+ * User controller manages all user accounts in the system
  * @author nlarson002
  *
  */
@@ -13,7 +10,7 @@ import CMC.Search.*;
 import java.util.ArrayList;
 
 public class UserController {
-	
+	//DBController should be static so delete variable
 	private DBController dBController = new DBController();
 	private Account account;
 	

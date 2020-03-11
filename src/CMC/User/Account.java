@@ -1,8 +1,5 @@
 /**
- * 
- */
-
-/**
+ * Account is an instance of each account in the system
  * @author nlarson002
  *
  */
@@ -10,12 +7,10 @@ package CMC.User;
 
 import java.util.ArrayList;
 import CMC.University.*;
-
-import Search.DBController;
-import University.University;
+import CMC.Search.DBController;
 
 public class Account {
-	//DBController should be static 
+	//DBController should be static delete variable
 	private DBController dbController = new DBController();
 	
 	private String username;
