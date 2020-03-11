@@ -10,7 +10,7 @@ public class DBController {
 		private static Account account = new Account(); 
 		private static University university = new University("Saint John's University", "Minnesota", "United States", (long) 2500, 0, 0, 0, 40000, 0, 0, 0, 0, 0, 0, 0, new ArrayList<String>()); 
 		private static User userArray[]; //should we do an array or list?  
-		private University universityArray[];
+		private static University universityArray[];
 		
 		public static Account getAccountDB(String name, String password ) {
 			return account; 
@@ -43,8 +43,12 @@ public class DBController {
 		 * @param schooName
 		 * @return
 		 */
-		public static University searchUniversity(String schooName) {	// should return a university i assume but diagram doesnt
-			return university; 
+		public static University searchUniversity(String schoolName) {	// should return a university i assume but diagram doesnt
+			for (int i = 0; i < universityArray.length; i++)
+				if (universityArray[i].getuniversityName() == schoolName) {
+					return universityArray[i];
+				}	
+			return null;
 		}
 		/**
 		 * 

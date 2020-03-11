@@ -2,7 +2,6 @@ import java.util.ArrayList;
 import CMC.User.*;
 import CMC.University.University;
 import CMC.Search.DBController;
-import CMC.User.UserUI;
 import CMC.Search.SearchController;
 
 
