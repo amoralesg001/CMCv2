@@ -29,7 +29,7 @@ public class DBController {
 			return university; 
 		}
 		public University addUniversity(String universityName) {//is this adding all information of a university or just on the saved list? 
-			 university; 
+			 return university; 
 		}
 		public void updateSavedUniversitys() {
 		
@@ -59,7 +59,7 @@ public class DBController {
 		public University lookUpUniversity(String universityName) {
 			return university ;
 		}
-		public Account lookUpAccount(String accountName) {
+		public static Account lookUpAccount(String accountName) {
 			return account; 
 		}
 		public void updateProfile() {

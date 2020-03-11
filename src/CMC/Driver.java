@@ -6,7 +6,6 @@ import CMC.Search.DBController;
 import CMC.User.UserUI;
 
 
-
 /**
  * @author Thumb Thumbs
  *
@@ -72,9 +71,9 @@ public class Driver {
 	 */
 
 	public void u4() {
-		private String universityName = "Saint John's University";
-		University university = this.searchController.searchUniversitys(universityName);
-		System.out.println("University: " + this.university.getUniversityName());
+		String universityName = "Saint John's University";
+		University university = SearchController.searchUniversitys(universityName);
+		System.out.println("University: " + university.getuniversityName());
 	}
 
 	/**
