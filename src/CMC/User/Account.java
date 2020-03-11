@@ -59,7 +59,7 @@ public class Account {
 		
 	}
 	public boolean verify(String username, String password,Account account) {
-		if (this.account.getUsername() == username && this.account.getPassword() == password)
+		if (this.getUsername() == username && this.getPassword() == password)
 		{
 		return true;
 		}
@@ -100,10 +100,7 @@ public class Account {
 	}
 
 	public ArrayList<University> getSavedUniversity() {
-		
-		University university = new University(firstName, firstName, firstName, null, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, null);
-		universitys.add(university);
-		return universitys;
+		return universities;
 		
 	}
 }
