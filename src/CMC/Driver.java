@@ -15,11 +15,30 @@ public class Driver {
 
 	private University university = new University(null, null, null, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, null);
 
-	public void main(String[] args) {
+	public static void main(String[] args) {
 		String universityToRemove = "";
 		u1();
-		u2();
-		u6(universityToRemove);
+		System.out.println("u1 done");
+		//u2();
+		System.out.println("u2 done");
+		u3("Saint John's University");
+		u4();
+		System.out.println("u4 done");
+		//u5(universityToRemove);
+		//u6(universityToRemove);
+		//u7(universityToRemove, universityToRemove, universityToRemove, universityToRemove);
+		u8();
+		System.out.println("u8 done");
+		u9();
+		System.out.println("u9 done");
+		u10();
+		System.out.println("u10 done");
+		u11();
+		System.out.println("u11 done");
+		u12();
+		System.out.println("u12 done");
+		
+
 		System.out.println("Testing...");
 		//u3();
 	}
@@ -29,7 +48,7 @@ public class Driver {
 	 *this use case logins the user from their username 
 	 *and password they entered
 	 */
-	public void u1() {
+	public static void u1() {
 		String username = "amoralesg001";
 		String password = "thumb thumb";
 		boolean verify = UserUI.login(username, password);
@@ -46,7 +65,7 @@ public class Driver {
 	 * @author amoralesg001
 	 * This use case displays the saved Unversities from the Account.
 	 */
-	public void u2() {
+	public static void u2() {
 
 		String username = "amoralesg001";
 		ArrayList<String> savedUniversities = UserUI.getSavedUniversityList(username);
@@ -57,7 +76,7 @@ public class Driver {
 	/**
 	 * 
 	 */
-	public void u3(String username) {
+	public static void u3(String username) {
 
 		Account account = UserUI.getUserInfo(username);
 		String usernameTest = account.getUsername();	
@@ -73,7 +92,7 @@ public class Driver {
 	 * This allows the user to search for a school
 	 */
 
-	public void u4() {
+	public static void u4() {
 
 		String universityName = "Saint John's University";
 		University uni = SearchController.searchUniversities(universityName);
@@ -90,7 +109,7 @@ public class Driver {
 	 * 
 	 * @param String university name
 	 */
-	public void u5(String universityName) {
+	public static void u5(String universityName) {
 		UserUI.getUniversity(universityName);
 	}
 	/**
@@ -98,41 +117,41 @@ public class Driver {
 	 * 
 	 * @param String name of university
 	 */
-	public void u6(String university) {
+	public static void u6(String university) {
 		UserUI.removeUniversity(university);
 	}
 	/**
 	 * Edit User Information
 	 */
-	public void u7(String username, String password, String firstName, String lastName) {
+	public static void u7(String username, String password, String firstName, String lastName) {
 		UserUI.saveUserInfo(username, password, firstName, lastName);
 	}
 	
 	/**
 	 * View Search Results
 	 */
-	public void u8() {
+	public static void u8() {
 		UserUI.viewResults();
 	}
 	
 	/**
 	 * 
 	 */
-	public void u9() {}
+	public static void u9() {}
 	/**
 	 * 
 	 */
-	public void u10() {}
+	public static void u10() {}
 	/**
 	 * 
 	 */
-	public void u11() {
+	public static void u11() {
 		UserUI.manageSchool();
 	}
 	/**
 	 * 
 	 */
-	public void u12() {
+	public static void u12() {
 		String universityName = "SJU";
 		String state = "MN";
 		String location = "SC";

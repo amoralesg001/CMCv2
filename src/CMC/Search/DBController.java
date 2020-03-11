@@ -11,11 +11,11 @@ public class DBController {
 
 		private static User userArray[]; //should we do an array or list?  
 
-		private static University university;
+		private static University university = new University("Saint John's Univeristy", "Minnesota", "United States", (int) 2500, 0, 0, 0, 40000, 0, 0, 0,  0, 0, 0, 0, new ArrayList<String>());
 		private static University universityArray[];
 
 		
-		public static Account getAccountDB(String name, String password ) {
+		public static Account getAccountDB(String name, String password) {
 			return account; 
 		}
 		/**
@@ -39,11 +39,12 @@ public class DBController {
 		 * @return
 		 */
 		public static University searchUniversity(String schoolName) {	// should return a university i assume but diagram doesnt
-			for (int i = 0; i < universityArray.length; i++)
-				if (universityArray[i].getuniversityName() == schoolName) {
-					return universityArray[i];
-				}	
-			return null;
+			//for (int i = 0; i < universityArray.length; i++)
+				//if (universityArray[i].getuniversityName() == schoolName) {
+					//return universityArray[i];
+				//}	
+			//return null;
+			return university;
 		}
 		/**
 		 * 
