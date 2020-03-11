@@ -99,7 +99,7 @@ public class UserController {
 		return DBController.getAllUsers();
 	}
 	
-	public void lookup(String accountName, String schoolName) {
+	public void lookup(String accountName, String universityName) {
 		
 	}
 	
@@ -107,7 +107,7 @@ public class UserController {
 		
 	}
 	
-	public void addSchoolToList(University school) {
+	public void addUniversityToList(University school) {
 		
 	}
 
