@@ -19,13 +19,23 @@ public class UserUI {
 	String pass;
 	UniversityController universityController;
 	UserController userController;
-	
+	/**
+	 * 
+	 * @param username
+	 * @param password
+	 */
 	public static void login(String username, String password) {
 		
 	UserController.login(username, password);
 	}
 	
 	public static void goToPage() {
+
+	}
+	/**
+	 * 
+	 */
+	public void goToPage() {
 		String schoolName = " ";
 		UniversityController.getUniversity(schoolName);
 	}
@@ -34,14 +44,25 @@ public class UserUI {
 		UserController.getUserInfo(username);
 	}
 	
-	public void saveUserInfo(String username, String password, String firstName, String lastName) {
-		
+	/**
+	 * Saves the user information to the database.
+	 * @param username
+	 * @param password
+	 * @param firstName
+	 * @param lastName
+	 */
+	public static void saveUserInfo(String username, String password, String firstName, String lastName) {
+		UserController.saveUserInfo(username, password, firstName, lastName);
 	}
-	
+	/**
+	 * 
+	 */
 	public void editSchool() {
 		
 	}
-	
+	/**
+	 * 
+	 */
 	public void manageSchool() {
 		
 	}
@@ -77,37 +98,84 @@ public class UserUI {
 		
 	}
 	
+	/**
+	 * Adds a specified school to users saved school list
+	 * @Author John Engh
+	 * @param SName Name of university as string
+	 * @param AName Account username as string
+	 */
+	public static void addSavedSchool(String SName, String AName) {
+		
+	}
+
+	/**
+	 * 
+	 * @param account
+	 */
 	public void displaySavedSchool(Account account) {
 		
 	}
-	
+	/**
+	 * 
+	 * @param school
+	 */
 	public void blacklistSchool(University school) {
 		
 	}
-	
+	/**
+	 * 
+	 * @param school
+	 */
 	public void saveUniversityInfo(University school) {
 		
 	}
-	
+	/**
+	 * 
+	 * @param school
+	 */
 	public void addSchool(University school) {
 		
 	}
-	
+	/**
+	 * 
+	 */
 	public void logOut() {
 		
 	}
-	
+	/**
+	 * 
+	 * @param account
+	 */
 	public void lookup(Account account) {
 		
 	}
 		
-	public void viewResults() {
-		
+	/**
+	 * Displays the search results to the user.
+	 */
+	public static void viewResults() {
+		// TODO @Jack
 	}
+	
+	/**
+	 * 
+	 * @param school
+	 */
 	public void displayUserInfo(University school) {		//need to add to class diagram
 		
 	}
 
+	/**
+	 * 
+	 * @param school
+	 */
+	public void removeSchool(String school) {
+		UniversityController.removeUniversity(school);
+	}
+	
+	/**
+	 * 
+	 */
 	public void displaySavedList() {
 		// TODO Auto-generated method stub
 		
@@ -126,16 +194,26 @@ public class UserUI {
 	public static void displaySavedUniversity(Account account) {
 		System.out.println("Here are the schools");
 	}
+	/**
+	 * 
+	 */
 	public static void goToLoginPage() {
 		System.out.println("logged in");
 	}
 	/**
+
 	 * Calls UniversityController to pass on to DBController and Account
 	 * 
 	 * @param university
 	 */
 	public static void removeUniversity(String university) {
 		UniversityController.removeUniversity(university);
+	}
+	/**
+	 * 
+	 */
+	public static void manageUsers() {
+		UserController.getAllUsers();
 		
 	}
 	

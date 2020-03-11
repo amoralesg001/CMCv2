@@ -1,9 +1,12 @@
+<<<<<<< HEAD
 
 /**
  * 
  */
 package CMC;
 
+=======
+>>>>>>> 19d96e3d8b6c9df77e6acdc0587a37595b98a055
 import java.util.ArrayList;
 
 import CMC.Search.*;
@@ -97,15 +100,15 @@ public class Driver {
 	/**
 	 * Edit User Information
 	 */
-	public void u7() {
-		// TODO @Jack
+	public void u7(String username, String password, String firstName, String lastName) {
+		UserUI.saveUserInfo(username, password, firstName, lastName);
 	}
 	
 	/**
 	 * View Search Results
 	 */
 	public void u8() {
-		this.userUI.viewResults();
+		UserUI.viewResults();
 	}
 	
 	/**
