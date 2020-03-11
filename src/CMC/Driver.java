@@ -1,4 +1,3 @@
-
 import java.util.ArrayList;
 import CMC.User.*;
 import CMC.University.University;

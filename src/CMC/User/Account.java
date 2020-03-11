@@ -20,23 +20,38 @@ public class Account {
 	private String userType;
 	private boolean loginStatus;
 	private ArrayList<University> universities = new ArrayList<University>();
-	
+	/**
+	 * 
+	 * @return
+	 */
 	public String getUsername() {
 		return this.username; 
 	}
-	
+	/**
+	 * 
+	 * @return
+	 */
 	public String getPassword() {
 		return this.password;
 	}
-	
+	/**
+	 * 
+	 * @return
+	 */
 	public String getFirstName() {
 		return this.firstName;
 	}
-	
+	/**
+	 * 
+	 * @return
+	 */
 	public String getLastName() {
 		return this.lastName;
 	}
-	
+	/**
+	 * 
+	 * @return
+	 */
 	public String getUserType() {
 		return this.userType;
 	}
