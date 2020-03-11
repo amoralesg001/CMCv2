@@ -37,8 +37,15 @@ public class UserUI {
 		UserController.getUserInfo(username);
 	}
 	
-	public void saveUserInfo(String username, String password, String firstName, String lastName) {
-		
+	/**
+	 * Saves the user information to the database.
+	 * @param username
+	 * @param password
+	 * @param firstName
+	 * @param lastName
+	 */
+	public static void saveUserInfo(String username, String password, String firstName, String lastName) {
+		UniversityController.saveUserInfo(username, password, firstName, lastName);
 	}
 	
 	public void editSchool() {
@@ -107,9 +114,13 @@ public class UserUI {
 		
 	}
 		
-	public void viewResults() {
-		
+	/**
+	 * Displays the search results to the user.
+	 */
+	public static void viewResults() {
+		// TODO @Jack
 	}
+	
 	public void displayUserInfo(University school) {		//need to add to class diagram
 		
 	}
