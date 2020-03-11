@@ -17,26 +17,36 @@ public class Driver {
 
 	public static void main(String[] args) {
 		String universityToRemove = "";
+		System.out.println("u1 starting");
 		u1();
 		System.out.println("u1 done");
-		System.out.println("Output should be: Invalid Credentials");
+		System.out.println("Output should be: logged in");
 		//u2();
 		System.out.println("u2 done");
-		u3("Saint John's University");
+		System.out.println("u3 starting");
+		u3("amoralesg001");
+		System.out.println("u3 done");
+		System.out.println("u4 starting");
 		u4();
 		System.out.println("u4 done");
 		//u5(universityToRemove);
 		//u6(universityToRemove);
 		//u7(universityToRemove, universityToRemove, universityToRemove, universityToRemove);
-		System.out.println("Beginning u8");
+		//System.out.println("u7 done");
+		System.out.println("u8 starting");
 		u8();
+		
 		System.out.println("u8 done");
+		System.out.println("u9 starting");
 		u9();
 		System.out.println("u9 done");
+		System.out.println("u10 starting");
 		u10();
 		System.out.println("u10 done");
+		System.out.println("u11 starting");
 		u11();
 		System.out.println("u11 done");
+		System.out.println("u12 starting");
 		u12();
 		System.out.println("u12 done");
 		
@@ -148,7 +158,7 @@ public class Driver {
 	public static void u9() {
 		String SName = "Saint John's University";
 		String AName = "jengh001";
-		boolean success = UserUI.addSavedSchool(SName, AName);
+		boolean success = UserUI.addSavedUniversties(SName, AName);
 		if (success) {
 		   System.out.println("Saved Successfully");
 		}

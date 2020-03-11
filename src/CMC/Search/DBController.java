@@ -7,7 +7,7 @@ import CMC.User.*;
 import CMC.University.*;
 
 public class DBController {
-		private static Account account = new Account(null, null, null, null, null); 
+		private static Account account = new Account("amoralesg001", "thumb thumb", null, null, null); 
 
 		private static User userArray[]; //should we do an array or list?  
 

@@ -96,8 +96,8 @@ public class UserUI {
 	 * @param AName Account username as string
 	 * @return 
 	 */
-	public static boolean addSavedSchool(String SName, String AName) {
-		UserController.addSavedSchools(SName, AName);
+	public static boolean addSavedUniversties(String SName, String AName) {
+		UserController.addSavedUniversities(SName, AName);
 	}
 
 	/**
