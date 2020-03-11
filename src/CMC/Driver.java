@@ -136,13 +136,21 @@ public class Driver {
 	}
 	
 	/**
-	 * 
+	 * U9: Save School to list 
+	 * @author jengh001
 	 */
-	public void u9() {}
+	public void u9() {
+		String SName = "";
+		String AName = "";
+		UserUI.addSavedSchool(SName, AName);
+	}
 	/**
-	 * 
+	 * U10: Manage Users
+	 * @author jengh001
 	 */
-	public void u10() {}
+	public void u10() {
+		UserUI.manageUsers();
+	}
 	/**
 	 * 
 	 */
