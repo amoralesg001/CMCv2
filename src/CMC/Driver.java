@@ -38,18 +38,20 @@ public class Driver {
 		
 		System.out.println("u8 done");
 		System.out.println("u9 starting");
-		u9();
+		//u9();
 		System.out.println("u9 done");
 		System.out.println("u10 starting");
-		u10();
+		//u10();
 		System.out.println("u10 done");
 		System.out.println("u11 starting");
 		u11();
 		System.out.println("u11 done");
-		System.out.println("u12 starting");
+		System.out.println("u12 should rb");
 		u12();
 		System.out.println("u12 done");
 		
+		System.out.println("u16 start");
+		u16();
 
 		System.out.println("Testing...");
 		//u3();
@@ -206,6 +208,10 @@ public class Driver {
 		UserUI.addSchool(universityName, state, location, numStudents, femalePer, verSAT, mathSAT,
 				tuition, finAid, numApplicants, admitPer, enrolledPer, academicScale, socialScale, qoaScale,
 				blacklist, emphasis);
+		for (University u: DBController.uArray)
+		{ 
+			System.out.println(u.toString());
+		}
 	}
 	/**
 	 * 
@@ -220,9 +226,34 @@ public class Driver {
 	 */
 	public void u15() {}
 	/**
-	 * 
+	 * u16 is editing a school's information
 	 */
-	public void u16() {}
+	public static void u16() {
+		String universityName = "SJU";
+		String state = "o";
+		String location = "o";
+		int numStudents = 0;
+		int femalePer = 8;
+		int verSAT = 0;
+		int mathSAT = 0;
+		double tuition = 0;
+		double finAid = 0;
+		double numApplicants = 0;
+		int admitPer = 0;
+		int enrolledPer = 0;
+		int academicScale = 0;
+		int socialScale = 0;
+		int qoaScale = 0;
+		boolean blacklist = true;
+		ArrayList<String> emphasis = new ArrayList<String>();
+		
+		UserUI.saveScoolInfo(universityName, state, location, numStudents, femalePer, verSAT, mathSAT, tuition, finAid, numApplicants, admitPer, enrolledPer, academicScale, socialScale, qoaScale, blacklist, emphasis);
+		
+		for (University u: DBController.uArray)
+		{ 
+			System.out.println(u.toString());
+		}
+	}
 	/**
 	 * 
 	 */

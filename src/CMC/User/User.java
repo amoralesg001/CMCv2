@@ -16,7 +16,7 @@ public class User {
 	}
 	
 	public void setUserPassword(String password) {
-		this.account.updateAccountInfo(this.account.getUsername(), password, this.account.getFirstName(), this.account.getLastName());
+		this.account. (this.account.getUsername(), password, this.account.getFirstName(), this.account.getLastName());
 	}
 	
 	public void setUserFirstName(String firstName) {

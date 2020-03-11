@@ -263,4 +263,24 @@ public class University {
 		this.blacklist = blacklist;
 	}
 	
+	public void emphasisToString(ArrayList<String> emphasis)
+	{
+		for (String s: emphasis)
+		{
+			System.out.println(s);
+		}
+	}
+	
+
+	public String toString()
+	{
+		return  "School: " + this.universityName + "\nState: " + this.state + "\nLocation: " + location + "\nnumStudents: " + this.numStudents + 
+				"\nFemalePer: " + this.femalePer + "\nVerSAT: " + this.verSAT + "\nMathSAT: " + this.mathSAT + 
+				"\nTuition: " + this.tuition + "\nFinAid: " + this.finAid + "\nNumApplicants: " + this.numApplicants  + 
+				"\nAdmitPer: " + this.admitPer +  "\nEnrolledPer: " + this.enrolledPer + 
+				"\nAcademicScale: " + this.academicScale + "\nSocialScale: "  + this.socialScale + "\nQoaScale: " + this.qoaScale + 
+				"\nBlackListed: " + this.blacklist;
+	}
+	
+	
 }

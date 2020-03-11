@@ -92,18 +92,20 @@ public class UniversityController {
 		
 	}
 	
-	/**
-	 * Edits the university information. 
-	 */
-	public static void editUniversityInfo() {
-		// TODO
-	}
+
 	
 	/**
 	 * Adds the university to the blacklist.
 	 */
 	public void blacklistUniversity() {
 		// TODO
+	}
+
+	public static void editUniversityinfo(String universityName, String state, String location, int numStudents,
+			int femalePer, int verSAT, int mathSAT, double tuition, double finAid, double numApplicants, int admitPer,
+			int enrolledPer, int academicScale, int socialScale, int qoaScale, ArrayList<String> emphasis) {
+		University uni = new University(universityName, state, location, numStudents, femalePer, verSAT, mathSAT, tuition, finAid, numApplicants, admitPer, enrolledPer, academicScale, socialScale, qoaScale, emphasis);
+		DBController.updateUniversityDB(uni);
 	}
 	
 }

@@ -13,7 +13,7 @@ public class DBController {
 
 		private static University university = new University("Saint John's Univeristy", "Minnesota", "United States", (int) 2500, 0, 0, 0, 40000, 0, 0, 0,  0, 0, 0, 0, new ArrayList<String>());
 		private static University universityArray[];
-
+		public static ArrayList<University> uArray = new ArrayList<University>();
 		
 		public static Account getAccountDB(String name, String password) {
 			return account; 
@@ -22,8 +22,42 @@ public class DBController {
 		 * 
 		 * @param universityName
 		 */
-		public void updateUniversityDB(University universityName) {
-			
+		//this.numStudents = (long) numStudents2;
+		//this.femalePer = femalePer;
+		//this.verSAT = verSAT;
+		//this.mathSAT = mathSAT;
+		//this.tuition = tuition;
+		//this.finAid = finAid;
+		////this.numApplicants = numApplicants;
+		//this.admitPer = admitPer;
+		//this.enrolledPer = enrolledPer;
+		////this.academicScale = academicScale;
+		//this.socialScale = socialScale;
+		//this.qoaScale = qoaScale;
+		//this.emphasis = emphasis;
+		public static void updateUniversityDB(University universityName) {
+			for (University u: uArray)
+			{
+				if( u.getuniversityName().equals(universityName.getuniversityName()))
+				{
+					u.setUniversityName(universityName.getuniversityName());
+					u.setState(universityName.getState());
+					u.setLocation(universityName.getLocation());
+					u.setNumStudents(universityName.getNumStudents());
+					u.setFemalePer(universityName.getFemalePer());
+					u.setVerSAT(universityName.getVerSAT());
+					u.setMathSAT(universityName.getMathSAT());
+					u.setTuition(universityName.getTuition());
+					u.setFinAid(universityName.getFinAid());
+					u.setNumApplicants(universityName.getNumApplicants());
+					u.setAdmitPer(universityName.getAdmitPer());
+					u.setEnrolledPer(universityName.getEnrolledPer());
+					u.setAcademicScale(universityName.getAcademicScale());
+					u.setSocialScale(universityName.getSocialScale());
+					u.setQoaScale(universityName.getQoaScale());
+					u.setEmphasis(universityName.getEmphasis());
+				}
+			}
 			
 		}
 		/**
@@ -51,8 +85,9 @@ public class DBController {
 		 * @param universityName
 		 * @return
 		 */
-		public static University addUniversity(University universityName) {//is this adding all information of a university or just on the saved list? 
-			 return null; 
+		public static void addUniversity(University universityName) {//is this adding all information of a university or just on the saved list? 		
+			uArray.add(universityName); 
+			
 		}
 		/**
 		 * 
