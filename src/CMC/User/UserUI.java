@@ -42,7 +42,7 @@ public class UserUI {
 	 * @param lastName
 	 */
 	public static void saveUserInfo(String username, String password, String firstName, String lastName) {
-		UniversityController.saveUserInfo(username, password, firstName, lastName);
+		UserController.saveUserInfo(username, password, firstName, lastName);
 	}
 	
 	public void editSchool() {

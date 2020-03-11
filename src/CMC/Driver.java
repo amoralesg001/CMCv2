@@ -97,7 +97,6 @@ public class Driver {
 	 */
 	public void u7(String username, String password, String firstName, String lastName) {
 		UserUI.saveUserInfo(username, password, firstName, lastName);
-		
 	}
 	
 	/**
