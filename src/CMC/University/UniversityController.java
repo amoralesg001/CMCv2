@@ -11,7 +11,7 @@ package CMC.University;
 import java.util.ArrayList;
 
 import CMC.Search.DBController;
-import CMC.User.Account;
+import CMC.User.*;
 
 public class UniversityController {
 	
@@ -84,8 +84,9 @@ public class UniversityController {
 	 * @param universityName university name to get the university object
 	 */
 
-	public static University getUniversity(String universityName) {
-		return DBController.getUniversity(universityName);
+	public static void getUniversity(String universityName) {
+		University universityToDisplay = DBController.getUniversity(universityName);
+		UserUI.displayUniversityInfo(universityToDisplay);
 		
 
 	}

@@ -17,11 +17,6 @@ import CMC.University.*;
  */
 public class Driver {
 
-	private UserController userControl = new UserController();
-	private UserUI userUI = new UserUI();
-	private DBController dbController = new DBController();
-	private University university = new University();
-
 	public void main(String[] args) {
 		String universityToRemove = "";
 		u1();
@@ -89,9 +84,7 @@ public class Driver {
 	 * @param String university name
 	 */
 	public void u5(String universityName) {
-		UserUI.goToPage();
-		University university = null;
-		UserUI.displayUniversityInfo(university);
+		UserUI.getUniversity(universityName);
 	}
 	/**
 	 * u6: Remove School From List
