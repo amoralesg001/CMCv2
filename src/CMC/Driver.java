@@ -1,6 +1,10 @@
 import java.util.ArrayList;
 import CMC.User.*;
 import CMC.University.University;
+
+import Search.DBController;
+import User.UserUI;
+=======
 import CMC.Search.DBController;
 import CMC.Search.SearchController;
 
@@ -12,10 +16,14 @@ import CMC.Search.SearchController;
  */
 public class Driver {
 
+
+	private University university = new University();
+
 	private UserController userControl = new UserController();
 	private UserUI userUI = new UserUI();
 	private DBController dbController = new DBController();
 	private University university = new University(null, null, null, null, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, null);
+
 
 
 	public void main(String[] args) {
@@ -35,8 +43,13 @@ public class Driver {
 	public void u1() {
 		String username = "amoralesg001";
 		String password = "thumb thumb";
-		UserUI.login(username, password);
-
+		boolean verify = UserUI.login(username, password);
+		if (verify == true) {
+		System.out.println("logged in");	
+		}
+		else {
+		System.out.println("Invalid credentials");	
+		}	
 	}
 	
 	/**
@@ -46,15 +59,11 @@ public class Driver {
 	 */
 	public void u2() {
 
-		//private String u = "";
-		//userControl.getUsername(u);
-		//UserUI.displaySavedList();
-
-		//String user = userController.getUsername(account);
-		//ArrayList<University> universitys = account.getSavedUniversity();
 		String username = "amoralesg001";
-		UserUI.getSavedUniversity(username);
-		
+		ArrayList<String> savedUniversities = UserUI.getSavedUniversityList(username);
+		for(int i = 0; i<savedUniversities.size();i++) {
+		System.out.println(savedUniversities.get(i));
+		}
 	}
 	/**
 	 * 
@@ -136,11 +145,35 @@ public class Driver {
 	/**
 	 * 
 	 */
-	public void u11() {}
+	public void u11() {
+		this.userUI.manageSchool();
+	}
 	/**
 	 * 
 	 */
-	public void u12() {}
+	public void u12() {
+		String universityName = "SJU";
+		String state = "MN";
+		String location = "SC";
+		int numStudents = 2000;
+		int femalePer = 0;
+		int verSAT = 1200;
+		int mathSAT = 1200;
+		double tuition = 60000;
+		double finAid = 20000;
+		double numApplicants = 4000;
+		int admitPer = 20;
+		int enrolledPer = 80;
+		int academicScale = 5;
+		int socialScale = 5;
+		int qoaScale = 5;
+		boolean blacklist = false;
+		ArrayList<String> emphasis = new ArrayList<String>();
+		
+		this.userUI.addSchool(universityName, state, location, numStudents, femalePer, verSAT, mathSAT,
+				tuition, finAid, numApplicants, admitPer, enrolledPer, academicScale, socialScale, qoaScale,
+				blacklist, emphasis);
+	}
 	/**
 	 * 
 	 */

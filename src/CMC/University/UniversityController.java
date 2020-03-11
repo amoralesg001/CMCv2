@@ -63,7 +63,7 @@ public class UniversityController {
 	 */
 	public static void getAllUniversities()
 	{
-
+		dBController.getAllUniversitys()
 	}
 	
 	/* method blacklists university
@@ -107,11 +107,14 @@ public class UniversityController {
 	 * @param qoaSCale
 	 * @param emphasis
 	 */
-	public static void addUniversity(String universityName, String state, String location, Long numStudents, int femalePer, int verSAT,
+	public static void addUniversity(String universityName, String state, String location, int numStudents, int femalePer, int verSAT,
 			int mathSAT, double tuition, double finAid, double numApplicants, int admitPer, int enrolledPer,
 			int academicScale, int socialScale, int qoaSCale, ArrayList<String> emphasis) {
-		// TODO
-	}
+		University newUniversity = new University(universityName, state, location, numStudents, femalePer, verSAT,
+				mathSAT, tuition, finAid, numApplicants, admitPer, enrolledPer, academicScale, socialScale,
+				qoaSCale, emphasis);
+		dBController.addUniversity(newUniversity);
+				}
 	
 	/**
 	 * Removes a university from the database by name.

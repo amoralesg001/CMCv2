@@ -19,14 +19,19 @@ public class UserUI {
 	String pass;
 	UniversityController universityController;
 	UserController userController;
+<<<<<<< HEAD
+	
+	public static Boolean login(String username, String password) {
+=======
 	/**
 	 * 
 	 * @param username
 	 * @param password
 	 */
 	public static void login(String username, String password) {
+>>>>>>> 822e8286b9c3d720647e8f8c0dbcb433bccb5ea6
 		
-	UserController.login(username, password);
+	return UserController.login(username, password);
 	}
 	/**
 	 * 
@@ -60,7 +65,7 @@ public class UserUI {
 	 * 
 	 */
 	public void manageSchool() {
-		
+		UniversityController.getAllUniversities();
 	}
 	
 	/**
@@ -123,13 +128,7 @@ public class UserUI {
 	public void saveUniversityInfo(University school) {
 		
 	}
-	/**
-	 * 
-	 * @param school
-	 */
-	public void addSchool(University school) {
-		
-	}
+
 	/**
 	 * 
 	 */
@@ -176,21 +175,21 @@ public class UserUI {
 	 * This method goes to the UserController
 	 * @param username the username of Account
 	 */
-	public static void getSavedUniversity(String username) {
-		UserController.getSavedUniversity(username);
+	public static ArrayList<String> getSavedUniversityList(String username) {
+		return UserController.getSavedUniversityList(username);
 	}
 	/**
 	 * this method displays the saved universities from the specific account
 	 * @param account
 	 */
-	public static void displaySavedUniversity(Account account) {
+	public static void displaySavedUniversity(ArrayList<String> universityList) {
 		System.out.println("Here are the schools");
 	}
 	/**
 	 * 
 	 */
 	public static void goToLoginPage() {
-		System.out.println("logged in");
+		
 	}
 	/**
 	 * 
@@ -199,6 +198,14 @@ public class UserUI {
 		UserController.getAllUsers();
 		
 	}
+<<<<<<< HEAD
+	public void addSchool(String universityName, String state, String location, int numStudents, int femalePer,
+			int verSAT, int mathSAT, double tuition, double finAid, double numApplicants, int admitPer, int enrolledPer,
+			int academicScale, int socialScale, int qoaScale, boolean blacklist, ArrayList<String> emphasis) {
+		// TODO Auto-generated method stub
+		UniversityController.addUniversity(universityName, state, location, numStudents, femalePer, verSAT, mathSAT, tuition, finAid, numApplicants, admitPer, enrolledPer, academicScale, socialScale, qoaScale, emphasis);
+		
+=======
 	
 	/**
 	 * Displays the account information to the UserUI.
@@ -208,6 +215,7 @@ public class UserUI {
 		System.out.println(account.getUsername());
 		System.out.println(account.getFirstName());
 		System.out.println(account.getLastName());
+>>>>>>> 72ba97d3e81a8d077642695849c429ca067257f9
 	}
 }
 

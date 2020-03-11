@@ -10,8 +10,10 @@ import CMC.University.*;
 import CMC.Search.DBController;
 
 public class Account {
+
 	//DBController should be static delete variable
 	private DBController dbController = new DBController();
+
 	
 	private String username;
 	private String password;
@@ -19,11 +21,16 @@ public class Account {
 	private String lastName;
 	private String userType;
 	private boolean loginStatus;
+
+	private ArrayList<String> universityNamesList; //im only doing this for no2. Sooner or later i will need an ArrayList to. Will need a constructure that holds the arrays of the universities
+	
+
 	private ArrayList<University> universities = new ArrayList<University>();
 	/**
 	 * 
 	 * @return
 	 */
+
 	public String getUsername() {
 		return this.username; 
 	}
@@ -59,7 +66,11 @@ public class Account {
 		
 	}
 	public boolean verify(String username, String password,Account account) {
+
+		if (account.getUsername() == username && account.getPassword() == password)
+
 		if (this.getUsername() == username && this.getPassword() == password)
+
 		{
 		return true;
 		}
@@ -102,8 +113,17 @@ public class Account {
 		return success;
 	}
 
+
+	public ArrayList<String> getSavedUniversityList() {
+		
+		universityNamesList.add("Saint Johns");
+		universityNamesList.add("Macalaster");
+		universityNamesList.add("University of Minnesota");
+		
+		return universityNamesList;
+
 	public ArrayList<University> getSavedUniversity() {
 		return universities;
-		
+
 	}
 }

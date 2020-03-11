@@ -10,9 +10,14 @@ import CMC.Search.*;
 import java.util.ArrayList;
 
 public class UserController {
+
+	
+	private Account account;
+
 	//DBController should be static so delete variable
 	private DBController dBController = new DBController();
 	private static Account account;
+
 	
 	public String getUsername(Account account) {
 		return account.getUsername();
@@ -44,12 +49,17 @@ public class UserController {
 		acc.addUniversity(uni);
 	}
 		
-	public static void login(String username, String password) {
+	public static boolean login(String username, String password) {
 		Account account = DBController.getAccountDB(username, password);
-		Boolean verify = account.verifyAccount(username,password,account);	//not sure how to verify.
+		boolean verify = account.verify(username,password,account);	//not sure how to verify.
 		if (verify == true)
 		{
-		UserUI.gotToLoginPage();
+		UserUI.goToLoginPage();
+		return true; 
+		}
+		else
+		{
+		return false;
 		}
 	}
 	
@@ -118,11 +128,17 @@ public class UserController {
 	 * of the account retrieved.
 	 * @param username
 	 */
+
+	public static ArrayList<String> getSavedUniversityList(String username) {
+	Account account = DBController.getSavedUniversityList(username);	
+	return account.getSavedUniversityList();
+
 	public static void getSavedUniversity(String username) {
 		Account account = DBController.getSavedUniversityList(username);
 	
 		ArrayList <String> saveUnivList = account.getSavedUniversity();
 		UserUI.displaySavedUniversity(account);
+
 	}
 }
 
