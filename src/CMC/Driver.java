@@ -66,13 +66,23 @@ public class Driver {
 		System.out.println(usernameTest);
 		System.out.println("Output should have been: " + username);	
 	}
+	
+	
 	/**
-	 * 
+	 * U4: Search For Schools
+	 * @author nlarson002
+	 * This allows the user to search for a school
 	 */
 
 	public void u4() {
 		String universityName = "Saint John's University";
-		SearchController.searchUniversities(universityName);
+		University uni = SearchController.searchUniversities(universityName);
+		if (uni.getuniversityName() == universityName) {
+			System.out.println(uni.getuniversityName());
+		}
+		else {
+			System.out.println("School not found");
+		}
 	}
 
 	/**
@@ -82,13 +92,13 @@ public class Driver {
 	public void u5() {
 		this.userUI.goToPage();
 		University university = null;
-		this.userUI.displayUniversityInfo(university);
+		this.userUI.displaySchoolInfo(university);
 	}
 	/**
 	 * 
 	 */
 	public void u6(University university) {
-		this.userUI.removeUniversity(university);
+		userUI.removeUniversity(university);
 	}
 	/**
 	 * Edit User Information
