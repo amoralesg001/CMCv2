@@ -1,10 +1,10 @@
 
-package Search;
+package CMC.Search;
 
 import java.util.ArrayList;
 
-import User.*;
-import University.*;
+import CMC.User.*;
+import CMC.University.*;
 
 public class DBController {
 		private static Account account = new Account(); 
@@ -25,7 +25,7 @@ public class DBController {
 		public void updateBlackListDB(University universityName) {
 			
 		}
-		public University searchUniversity(String schooName) {	// should return a university i assume but diagram doesnt
+		public static University searchUniversity(String schooName) {	// should return a university i assume but diagram doesnt
 			return university; 
 		}
 		public University addUniversity(String universityName) {//is this adding all information of a university or just on the saved list? 
