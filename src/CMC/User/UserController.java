@@ -12,7 +12,7 @@ import java.util.ArrayList;
 public class UserController {
 	//DBController should be static so delete variable
 	private DBController dBController = new DBController();
-	private Account account;
+	private static Account account;
 	
 	public String getUsername(Account account) {
 		return account.getUsername();
@@ -68,8 +68,12 @@ public class UserController {
 		return "";
 	}
 	
-	public void saveUserInfo(String username, String password, String firstName, String lastName) {
-		//todo
+	public static void saveUserInfo(String username, String password, String firstName, String lastName) {
+		Account user = DBController.getAccountDB(username, password);
+		DBController.updateAccountDB(user);
+		if (user != null) {
+			account.updateAccountInfo(username, password, firstName, lastName);
+		}
 	}
 	
 	public static User[] getAllUsers() {

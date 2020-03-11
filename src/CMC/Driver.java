@@ -94,15 +94,15 @@ public class Driver {
 	/**
 	 * Edit User Information
 	 */
-	public void u7() {
-		// TODO @Jack
+	public void u7(String username, String password, String firstName, String lastName) {
+		UserUI.saveUserInfo(username, password, firstName, lastName);
 	}
 	
 	/**
 	 * View Search Results
 	 */
 	public void u8() {
-		this.userUI.viewResults();
+		UserUI.viewResults();
 	}
 	
 	/**

@@ -39,15 +39,16 @@ public class UserUI {
 	public static Account getUserInfo(String username) { 
 		return UserController.getUserInfo(username);
 	}
+	
 	/**
-	 * 
+	 * Saves the user information to the database.
 	 * @param username
 	 * @param password
 	 * @param firstName
 	 * @param lastName
 	 */
-	public void saveUserInfo(String username, String password, String firstName, String lastName) {
-		
+	public static void saveUserInfo(String username, String password, String firstName, String lastName) {
+		UserController.saveUserInfo(username, password, firstName, lastName);
 	}
 	/**
 	 * 
@@ -142,12 +143,14 @@ public class UserUI {
 	public void lookup(Account account) {
 		
 	}
-	/**
-	 * 	
-	 */
-	public void viewResults() {
 		
+	/**
+	 * Displays the search results to the user.
+	 */
+	public static void viewResults() {
+		// TODO @Jack
 	}
+	
 	/**
 	 * 
 	 * @param school
