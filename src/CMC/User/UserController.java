@@ -39,7 +39,9 @@ public class UserController {
 	 * @param AName Username of account as string
 	 */
 	public void addSavedSchools(String SName, String AName) {
-		University Uni = DBController.searchUniversity(SName);
+		University uni = DBController.searchUniversity(SName);
+		Account acc = DBController.getUserInfo(AName);
+		acc.addUniversity(uni);
 	}
 		
 	public static void login(String username, String password) {
