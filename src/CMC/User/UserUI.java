@@ -69,7 +69,7 @@ public class UserUI {
 	 * 
 	 */
 	public void manageSchool() {
-		
+		UniversityController.getAllUniversities();
 	}
 	
 	/**
@@ -134,13 +134,7 @@ public class UserUI {
 	public void saveUniversityInfo(University school) {
 		
 	}
-	/**
-	 * 
-	 * @param school
-	 */
-	public void addSchool(University school) {
-		
-	}
+
 	/**
 	 * 
 	 */
@@ -221,6 +215,14 @@ public class UserUI {
 		UserController.getAllUsers();
 		
 	}
+<<<<<<< HEAD
+	public void addSchool(String universityName, String state, String location, int numStudents, int femalePer,
+			int verSAT, int mathSAT, double tuition, double finAid, double numApplicants, int admitPer, int enrolledPer,
+			int academicScale, int socialScale, int qoaScale, boolean blacklist, ArrayList<String> emphasis) {
+		// TODO Auto-generated method stub
+		UniversityController.addUniversity(universityName, state, location, numStudents, femalePer, verSAT, mathSAT, tuition, finAid, numApplicants, admitPer, enrolledPer, academicScale, socialScale, qoaScale, emphasis);
+		
+=======
 	
 <<<<<<< HEAD
 	public static void getUniversity(String university) {
@@ -236,6 +238,7 @@ public class UserUI {
 		System.out.println(account.getUsername());
 		System.out.println(account.getFirstName());
 		System.out.println(account.getLastName());
+>>>>>>> 72ba97d3e81a8d077642695849c429ca067257f9
 	}
 >>>>>>> 72ba97d3e81a8d077642695849c429ca067257f9
 }

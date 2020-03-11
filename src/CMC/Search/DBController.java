@@ -60,7 +60,7 @@ public class DBController {
 		 * @param universityName
 		 * @return
 		 */
-		public University addUniversity(String universityName) {//is this adding all information of a university or just on the saved list? 
+		public University addUniversity(University universityName) {//is this adding all information of a university or just on the saved list? 
 			 return university; 
 		}
 		/**

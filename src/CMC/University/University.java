@@ -1,4 +1,4 @@
-package University;
+package CMC.University;
 import java.util.ArrayList;
 
 public class University {
@@ -6,7 +6,7 @@ public class University {
 	private String universityName;
 	private String state;
 	private String location;
-	private Long numStudents;
+	private int numStudents;
 	private int femalePer;
 	private int verSAT;
 	private int mathSAT;
@@ -30,7 +30,7 @@ public class University {
 	 * @param universityName
 	 * @param state
 	 * @param location
-	 * @param numStudents
+	 * @param numStudents2
 	 * @param femalePer
 	 * @param verSAT
 	 * @param mathSAT
@@ -44,13 +44,13 @@ public class University {
 	 * @param qoaSCale
 	 * @param emphasis
 	 */
-	public University(String universityName, String state, String location, Long numStudents, int femalePer, int verSAT,
+	public University(String universityName, String state, String location, int numStudents2, int femalePer, int verSAT,
 		int mathSAT, double tuition, double finAid, double numApplicants, int admitPer, int enrolledPer,
 		int academicScale, int socialScale, int qoaScale, ArrayList<String> emphasis) {
 		this.universityName = universityName;
 		this.state = state;
 		this.location = location;
-		this.numStudents = numStudents;
+		this.numStudents = numStudents2;
 		this.femalePer = femalePer;
 		this.verSAT = verSAT;
 		this.mathSAT = mathSAT;
