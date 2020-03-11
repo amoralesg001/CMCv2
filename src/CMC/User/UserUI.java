@@ -118,7 +118,7 @@ public class UserUI {
 	}
 	
 	public void removeSchool(String school) {
-		this.universityController.removeUniversity(school);
+		UniversityController.removeUniversity(school);
 	}
 
 	public void displaySavedList() {

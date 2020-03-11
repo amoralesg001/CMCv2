@@ -15,6 +15,7 @@ import Search.DBController;
 import University.University;
 
 public class Account {
+	//DBController should be static 
 	private DBController dbController = new DBController();
 	
 	private String username;
@@ -23,6 +24,7 @@ public class Account {
 	private String lastName;
 	private String userType;
 	private boolean loginStatus;
+	private ArrayList<University> universities = new ArrayList<University>();
 	
 	public String getUsername() {
 		return this.username; 
@@ -83,11 +85,12 @@ public class Account {
 	 * @return Returns if university successfully added to saved list
 	 */
 	public boolean addUniversity(University uni) {
-		
+		boolean success = universities.add(uni);
+		return success;
 	}
 
 	public ArrayList<University> getSavedUniversity() {
-		ArrayList<University> universitys = new ArrayList<University>();
+		
 		University university = new University(firstName, firstName, firstName, null, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, null);
 		universitys.add(university);
 		return universitys;
