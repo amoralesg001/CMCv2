@@ -1,32 +1,36 @@
-
-/**
- * 
- */
-package CMC;
-
 import java.util.ArrayList;
-
-import Search.DBController;
 import CMC.User.*;
-
 import CMC.University.University;
 
 import Search.DBController;
 import User.UserUI;
+=======
+import CMC.Search.DBController;
+import CMC.User.UserUI;
+
 
 /**
+ * Driver tests each use case of the CMC Program
  * @author Thumb Thumbs
  *
  */
 public class Driver {
 
+
 	private University university = new University();
+
+	private UserController userControl = new UserController();
+	private UserUI userUI = new UserUI();
+	private DBController dbController = new DBController();
+	private University university = new University(null, null, null, null, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, null)
+
+
 
 	public void main(String[] args) {
 		String universityToRemove = "";
-		u1();
-		u2();
-		u6(universityToRemove);
+		//u1();
+		//u2();
+		//u6(universityToRemove);
 		System.out.println("Testing...");
 		//u3();
 	}
@@ -51,7 +55,7 @@ public class Driver {
 	/**
 	 * U2: List Saved Universities
 	 * @author amoralesg001
-	 * This use case displays the saved Unversities from the Account.
+	 * This use case displays the saved Universities from the Account.
 	 */
 	public void u2() {
 
@@ -64,24 +68,21 @@ public class Driver {
 	/**
 	 * 
 	 */
-	public void u3() {
-		String userName= "peter";
-		UserUI.getUserInfo(userName); 
-		
-		ArrayList<String> accountArray = this.account.getUserInfo();
-		for (int i=0; i<accountArray.size();i++) {
-			System.out.println(accountArray.get(i));
-		}
-			
+	public void u3(String username) {
+
+		Account account = UserUI.getUserInfo(username);
+		String usernameTest = account.getUsername();	
+		System.out.println(usernameTest);
+		System.out.println("Output should have been: " + username);	
 	}
 	/**
 	 * 
 	 */
 
 	public void u4() {
-		private String universityName = "Saint John's University";
-		University university = this.searchController.searchUniversitys(universityName);
-		System.out.println("University: " + this.university.getUniversityName());
+		String universityName = "Saint John's University";
+		University university = SearchController.searchUniversitys(universityName);
+		System.out.println("University: " + university.getuniversityName());
 	}
 
 	/**
@@ -102,25 +103,36 @@ public class Driver {
 	/**
 	 * Edit User Information
 	 */
-	public void u7() {
-		// TODO @Jack
+	public void u7(String username, String password, String firstName, String lastName) {
+		UserUI.saveUserInfo(username, password, firstName, lastName);
 	}
 	
 	/**
 	 * View Search Results
 	 */
 	public void u8() {
-		this.userUI.viewResults();
+		UserUI.viewResults();
 	}
 	
 	/**
-	 * 
+	 * Save Schools to list
+	 * @author Jengh001
 	 */
-	public void u9() {}
+	public void u9() {
+		String SName = "";
+		String AName = "";
+		UserUI.addSavedSchool(SName, AName);
+		
+		
+	}
 	/**
-	 * 
+	 * Manage Users
+	 * @author jengh001
 	 */
-	public void u10() {}
+	public void u10() {
+		UserUI.manageUsers();
+	
+	}
 	/**
 	 * 
 	 */

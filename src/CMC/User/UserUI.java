@@ -7,14 +7,11 @@
 
  *
  */
-package User;
+package CMC.User;
 
 import java.util.ArrayList;
+import CMC.University.*;
 
-
-import University.University;
-import University.UniversityController;
-import CMC.User.*;
 
 public class UserUI {
 
@@ -22,12 +19,23 @@ public class UserUI {
 	String pass;
 	UniversityController universityController;
 	UserController userController;
+<<<<<<< HEAD
 	
 	public static Boolean login(String username, String password) {
+=======
+	/**
+	 * 
+	 * @param username
+	 * @param password
+	 */
+	public static void login(String username, String password) {
+>>>>>>> 822e8286b9c3d720647e8f8c0dbcb433bccb5ea6
 		
 	return UserController.login(username, password);
 	}
-	
+	/**
+	 * 
+	 */
 	public void goToPage() {
 		String schoolName = " ";
 		this.universityController.getUniversity(schoolName);
@@ -37,14 +45,25 @@ public class UserUI {
 		UserController.getUserInfo(username);
 	}
 	
-	public void saveUserInfo(String username, String password, String firstName, String lastName) {
-		
+	/**
+	 * Saves the user information to the database.
+	 * @param username
+	 * @param password
+	 * @param firstName
+	 * @param lastName
+	 */
+	public static void saveUserInfo(String username, String password, String firstName, String lastName) {
+		UserController.saveUserInfo(username, password, firstName, lastName);
 	}
-	
+	/**
+	 * 
+	 */
 	public void editSchool() {
 		
 	}
-	
+	/**
+	 * 
+	 */
 	public void manageSchool() {
 		
 	}
@@ -79,42 +98,81 @@ public class UserUI {
 	public void getSavedList(Account account) {
 		
 	}
-	
+	/**
+	 * Adds a specified school to users saved school list
+	 * @Author John Engh
+	 * @param SName Name of university as string
+	 * @param AName Account username as string
+	 */
+	public static void addSavedSchool(String SName, String AName) {
+		
+	}
+	/**
+	 * 
+	 * @param account
+	 */
 	public void displaySavedSchool(Account account) {
 		
 	}
-	
+	/**
+	 * 
+	 * @param school
+	 */
 	public void blacklistSchool(University school) {
 		
 	}
-	
+	/**
+	 * 
+	 * @param school
+	 */
 	public void saveUniversityInfo(University school) {
 		
 	}
-	
+	/**
+	 * 
+	 * @param school
+	 */
 	public void addSchool(University school) {
 		
 	}
-	
+	/**
+	 * 
+	 */
 	public void logOut() {
 		
 	}
-	
+	/**
+	 * 
+	 * @param account
+	 */
 	public void lookup(Account account) {
 		
 	}
 		
-	public void viewResults() {
-		
+	/**
+	 * Displays the search results to the user.
+	 */
+	public static void viewResults() {
+		// TODO @Jack
 	}
+	
+	/**
+	 * 
+	 * @param school
+	 */
 	public void displayUserInfo(University school) {		//need to add to class diagram
 		
 	}
-	
+	/**
+	 * 
+	 * @param school
+	 */
 	public void removeSchool(String school) {
-		this.universityController.removeUniversity(school);
+		UniversityController.removeUniversity(school);
 	}
-
+	/**
+	 * 
+	 */
 	public void displaySavedList() {
 		// TODO Auto-generated method stub
 		
@@ -133,8 +191,28 @@ public class UserUI {
 	public static void displaySavedUniversity(ArrayList<String> universityList) {
 		System.out.println("Here are the schools");
 	}
+	/**
+	 * 
+	 */
 	public static void goToLoginPage() {
 		
+	}
+	/**
+	 * 
+	 */
+	public static void manageUsers() {
+		UserController.getAllUsers();
+		
+	}
+	
+	/**
+	 * Displays the account information to the UserUI.
+	 * @param account
+	 */
+	public static void displayAccountInfo(Account account) {
+		System.out.println(account.getUsername());
+		System.out.println(account.getFirstName());
+		System.out.println(account.getLastName());
 	}
 }
 

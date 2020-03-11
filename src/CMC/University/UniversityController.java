@@ -1,20 +1,18 @@
-/**
- * 
- */
 
 /**
+ * University controller manages all universities in the system
  * @author nlarson002
  *
  */
-package University;
+package CMC.University;
 
 import java.util.ArrayList;
 
-import Search.DBController;
-import User.Account;
+import CMC.Search.DBController;
+import CMC.User.Account;
 
 public class UniversityController {
-	
+	//DB Controller 
 	private static DBController dBController;
 	private static Account account;
 	private static ArrayList<University> blackList;

@@ -1,23 +1,23 @@
 /**
- * 
- */
-
-/**
+ * User controller manages all user accounts in the system
  * @author nlarson002
  *
  */
-package User;
+package CMC.User;
 
-import  CMC.University.*;
-import University.University;
-
+import CMC.University.*;
+import CMC.Search.*;
 import java.util.ArrayList;
 
-import CMC.Search.*;
-
 public class UserController {
+
 	
 	private Account account;
+
+	//DBController should be static so delete variable
+	private DBController dBController = new DBController();
+	private static Account account;
+
 	
 	public String getUsername(Account account) {
 		return account.getUsername();
@@ -38,9 +38,15 @@ public class UserController {
 	public String getAccountType() {
 		return account.getUserType();
 	}
-	
-	public void addSavedSchools(University schoolName) {
-		
+	/**
+	 * @author jengh001
+	 * @param SName Name of University as string 
+	 * @param AName Username of account as string
+	 */
+	public void addSavedSchools(String SName, String AName) {
+		University uni = DBController.searchUniversity(SName);
+		Account acc = DBController.getUserInfo(AName);
+		acc.addUniversity(uni);
 	}
 		
 	public static boolean login(String username, String password) {
@@ -74,12 +80,25 @@ public class UserController {
 		return "";
 	}
 	
-	public void saveUserInfo(String username, String password, String firstName, String lastName) {
-		//todo
+	/**
+	 * Saves the user information in the database, then updates the Account class and displays the 
+	 * information to the UserUI if the Account object is not null.
+	 * @param username
+	 * @param password
+	 * @param firstName
+	 * @param lastName
+	 */
+	public static void saveUserInfo(String username, String password, String firstName, String lastName) {
+		Account user = DBController.getAccountDB(username, password);
+		DBController.updateAccountDB(user);
+		if (user != null) {
+			account.updateAccountInfo(username, password, firstName, lastName);
+			UserUI.displayAccountInfo(user);
+		}
 	}
 	
-	public void getAllUsers() {
-		
+	public static User[] getAllUsers() {
+		return DBController.getAllUsers();
 	}
 	
 	public void lookup(String accountName, String schoolName) {
@@ -98,9 +117,10 @@ public class UserController {
 		// TODO Auto-generated method stub
 		
 	}
-	public static void getUserInfo(String username)
+	public static Account getUserInfo(String username)
 	{
-	DBController.getUserInfo(username);
+		Account temp = DBController.getUserInfo(username);
+		return temp;
 	}
 	/**
 	 * This method goes to DBController to retrieve an account
@@ -108,9 +128,17 @@ public class UserController {
 	 * of the account retrieved.
 	 * @param username
 	 */
+
 	public static ArrayList<String> getSavedUniversityList(String username) {
 	Account account = DBController.getSavedUniversityList(username);	
 	return account.getSavedUniversityList();
+
+	public static void getSavedUniversity(String username) {
+		Account account = DBController.getSavedUniversityList(username);
+	
+		ArrayList <String> saveUnivList = account.getSavedUniversity();
+		UserUI.displaySavedUniversity(account);
+
 	}
 }
 
