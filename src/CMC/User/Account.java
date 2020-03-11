@@ -15,7 +15,6 @@ import Search.DBController;
 import University.University;
 
 public class Account {
-	private DBController dbController = new DBController();
 	
 	private String username;
 	private String password;
@@ -23,6 +22,7 @@ public class Account {
 	private String lastName;
 	private String userType;
 	private boolean loginStatus;
+	private ArrayList<String> universityNamesList; //im only doing this for not. Sooner or later i will need an ArrayList to. Will need a constructure that holds the arrays of the universities
 	
 	public String getUsername() {
 		return this.username; 
@@ -47,7 +47,7 @@ public class Account {
 		
 	}
 	public boolean verify(String username, String password,Account account) {
-		if (this.account.getUsername() == username && this.account.getPassword() == password)
+		if (account.getUsername() == username && account.getPassword() == password)
 		{
 		return true;
 		}
@@ -77,11 +77,13 @@ public class Account {
 		
 	}
 
-	public ArrayList<University> getSavedUniversity() {
-		ArrayList<University> universitys = new ArrayList<University>();
-		University university = new University(firstName, firstName, firstName, null, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, null);
-		universitys.add(university);
-		return universitys;
+	public ArrayList<String> getSavedUniversity() {
+		
+		universityNamesList.add("Saint Johns");
+		universityNamesList.add("Macalaster");
+		universityNamesList.add("University of Minnesota");
+		
+		return universityNamesList;
 		
 	}
 }

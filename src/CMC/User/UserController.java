@@ -17,7 +17,6 @@ import CMC.Search.*;
 
 public class UserController {
 	
-	private DBController dBController = new DBController();
 	private Account account;
 	
 	public String getUsername(Account account) {
@@ -44,12 +43,17 @@ public class UserController {
 		
 	}
 		
-	public static void login(String username, String password) {
+	public static boolean login(String username, String password) {
 		Account account = DBController.getAccountDB(username, password);
-		Boolean verify = account.verifyAccount(username,password,account);	//not sure how to verify.
+		boolean verify = account.verify(username,password,account);	//not sure how to verify.
 		if (verify == true)
 		{
 		UserUI.gotToLoginPage();
+		return true; 
+		}
+		else
+		{
+		return false;
 		}
 	}
 	
@@ -104,11 +108,9 @@ public class UserController {
 	 * of the account retrieved.
 	 * @param username
 	 */
-	public static void getSavedUniversity(String username) {
-	Account account = DBController.getSavedUniversityList(username);
-	
-	ArrayList <String> saveUnivList = account.getSavedUniversity();
-	UserUI.displaySavedUniversity(account);
+	public static ArrayList<String> getSavedUniversity(String username) {
+	Account account = DBController.getSavedUniversityList(username);	
+	return account.getSavedUniversity();
 	}
 }
 

@@ -23,9 +23,9 @@ public class UserUI {
 	UniversityController universityController;
 	UserController userController;
 	
-	public static void login(String username, String password) {
+	public static Boolean login(String username, String password) {
 		
-	UserController.login(username, password);
+	return UserController.login(username, password);
 	}
 	
 	public void goToPage() {
@@ -123,18 +123,18 @@ public class UserUI {
 	 * This method goes to the UserController
 	 * @param username the username of Account
 	 */
-	public static void getSavedUniversity(String username) {
-		UserController.getSavedUniversity(username);
+	public static ArrayList<String> getSavedUniversity(String username) {
+		return UserController.getSavedUniversity(username);
 	}
 	/**
 	 * this method displays the saved universities from the specific account
 	 * @param account
 	 */
-	public static void displaySavedUniversity(Account account) {
+	public static void displaySavedUniversity(ArrayList<String> universityList) {
 		System.out.println("Here are the schools");
 	}
 	public static void goToLoginPage() {
-		System.out.println("logged in");
+		
 	}
 }
 
