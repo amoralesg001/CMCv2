@@ -27,7 +27,7 @@ public class DBLibraryDriver {
   
   public void display(String[][] table, PrintWriter pw, int topx) {
     
-    if(table!=null){
+    if(table!=null){:
       if (topx == -1 || topx > table.length)
         topx = table.length;      
       for (int row = 0; row < topx; row++) {         

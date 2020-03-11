@@ -19,19 +19,14 @@ public class UserUI {
 	String pass;
 	UniversityController universityController;
 	UserController userController;
-<<<<<<< HEAD
-	
-	public static Boolean login(String username, String password) {
-=======
 	/**
 	 * 
 	 * @param username
 	 * @param password
 	 */
 	public static void login(String username, String password) {
->>>>>>> 822e8286b9c3d720647e8f8c0dbcb433bccb5ea6
 		
-	return UserController.login(username, password);
+		return UserController.login(username, password);
 	}
 	/**
 	 * 
