@@ -33,7 +33,7 @@ public class Driver {
 		//u5(universityToRemove);
 		//u6(universityToRemove);
 		//u7(universityToRemove, universityToRemove, universityToRemove, universityToRemove);
-		//System.out.println("u7 done");
+		System.out.println("u7 done");
 		System.out.println("u8 starting");
 		u8();
 		
