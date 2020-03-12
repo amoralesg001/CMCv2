@@ -45,7 +45,7 @@ public class DBController {
 		}
 		
 		public static String[] dbGetUser(String username){	
-			String [][] ar = univDBlib.user_getUsers();
+			String[][] ar = univDBlib.user_getUsers();
 			
 			String [] user = new String[2];
 			user[0] = "";
@@ -58,8 +58,8 @@ public class DBController {
 				}
 				
 			}
-			//System.out.println()
-				return user;	
+
+			return user;	
 		}
 		
 
