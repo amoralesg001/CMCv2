@@ -2,9 +2,10 @@
 package CMC.Search;
 
 import java.util.ArrayList;
-import CMC.DBLibraryDriver;
+//import CMC.DBLibraryDriver;
 
 import CMC.User.*;
+import dblibrary.project.csci230.UniversityDBLibrary;
 import CMC.University.*;
 
 public class DBController {
@@ -15,12 +16,59 @@ public class DBController {
 		private static University university = new University("Saint John's Univeristy", "Minnesota", "United States", (int) 2500, 0, 0, 0, 40000, 0, 0, 0,  0, 0, 0, 0, new ArrayList<String>());
 		private static University universityArray[];
 		public static ArrayList<University> uArray = new ArrayList<University>();
+		static String dbUsername = "thumbthumbs";
+		static String dbPassword = "csci230";
+		static UniversityDBLibrary univDBlib = new UniversityDBLibrary(dbUsername,dbPassword);
 		
-		public static Account getAccountDB(String name, String password) {
-			return account; 
+		public static Boolean loginUserTest(String name, String password) {
+			
+			//String [][] ar = univDBlib.user_getUsers();
+			//String [][] user = new String[1][1];
+			 
+			
+			//for(int i = 0; i < ar.length; i++) {
+				//for(int j = 0; j < ar[i].length; j++) {
+					//System.out.println(ar[i][j]);
+				//}
+			//}
+			String[] user = dbGetUser(name);
+			String tempU = user[0];
+			String tempP = user[1];
+			if (tempU.equals(name) && tempP.equals(password)) {			
+				return true;
+				
+			}
+			else {
+				return false;
+			}
+			
 		}
-		/**
-		 * 
+		
+		public static String[] dbGetUser(String username){	
+			String [][] ar = univDBlib.user_getUsers();
+			
+			String [] user = new String[2];
+			user[0] = "";
+			user[1] = "";
+			
+			for(int i = 0; i < ar.length; i++) {
+				if (ar[i][2].equals(username)) {
+					user[0] = ar[i][2];
+					user[1] = ar[i][3];
+				}
+				
+			}
+			//System.out.println()
+				return user;	
+		}
+		
+
+
+		
+
+				  
+			/**
+			 * 
 		 * @param universityName
 		 */
 		//this.numStudents = (long) numStudents2;

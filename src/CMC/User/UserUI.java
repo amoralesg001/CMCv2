@@ -188,6 +188,7 @@ public class UserUI {
 	 * 
 	 */
 	public static void goToLoginPage() {
+		System.out.println("User is brought to main page");
 		
 	}
 	/**

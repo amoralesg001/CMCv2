@@ -16,7 +16,7 @@ public class Driver {
 	private University university = new University(null, null, null, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, null);
 
 	public static void main(String[] args) {
-		String universityToRemove = "";
+		//String universityToRemove = "";
 		System.out.println("u1 starting");
 		u1();
 		System.out.println("u1 done");
@@ -35,7 +35,7 @@ public class Driver {
 		//u7(universityToRemove, universityToRemove, universityToRemove, universityToRemove);
 		System.out.println("u7 done");
 		System.out.println("u8 starting");
-		u8();
+		//u8();
 		
 		System.out.println("u8 done");
 		System.out.println("u9 starting");
@@ -45,14 +45,14 @@ public class Driver {
 		//u10();
 		System.out.println("u10 done");
 		System.out.println("u11 starting");
-		u11();
+		//u11();
 		System.out.println("u11 done");
 		System.out.println("u12 should rb");
-		u12();
+		//u12();
 		System.out.println("u12 done");
 		
 		System.out.println("u16 start");
-		u16();
+		//u16();
 
 		System.out.println("Testing...");
 		//u3();
@@ -64,15 +64,45 @@ public class Driver {
 	 *and password they entered
 	 */
 	public static void u1() {
-		String username = "amoralesg001";
-		String password = "thumb thumb";
+		System.out.println("\n");
+		String username = "juser";
+		String password = "user";
+		System.out.println("Testing for user John");
 		boolean verify = UserUI.login(username, password);
 		if (verify == true) {
 			System.out.println("logged in");	
 		}
 		else {
 			System.out.println("Invalid credentials");	
-		}	
+		}
+		System.out.println("\n");
+		username = "nadmin";
+		password = "admin";
+		System.out.println("Testing for user Noreen");
+		/////
+		verify = UserUI.login(username, password);
+		if (verify == true) {
+			System.out.println("logged in");	
+		}
+		else {
+			System.out.println("Invalid credentials");	
+		}
+		///
+		System.out.println("\n");
+		username = "nadnr";
+		password = "adm";
+		System.out.println("Testing for user Invalid login");
+		verify = UserUI.login(username, password);
+		if (verify == true) {
+			System.out.println("logged in");	
+		}
+		else {
+			System.out.println("Invalid credentials");	
+		}
+		System.out.println("\n");
+			
+		
+		
 	}
 	
 	/**

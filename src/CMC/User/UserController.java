@@ -47,10 +47,12 @@ public class UserController {
 	}
 		
 	public static boolean login(String username, String password) {
-		Account account = DBController.getAccountDB(username, password);
-		boolean verify = account.verify(username,password,account);	//not sure how to verify.
+		//Account account = DBController.getAccountDB(username, password);
+		//boolean verify = account.verify(username,password,account);	//not sure how to verify.
+		boolean verify = DBController.loginUserTest(username, password);	
 		if (verify == true)
-		{
+		{	
+			
 			UserUI.goToLoginPage();
 			return true; 
 		}
