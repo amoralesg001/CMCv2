@@ -131,11 +131,11 @@ public class UserController {
 		Account account = DBController.getSavedUniversityList(username);	
 		return account.getSavedUniversityList();
 	}
-	public static void getSavedUniversity(String username) {
+	public static ArrayList<String> getSavedUniversity(String username) {
 		Account account = DBController.getSavedUniversityList(username);
-	
-		ArrayList<String> saveUnivList = account.getSavedUniversityList();
-		UserUI.displaySavedUniversity(account);
+		ArrayList<String> savedUniversities= account.getSavedUniversityList();
+		return savedUniversities;
+		//UserUI.displaySavedUniversity(account);
 
 	}
 }
