@@ -21,7 +21,8 @@ public class Driver {
 		u1();
 		System.out.println("u1 done");
 		System.out.println("Output should be: logged in");
-		//u2();
+		System.out.println("u2 starting");
+		u2("amoralesg001");
 		System.out.println("u2 done");
 		System.out.println("u3 starting");
 		u3("amoralesg001");
@@ -79,9 +80,8 @@ public class Driver {
 	 * @author amoralesg001
 	 * This use case displays the saved Universities from the Account.
 	 */
-	public static void u2() {
+	public static void u2(String username) {
 
-		String username = "amoralesg001";
 		ArrayList<String> savedUniversities = UserUI.getSavedUniversityList(username);
 		for(int i = 0; i<savedUniversities.size();i++) {
 			System.out.println(savedUniversities.get(i));

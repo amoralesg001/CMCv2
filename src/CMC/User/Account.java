@@ -14,9 +14,8 @@ public class Account {
 
 	
 	
-	//DBController should be static delete variable
-	private DBController dbController = new DBController();
-
+	
+	
 	
 	private String username;
 	private String password;
@@ -25,15 +24,16 @@ public class Account {
 	private String userType;
 	private boolean loginStatus;
 
-	private ArrayList<String> universityNamesList; //im only doing this for no2. Sooner or later i will need an ArrayList to. Will need a constructure that holds the arrays of the universities
 	
 
+	//sooner or later, we will need an ArrayList of Saved schools in the constructor
 	public Account(String username, String password, String firstName, String lastName, String userType) {
 		this.username = username;
 		this.password = password;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.userType = userType;
+		
 	}
 	
 	private ArrayList<University> universities = new ArrayList<University>();
@@ -129,10 +129,11 @@ public class Account {
 
 
 	public ArrayList<String> getSavedUniversityList() {
-		
-		universityNamesList.add("Saint Johns");
-		universityNamesList.add("Macalaster");
-		universityNamesList.add("University of Minnesota");
+		//ArrayList<String> universityNamesList; //im only doing this for u2. Sooner or later i will need an ArrayList to. Will need a constructure that holds the arrays of the universities
+		ArrayList<String> universityNamesList = new ArrayList<String>();
+		universityNamesList.add("Saint Johns"); //$NON-NLS-1$
+		universityNamesList.add("Macalaster"); //$NON-NLS-1$
+		universityNamesList.add("University of Minnesota"); //$NON-NLS-1$
 		
 		return universityNamesList;
 	}
