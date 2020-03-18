@@ -22,7 +22,7 @@ public class Driver {
 		System.out.println("u1 done");
 		System.out.println("Output should be: logged in");
 		System.out.println("u2 starting");
-		u2("amoralesg001");
+		//u2("amoralesg001");
 		System.out.println("u2 done");
 		System.out.println("u3 starting");
 		u3("amoralesg001");
@@ -68,39 +68,43 @@ public class Driver {
 		String username = "juser";
 		String password = "user";
 		System.out.println("Testing for user John");
+		System.out.println("Expected output: Logged in");
 		boolean verify = UserUI.login(username, password);
 		if (verify == true) {
-			System.out.println("logged in");	
+			System.out.println("Logged in");	
 		}
 		else {
-			System.out.println("Invalid credentials");	
+			System.out.println("Unable to log in");	
 		}
+		System.out.println("\n");
+		///
+		username = "luser";
+		password = "user";
+		System.out.println("Testing for user Lynn");
+		System.out.println("Expected output: Unable to log in");
+		verify = UserUI.login(username, password);
+		if (verify == true) {
+			System.out.println("Logged in");	
+		}
+		else {
+			System.out.println("Unable to log in");	
+		}
+		///
 		System.out.println("\n");
 		username = "nadmin";
 		password = "admin";
 		System.out.println("Testing for user Noreen");
-		/////
 		verify = UserUI.login(username, password);
 		if (verify == true) {
-			System.out.println("logged in");	
+			System.out.println("Logged in");	
 		}
 		else {
-			System.out.println("Invalid credentials");	
-		}
-		///
-		System.out.println("\n");
-		username = "nadnr";
-		password = "adm";
-		System.out.println("Testing for user Invalid login");
-		verify = UserUI.login(username, password);
-		if (verify == true) {
-			System.out.println("logged in");	
-		}
-		else {
-			System.out.println("Invalid credentials");	
+			System.out.println("Unable to log in");	
 		}
 		System.out.println("\n");
-			
+		//
+		
+		
 		
 		
 	}
@@ -121,7 +125,8 @@ public class Driver {
 	 * 
 	 */
 	public static void u3(String username) {
-
+		System.out.println("\n");
+		System.out.println("Displaying user information for John");
 		Account account = UserUI.getUserInfo(username);
 		String usernameTest = account.getUsername();	
 		System.out.println(usernameTest);

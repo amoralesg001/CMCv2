@@ -49,17 +49,30 @@ public class UserController {
 	public static boolean login(String username, String password) {
 		//Account account = DBController.getAccountDB(username, password);
 		//boolean verify = account.verify(username,password,account);	//not sure how to verify.
-		boolean verify = DBController.loginUserTest(username, password);	
-		if (verify == true)
-		{	
-			
-			UserUI.goToLoginPage();
-			return true; 
-		}
-		else
+		Account account = DBController.getAccountDB(username, password);
+		String tempU = "";
+		String tempP = "";
+		String tempS = "";
+		if (account.getUsername() == null)
 		{
 			return false;
 		}
+		else {
+			tempU = account.getUsername();
+			tempP = account.getPassword();
+			tempS = account.getLoginStatus();
+		}
+
+		
+		if (tempU.equals(username) && tempP.equals(password) && tempS.equals("Y")){
+			
+			return true;
+			
+		}
+		else {
+			return false;
+		}
+
 	}
 	
 	public void logout() {

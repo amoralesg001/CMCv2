@@ -9,7 +9,7 @@ import dblibrary.project.csci230.UniversityDBLibrary;
 import CMC.University.*;
 
 public class DBController {
-		private static Account account = new Account("amoralesg001", "thumb thumb", null, null, null); 
+		//private static Account account = new Account("amoralesg001", "thumb thumb", null, null, null); 
 
 		private static User userArray[]; //should we do an array or list?  
 
@@ -20,46 +20,67 @@ public class DBController {
 		static String dbPassword = "csci230";
 		static UniversityDBLibrary univDBlib = new UniversityDBLibrary(dbUsername,dbPassword);
 		
-		public static Boolean loginUserTest(String name, String password) {
+		public static Account getAccountDB(String username, String password) {
 			
-			//String [][] ar = univDBlib.user_getUsers();
-			//String [][] user = new String[1][1];
-			 
+			Account user = dbGetUser(username);
 			
-			//for(int i = 0; i < ar.length; i++) {
-				//for(int j = 0; j < ar[i].length; j++) {
-					//System.out.println(ar[i][j]);
-				//}
-			//}
-			String[] user = dbGetUser(name);
-			String tempU = user[0];
-			String tempP = user[1];
-			if (tempU.equals(name) && tempP.equals(password)) {			
-				return true;
+			String tempU = user.getUsername();
+			String tempP = user.getPassword();
+			String tempS = user.getLoginStatus();
+			
+			if (tempU.equals(username) && tempP.equals(password) && tempS.equals("Y")){
+				
+				return user;
 				
 			}
 			else {
-				return false;
+				System.out.println("getAccountDB returning null");
+				Account tempA = new Account(null, null, null, null, null, null);
+				return tempA;
 			}
 			
 		}
 		
-		public static String[] dbGetUser(String username){	
+		public static Account dbGetUser(String username){	
 			String[][] ar = univDBlib.user_getUsers();
 			
-			String [] user = new String[2];
-			user[0] = "";
-			user[1] = "";
-			
+			//String [] user = new String[6];
+			//user[2] = "";
+			//user[3] = "";
 			for(int i = 0; i < ar.length; i++) {
 				if (ar[i][2].equals(username)) {
-					user[0] = ar[i][2];
-					user[1] = ar[i][3];
+					
+					//First Name
+					String fName = ar[i][0]; 
+					//System.out.println(user[0])
+					
+					//Last Name
+					String lName= ar[i][1];
+					//System.out.println(user[1]);
+					
+					//Username
+					String uName = ar[i][2];
+					//System.out.println(user[2]);
+					
+					//Password
+					String password = ar[i][3];
+					//System.out.println(user[3]);
+					
+					//User Type
+					String uType = ar[i][4];
+					//System.out.println(user[4]);
+					
+					//Status
+					String status = ar[i][5];
+					//System.out.println(user[5]);
+					
+					Account account =  new Account(fName, lName, uName, password, uType, status);
+					return account;
 				}
 				
 			}
-
-			return user;	
+			System.out.println("dbGetUser returning null");
+			return null;	
 		}
 		
 
@@ -164,7 +185,8 @@ public class DBController {
 		 * @return
 		 */
 		public static Account getUserInfo(String username) {
-			return account;
+			return null;
+			//return account;
 		}
 
 		/**

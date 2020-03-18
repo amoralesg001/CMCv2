@@ -15,24 +15,25 @@ public class Account {
 	
 	
 	
-	
+
 	
 	private String username;
 	private String password;
 	private String firstName;
 	private String lastName;
 	private String userType;
-	private boolean loginStatus;
+	private String loginStatus;
 
 	
 
 	//sooner or later, we will need an ArrayList of Saved schools in the constructor
-	public Account(String username, String password, String firstName, String lastName, String userType) {
+	public Account(String firstName, String lastName, String username, String password, String userType, String loginStatus) {
 		this.username = username;
 		this.password = password;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.userType = userType;
+		this.loginStatus = loginStatus;
 		
 	}
 	
@@ -73,6 +74,11 @@ public class Account {
 	public String getUserType() {
 		return this.userType;
 	}
+	
+	public String getLoginStatus() {
+		return this.loginStatus;
+	}
+	
 	public void login(String username, String password) {
 		
 	}
@@ -95,15 +101,11 @@ public class Account {
 		this.lastName = lastName;
 		this.userType = userType;
 	}
-
-	public ArrayList<String> getUserInfo(){		// need to add this on class diagram. John had it on his communication diagram for U3 but not on class diagram
-		ArrayList<String> info = new ArrayList<String>(); 	//or should I just make getUser, getPassword, etc.?
-		info.add(username);
-		info.add(password);
-		info.add(firstName);
-		info.add(lastName);
-		info.add(userType);
-		return info; 
+	
+	//CHANGED AND NO LONGER FOLLOWS COM DIAGRAM
+	public Account getUserInfo(String username, String password){		// need to add this on class diagram. John had it on his communication diagram for U3 but not on class diagram
+		Account account = DBController.getAccountDB(username, password);
+		return account; 
 
 	}
 	
