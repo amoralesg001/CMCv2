@@ -30,9 +30,9 @@ public class UserUI {
 	}
 	
 	//instead of using the goToPage method for my use case, I changed the method to this. Its more specific
-	public static Account getUserInfo(String username) { 
-		return UserController.getUserInfo(username);
-	}
+	public static Account getUserInfo(String username, String password) { 
+		return UserController.getUserInfo(username, password);
+	} 
 	
 	/**
 	 * Saves the user information to the database.

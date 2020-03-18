@@ -62,7 +62,6 @@ public class UserController {
 			tempP = account.getPassword();
 			tempS = account.getLoginStatus();
 		}
-
 		
 		if (tempU.equals(username) && tempP.equals(password) && tempS.equals("Y")){
 			
@@ -130,10 +129,9 @@ public class UserController {
 		// TODO Auto-generated method stub
 		
 	}
-	public static Account getUserInfo(String username)
+	public static Account getUserInfo(String username, String password)
 	{
-		return DBController.getUserInfo(username);
-		
+		return DBController.getAccountDB(username, password);
 	}
 	/**
 	 * This method goes to DBController to retrieve an account

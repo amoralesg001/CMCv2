@@ -25,7 +25,9 @@ public class Driver {
 		//u2("amoralesg001");
 		System.out.println("u2 done");
 		System.out.println("u3 starting");
-		u3("amoralesg001");
+		u3("juser", "user");
+		u3("luser", "user");
+		u3("nadmin", "admin");
 		System.out.println("u3 done");
 		System.out.println("u4 starting");
 		u4();
@@ -53,9 +55,6 @@ public class Driver {
 		
 		System.out.println("u16 start");
 		//u16();
-
-		System.out.println("Testing...");
-		//u3();
 	}
 	/**
 	 * u1: login
@@ -124,14 +123,29 @@ public class Driver {
 	/**
 	 * 
 	 */
-	public static void u3(String username) {
+	public static void u3(String username, String password) {
 		System.out.println("\n");
-		System.out.println("Displaying user information for John");
-		Account account = UserUI.getUserInfo(username);
-		String usernameTest = account.getUsername();	
-		System.out.println(usernameTest);
-		System.out.println("Output should have been: " + username);	
+		Account account = UserUI.getUserInfo(username, password);
+		String usernameTest = account.getUsername();
+		String passwordTest = account.getPassword();
+		String firstName = account.getFirstName();
+		String lastName = account.getLastName();
+		String status = account.getLoginStatus();
+
+		if (usernameTest == null) {
+			System.out.println("User is blocked or does not exist");
 			
+		}
+		else {
+			System.out.println("Displaying user information for " + firstName);
+			System.out.println("Username: " + usernameTest);
+			System.out.println("Password: " + passwordTest);
+			System.out.println("First Name: " + firstName);
+			System.out.println("Last Name: "  + lastName);
+			System.out.println("Status: " + status);
+			System.out.println("\n");
+		}
+	
 	}
 	
 	

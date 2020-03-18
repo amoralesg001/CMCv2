@@ -34,7 +34,6 @@ public class DBController {
 				
 			}
 			else {
-				System.out.println("getAccountDB returning null");
 				Account tempA = new Account(null, null, null, null, null, null);
 				return tempA;
 			}
@@ -79,7 +78,6 @@ public class DBController {
 				}
 				
 			}
-			System.out.println("dbGetUser returning null");
 			return null;	
 		}
 		
