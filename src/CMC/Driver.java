@@ -13,7 +13,7 @@ import CMC.University.*;
  */
 public class Driver {
 
-	private University university = new University(null, null, null, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, null);
+	//private University university = new University(null, null, null, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, null);
 
 	public static void main(String[] args) {
 		//String universityToRemove = "";

@@ -39,7 +39,6 @@ public class DBController {
 			}
 			
 		}
-		
 		public static Account dbGetUser(String username){	
 			String[][] ar = univDBlib.user_getUsers();
 			
@@ -76,33 +75,13 @@ public class DBController {
 					Account account =  new Account(fName, lName, uName, password, uType, status);
 					return account;
 				}
-				
 			}
 			return null;	
-		}
-		
-
-
-		
-
-				  
+		}		  
 			/**
 			 * 
 		 * @param universityName
 		 */
-		//this.numStudents = (long) numStudents2;
-		//this.femalePer = femalePer;
-		//this.verSAT = verSAT;
-		//this.mathSAT = mathSAT;
-		//this.tuition = tuition;
-		//this.finAid = finAid;
-		////this.numApplicants = numApplicants;
-		//this.admitPer = admitPer;
-		//this.enrolledPer = enrolledPer;
-		////this.academicScale = academicScale;
-		//this.socialScale = socialScale;
-		//this.qoaScale = qoaScale;
-		//this.emphasis = emphasis;
 		public static void updateUniversityDB(University universityName) {
 			for (University u: uArray)
 			{
@@ -194,15 +173,7 @@ public class DBController {
 		public static void updateAccountDB(Account user) {	//would updating return an array ? 
 			//TODO @Jack once we have the actual database
 		}
-		/**
-		 * 
-		 * @param username
-		 * @param password
-		 * @return
-		 */
-		public Account login(String username, String password) {
-			return account;
-		}
+
 
 		/**
 		 * 
