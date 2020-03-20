@@ -12,6 +12,7 @@ public class DBController {
 		//private static Account account = new Account("amoralesg001", "thumb thumb", null, null, null); 
 
 		private static User userArray[]; //should we do an array or list?  
+		
 
 		private static University university = new University("Saint John's Univeristy", "Minnesota", "United States", (int) 2500, 0, 0, 0, 40000, 0, 0, 0,  0, 0, 0, 0, new ArrayList<String>());
 		private static University universityArray[];
@@ -218,8 +219,25 @@ public class DBController {
 		 * @return account of the username
 		 */
 		public static Account getSavedUniversityList(String username) {
-			return account;
+			
+			return null;
 		}
-		
+		public static ArrayList<String> dbGetSavedUniversityList(String username){	
+			String[][] ar = univDBlib.user_getUsernamesWithSavedSchools();
+			ArrayList<String> userSchool = new ArrayList<String>();
+			for(int row = 0; row<ar.length; row++) {
+			if (ar[row][0].equals(username)){
+				userSchool.add(ar[row][0]);
+				//System.out.println(ar[row][0]);
+				userSchool.add(ar[row][1]);
+				userSchool.add(ar[row][2]);
+				//userSchool.add("lajkdf");
+				//userSchool.add("adfadf");
+				return userSchool;
+			}
+		}	
+			return null;	
 	}
+		
+}
 	

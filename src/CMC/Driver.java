@@ -22,7 +22,7 @@ public class Driver {
 		System.out.println("u1 done");
 		System.out.println("Output should be: logged in");
 		System.out.println("u2 starting");
-		//u2("amoralesg001");
+		u2("juser"); 
 		System.out.println("u2 done");
 		System.out.println("u3 starting");
 		u3("juser", "user");
@@ -114,10 +114,19 @@ public class Driver {
 	 * This use case displays the saved Universities from the Account.
 	 */
 	public static void u2(String username) {
-
-		ArrayList<String> savedUniversities = UserUI.getSavedUniversityList(username);
+		
+		//ArrayList<String> savedUniversities = UserUI.getSavedUniversityList(username);
+		//for(int i = 0; i<savedUniversities.size();i++) {
+			//System.out.println(savedUniversities.get(i));
+		ArrayList<String> savedUniversities=UserUI.getSavedUniversityList(username);
+		if(savedUniversities==null) {
+		System.out.println("nothing");	
+		}	
+		else {
 		for(int i = 0; i<savedUniversities.size();i++) {
 			System.out.println(savedUniversities.get(i));
+		}
+		
 		}
 	}
 	/**
