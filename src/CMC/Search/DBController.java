@@ -3,6 +3,7 @@ package CMC.Search;
 
 import java.util.ArrayList;
 //import CMC.DBLibraryDriver;
+import java.util.List;
 
 import CMC.User.*;
 import dblibrary.project.csci230.UniversityDBLibrary;
@@ -14,7 +15,7 @@ public class DBController {
 		private static User userArray[]; //should we do an array or list?  
 		
 
-		private static University university = new University("Saint John's Univeristy", "Minnesota", "United States", (int) 2500, 0, 0, 0, 40000, 0, 0, 0,  0, 0, 0, 0, new ArrayList<String>());
+		private static University university = new University("Saint John's Univeristy", "Minnesota", "United States", "PRIVATE", 2500, 0, 0, 0, 40000, 0, 0, 0,  0, 0, 0, 0);
 		private static University universityArray[];
 		public static ArrayList<University> uArray = new ArrayList<University>();
 		static String dbUsername = "thumbthumbs";
@@ -75,6 +76,75 @@ public class DBController {
 					
 					Account account =  new Account(fName, lName, uName, password, uType, status);
 					return account;
+				}
+			}
+			return null;	
+		}		  
+		public static University dbGetUniversity(String university){	
+			String[][] un = univDBlib.university_getUniversities();
+			
+			
+			for(int i = 0; i < un.length; i++) {
+				if (un[i][0].equals(university)) {
+					
+					//University Name
+					String universityName = un[i][0]; 
+					//System.out.println(user[0])
+					
+					//State
+					String state = un[i][1];
+					//System.out.println(user[1]);
+					
+					//Location
+					String location = un[i][2];
+					//System.out.println(user[2]);
+					
+					//Control
+					String control = un[i][3];
+					//System.out.println(user[3]);
+					
+					//Number of Students
+					int numStudents = Integer.parseInt(un[i][4]);
+					//System.out.println(user[4]);
+					
+					//Percent Female
+					double femalePer = Double.parseDouble(un[i][5]);
+					//System.out.println(user[5]);
+					
+					//SAT Verbal
+					double verbalSAT = Double.parseDouble(un[i][6]);
+					
+					//SAT Math
+					double mathSAT = Double.parseDouble(un[i][7]);
+					
+					//Expenses
+					double expenses = Double.parseDouble(un[i][8]);
+					
+					//Financial Aid Percent
+					double finAidPer = Double.parseDouble(un[i][9]);
+					
+					//Number of Applicants
+					int numApplicants = Integer.parseInt(un[i][10]);
+					
+					//Admitted percent
+					double admittedPer = Double.parseDouble(un[i][11]);
+					
+					//Enrolled percent
+					double enrolledPer = Double.parseDouble(un[i][12]);
+					
+					//Academic Scale
+					int academicsScale = Integer.parseInt(un[i][13]);
+					
+					//Social Scale
+					int socialScale = Integer.parseInt(un[i][14]);
+					
+					//Quality of Life Scale
+					int qualityScale = Integer.parseInt(un[i][15]);
+					
+					University universityRet =  new University(universityName, state, location, control, numStudents, femalePer, verbalSAT, 
+							mathSAT, expenses, finAidPer, numApplicants, admittedPer, enrolledPer, academicsScale, socialScale, qualityScale);
+					
+					return universityRet;
 				}
 			}
 			return null;	

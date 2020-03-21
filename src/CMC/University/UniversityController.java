@@ -45,7 +45,7 @@ public class UniversityController {
 	 */
 
 	public static void getUniversity(String universityName) {
-		University universityToDisplay = DBController.getUniversity(universityName);
+		University universityToDisplay = DBController.dbGetUniversity(universityName);
 		UserUI.displayUniversityInfo(universityToDisplay);
 		
 
@@ -71,12 +71,12 @@ public class UniversityController {
 	 * @param qoaSCale
 	 * @param emphasis
 	 */
-	public static void addUniversity(String universityName, String state, String location, int numStudents, int femalePer, int verSAT,
-			int mathSAT, double tuition, double finAid, double numApplicants, int admitPer, int enrolledPer,
-			int academicScale, int socialScale, int qoaSCale, ArrayList<String> emphasis) {
-		University newUniversity = new University(universityName, state, location, numStudents, femalePer, verSAT,
+	public static void addUniversity(String universityName, String state, String location, String control, int numStudents, double femalePer, double verSAT,
+			double mathSAT, double tuition, double finAid, int numApplicants, double admitPer, double enrolledPer,
+			int academicScale, int socialScale, int qoaSCale) {
+		University newUniversity = new University(universityName, state, location, control, numStudents, femalePer, verSAT,
 				mathSAT, tuition, finAid, numApplicants, admitPer, enrolledPer, academicScale, socialScale,
-				qoaSCale, emphasis);
+				qoaSCale);
 		DBController.addUniversity(newUniversity);
 				}
 	

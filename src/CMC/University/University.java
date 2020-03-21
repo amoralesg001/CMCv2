@@ -277,7 +277,7 @@ public class University {
 
 	public String toString()
 	{
-		return  "School: " + this.universityName + "\nState: " + this.state + "\nLocation: " + location + "\nnumStudents: " + this.numStudents + 
+		return  "School: " + this.universityName + "\nState: " + this.state + "\nLocation: " + location + "\nControl: " + this.control + "\nnumStudents: " + this.numStudents + 
 				"\nFemalePer: " + this.femalePer + "\nVerSAT: " + this.verbalSAT + "\nMathSAT: " + this.mathSAT + 
 				"\nTuition: " + this.expenses + "\nFinAid: " + this.finAidPer + "\nNumApplicants: " + this.numApplicants  + 
 				"\nAdmitPer: " + this.admitPer +  "\nEnrolledPer: " + this.enrolledPer + 
