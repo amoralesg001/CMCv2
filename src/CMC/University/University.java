@@ -6,20 +6,21 @@ public class University {
 	private String universityName;
 	private String state;
 	private String location;
-	private Long numStudents;
-	private int femalePer;
-	private int verSAT;
-	private int mathSAT;
-	private double tuition;
-	private double finAid;
-	private double numApplicants;
-	private int admitPer;
-	private int enrolledPer;
+	private String control;
+	private int numStudents;
+	private double femalePer;
+	private double verbalSAT;
+	private double mathSAT;
+	private double expenses;
+	private double finAidPer;
+	private int numApplicants;
+	private double admitPer;
+	private double enrolledPer;
 	private int academicScale;
 	private int socialScale;
 	private int qoaScale;
-	private boolean blacklist;
-	private ArrayList<String> emphasis;
+	//private boolean blacklist;
+	//private ArrayList<String> emphasis;
 	/**
 	 * @return the universityName
 	 */
@@ -30,12 +31,13 @@ public class University {
 	 * @param universityName
 	 * @param state
 	 * @param location
+	 * @param control
 	 * @param numStudents2
 	 * @param femalePer
 	 * @param verSAT
 	 * @param mathSAT
 	 * @param tuition
-	 * @param finAid
+	 * @param finAidPer
 	 * @param numApplicants
 	 * @param admitPer
 	 * @param enrolledPer
@@ -44,25 +46,26 @@ public class University {
 	 * @param qoaSCale
 	 * @param emphasis
 	 */
-	public University(String universityName, String state, String location, int numStudents2, int femalePer, int verSAT,
-		int mathSAT, double tuition, double finAid, double numApplicants, int admitPer, int enrolledPer,
-		int academicScale, int socialScale, int qoaScale, ArrayList<String> emphasis) {
+	public University(String universityName, String state, String location, String control, int numStudents, double femalePer, double verbalSAT,
+		double mathSAT, double expenses, double finAidPer, int numApplicants, double admitPer, double enrolledPer,
+		int academicScale, int socialScale, int qoaScale) {
 		this.universityName = universityName;
 		this.state = state;
 		this.location = location;
-		this.numStudents = (long) numStudents2;
+		this.control = control;
+		this.numStudents = numStudents;
 		this.femalePer = femalePer;
-		this.verSAT = verSAT;
+		this.verbalSAT = verbalSAT;
 		this.mathSAT = mathSAT;
-		this.tuition = tuition;
-		this.finAid = finAid;
+		this.expenses = expenses;
+		this.finAidPer = finAidPer;
 		this.numApplicants = numApplicants;
 		this.admitPer = admitPer;
 		this.enrolledPer = enrolledPer;
 		this.academicScale = academicScale;
 		this.socialScale = socialScale;
 		this.qoaScale = qoaScale;
-		this.emphasis = emphasis;
+		//this.emphasis = emphasis;
 	}
 	/**
 	 * @param universityName the universityName to set
@@ -103,13 +106,13 @@ public class University {
 	/**
 	 * @param numStudents the numStudents to set
 	 */
-	public void setNumStudents(Long numStudents) {
+	public void setNumStudents(int numStudents) {
 		this.numStudents = numStudents;
 	}
 	/**
 	 * @return the femalePer
 	 */
-	public int getFemalePer() {
+	public double getFemalePer() {
 		return femalePer;
 	}
 	/**
@@ -121,19 +124,19 @@ public class University {
 	/**
 	 * @return the verSAT
 	 */
-	public int getVerSAT() {
-		return verSAT;
+	public double getVerSAT() {
+		return verbalSAT;
 	}
 	/**
 	 * @param verSAT the verSAT to set
 	 */
-	public void setVerSAT(int verSAT) {
-		this.verSAT = verSAT;
+	public void setVerSAT(double verSAT) {
+		this.verbalSAT = verSAT;
 	}
 	/**
 	 * @return the mathSAT
 	 */
-	public int getMathSAT() {
+	public double getMathSAT() {
 		return mathSAT;
 	}
 	/**
@@ -146,25 +149,25 @@ public class University {
 	 * @return the tuition
 	 */
 	public double getTuition() {
-		return tuition;
+		return expenses;
 	}
 	/**
 	 * @param tuition the tuition to set
 	 */
-	public void setTuition(double tuition) {
-		this.tuition = tuition;
+	public void setTuition(double expenses) {
+		this.expenses = expenses;
 	}
 	/**
 	 * @return the finAid
 	 */
 	public double getFinAid() {
-		return finAid;
+		return finAidPer;
 	}
 	/**
 	 * @param finAid the finAid to set
 	 */
-	public void setFinAid(double finAid) {
-		this.finAid = finAid;
+	public void setFinAid(double finAidPer) {
+		this.finAidPer = finAidPer;
 	}
 	/**
 	 * @return the numApplicants
@@ -175,31 +178,31 @@ public class University {
 	/**
 	 * @param numApplicants the numApplicants to set
 	 */
-	public void setNumApplicants(double numApplicants) {
+	public void setNumApplicants(int numApplicants) {
 		this.numApplicants = numApplicants;
 	}
 	/**
 	 * @return the admitPer
 	 */
-	public int getAdmitPer() {
+	public double getAdmitPer() {
 		return admitPer;
 	}
 	/**
 	 * @param admitPer the admitPer to set
 	 */
-	public void setAdmitPer(int admitPer) {
+	public void setAdmitPer(double admitPer) {
 		this.admitPer = admitPer;
 	}
 	/**
 	 * @return the enrolledPer
 	 */
-	public int getEnrolledPer() {
+	public double getEnrolledPer() {
 		return enrolledPer;
 	}
 	/**
 	 * @param enrolledPer the enrolledPer to set
 	 */
-	public void setEnrolledPer(int enrolledPer) {
+	public void setEnrolledPer(double enrolledPer) {
 		this.enrolledPer = enrolledPer;
 	}
 	/**
@@ -241,45 +244,45 @@ public class University {
 	/**
 	 * @return the emphasis
 	 */
-	public ArrayList<String> getEmphasis() {
-		return emphasis;
-	}
+	//public ArrayList<String> getEmphasis() {
+		//return emphasis;
+	//}
 	/**
 	 * @param emphasis the emphasis to set
 	 */
-	public void setEmphasis(ArrayList<String> emphasis) {
-		this.emphasis = emphasis;
-	}
+	//public void setEmphasis(ArrayList<String> emphasis) {
+		//this.emphasis = emphasis;
+	//}
 	/**
 	 * @return whether or not the university is blacklisted
 	 */
-	public boolean isBlacklisted() {
-		return blacklist;
-	}
+	//public boolean isBlacklisted() {
+		//return blacklist;
+	//}
 	/**
 	 * @param blacklist change whether or not the university is blacklisted
 	 */
-	public void setBlacklist(boolean blacklist) {
-		this.blacklist = blacklist;
-	}
+//	public void setBlacklist(boolean blacklist) {
+	//	this.blacklist = blacklist;
+	//}
 	
-	public void emphasisToString(ArrayList<String> emphasis)
-	{
-		for (String s: emphasis)
-		{
-			System.out.println(s);
-		}
-	}
+	//public void emphasisToString(ArrayList<String> emphasis)
+	//{
+		//for (String s: emphasis)
+		//{
+			//System.out.println(s);
+		//}
+	//}
 	
 
 	public String toString()
 	{
 		return  "School: " + this.universityName + "\nState: " + this.state + "\nLocation: " + location + "\nnumStudents: " + this.numStudents + 
-				"\nFemalePer: " + this.femalePer + "\nVerSAT: " + this.verSAT + "\nMathSAT: " + this.mathSAT + 
-				"\nTuition: " + this.tuition + "\nFinAid: " + this.finAid + "\nNumApplicants: " + this.numApplicants  + 
+				"\nFemalePer: " + this.femalePer + "\nVerSAT: " + this.verbalSAT + "\nMathSAT: " + this.mathSAT + 
+				"\nTuition: " + this.expenses + "\nFinAid: " + this.finAidPer + "\nNumApplicants: " + this.numApplicants  + 
 				"\nAdmitPer: " + this.admitPer +  "\nEnrolledPer: " + this.enrolledPer + 
 				"\nAcademicScale: " + this.academicScale + "\nSocialScale: "  + this.socialScale + "\nQoaScale: " + this.qoaScale + 
-				"\nBlackListed: " + this.blacklist;
+				"\nBlackListed: Not complete" ;
 	}
 	
 	
