@@ -5,6 +5,7 @@ package CMC;
 import java.util.ArrayList;
 import CMC.Search.*;
 import CMC.User.*;
+import dblibrary.project.csci230.UniversityDBLibrary;
 import CMC.University.*;
 
 /**
@@ -16,7 +17,9 @@ public class Driver {
 	//private University university = new University(null, null, null, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, null);
 
 	public static void main(String[] args) {
-		//String universityToRemove = "";
+		String universityTest = "ADELPHI";
+		University university = DBController.dbGetUniversity(universityTest);
+		System.out.println(university.toString());
 		System.out.println("u1 starting");
 		u1();
 		System.out.println("u1 done");
@@ -32,7 +35,10 @@ public class Driver {
 		System.out.println("u4 starting");
 		u4();
 		System.out.println("u4 done");
-		//u5(universityToRemove);
+		System.out.println("\nU5 Starting");
+		u5(universityTest);
+		System.out.println("\nU5 Done");
+		
 		//u6(universityToRemove);
 		//u7(universityToRemove, universityToRemove, universityToRemove, universityToRemove);
 		System.out.println("u7 done");
@@ -55,6 +61,7 @@ public class Driver {
 		
 		System.out.println("u16 start");
 		//u16();
+	
 	}
 	/**
 	 * u1: login

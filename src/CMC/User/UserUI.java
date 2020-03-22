@@ -79,10 +79,7 @@ public class UserUI {
 		System.out.println("Social Scale: " + school.getSocialScale());
 		System.out.println("QOA Scale: " + school.getQoaScale());
 		System.out.println("Emphasis:");
-		ArrayList<String> array = school.getEmphasis();
-		for (int i = 0; i < array.size(); i++) {
-			System.out.println(array.get(i));
-		}
+		
 	}
 	
 	public void getSavedList(Account account) {
