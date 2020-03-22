@@ -8,12 +8,13 @@
  */
 package CMC.Search;
 
+import java.util.ArrayList;
+
 import CMC.University.University;
 
 public class SearchController {
 
-	public static String searchUniversities(String universityName) { // Should this method return a University object???
-		String university = DBController.searchUniversity(universityName);
-		return university;
+	public static ArrayList<String> searchUniversities(String universityName) { // Should this method return a University object???
+		return DBController.searchUniversity(universityName);
 	}
 }

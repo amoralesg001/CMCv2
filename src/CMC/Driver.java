@@ -22,7 +22,7 @@ public class Driver {
 		System.out.println("u1 done");
 		System.out.println("Output should be: logged in");
 		System.out.println("u2 starting");
-		u2("juser"); 
+		//u2("juser"); 
 		System.out.println("u2 done");
 		System.out.println("u3 starting");
 		u3("juser", "user");
@@ -166,13 +166,16 @@ public class Driver {
 
 	public static void u4() {
 
-		String universityName = "Saint John's University";
-		String uni = SearchController.searchUniversities(universityName);
-		if (uni == universityName) {
-			System.out.println(uni);
+		String universityName = "Macalester";
+		ArrayList<String> uni = SearchController.searchUniversities(universityName);
+		System.out.println(uni);
+		if (uni == null) {
+			System.out.println("no school found");
 		}
 		else {
-			System.out.println("School not found");
+			//String uniName = uni.get(0);
+			//System.out.println(uniName);
+			System.out.println(uni);
 		}
 	}
 
