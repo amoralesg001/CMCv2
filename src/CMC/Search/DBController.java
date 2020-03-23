@@ -82,67 +82,124 @@ public class DBController {
 		}		  
 		public static University dbGetUniversity(String university){	
 			String[][] un = univDBlib.university_getUniversities();
-			
+			ArrayList<String> emphasis = new ArrayList<String>();
 			
 			for(int i = 0; i < un.length; i++) {
 				if (un[i][0].equals(university)) {
 					
 					//University Name
-					String universityName = un[i][0]; 
-					//System.out.println(user[0])
+					String universityName = un[i][0];
+					if (universityName.equals("-1")) {
+						universityName = "N/A";
+					}
 					
 					//State
 					String state = un[i][1];
-					//System.out.println(user[1]);
+					if (state.equals("-1")) {
+						state = "N/A";
+					}
 					
 					//Location
 					String location = un[i][2];
-					//System.out.println(user[2]);
+					if (location.equals("-1")) {
+						location = "N/A";
+					}
 					
 					//Control
 					String control = un[i][3];
-					//System.out.println(user[3]);
+					if (control.equals("-1")) {
+						control = "N/A";
+					}
 					
 					//Number of Students
 					int numStudents = Integer.parseInt(un[i][4]);
-					//System.out.println(user[4]);
+					if (numStudents == -1) {
+						numStudents = 0;
+					}
 					
 					//Percent Female
 					double femalePer = Double.parseDouble(un[i][5]);
-					//System.out.println(user[5]);
+					if (femalePer == -1) {
+						femalePer = 0;
+					}
 					
 					//SAT Verbal
 					double verbalSAT = Double.parseDouble(un[i][6]);
+					if (verbalSAT == -1) {
+						verbalSAT = 0;
+					}
 					
 					//SAT Math
 					double mathSAT = Double.parseDouble(un[i][7]);
-					
+					if (mathSAT == -1) {
+						mathSAT = 0;
+					}
 					//Expenses
 					double expenses = Double.parseDouble(un[i][8]);
-					
+					if (expenses == -1) {
+						expenses = 0;
+					}
 					//Financial Aid Percent
 					double finAidPer = Double.parseDouble(un[i][9]);
+					if (finAidPer == -1) {
+						finAidPer = 0;
+					}	
 					
 					//Number of Applicants
 					int numApplicants = Integer.parseInt(un[i][10]);
+					if (numApplicants == -1) {
+						numApplicants = 0;
+					}
 					
 					//Admitted percent
 					double admittedPer = Double.parseDouble(un[i][11]);
+					if (admittedPer == -1) {
+						admittedPer = 0;
+					}
 					
 					//Enrolled percent
 					double enrolledPer = Double.parseDouble(un[i][12]);
+					if (enrolledPer == -1) {
+						enrolledPer = 0;
+					}
 					
 					//Academic Scale
 					int academicsScale = Integer.parseInt(un[i][13]);
+					if (academicsScale == -1) {
+						academicsScale = 0;
+					}
 					
 					//Social Scale
 					int socialScale = Integer.parseInt(un[i][14]);
+					if (socialScale == -1) {
+						socialScale = 0;
+					}
 					
 					//Quality of Life Scale
 					int qualityScale = Integer.parseInt(un[i][15]);
+					if (qualityScale == -1) {
+						qualityScale = 0;
+					}
+					
+					//Emphasis
+					String[][] em = univDBlib.university_getNamesWithEmphases();
+					for(int j = 0; j < em.length; j++) {
+						if (em[j][0].equals(university)) {
+							for (int k = 0; k < em[j].length; k++) {
+							emphasis.add(em[j][k]);
+							}
+						}
+						else {
+							emphasis.add("No Emphases");
+						}
+					
+					//Blacklist
+					boolean blacklist = false;
+							
+					
 					
 					University universityRet =  new University(universityName, state, location, control, numStudents, femalePer, verbalSAT, 
-							mathSAT, expenses, finAidPer, numApplicants, admittedPer, enrolledPer, academicsScale, socialScale, qualityScale);
+							mathSAT, expenses, finAidPer, numApplicants, admittedPer, enrolledPer, academicsScale, socialScale, qualityScale, emphasis, blacklist);
 					
 					return universityRet;
 				}

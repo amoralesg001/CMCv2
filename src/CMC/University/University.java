@@ -19,8 +19,8 @@ public class University {
 	private int academicScale;
 	private int socialScale;
 	private int qoaScale;
-	//private boolean blacklist;
-	//private ArrayList<String> emphasis;
+	private boolean blacklist;
+	private ArrayList<String> emphasis;
 	/**
 	 * @return the universityName
 	 */
@@ -45,10 +45,11 @@ public class University {
 	 * @param socialScale
 	 * @param qoaSCale
 	 * @param emphasis
+	 * @param blackList
 	 */
 	public University(String universityName, String state, String location, String control, int numStudents, double femalePer, double verbalSAT,
 		double mathSAT, double expenses, double finAidPer, int numApplicants, double admitPer, double enrolledPer,
-		int academicScale, int socialScale, int qoaScale) {
+		int academicScale, int socialScale, int qoaScale, ArrayList<String> emphasis, boolean blacklist) {
 		this.universityName = universityName;
 		this.state = state;
 		this.location = location;
@@ -65,7 +66,8 @@ public class University {
 		this.academicScale = academicScale;
 		this.socialScale = socialScale;
 		this.qoaScale = qoaScale;
-		//this.emphasis = emphasis;
+		this.emphasis = emphasis;
+		this.blacklist = blacklist;
 	}
 	/**
 	 * @param universityName the universityName to set
@@ -244,35 +246,35 @@ public class University {
 	/**
 	 * @return the emphasis
 	 */
-	//public ArrayList<String> getEmphasis() {
-		//return emphasis;
-	//}
+	public ArrayList<String> getEmphasis() {
+		return emphasis;
+	}
 	/**
 	 * @param emphasis the emphasis to set
 	 */
-	//public void setEmphasis(ArrayList<String> emphasis) {
-		//this.emphasis = emphasis;
-	//}
+	public void setEmphasis(ArrayList<String> emphasis) {
+		this.emphasis = emphasis;
+	}
 	/**
 	 * @return whether or not the university is blacklisted
 	 */
-	//public boolean isBlacklisted() {
-		//return blacklist;
-	//}
+	public boolean isBlacklisted() {
+		return blacklist;
+	}
 	/**
 	 * @param blacklist change whether or not the university is blacklisted
 	 */
-//	public void setBlacklist(boolean blacklist) {
-	//	this.blacklist = blacklist;
-	//}
+	public void setBlacklist(boolean blacklist) {
+		this.blacklist = blacklist;
+	}
 	
-	//public void emphasisToString(ArrayList<String> emphasis)
-	//{
-		//for (String s: emphasis)
-		//{
-			//System.out.println(s);
-		//}
-	//}
+	public void emphasisToString(ArrayList<String> emphasis)
+	{
+		for (String s: emphasis)
+		{
+			System.out.println(s);
+		}
+	}
 	
 
 	public String toString()
