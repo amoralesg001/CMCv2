@@ -173,13 +173,16 @@ public class Driver {
 
 	public static void u4() {
 
-		String universityName = "Saint John's University";
-		String uni = SearchController.searchUniversities(universityName);
-		if (uni == universityName) {
-			System.out.println(uni);
+		String universityName = "Macalester";
+		ArrayList<String> uni = SearchController.searchUniversities(universityName);
+		System.out.println(uni);
+		if (uni == null) {
+			System.out.println("no school found");
 		}
 		else {
-			System.out.println("School not found");
+			//String uniName = uni.get(0);
+			//System.out.println(uniName);
+			System.out.println(uni);
 		}
 	}
 

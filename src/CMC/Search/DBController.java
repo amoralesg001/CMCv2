@@ -177,13 +177,38 @@ public class DBController {
 		 * @param schooName
 		 * @return
 		 */
-		public static String searchUniversity(String schoolName) {	// should return a university i assume but diagram doesnt
+		public static ArrayList<String> searchUniversity(String schoolName) {	// should return a university i assume but diagram doesnt
+			String[][] univ = univDBlib.university_getUniversities();
+			ArrayList<String> univList = new ArrayList<>();
+			for (int row =0; row< univ.length;row++) {
+			if (univ[row][0].equals(schoolName)){
+			String univName = univ[row][0];
+			univList.add(univ[row][0]);
+			String State = univ[row][1];
+			univList.add(univ[row][1]);
+			String Location = univ[row][2];
+			univList.add(univ[row][2]);
+			String Control = univ[row][3];
+			String NumOfStud = univ[row][4];
+			String PercFem = univ[row][5];
+			String SATVerb = univ[row][6];
+			String SATmath = univ[row][7];
+			String Expense = univ[row][8];
+			String PercFinancAid = univ[row][9];
+			String NumAppl = univ[row][10];
+			String PercAdmit = univ[row][11];
+			String PercEnroll = univ[row][12];
+			String acadScale = univ[row][13];
+			String socialScale = univ[row][14];
+			String qualOfLifeScale = univ[row][15];
+			}
+			return univList;
+			}
 			//for (int i = 0; i < universityArray.length; i++)
 				//if (universityArray[i].getuniversityName() == schoolName) {
 					//return universityArray[i];
 				//}	
-			//return null;
-			return university.getuniversityName();
+			return null;
 		}
 		/**
 		 * 
@@ -290,8 +315,6 @@ public class DBController {
 				//System.out.println(ar[row][0]);
 				userSchool.add(ar[row][1]);
 				userSchool.add(ar[row][2]);
-				//userSchool.add("lajkdf");
-				//userSchool.add("adfadf");
 				return userSchool;
 			}
 		}	
