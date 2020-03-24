@@ -56,11 +56,11 @@ public class Driver {
 		//u11();
 		System.out.println("u11 done");
 		System.out.println("u12 should rb");
-		//u12();
+		u12();
 		System.out.println("u12 done");
 		
 		System.out.println("u16 start");
-		//u16();
+		u16();
 	
 	}
 	/**
@@ -255,7 +255,7 @@ public class Driver {
 	 * U12 add  school
 	 */
 	public static void u12() {
-		String universityName = "SJU";
+		String universityName = "blahblah1";
 		String state = "MN";
 		String location = "SC";
 		String control = "Private";
@@ -274,14 +274,16 @@ public class Driver {
 		//boolean blacklist = false;
 		//ArrayList<String> emphasis = new ArrayList<String>();
 		
-		if (SearchController.searchUniversities(universityName) != null)
+		if (DBController.dbGetUniversity(universityName) != null)
 		{
 			System.out.println("University with same name exists");
 		}
 		else
 		{
+			System.out.println("University does not exist");
 		UserUI.addSchool(universityName, state, location, control, numStudents, femalePer, verSAT, mathSAT,
 				tuition, finAid, numApplicants, admitPer, enrolledPer, academicScale, socialScale, qoaScale);
+		u5(universityName);
 		}
 	}
 	/**
@@ -300,7 +302,7 @@ public class Driver {
 	 * u16 is editing a school's information
 	 */
 	public static void u16() {
-		String universityName = "SJU";
+		String universityName = "blahblah1";
 		String state = "o";
 		String location = "o";
 		String control = "public";
@@ -319,13 +321,16 @@ public class Driver {
 		//boolean blacklist = true;
 		//ArrayList<String> emphasis = new ArrayList<String>();
 
-		if (SearchController.searchUniversities(universityName) == null)
+		if (DBController.dbGetUniversity(universityName) == null)
 		{
 			System.out.println("School: " + universityName + " does not exist.");
 		}
 		else
 		{
-			UserUI.saveScoolInfo(universityName, state, location, control, numStudents, femalePer, verSAT, mathSAT, tuition, finAid, numApplicants, admitPer, enrolledPer, academicScale, socialScale, qoaScale);
+			UserUI.saveScoolInfo(universityName, state, location, control, numStudents, femalePer,
+					verSAT, mathSAT, tuition, finAid, numApplicants, admitPer, enrolledPer, academicScale,
+					socialScale, qoaScale);
+			u5(universityName);
 		}
 	}
 	/**
