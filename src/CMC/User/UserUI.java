@@ -63,7 +63,7 @@ public class UserUI {
 	 * @param school School you want to display information about
 	 */
 	public static void displayUniversityInfo(University school) {
-		System.out.println("School Name:"  + school.getuniversityName());
+		System.out.println("School Name: "  + school.getuniversityName());
 		System.out.println("School State Location: " + school.getState());
 		System.out.println("School Location: " + school.getLocation());
 		System.out.println("Number of Students: " + school.getNumStudents());
@@ -78,7 +78,7 @@ public class UserUI {
 		System.out.println("Academic Scale: " + school.getAcademicScale());
 		System.out.println("Social Scale: " + school.getSocialScale());
 		System.out.println("QOA Scale: " + school.getQoaScale());
-		System.out.println("Emphasis:");
+		System.out.println("Emphasis: ");
 		
 	}
 	

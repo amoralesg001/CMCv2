@@ -17,9 +17,7 @@ public class Driver {
 	//private University university = new University(null, null, null, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, null);
 
 	public static void main(String[] args) {
-		String universityTest = "ADELPHI";
-		University university = DBController.dbGetUniversity(universityTest);
-		System.out.println(university.toString());
+
 		System.out.println("u1 starting");
 		u1();
 		System.out.println("u1 done");
@@ -36,6 +34,7 @@ public class Driver {
 		u4();
 		System.out.println("u4 done");
 		System.out.println("\nU5 Starting");
+		String universityTest = "ADELPHI";
 		u5(universityTest);
 		System.out.println("\nU5 Done");
 		
@@ -130,14 +129,22 @@ public class Driver {
 		System.out.println("nothing");	
 		}	
 		else {
-		for(int i = 0; i<savedUniversities.size();i++) {
-			System.out.println(savedUniversities.get(i));
-		}
+			for(int i = 0; i<savedUniversities.size();i++) {
+				System.out.println(savedUniversities.get(i));
+			}
 		
 		}
 	}
+	
+	
+	
 	/**
+	 * U2: Display User Information
+	 * @author nlarson002
+	 * Displays the users Information given their username and password
 	 * 
+	 * @param username The users username
+	 * @param password The users password
 	 */
 	public static void u3(String username, String password) {
 		System.out.println("\n");
@@ -175,14 +182,16 @@ public class Driver {
 
 		String universityName = "Macalester";
 		ArrayList<String> uni = SearchController.searchUniversities(universityName);
-		System.out.println(uni);
+		//System.out.println(uni);
 		if (uni == null) {
 			System.out.println("no school found");
 		}
 		else {
 			//String uniName = uni.get(0);
 			//System.out.println(uniName);
-			System.out.println(uni);
+
+			System.out.println(uni.toString());
+
 		}
 	}
 
