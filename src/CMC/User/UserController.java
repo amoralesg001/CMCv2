@@ -41,7 +41,7 @@ public class UserController {
 	 * @param AName Username of account as string
 	 */
 	public static boolean addSavedUniversities(String SName, String AName) {
-		University uni = DBController.getUniversity(SName);
+		University uni = DBController.dbGetUniversity(SName);
 		Account acc = DBController.getUserInfo(AName);
 		acc.addUniversity(uni);
 		return DBController.updateSavedUniversities(acc.getUsername(), uni.getuniversityName());
