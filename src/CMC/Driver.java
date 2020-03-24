@@ -5,8 +5,6 @@ package CMC;
 import java.util.ArrayList;
 import CMC.Search.*;
 import CMC.User.*;
-import dblibrary.project.csci230.UniversityDBLibrary;
-import CMC.University.*;
 
 /**
  * @author Thumb Thumbs
@@ -230,7 +228,7 @@ public class Driver {
 	public static void u9() {
 		String SName = "Saint John's University";
 		String AName = "jengh001";
-		boolean success = UserUI.addSavedUniversties(SName, AName);
+		boolean success = UserUI.addSavedUniversities(SName, AName);
 		if (success) {
 		   System.out.println("Saved Successfully");
 		}
@@ -244,7 +242,7 @@ public class Driver {
 	 * @author jengh001
 	 */
 	public static void u10() {
-		User[] users = UserUI.manageUsers();
+		ArrayList<User> users = UserUI.manageUsers();
 		System.out.println(users);
 	}
 	/**
