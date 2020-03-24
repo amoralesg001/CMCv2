@@ -11,6 +11,7 @@ package CMC.User;
 
 import java.util.ArrayList;
 
+import CMC.Search.SearchController;
 import CMC.University.*;
 
 public class UserUI {
@@ -225,6 +226,9 @@ public class UserUI {
 		System.out.println(account.getFirstName());
 		System.out.println(account.getLastName());
 
+	}
+	public static University searchUniversity(String universityName) {
+		return SearchController.searchUniversities(universityName);
 	}
 
 }

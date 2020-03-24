@@ -18,14 +18,14 @@ public class Driver {
 
 	public static void main(String[] args) {
 		String universityTest = "ADELPHI";
-		University university = DBController.dbGetUniversity(universityTest);
-		System.out.println(university.toString());
+		//University university = DBController.dbGetUniversity(universityTest);
+		//System.out.println(university.toString());
 		System.out.println("u1 starting");
 		u1();
 		System.out.println("u1 done");
 		System.out.println("Output should be: logged in");
 		System.out.println("u2 starting");
-		//u2("juser"); 
+		//u2("luser"); 
 		System.out.println("u2 done");
 		System.out.println("u3 starting");
 		u3("juser", "user");
@@ -33,8 +33,13 @@ public class Driver {
 		u3("nadmin", "admin");
 		System.out.println("u3 done");
 		System.out.println("u4 starting");
-		u4();
+		u4("ADELPHI");
 		System.out.println("u4 done");
+		System.out.println("output should be: ADELPHI IS FOUND");
+		System.out.println("u4 ALTERNATE starting");
+		u4("ADELPH");
+		System.out.println("u4 done");
+		System.out.println("output should be: no University found");
 		System.out.println("\nU5 Starting");
 		u5(universityTest);
 		System.out.println("\nU5 Done");
@@ -171,18 +176,14 @@ public class Driver {
 	 * This allows the user to search for a school
 	 */
 
-	public static void u4() {
+	public static void u4(String universityName) {
 
-		String universityName = "Macalester";
-		ArrayList<String> uni = SearchController.searchUniversities(universityName);
-		System.out.println(uni);
+		University uni = UserUI.searchUniversity(universityName);
 		if (uni == null) {
-			System.out.println("no school found");
+			System.out.println("no University found");
 		}
 		else {
-			//String uniName = uni.get(0);
-			//System.out.println(uniName);
-			System.out.println(uni);
+			System.out.println(uni.getuniversityName() + " is found");
 		}
 	}
 
