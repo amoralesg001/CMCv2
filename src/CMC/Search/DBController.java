@@ -299,9 +299,9 @@ public class DBController {
 		 * 
 		 * @return
 		 */
-		public static ArrayList<User> getAllUsers() {		//how to return an array
+		public static ArrayList<Account> getAllUsers() {		//how to return an array
 			String[][] userlist = univDBlib.user_getUsers();
-			ArrayList<User> users = new ArrayList<>();
+			ArrayList<Account> users = new ArrayList<>();
 			for (int row = 0; row < userlist.length; row++) {
 				String firstName = userlist[row][0];
 				String lastName = userlist[row][1];
@@ -309,8 +309,8 @@ public class DBController {
 				String password = userlist[row][3];
 				String type = userlist[row][4];
 				String active = userlist[row][5];
-				User user = new Account(firstName, lastName, username, password, type, active);
-				users.add(user);
+				Account acc = new Account(firstName, lastName, username, password, type, active);
+				users.add(acc);
 
 			}
 			return users;

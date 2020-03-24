@@ -4,6 +4,7 @@
 package CMC;
 import java.util.ArrayList;
 import CMC.Search.*;
+import CMC.University.University;
 import CMC.User.*;
 
 /**
@@ -15,11 +16,7 @@ public class Driver {
 	//private University university = new University(null, null, null, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, null);
 
 	public static void main(String[] args) {
-<<<<<<< HEAD
-		String universityTest = "ADELPHI";
-=======
 		String universityTest = "STANFORD";
->>>>>>> 48354c132b2169dda6994e9c45855dbb3f0cb920
 		//University university = DBController.dbGetUniversity(universityTest);
 		//System.out.println(university.toString());
 		System.out.println("u1 starting");
@@ -192,7 +189,7 @@ public class Driver {
 	/**
 	 * U5: View Individual University
 	 * 
-	 * @param String university name
+	 * @param universityName university name
 	 */
 	public static void u5(String universityName) {
 		UserUI.getUniversity(universityName);
@@ -200,7 +197,7 @@ public class Driver {
 	/**
 	 * u6: Remove School From List
 	 * 
-	 * @param String name of university
+	 * @param university name of university
 	 */
 	public static void u6(String university) {
 		UserUI.removeUniversity(university);
@@ -245,7 +242,7 @@ public class Driver {
 	 * @author jengh001
 	 */
 	public static void u10() {
-		ArrayList<User> users = UserUI.manageUsers();
+		ArrayList<Account> users = UserUI.manageUsers();
 		System.out.println(users);
 	}
 	/**

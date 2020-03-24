@@ -216,7 +216,7 @@ public class UserUI {
 	/**
 	 * 
 	 */
-	public static ArrayList<User> manageUsers() {
+	public static ArrayList<Account> manageUsers() {
 		return UserController.getAllUsers();
 		
 	}
