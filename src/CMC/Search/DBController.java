@@ -83,7 +83,6 @@ public class DBController {
 		public static University dbGetUniversity(String university){	
 			String[][] un = univDBlib.university_getUniversities();
 			
-			
 			for(int i = 0; i < un.length; i++) {
 				if (un[i][0].equals(university)) {
 					
@@ -153,27 +152,15 @@ public class DBController {
 			 * 
 		 * @param universityName
 		 */
-		public static void updateUniversityDB(University universityName) {
-			for (University u: uArray)
+		public static void updateUniversityDB(String universityName, String state, String location, String control, int numStudents,
+				int femalePer, int verSAT, int mathSAT, double tuition, double finAid, double numApplicants, int admitPer,
+				int enrolledPer, int academicScale, int socialScale, int qoaScale) {
+			//String[][] un = univDBlib.university_getUniversities();
+			University u = dbGetUniversity(universityName);
 			{
-				if( u.getuniversityName().equals(universityName.getuniversityName()))
+				if( u.getuniversityName().equals(universityName))
 				{
-					u.setUniversityName(universityName.getuniversityName());
-					u.setState(universityName.getState());
-					u.setLocation(universityName.getLocation());
-					u.setNumStudents(universityName.getNumStudents());
-					u.setFemalePer(universityName.getFemalePer());
-					u.setVerSAT(universityName.getVerSAT());
-					u.setMathSAT(universityName.getMathSAT());
-					u.setTuition(universityName.getTuition());
-					u.setFinAid(universityName.getFinAid());
-					u.setNumApplicants(universityName.getNumApplicants());
-					u.setAdmitPer(universityName.getAdmitPer());
-					u.setEnrolledPer(universityName.getEnrolledPer());
-					u.setAcademicScale(universityName.getAcademicScale());
-					u.setSocialScale(universityName.getSocialScale());
-					u.setQoaScale(universityName.getQoaScale());
-					u.setEmphasis(universityName.getEmphasis());
+					univDBlib.university_editUniversity(u.getuniversityName(), state, location, control, numStudents, femalePer, verSAT, mathSAT, tuition, finAid, (int) numApplicants, admitPer, enrolledPer, academicScale, socialScale, qoaScale);
 				}
 			}
 			
@@ -203,8 +190,10 @@ public class DBController {
 		 * @param universityName
 		 * @return
 		 */
-		public static void addUniversity(University universityName) {//is this adding all information of a university or just on the saved list? 		
-			uArray.add(universityName); 
+		public static void addUniversity(String universityName, String state, String location, String control, int numStudents, double femalePer, double verSAT,
+				double mathSAT, double tuition, double finAid, int numApplicants, double admitPer, double enrolledPer,
+				int academicScale, int socialScale, int qoaSCale)  {//is this adding all information of a university or just on the saved list? 		
+			univDBlib.university_addUniversity(universityName, state, location, control, numStudents, femalePer, verSAT, mathSAT, tuition, finAid, numApplicants, admitPer, enrolledPer, academicScale, socialScale, qoaSCale);
 			
 		}
 		/**
@@ -267,7 +256,7 @@ public class DBController {
 		 * @return
 		 */
 		public static Account lookUpAccount(String accountName) {
-			return account; 
+			return null; 
 		}
 		/**
 		 * 

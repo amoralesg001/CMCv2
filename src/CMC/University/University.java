@@ -97,10 +97,19 @@ public class University {
 	public void setLocation(String location) {
 		this.location = location;
 	}
+	public String getControl() {
+		return control;
+	}
+	/**
+	 * @param location the location to set
+	 */
+	public void setControl(String control) {
+		this.control = control;
+	}
 	/**
 	 * @return the numStudents
 	 */
-	public Long getNumStudents() {
+	public long getNumStudents() {
 		return (long) numStudents;
 	}
 	/**

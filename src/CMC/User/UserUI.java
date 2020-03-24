@@ -115,11 +115,11 @@ public class UserUI {
 	 * 
 	 * @param school
 	 */
-	public static void saveScoolInfo(String universityName, String state, String location, int numStudents, int femalePer,
+	public static void saveScoolInfo(String universityName, String state, String location, String control, int numStudents, int femalePer,
 			int verSAT, int mathSAT, double tuition, double finAid, double numApplicants, int admitPer, int enrolledPer,
-			int academicScale, int socialScale, int qoaScale, boolean blacklist, ArrayList<String> emphasis) {
+			int academicScale, int socialScale, int qoaScale) {
 		// TODO Auto-generated method stub
-		UniversityController.editUniversityinfo(universityName, state, location, numStudents, femalePer, verSAT, mathSAT, tuition, finAid, numApplicants, admitPer, enrolledPer, academicScale, socialScale, qoaScale, emphasis);
+		UniversityController.editUniversityinfo(universityName, state, location, control, numStudents, femalePer, verSAT, mathSAT, tuition, finAid, numApplicants, admitPer, enrolledPer, academicScale, socialScale, qoaScale);
 	}
 
 	/**
@@ -206,11 +206,11 @@ public class UserUI {
 		
 	}
 
-	public static void addSchool(String universityName, String state, String location, int numStudents, int femalePer,
-			int verSAT, int mathSAT, double tuition, double finAid, double numApplicants, int admitPer, int enrolledPer,
-			int academicScale, int socialScale, int qoaScale, boolean blacklist, ArrayList<String> emphasis) {
+	public static void addSchool(String universityName, String state, String location, String control, int numStudents, int femalePer,
+			int verSAT, int mathSAT, double tuition, double finAid, int numApplicants, int admitPer, int enrolledPer,
+			int academicScale, int socialScale, int qoaScale) {
 		// TODO Auto-generated method stub
-		UniversityController.addUniversity(universityName, state, location, numStudents, femalePer, verSAT, mathSAT, tuition, finAid, numApplicants, admitPer, enrolledPer, academicScale, socialScale, qoaScale, emphasis);
+		UniversityController.addUniversity(universityName, state, location, control, numStudents, femalePer, verSAT, mathSAT, tuition, finAid, numApplicants, admitPer, enrolledPer, academicScale, socialScale, qoaScale);
 	}
 
 	public static void getUniversity(String university) {
