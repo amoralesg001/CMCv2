@@ -58,11 +58,11 @@ public class Driver {
 		//u11();
 		System.out.println("u11 done");
 		System.out.println("u12 should rb");
-		//u12();
+		u12();
 		System.out.println("u12 done");
 		
 		System.out.println("u16 start");
-		//u16();
+		u16();
 	
 	}
 	/**
@@ -254,33 +254,38 @@ public class Driver {
 		UserUI.manageSchool();
 	}
 	/**
-	 * 
+	 * U12 add  school
 	 */
 	public static void u12() {
-		String universityName = "SJU";
+		String universityName = "blahblah1";
 		String state = "MN";
 		String location = "SC";
+		String control = "Private";
 		int numStudents = 2000;
 		int femalePer = 0;
 		int verSAT = 1200;
 		int mathSAT = 1200;
 		double tuition = 60000;
 		double finAid = 20000;
-		double numApplicants = 4000;
+		int numApplicants = 4000;
 		int admitPer = 20;
 		int enrolledPer = 80;
 		int academicScale = 5;
 		int socialScale = 5;
 		int qoaScale = 5;
-		boolean blacklist = false;
-		ArrayList<String> emphasis = new ArrayList<String>();
+		//boolean blacklist = false;
+		//ArrayList<String> emphasis = new ArrayList<String>();
 		
-		UserUI.addSchool(universityName, state, location, numStudents, femalePer, verSAT, mathSAT,
-				tuition, finAid, numApplicants, admitPer, enrolledPer, academicScale, socialScale, qoaScale,
-				blacklist, emphasis);
-		for (University u: DBController.uArray)
-		{ 
-			System.out.println(u.toString());
+		if (DBController.dbGetUniversity(universityName) != null)
+		{
+			System.out.println("University with same name exists");
+		}
+		else
+		{
+			System.out.println("University does not exist");
+		UserUI.addSchool(universityName, state, location, control, numStudents, femalePer, verSAT, mathSAT,
+				tuition, finAid, numApplicants, admitPer, enrolledPer, academicScale, socialScale, qoaScale);
+		u5(universityName);
 		}
 	}
 	/**
@@ -299,9 +304,10 @@ public class Driver {
 	 * u16 is editing a school's information
 	 */
 	public static void u16() {
-		String universityName = "SJU";
+		String universityName = "blahblah1";
 		String state = "o";
 		String location = "o";
+		String control = "public";
 		int numStudents = 0;
 		int femalePer = 8;
 		int verSAT = 0;
@@ -314,14 +320,19 @@ public class Driver {
 		int academicScale = 0;
 		int socialScale = 0;
 		int qoaScale = 0;
-		boolean blacklist = true;
-		ArrayList<String> emphasis = new ArrayList<String>();
-		
-		UserUI.saveScoolInfo(universityName, state, location, numStudents, femalePer, verSAT, mathSAT, tuition, finAid, numApplicants, admitPer, enrolledPer, academicScale, socialScale, qoaScale, blacklist, emphasis);
-		
-		for (University u: DBController.uArray)
-		{ 
-			System.out.println(u.toString());
+		//boolean blacklist = true;
+		//ArrayList<String> emphasis = new ArrayList<String>();
+
+		if (DBController.dbGetUniversity(universityName) == null)
+		{
+			System.out.println("School: " + universityName + " does not exist.");
+		}
+		else
+		{
+			UserUI.saveScoolInfo(universityName, state, location, control, numStudents, femalePer,
+					verSAT, mathSAT, tuition, finAid, numApplicants, admitPer, enrolledPer, academicScale,
+					socialScale, qoaScale);
+			u5(universityName);
 		}
 	}
 	/**
