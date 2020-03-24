@@ -37,18 +37,12 @@ public class Driver {
 		System.out.println("u4 starting");
 		u4("ADELPHI");
 		System.out.println("u4 done");
-<<<<<<< HEAD
 		System.out.println("output should be: ADELPHI IS FOUND");
 		System.out.println("u4 ALTERNATE starting");
 		u4("ADELPH");
 		System.out.println("u4 done");
 		System.out.println("output should be: no University found");
 		System.out.println("\nU5 Starting");
-=======
-		System.out.println("Testing Emphasis");
-		
-		System.out.println("\nU5 Starting\n");
->>>>>>> 48354c132b2169dda6994e9c45855dbb3f0cb920
 		u5(universityTest);
 		System.out.println("\nU5 Done: Should dislpay the information of Stanford. \n");
 		
@@ -235,8 +229,8 @@ public class Driver {
 	 */
 
 	public static void u9() {
-		String SName = "Saint John's University";
-		String AName = "jengh001";
+		String SName = "ADELPH";
+		String AName = "juser";
 		boolean success = UserUI.addSavedUniversities(SName, AName);
 		if (success) {
 		   System.out.println("Saved Successfully");
