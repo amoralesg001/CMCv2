@@ -12,9 +12,9 @@ import CMC.University.*;
 public class DBController {
 		//private static Account account = new Account("amoralesg001", "thumb thumb", null, null, null); 
 
-		private static User userArray[]; //should we do an array or list?  
+		//private static User userArray[]; //should we do an array or list?  
 		
-		public static ArrayList<University> uArray = new ArrayList<University>();
+		//public static ArrayList<University> uArray = new ArrayList<University>();
 		static String dbUsername = "thumbthumbs";
 		static String dbPassword = "csci230";
 		static UniversityDBLibrary univDBlib = new UniversityDBLibrary(dbUsername,dbPassword);
@@ -369,7 +369,7 @@ public class DBController {
 		 * @return
 		 */
 		public static University getUniversity(String universityName) {
-			return university;
+			//return university;
 		}
 		/**
 		 * this method returns an account to be used in UserController
@@ -384,7 +384,6 @@ public class DBController {
 			String[][] ar = univDBlib.user_getUsernamesWithSavedSchools();
 			ArrayList<String> userSchool = new ArrayList<String>();
 			
-			}
 			for(int row = 0; row<ar.length; row++) {
 			if (ar[row][0].equals(username)){
 				userSchool.add(ar[row][0]);

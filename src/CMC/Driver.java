@@ -4,6 +4,7 @@
 package CMC;
 import java.util.ArrayList;
 import CMC.Search.*;
+import CMC.University.University;
 import CMC.User.*;
 
 /**
@@ -37,23 +38,19 @@ public class Driver {
 		System.out.println("u4 starting");
 		u4("ADELPHI");
 		System.out.println("u4 done");
-<<<<<<< HEAD
 
-=======
->>>>>>> 2b047c4aea6fa9daf5fb58753de908112806d80e
 		System.out.println("output should be: ADELPHI IS FOUND");
 		System.out.println("u4 ALTERNATE starting");
 		u4("ADELPH");
 		System.out.println("u4 done");
 		System.out.println("output should be: no University found");
 		System.out.println("\nU5 Starting");
-<<<<<<< HEAD
+
 
 		System.out.println("Testing Emphasis");
 		
 		System.out.println("\nU5 Starting\n");
-=======
->>>>>>> 2b047c4aea6fa9daf5fb58753de908112806d80e
+
 		u5(universityTest);
 		System.out.println("\nU5 Done: Should dislpay the information of Stanford. \n");
 		
@@ -65,7 +62,7 @@ public class Driver {
 		
 		System.out.println("u8 done");
 		System.out.println("u9 starting");
-		//u9();
+		u9();
 		System.out.println("u9 done");
 		System.out.println("u10 starting");
 		//u10();
