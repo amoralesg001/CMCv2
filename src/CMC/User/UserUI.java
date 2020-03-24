@@ -134,7 +134,7 @@ public class UserUI {
 	 * 
 	 *
 	 */
-	public static void saveScoolInfo(String universityName, String state, String location, String control, int numStudents, int femalePer,
+	public static void saveSchoolInfo(String universityName, String state, String location, String control, int numStudents, int femalePer,
 			int verSAT, int mathSAT, double tuition, double finAid, double numApplicants, int admitPer, int enrolledPer,
 			int academicScale, int socialScale, int qoaScale) {
 		// TODO Auto-generated method stub

@@ -380,22 +380,22 @@ public class DBController {
 			
 			return null;
 		}
-		public static ArrayList<String> dbGetSavedUniversityList(String username){	
-			String[][] ar = univDBlib.user_getUsernamesWithSavedSchools();
-			ArrayList<String> userSchool = new ArrayList<String>();
+		//public static ArrayList<String> dbGetSavedUniversityList(String username){	
+			//String[][] ar = univDBlib.user_getUsernamesWithSavedSchools();
+			//ArrayList<String> userSchool = new ArrayList<String>();
 			
-			}
-			for(int row = 0; row<ar.length; row++) {
-				if (ar[row][0].equals(username)){
-					userSchool.add(ar[row][0]);
+			//}
+			//for(int row = 0; row<ar.length; row++) {
+				//if (ar[row][0].equals(username)){
+					//userSchool.add(ar[row][0]);
 					//System.out.println(ar[row][0]);
-					userSchool.add(ar[row][1]);
-					userSchool.add(ar[row][2]);
-					return userSchool;
-				}
-			}	
-			return null;	
-	}
+					//userSchool.add(ar[row][1]);
+					//userSchool.add(ar[row][2]);
+					//return userSchool;
+				//}
+			//}	
+			//return null;	
+	//}
 		
 }
 	
