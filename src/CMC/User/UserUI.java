@@ -60,7 +60,7 @@ public class UserUI {
 	
 	/**
 	 * 
-	 * @param school School you want to display information about
+	 * @param university School you want to display information about
 	 */
 	public static void displayUniversityInfo(University university) {
 		System.out.println("School Name: "  + university.getuniversityName());
@@ -107,8 +107,8 @@ public class UserUI {
 	 * @param AName Account username as string
 	 * @return 
 	 */
-	public static boolean addSavedUniversties(String SName, String AName) {
-		UserController.addSavedUniversities(SName, AName);
+	public static boolean addSavedUniversities(String SName, String AName) {
+		return UserController.addSavedUniversities(SName, AName);
 	}
 
 	/**
@@ -127,7 +127,7 @@ public class UserUI {
 	}
 	/**
 	 * 
-	 * @param school
+	 *
 	 */
 	public static void saveScoolInfo(String universityName, String state, String location, String control, int numStudents, int femalePer,
 			int verSAT, int mathSAT, double tuition, double finAid, double numApplicants, int admitPer, int enrolledPer,
@@ -215,7 +215,7 @@ public class UserUI {
 	/**
 	 * 
 	 */
-	public static User[] manageUsers() {
+	public static ArrayList<User> manageUsers() {
 		return UserController.getAllUsers();
 		
 	}

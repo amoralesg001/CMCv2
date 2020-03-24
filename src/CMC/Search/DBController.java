@@ -299,11 +299,21 @@ public class DBController {
 		 * 
 		 * @return
 		 */
-		public static User[] getAllUsers() {		//how to return an array
-			for () {
+		public static ArrayList<User> getAllUsers() {		//how to return an array
+			String[][] userlist = univDBlib.user_getUsers();
+			ArrayList<Account> users = new ArrayList<>();
+			for (int row = 0; row < userlist.length; row++) {
+				String firstName = userlist[row][0];
+				String lastName = userlist[row][1];
+				String username = userlist[row][2];
+				String password = userlist[row][3];
+				String type = userlist[row][4];
+				String active = userlist[row][5];
+				Account acc = new Account(firstName, lastName, username, password, type, active);
+				users.add(acc);
 
 			}
-			return userArray; 
+			return users;
 		}
 		/**
 		 * 
