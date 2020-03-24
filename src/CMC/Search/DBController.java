@@ -293,7 +293,8 @@ public class DBController {
 		 * @return
 		 */
 		public static University[] getAllUniversities() {	//how to return an array 
-			return universityArray; 
+			//return universityArray; 
+			return null;
 		}
 		/**
 		 * 
@@ -311,7 +312,6 @@ public class DBController {
 				String active = userlist[row][5];
 				Account acc = new Account(firstName, lastName, username, password, type, active);
 				users.add(acc);
-
 			}
 			return users;
 		}
@@ -347,7 +347,7 @@ public class DBController {
 		 * @return
 		 */
 		public University lookUpUniversity(String universityName) {
-			return university;
+			return null;
 		}
 		/**
 		 * 
@@ -369,10 +369,10 @@ public class DBController {
 		 * @return
 		 */
 		public static University getUniversity(String universityName) {
-			return university;
+			//return university;
+			return null;
 		}
-		/**
-		 * this method returns an account to be used in UserController
+		/** this method returns an account to be used in UserController
 		 * @param username
 		 * @return account of the username
 		 */
@@ -386,14 +386,14 @@ public class DBController {
 			
 			}
 			for(int row = 0; row<ar.length; row++) {
-			if (ar[row][0].equals(username)){
-				userSchool.add(ar[row][0]);
-				//System.out.println(ar[row][0]);
-				userSchool.add(ar[row][1]);
-				userSchool.add(ar[row][2]);
-				return userSchool;
-			}
-		}	
+				if (ar[row][0].equals(username)){
+					userSchool.add(ar[row][0]);
+					//System.out.println(ar[row][0]);
+					userSchool.add(ar[row][1]);
+					userSchool.add(ar[row][2]);
+					return userSchool;
+				}
+			}	
 			return null;	
 	}
 		

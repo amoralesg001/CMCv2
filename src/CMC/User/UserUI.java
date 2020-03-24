@@ -63,25 +63,7 @@ public class UserUI {
 	 * 
 <<<<<<< HEAD
 	 * @param school School you want to display information about
-	 */
-	public static void displayUniversityInfo(University school) {
-		System.out.println("School Name: "  + school.getuniversityName());
-		System.out.println("School State Location: " + school.getState());
-		System.out.println("School Location: " + school.getLocation());
-		System.out.println("Number of Students: " + school.getNumStudents());
-		System.out.println("Percentage of Females: " + school.getFemalePer());
-		System.out.println("Average Ver. SAT score: " + school.getVerSAT());
-		System.out.println("Average Math SAT score: " + school.getMathSAT());
-		System.out.println("Tuition Costs: " + school.getTuition());
-		System.out.println("Average Financial Aid: " + school.getFinAid());
-		System.out.println("Number of Applicants: " + school.getNumApplicants());
-		System.out.println("Percentage of Admitted Applicants: " + school.getAdmitPer());
-		System.out.println("Percentange of Enrolled: " + school.getEnrolledPer());
-		System.out.println("Academic Scale: " + school.getAcademicScale());
-		System.out.println("Social Scale: " + school.getSocialScale());
-		System.out.println("QOA Scale: " + school.getQoaScale());
-		System.out.println("Emphasis: ");
-=======
+	 *
 	 * @param university School you want to display information about
 	 */
 	public static void displayUniversityInfo(University university) {
@@ -115,7 +97,7 @@ public class UserUI {
 		else {
 			System.out.println("Blacklisted: No");
 		}
->>>>>>> cb6c3e921c207b5ac3025d45d7850afbd9ad6213
+
 		
 	}
 	

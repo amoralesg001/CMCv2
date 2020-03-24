@@ -204,8 +204,6 @@ public class Driver {
 			//System.out.println(uniName);
 
 			System.out.println(uni.toString());
-
-
 			System.out.println(uni.getuniversityName() + " is found");
 
 		}
