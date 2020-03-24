@@ -14,9 +14,6 @@ public class DBController {
 
 		private static User userArray[]; //should we do an array or list?  
 		
-
-		private static University university = new University("Saint John's Univeristy", "Minnesota", "United States", "PRIVATE", 2500, 0, 0, 0, 40000, 0, 0, 0,  0, 0, 0, 0);
-		private static University universityArray[];
 		public static ArrayList<University> uArray = new ArrayList<University>();
 		static String dbUsername = "thumbthumbs";
 		static String dbPassword = "csci230";
@@ -80,7 +77,8 @@ public class DBController {
 			}
 			return null;	
 		}		  
-		public static University dbGetUniversity(String university){	
+		
+		public static University dbGetUniversity(String university) {	
 			String[][] un = univDBlib.university_getUniversities();
 			ArrayList<String> emphasis = new ArrayList<String>();
 			
@@ -185,13 +183,18 @@ public class DBController {
 					String[][] em = univDBlib.university_getNamesWithEmphases();
 					for(int j = 0; j < em.length; j++) {
 						if (em[j][0].equals(university)) {
-							for (int k = 0; k < em[j].length; k++) {
-							emphasis.add(em[j][k]);
+							if (emphasis.contains(em[j][1])) {
+								
+							}
+							else {
+								emphasis.add(em[j][1]);
 							}
 						}
-						else {
-							emphasis.add("No Emphases");
-						}
+					}
+						if (emphasis.size() == 0) {
+						emphasis.add("No Emphases");
+					}
+				
 					
 					//Blacklist
 					boolean blacklist = false;
@@ -204,8 +207,9 @@ public class DBController {
 					return universityRet;
 				}
 			}
-			return null;	
-		}		  
+			return null;
+			
+		}
 			/**
 			 * 
 		 * @param universityName

@@ -17,9 +17,9 @@ public class Driver {
 	//private University university = new University(null, null, null, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, null);
 
 	public static void main(String[] args) {
-		String universityTest = "ADELPHI";
-		University university = DBController.dbGetUniversity(universityTest);
-		System.out.println(university.toString());
+		String universityTest = "STANFORD";
+		//University university = DBController.dbGetUniversity(universityTest);
+		//System.out.println(university.toString());
 		System.out.println("u1 starting");
 		u1();
 		System.out.println("u1 done");
@@ -35,9 +35,11 @@ public class Driver {
 		System.out.println("u4 starting");
 		u4();
 		System.out.println("u4 done");
-		System.out.println("\nU5 Starting");
+		System.out.println("Testing Emphasis");
+		
+		System.out.println("\nU5 Starting\n");
 		u5(universityTest);
-		System.out.println("\nU5 Done");
+		System.out.println("\nU5 Done: Should dislpay the information of Stanford. \n");
 		
 		//u6(universityToRemove);
 		//u7(universityToRemove, universityToRemove, universityToRemove, universityToRemove);
