@@ -41,8 +41,8 @@ public class UserUI {
 	 * @param firstName
 	 * @param lastName
 	 */
-	public static Account saveUserInfo(String username, String password, String firstName, String lastName, String userType) {
-		Account user = UserController.saveUserInfo(username, password, firstName, lastName, userType);
+	public static Account saveUserInfo(String username, String password, String firstName, String lastName, String userType, String loginStatus) {
+		Account user = UserController.saveUserInfo(username, password, firstName, lastName, userType, loginStatus);
 		return user;
 	}
 	/**
@@ -215,16 +215,6 @@ public class UserUI {
 
 	public static void getUniversity(String university) {
 		UniversityController.getUniversity(university);
-	}
-	/**
-	 * Displays the account information to the UserUI.
-	 * @param account
-	 */
-	public static void displayAccountInfo(Account account) {
-		System.out.println(account.getUsername());
-		System.out.println(account.getFirstName());
-		System.out.println(account.getLastName());
-
 	}
 
 }

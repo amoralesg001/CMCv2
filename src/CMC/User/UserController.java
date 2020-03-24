@@ -99,12 +99,12 @@ public class UserController {
 	 * @param firstName
 	 * @param lastName
 	 */
-	public static Account saveUserInfo(String username, String password, String firstName, String lastName, String userType) {
+	public static Account saveUserInfo(String username, String password, String firstName, String lastName, String userType, String loginStatus) {
 		Account user = DBController.getAccountDB(username, password);
-		DBController.updateAccountDB(user);
 		if (user != null) {
-			account.updateAccountInfo(username, password, firstName, lastName, userType);
-			UserUI.displayAccountInfo(user);
+			DBController.updateAccountDB(username, password, firstName, lastName);
+			account.updateAccountInfo(username, password, firstName, lastName, userType, loginStatus);
+			user = DBController.getAccountDB(username, password);
 		}
 		return user;
 	}

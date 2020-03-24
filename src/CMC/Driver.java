@@ -202,23 +202,22 @@ public class Driver {
 	public static void u6(String university) {
 		UserUI.removeUniversity(university);
 	}
+	
 	/**
 	 * Edit User Information
 	 */
-	public static void u7(String username, String password, String firstName, String lastName, String userType) {
-		Account user = UserUI.saveUserInfo(username, password, firstName, lastName, userType);
-		System.out.println(user.getUsername());
-		System.out.println(user.getFirstName());
-		System.out.println(user.getLastName());
+	public static void u7(String username, String password, String firstName, String lastName, String userType, String loginStatus) {
+		Account user = UserUI.saveUserInfo(username, password, firstName, lastName, userType, loginStatus);
+		
 	}
 	
 	/**
-	 * View Search Results
+	 * View Search Results // NOT DOING ANYMORE
 	 */
-	public static void u8() {
-		String results = UserUI.viewResults();
-		System.out.println(results);
-	}
+//	public static void u8() {
+//		String results = UserUI.viewResults();
+//		System.out.println(results);
+//	}
 	
 	/**
 	 * U9: Save School to list 

@@ -94,12 +94,13 @@ public class Account {
 	}
 	
 	
-	public void updateAccountInfo(String username, String password, String firstName, String lastName, String userType) {
+	public void updateAccountInfo(String username, String password, String firstName, String lastName, String userType, String loginStatus) {
 		this.username = username;
 		this.password = password;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.userType = userType;
+		this.loginStatus = loginStatus;
 	}
 	
 	//CHANGED AND NO LONGER FOLLOWS COM DIAGRAM

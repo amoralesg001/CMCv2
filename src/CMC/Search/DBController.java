@@ -255,8 +255,10 @@ public class DBController {
 		 * Updates the account in the database.
 		 * @param user
 		 */
-		public static void updateAccountDB(Account user) {	//would updating return an array ? 
-			//TODO @Jack once we have the actual database
+		public static void updateAccountDB(String username, String password, String firstName, String lastName) {	//would updating return an array ? 
+			char userType = 'u';
+			char loginStatus = 'y';
+			univDBlib.user_editUser(username, firstName, lastName, password, userType, loginStatus);
 		}
 
 
