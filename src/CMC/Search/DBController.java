@@ -301,7 +301,7 @@ public class DBController {
 		 */
 		public static ArrayList<User> getAllUsers() {		//how to return an array
 			String[][] userlist = univDBlib.user_getUsers();
-			ArrayList<Account> users = new ArrayList<>();
+			ArrayList<User> users = new ArrayList<>();
 			for (int row = 0; row < userlist.length; row++) {
 				String firstName = userlist[row][0];
 				String lastName = userlist[row][1];
@@ -309,8 +309,8 @@ public class DBController {
 				String password = userlist[row][3];
 				String type = userlist[row][4];
 				String active = userlist[row][5];
-				Account acc = new Account(firstName, lastName, username, password, type, active);
-				users.add(acc);
+				User user = new Account(firstName, lastName, username, password, type, active);
+				users.add(user);
 
 			}
 			return users;

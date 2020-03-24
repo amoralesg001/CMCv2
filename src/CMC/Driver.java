@@ -5,8 +5,6 @@ package CMC;
 import java.util.ArrayList;
 import CMC.Search.*;
 import CMC.User.*;
-import dblibrary.project.csci230.UniversityDBLibrary;
-import CMC.University.*;
 
 /**
  * @author Thumb Thumbs
@@ -39,17 +37,23 @@ public class Driver {
 		System.out.println("u4 starting");
 		u4("ADELPHI");
 		System.out.println("u4 done");
+<<<<<<< HEAD
 
+=======
+>>>>>>> 2b047c4aea6fa9daf5fb58753de908112806d80e
 		System.out.println("output should be: ADELPHI IS FOUND");
 		System.out.println("u4 ALTERNATE starting");
 		u4("ADELPH");
 		System.out.println("u4 done");
 		System.out.println("output should be: no University found");
 		System.out.println("\nU5 Starting");
+<<<<<<< HEAD
 
 		System.out.println("Testing Emphasis");
 		
 		System.out.println("\nU5 Starting\n");
+=======
+>>>>>>> 2b047c4aea6fa9daf5fb58753de908112806d80e
 		u5(universityTest);
 		System.out.println("\nU5 Done: Should dislpay the information of Stanford. \n");
 		
@@ -236,9 +240,9 @@ public class Driver {
 	 */
 
 	public static void u9() {
-		String SName = "Saint John's University";
-		String AName = "jengh001";
-		boolean success = UserUI.addSavedUniversties(SName, AName);
+		String SName = "ADELPH";
+		String AName = "juser";
+		boolean success = UserUI.addSavedUniversities(SName, AName);
 		if (success) {
 		   System.out.println("Saved Successfully");
 		}
@@ -252,7 +256,7 @@ public class Driver {
 	 * @author jengh001
 	 */
 	public static void u10() {
-		User[] users = UserUI.manageUsers();
+		ArrayList<User> users = UserUI.manageUsers();
 		System.out.println(users);
 	}
 	/**
