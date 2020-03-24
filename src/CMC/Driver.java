@@ -214,6 +214,7 @@ public class Driver {
 	 */
 	public static void u5(String universityName) {
 		UserUI.getUniversity(universityName);
+		
 	}
 	/**
 	 * u6: Remove School From List
@@ -348,7 +349,7 @@ public class Driver {
 		}
 		else
 		{
-			UserUI.saveScoolInfo(universityName, state, location, control, numStudents, femalePer,
+			UserUI.saveSchoolInfo(universityName, state, location, control, numStudents, femalePer,
 					verSAT, mathSAT, tuition, finAid, numApplicants, admitPer, enrolledPer, academicScale,
 					socialScale, qoaScale);
 			u5(universityName);
