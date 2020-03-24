@@ -41,7 +41,12 @@ public class Driver {
 		
 		//u6(universityToRemove);
 		//u7(universityToRemove, universityToRemove, universityToRemove, universityToRemove);
-		System.out.println("u7 done");
+		System.out.println("\nu7 starting");
+		System.out.println("\nTesting user 'John' (in database)");
+		u7("juser", "user", "UpdatedJohn", "UpdatedLastName");
+		System.out.println("\nTesting 'Jack' (NOT in database)");
+		//u7("jyoung001", "jackpassword", "Jack", "Young");
+		System.out.println("\nu7 done\n");
 		System.out.println("u8 starting");
 		//u8();
 		
@@ -206,9 +211,13 @@ public class Driver {
 	/**
 	 * Edit User Information
 	 */
-	public static void u7(String username, String password, String firstName, String lastName, String userType, String loginStatus) {
-		Account user = UserUI.saveUserInfo(username, password, firstName, lastName, userType, loginStatus);
-		
+	public static void u7(String username, String password, String firstName, String lastName) {
+		Account user = UserUI.saveUserInfo(username, password, firstName, lastName);
+		System.out.println("***Edited user info:");
+		System.out.println("Username: " + user.getUsername());
+		System.out.println("First Name: " + user.getFirstName());
+		System.out.println("Last Name: " + user.getLastName());
+		System.out.println("User Type: " + user.getUserType());
 	}
 	
 	/**

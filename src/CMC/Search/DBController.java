@@ -255,10 +255,11 @@ public class DBController {
 		 * Updates the account in the database.
 		 * @param user
 		 */
-		public static void updateAccountDB(String username, String password, String firstName, String lastName) {	//would updating return an array ? 
-			char userType = 'u';
-			char loginStatus = 'y';
-			univDBlib.user_editUser(username, firstName, lastName, password, userType, loginStatus);
+		public static void updateAccountDB(String username, String password, String firstName, String lastName, String userType, String loginStatus) {
+			char uType = userType.charAt(0);
+			char logStatus = loginStatus.charAt(0);
+			univDBlib.user_editUser(username, firstName, lastName, password, uType, logStatus);
+			System.out.println("*Edited user info in DB*");
 		}
 
 
