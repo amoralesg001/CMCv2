@@ -383,6 +383,8 @@ public class DBController {
 		public static ArrayList<String> dbGetSavedUniversityList(String username){	
 			String[][] ar = univDBlib.user_getUsernamesWithSavedSchools();
 			ArrayList<String> userSchool = new ArrayList<String>();
+			
+			}
 			for(int row = 0; row<ar.length; row++) {
 			if (ar[row][0].equals(username)){
 				userSchool.add(ar[row][0]);

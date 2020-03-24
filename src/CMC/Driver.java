@@ -17,11 +17,11 @@ public class Driver {
 	//private University university = new University(null, null, null, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, null);
 
 	public static void main(String[] args) {
-<<<<<<< HEAD
+
 		String universityTest = "ADELPHI";
-=======
-		String universityTest = "STANFORD";
->>>>>>> 48354c132b2169dda6994e9c45855dbb3f0cb920
+
+		//String universityTest = "STANFORD";
+
 		//University university = DBController.dbGetUniversity(universityTest);
 		//System.out.println(university.toString());
 		System.out.println("u1 starting");
@@ -29,7 +29,7 @@ public class Driver {
 		System.out.println("u1 done");
 		System.out.println("Output should be: logged in");
 		System.out.println("u2 starting");
-		//u2("luser"); 
+		//u2("jengh001"); 
 		System.out.println("u2 done");
 		System.out.println("u3 starting");
 		u3("juser", "user");
@@ -39,18 +39,17 @@ public class Driver {
 		System.out.println("u4 starting");
 		u4("ADELPHI");
 		System.out.println("u4 done");
-<<<<<<< HEAD
+
 		System.out.println("output should be: ADELPHI IS FOUND");
 		System.out.println("u4 ALTERNATE starting");
 		u4("ADELPH");
 		System.out.println("u4 done");
 		System.out.println("output should be: no University found");
 		System.out.println("\nU5 Starting");
-=======
+
 		System.out.println("Testing Emphasis");
 		
 		System.out.println("\nU5 Starting\n");
->>>>>>> 48354c132b2169dda6994e9c45855dbb3f0cb920
 		u5(universityTest);
 		System.out.println("\nU5 Done: Should dislpay the information of Stanford. \n");
 		
