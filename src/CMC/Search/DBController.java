@@ -174,7 +174,7 @@ public class DBController {
 		}
 		/**
 		 * 
-		 * @param schooName
+		 * @param schoolName
 		 * @return
 		 */
 		public static ArrayList<String> searchUniversity(String schoolName) {	// should return a university i assume but diagram doesnt
@@ -224,8 +224,10 @@ public class DBController {
 		/**
 		 * 
 		 */
-		public void updateSavedUniversitys() {
-		
+		public static boolean updateSavedUniversities(String username, String uniName) {
+			int output = univDBlib.user_saveSchool(username, uniName);
+			return output == 1;
+
 		}
 		/**
 		 * 
@@ -238,7 +240,10 @@ public class DBController {
 		 * 
 		 * @return
 		 */
-		public static User[] getAllUsers() {		//how to return an array 
+		public static User[] getAllUsers() {		//how to return an array
+			for () {
+
+			}
 			return userArray; 
 		}
 		/**

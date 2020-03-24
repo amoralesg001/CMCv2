@@ -94,7 +94,7 @@ public class UserUI {
 	 * @return 
 	 */
 	public static boolean addSavedUniversties(String SName, String AName) {
-		UserController.addSavedUniversities(SName, AName);
+		return UserController.addSavedUniversities(SName, AName);
 	}
 
 	/**
