@@ -78,7 +78,10 @@ public class UniversityController {
 		University newUniversity = new University(universityName, state, location, control, numStudents, femalePer, verSAT,
 				mathSAT, tuition, finAid, numApplicants, admitPer, enrolledPer, academicScale, socialScale,
 				qoaSCale, emphasis, blacklist);
-		DBController.addUniversity(newUniversity);
+		//DBController.addUniversity(newUniversity);
+		DBController.addUniversity(universityName, state, location, control, numStudents, femalePer, verSAT,
+				mathSAT, tuition, finAid, numApplicants, admitPer, enrolledPer, academicScale, socialScale,
+				qoaSCale, emphasis, blacklist)
 				}
 	
 	/**
