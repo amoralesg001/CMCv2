@@ -110,7 +110,7 @@ public class UserController {
 		return user;
 	}
 	
-	public static ArrayList<User> getAllUsers() {
+	public static ArrayList<Account> getAllUsers() {
 		return DBController.getAllUsers();
 	}
 	
