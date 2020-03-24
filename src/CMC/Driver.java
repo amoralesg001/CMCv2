@@ -15,7 +15,11 @@ public class Driver {
 	//private University university = new University(null, null, null, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, null);
 
 	public static void main(String[] args) {
+<<<<<<< HEAD
+		String universityTest = "ADELPHI";
+=======
 		String universityTest = "STANFORD";
+>>>>>>> 48354c132b2169dda6994e9c45855dbb3f0cb920
 		//University university = DBController.dbGetUniversity(universityTest);
 		//System.out.println(university.toString());
 		System.out.println("u1 starting");
@@ -23,7 +27,7 @@ public class Driver {
 		System.out.println("u1 done");
 		System.out.println("Output should be: logged in");
 		System.out.println("u2 starting");
-		//u2("juser"); 
+		//u2("luser"); 
 		System.out.println("u2 done");
 		System.out.println("u3 starting");
 		u3("juser", "user");
@@ -31,11 +35,20 @@ public class Driver {
 		u3("nadmin", "admin");
 		System.out.println("u3 done");
 		System.out.println("u4 starting");
-		u4();
+		u4("ADELPHI");
 		System.out.println("u4 done");
+<<<<<<< HEAD
+		System.out.println("output should be: ADELPHI IS FOUND");
+		System.out.println("u4 ALTERNATE starting");
+		u4("ADELPH");
+		System.out.println("u4 done");
+		System.out.println("output should be: no University found");
+		System.out.println("\nU5 Starting");
+=======
 		System.out.println("Testing Emphasis");
 		
 		System.out.println("\nU5 Starting\n");
+>>>>>>> 48354c132b2169dda6994e9c45855dbb3f0cb920
 		u5(universityTest);
 		System.out.println("\nU5 Done: Should dislpay the information of Stanford. \n");
 		
@@ -171,18 +184,14 @@ public class Driver {
 	 * This allows the user to search for a school
 	 */
 
-	public static void u4() {
+	public static void u4(String universityName) {
 
-		String universityName = "Macalester";
-		ArrayList<String> uni = SearchController.searchUniversities(universityName);
-		System.out.println(uni);
+		University uni = UserUI.searchUniversity(universityName);
 		if (uni == null) {
-			System.out.println("no school found");
+			System.out.println("no University found");
 		}
 		else {
-			//String uniName = uni.get(0);
-			//System.out.println(uniName);
-			System.out.println(uni);
+			System.out.println(uni.getuniversityName() + " is found");
 		}
 	}
 
