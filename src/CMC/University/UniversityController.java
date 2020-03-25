@@ -89,11 +89,16 @@ public class UniversityController {
 	 * 
 	 * @param String name of university
 	 */
-	public static void removeUniversity(String username, String universityname) {
-		University universityToRemove = DBController.getUniversity(universityname);
-		DBController.removeUniversity(username, universityname);
-		Account.removeUniversity(universityToRemove);
-		
+	public static boolean removeUniversity(String username, String universityname) {
+		//University universityToRemove = DBController.getUniversity(universityname);
+		//Account.removeUniversity(universityToRemove);
+		int i = DBController.removeUniversity(username, universityname);
+		if (i == 1) {
+			return true;
+		}
+		else {
+			return false;
+		}
 	}
 	
 

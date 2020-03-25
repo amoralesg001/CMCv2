@@ -16,6 +16,8 @@ public class Driver {
 	//private University university = new University(null, null, null, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, null);
 
 	public static void main(String[] args) {
+		String SName = "ADELPHI";
+		String AName = "juser";
 		String universityTest = "STANFORD";
 		//University university = DBController.dbGetUniversity(universityTest);
 		//System.out.println(university.toString());
@@ -41,16 +43,25 @@ public class Driver {
 		System.out.println("u4 done");
 		System.out.println("output should be: no University found ");
 		
-		String username = "juser";
-		String universityname = "STANFORD";
-		int i = DBController.removeUniversity(username, universityname);
-		System.out.println("\n" + i + "\n");
+		//String username = "juser";
+		//String universityname = "STANFORD";
+		//int i = DBController.removeUniversity(username, universityname);
 		
 		System.out.println("\nU5 Starting\n");
-
 		u5(universityTest);
-		System.out.println("\nU5 Done: Should dislpay the information of Stanford. \n");		
-		//u6(universityToRemove);
+		System.out.println("\nU5 Done: Should dislpay the information of Stanford. \n");
+		System.out.println("u6 starting");
+		u6(AName, SName);
+		System.out.println("u6 done");
+		
+		System.out.println("u9 starting");
+		u9(AName, SName);
+		System.out.println("u9 done");
+		
+		System.out.println("u6 starting");
+		u6(AName, SName);
+		System.out.println("u6 done");
+		
 		//u7(universityToRemove, universityToRemove, universityToRemove, universityToRemove);
 		System.out.println("\nu7 starting");
 		System.out.println("\nTesting user 'John' (in database)");
@@ -61,9 +72,9 @@ public class Driver {
 		System.out.println("u8 starting");
 		//u8();
 		System.out.println("u8 done");
-		System.out.println("u9 starting");
-		u9();
-		System.out.println("u9 done");
+		//System.out.println("u9 starting");
+		//u9(AName, SName);
+		//System.out.println("u9 done");
 		System.out.println("u10 starting");
 		//u10();
 		System.out.println("u10 done");
@@ -146,7 +157,7 @@ public class Driver {
 		}	
 		else {
 			System.out.println("something");
-			for(int i = 0; i<=savedUniversities.size();i++) {
+			for(int i = 0; i<savedUniversities.size();i++) {
 				System.out.println(savedUniversities.get(i));
 			}
 		
@@ -233,7 +244,13 @@ public class Driver {
 	 * @param university name of university
 	 */
 	public static void u6(String username, String universityname) {
-		UserUI.removeUniversity(username, universityname);
+		boolean remove = UserUI.removeUniversity(username, universityname);
+		if (remove) {
+			System.out.println(universityname + " was removed from the list");
+		}
+		else {
+			System.out.println(universityname + " was not in the saved schools list.");
+		}
 	}
 	
 	/**
@@ -261,9 +278,7 @@ public class Driver {
 	 * @author jengh001
 	 */
 
-	public static void u9() {
-		String SName = "ADELPHI";
-		String AName = "luser";
+	public static void u9(String AName, String SName) {
 		boolean success = UserUI.addSavedUniversities(AName, SName);
 		if (success==true) {
 		   System.out.println("Saved Successfully");

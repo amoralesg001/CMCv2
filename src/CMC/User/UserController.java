@@ -40,11 +40,11 @@ public class UserController {
 	 * @param SName Name of University as string 
 	 * @param AName Username of account as string
 	 */
-	public static boolean addSavedUniversities(String SName, String AName) {
+	public static boolean addSavedUniversities(String AName, String SName) {
 		University uni = DBController.dbGetUniversity(SName);
 		Account acc = DBController.getUserInfo(AName);
 		//acc.addUniversity(uni);
-		return DBController.updateSavedUniversities(SName, AName);
+		return DBController.updateSavedUniversities(AName, SName);
 	}
 		
 	public static boolean login(String username, String password) {
