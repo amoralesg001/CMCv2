@@ -100,14 +100,18 @@ public class UserController {
 	 * @param firstName
 	 * @param lastName
 	 */
-	public static Account saveUserInfo(String username, String password, String firstName, String lastName, String userType) {
+	public static Account saveUserInfo(String username, String password, String firstName, String lastName) {
 		Account user = DBController.getAccountDB(username, password);
-		DBController.updateAccountDB(user);
-		if (user != null) {
-			account.updateAccountInfo(username, password, firstName, lastName, userType);
-			UserUI.displayAccountInfo(user);
+		if (user.getUsername() != null) {
+			DBController.updateAccountDB(username, password, firstName, lastName, user.getUserType(), user.getLoginStatus());
+			user.updateAccountInfo(username, password, firstName, lastName, user.getUserType(), user.getLoginStatus());
+			user = DBController.getAccountDB(username, password);
+			return user;
 		}
-		return user;
+		else {
+//			user = DBController.getAccountDB(username, password);
+			return user;
+		}
 	}
 	
 	public static ArrayList<Account> getAllUsers() {

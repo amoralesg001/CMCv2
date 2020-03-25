@@ -42,8 +42,8 @@ public class UserUI {
 	 * @param firstName
 	 * @param lastName
 	 */
-	public static Account saveUserInfo(String username, String password, String firstName, String lastName, String userType) {
-		Account user = UserController.saveUserInfo(username, password, firstName, lastName, userType);
+	public static Account saveUserInfo(String username, String password, String firstName, String lastName) {
+		Account user = UserController.saveUserInfo(username, password, firstName, lastName);
 		return user;
 	}
 	/**
@@ -61,6 +61,9 @@ public class UserUI {
 	
 	/**
 	 * 
+<<<<<<< HEAD
+	 * @param school School you want to display information about
+	 *
 	 * @param university School you want to display information about
 	 */
 	public static void displayUniversityInfo(University university) {
@@ -94,6 +97,7 @@ public class UserUI {
 		else {
 			System.out.println("Blacklisted: No");
 		}
+
 		
 	}
 	
@@ -130,7 +134,7 @@ public class UserUI {
 	 * 
 	 *
 	 */
-	public static void saveScoolInfo(String universityName, String state, String location, String control, int numStudents, int femalePer,
+	public static void saveSchoolInfo(String universityName, String state, String location, String control, int numStudents, int femalePer,
 			int verSAT, int mathSAT, double tuition, double finAid, double numApplicants, int admitPer, int enrolledPer,
 			int academicScale, int socialScale, int qoaScale) {
 		// TODO Auto-generated method stub
@@ -231,16 +235,7 @@ public class UserUI {
 	public static void getUniversity(String university) {
 		UniversityController.getUniversity(university);
 	}
-	/**
-	 * Displays the account information to the UserUI.
-	 * @param account
-	 */
-	public static void displayAccountInfo(Account account) {
-		System.out.println(account.getUsername());
-		System.out.println(account.getFirstName());
-		System.out.println(account.getLastName());
-
-	}
+	
 	public static University searchUniversity(String universityName) {
 		return SearchController.searchUniversities(universityName);
 	}

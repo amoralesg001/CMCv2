@@ -295,7 +295,8 @@ public class DBController {
 		 * @return
 		 */
 		public static University[] getAllUniversities() {	//how to return an array 
-			return universityArray; 
+			//return universityArray; 
+			return null;
 		}
 		/**
 		 * 
@@ -313,7 +314,6 @@ public class DBController {
 				String active = userlist[row][5];
 				Account acc = new Account(firstName, lastName, username, password, type, active);
 				users.add(acc);
-
 			}
 			return users;
 		}
@@ -331,8 +331,11 @@ public class DBController {
 		 * Updates the account in the database.
 		 * @param user
 		 */
-		public static void updateAccountDB(Account user) {	//would updating return an array ? 
-			//TODO @Jack once we have the actual database
+		public static void updateAccountDB(String username, String password, String firstName, String lastName, String userType, String loginStatus) {
+			char uType = userType.charAt(0);
+			char logStatus = loginStatus.charAt(0);
+			univDBlib.user_editUser(username, firstName, lastName, password, uType, logStatus);
+			System.out.println("*Edited user info in DB*");
 		}
 
 
@@ -349,7 +352,7 @@ public class DBController {
 		 * @return
 		 */
 		public University lookUpUniversity(String universityName) {
-			return university;
+			return null;
 		}
 		/**
 		 * 
@@ -371,10 +374,10 @@ public class DBController {
 		 * @return
 		 */
 		public static University getUniversity(String universityName) {
-			return university;
+			//return university;
+			return null;
 		}
-		/**
-		 * this method returns an account to be used in UserController
+		/** this method returns an account to be used in UserController
 		 * @param username
 		 * @return account of the username
 		 */
@@ -384,19 +387,42 @@ public class DBController {
 		}
 		public static ArrayList<String> dbGetSavedUniversityList(String username){	
 			String[][] ar = univDBlib.user_getUsernamesWithSavedSchools();
-			ArrayList<String> userSchool = new ArrayList<String>();
-			
-			for(int row = 0; row<ar.length; row++) {
+			if (ar==null) {
+				return null;
+			}
+			else {
+				ArrayList<String> userSchool = new ArrayList<String>();
+			for(int row = 0; row<=ar.length; row++) {
 			if (ar[row][0].equals(username)){
+				if (ar[row][1]==null) {
+				return null;	
+				}
+				else
+				{
 				userSchool.add(ar[row][0]);
 				//System.out.println(ar[row][0]);
 				userSchool.add(ar[row][1]);
 				userSchool.add(ar[row][2]);
-				return userSchool;
+				}
 			}
+			}
+			return userSchool;
 		}	
-			return null;	
 	}
+
+			//}
+			//for(int row = 0; row<ar.length; row++) {
+				//if (ar[row][0].equals(username)){
+					//userSchool.add(ar[row][0]);
+					//System.out.println(ar[row][0]);
+					//userSchool.add(ar[row][1]);
+					//userSchool.add(ar[row][2]);
+					//return userSchool;
+				//}
+			//}	
+			//return null;	
+	//}
+
 		
 }
 	

@@ -16,11 +16,8 @@ public class Driver {
 	//private University university = new University(null, null, null, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, null);
 
 	public static void main(String[] args) {
-
 		String universityTest = "ADELPHI";
-
 		//String universityTest = "STANFORD";
-
 		//University university = DBController.dbGetUniversity(universityTest);
 		//System.out.println(university.toString());
 		System.out.println("u1 starting");
@@ -28,7 +25,7 @@ public class Driver {
 		System.out.println("u1 done");
 		System.out.println("Output should be: logged in");
 		System.out.println("u2 starting");
-		//u2("jengh001");
+		u2("juser");
 		System.out.println("u2 done");
 		System.out.println("u3 starting");
 		u3("juser", "user");
@@ -51,17 +48,25 @@ public class Driver {
 
 		System.out.println("Testing Emphasis");
 
+
+		System.out.println("output should be: no University found");
+		//System.out.println("\nU5 Starting");
+		//System.out.println("Testing Emphasis");
+
 		System.out.println("\nU5 Starting\n");
 
 		u5(universityTest);
-		System.out.println("\nU5 Done: Should dislpay the information of Stanford. \n");
-		
+		System.out.println("\nU5 Done: Should dislpay the information of Stanford. \n");		
 		//u6(universityToRemove);
 		//u7(universityToRemove, universityToRemove, universityToRemove, universityToRemove);
-		System.out.println("u7 done");
+		System.out.println("\nu7 starting");
+		System.out.println("\nTesting user 'John' (in database)");
+		u7("juser", "user", "UpdatedJohn", "UpdatedLastName");
+		System.out.println("\nTesting 'Jack' (NOT in database)");
+		//u7("jyoung001", "jackpassword", "Jack", "Young");
+		System.out.println("\nu7 done\n");
 		System.out.println("u8 starting");
 		//u8();
-		
 		System.out.println("u8 done");
 		System.out.println("u9 starting");
 		u9();
@@ -139,22 +144,31 @@ public class Driver {
 	 */
 	public static void u2(String username) {
 		
-		//ArrayList<String> savedUniversities = UserUI.getSavedUniversityList(username);
-		//for(int i = 0; i<savedUniversities.size();i++) {
+		ArrayList<String> savedUniversities = UserUI.getSavedUniversityList(username);
+		//or(int i = 0; i<savedUniversities.size();i++) {
 			//System.out.println(savedUniversities.get(i));
-		ArrayList<String> savedUniversities=UserUI.getSavedUniversityList(username);
+		//ArrayList<String> savedUniversities=UserUI.getSavedUniversityList(username);
 		if(savedUniversities==null) {
 		System.out.println("nothing");	
 		}	
 		else {
-		for(int i = 0; i<savedUniversities.size();i++) {
-			System.out.println(savedUniversities.get(i));
-		}
+			System.out.println("something");
+			for(int i = 0; i<=savedUniversities.size();i++) {
+				System.out.println(savedUniversities.get(i));
+			}
 		
 		}
 	}
+	
+	
+	
 	/**
+	 * U2: Display User Information
+	 * @author nlarson002
+	 * Displays the users Information given their username and password
 	 * 
+	 * @param username The users username
+	 * @param password The users password
 	 */
 	public static void u3(String username, String password) {
 		System.out.println("\n");
@@ -190,12 +204,24 @@ public class Driver {
 
 	public static void u4(String universityName) {
 
+
+		//String universityName = "Macalester";
+		//ArrayList<String> uni = SearchController.searchUniversities(universityName);
+		//System.out.println(uni);
+
 		University uni = UserUI.searchUniversity(universityName);
+
 		if (uni == null) {
 			System.out.println("no University found");
 		}
 		else {
+
+			//String uniName = uni.get(0);
+			//System.out.println(uniName);
+
+			System.out.println(uni.toString());
 			System.out.println(uni.getuniversityName() + " is found");
+
 		}
 	}
 
@@ -206,6 +232,7 @@ public class Driver {
 	 */
 	public static void u5(String universityName) {
 		UserUI.getUniversity(universityName);
+		
 	}
 	/**
 	 * u6: Remove School From List
@@ -215,23 +242,26 @@ public class Driver {
 	public static void u6(String university) {
 		UserUI.removeUniversity(university);
 	}
+	
 	/**
 	 * Edit User Information
 	 */
-	public static void u7(String username, String password, String firstName, String lastName, String userType) {
-		Account user = UserUI.saveUserInfo(username, password, firstName, lastName, userType);
-		System.out.println(user.getUsername());
-		System.out.println(user.getFirstName());
-		System.out.println(user.getLastName());
+	public static void u7(String username, String password, String firstName, String lastName) {
+		Account user = UserUI.saveUserInfo(username, password, firstName, lastName);
+		System.out.println("***Edited user info:");
+		System.out.println("Username: " + user.getUsername());
+		System.out.println("First Name: " + user.getFirstName());
+		System.out.println("Last Name: " + user.getLastName());
+		System.out.println("User Type: " + user.getUserType());
 	}
 	
 	/**
-	 * View Search Results
+	 * View Search Results // NOT DOING ANYMORE
 	 */
-	public static void u8() {
-		String results = UserUI.viewResults();
-		System.out.println(results);
-	}
+//	public static void u8() {
+//		String results = UserUI.viewResults();
+//		System.out.println(results);
+//	}
 	
 	/**
 	 * U9: Save School to list 
@@ -340,7 +370,7 @@ public class Driver {
 		}
 		else
 		{
-			UserUI.saveScoolInfo(universityName, state, location, control, numStudents, femalePer,
+			UserUI.saveSchoolInfo(universityName, state, location, control, numStudents, femalePer,
 					verSAT, mathSAT, tuition, finAid, numApplicants, admitPer, enrolledPer, academicScale,
 					socialScale, qoaScale);
 			u5(universityName);
