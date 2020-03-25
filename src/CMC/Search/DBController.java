@@ -343,8 +343,9 @@ public class DBController {
 		 * 
 		 * @param universityName
 		 */
-		public static void removeUniversity(University universityName) {
-			
+		public static int removeUniversity(String username, String universityname) {
+			int i = univDBlib.user_removeSchool(username, universityname);
+			return i;
 		}
 		/**
 		 * 
