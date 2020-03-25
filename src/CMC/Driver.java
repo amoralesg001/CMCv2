@@ -16,8 +16,7 @@ public class Driver {
 	//private University university = new University(null, null, null, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, null);
 
 	public static void main(String[] args) {
-		String universityTest = "ADELPHI";
-		//String universityTest = "STANFORD";
+		String universityTest = "STANFORD";
 		//University university = DBController.dbGetUniversity(universityTest);
 		//System.out.println(university.toString());
 		System.out.println("u1 starting");
@@ -32,27 +31,21 @@ public class Driver {
 		u3("luser", "user");
 		u3("nadmin", "admin");
 		System.out.println("u3 done");
+		
 		System.out.println("u4 starting");
 		u4("ADELPHI");
 		System.out.println("u4 done");
-
 		System.out.println("output should be: ADELPHI IS FOUND\n");
 		System.out.println("u4 ALTERNATE starting");
 		u4("ADELPH");
 		System.out.println("u4 done");
 		System.out.println("output should be: no University found ");
-		System.out.println("\nU5 Starting");
-
-
-
-
-		System.out.println("Testing Emphasis");
-
-
-		System.out.println("output should be: no University found");
-		//System.out.println("\nU5 Starting");
-		//System.out.println("Testing Emphasis");
-
+		
+		String username = "juser";
+		String universityname = "STANFORD";
+		int i = DBController.removeUniversity(username, universityname);
+		System.out.println("\n" + i + "\n");
+		
 		System.out.println("\nU5 Starting\n");
 
 		u5(universityTest);
@@ -239,8 +232,8 @@ public class Driver {
 	 * 
 	 * @param university name of university
 	 */
-	public static void u6(String university) {
-		UserUI.removeUniversity(university);
+	public static void u6(String username, String universityname) {
+		UserUI.removeUniversity(username, universityname);
 	}
 	
 	/**

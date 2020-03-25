@@ -214,8 +214,8 @@ public class UserUI {
 	 * 
 	 * @param university
 	 */
-	public static void removeUniversity(String university) {
-		UniversityController.removeUniversity(university);
+	public static void removeUniversity(String username, String universityname) {
+		UniversityController.removeUniversity(username, universityname);
 	}
 	/**
 	 * 
