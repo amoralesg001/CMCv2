@@ -270,8 +270,8 @@ public class Driver {
 
 	public static void u9() {
 		String SName = "ADELPHI";
-		String AName = "juser";
-		boolean success = UserUI.addSavedUniversities(SName, AName);
+		String AName = "luser";
+		boolean success = UserUI.addSavedUniversities(AName, SName);
 		if (success==true) {
 		   System.out.println("Saved Successfully");
 		}

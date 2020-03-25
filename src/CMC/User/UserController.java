@@ -43,7 +43,7 @@ public class UserController {
 	public static boolean addSavedUniversities(String SName, String AName) {
 		University uni = DBController.dbGetUniversity(SName);
 		Account acc = DBController.getUserInfo(AName);
-		acc.addUniversity(uni);
+		//acc.addUniversity(uni);
 		return DBController.updateSavedUniversities(SName, AName);
 	}
 		
