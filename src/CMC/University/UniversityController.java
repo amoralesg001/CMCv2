@@ -89,9 +89,9 @@ public class UniversityController {
 	 * 
 	 * @param String name of university
 	 */
-	public static void removeUniversity(String university) {
-		University universityToRemove = DBController.getUniversity(university);
-		DBController.removeUniversity(universityToRemove);
+	public static void removeUniversity(String username, String universityname) {
+		University universityToRemove = DBController.getUniversity(universityname);
+		DBController.removeUniversity(username, universityname);
 		Account.removeUniversity(universityToRemove);
 		
 	}
