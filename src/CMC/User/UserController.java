@@ -44,7 +44,7 @@ public class UserController {
 		University uni = DBController.dbGetUniversity(SName);
 		Account acc = DBController.getUserInfo(AName);
 		acc.addUniversity(uni);
-		return DBController.updateSavedUniversities(acc.getUsername(), uni.getuniversityName());
+		return DBController.updateSavedUniversities(SName, AName);
 	}
 		
 	public static boolean login(String username, String password) {

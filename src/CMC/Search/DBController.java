@@ -285,7 +285,9 @@ public class DBController {
 		 */
 		public static boolean updateSavedUniversities(String username, String uniName) {
 			int output = univDBlib.user_saveSchool(username, uniName);
+			
 			return output == 1;
+		
 
 		}
 		/**

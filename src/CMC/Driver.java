@@ -242,7 +242,7 @@ public class Driver {
 		String SName = "ADELPHI";
 		String AName = "juser";
 		boolean success = UserUI.addSavedUniversities(SName, AName);
-		if (success) {
+		if (success==true) {
 		   System.out.println("Saved Successfully");
 		}
 		else {
