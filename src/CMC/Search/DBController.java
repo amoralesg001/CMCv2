@@ -14,9 +14,6 @@ public class DBController {
 
 		private static User userArray[]; //should we do an array or list?  
 		
-
-		private static University university = new University("Saint John's Univeristy", "Minnesota", "United States", "PRIVATE", 2500, 0, 0, 0, 40000, 0, 0, 0,  0, 0, 0, 0);
-		private static University universityArray[];
 		public static ArrayList<University> uArray = new ArrayList<University>();
 		static String dbUsername = "thumbthumbs";
 		static String dbPassword = "csci230";
@@ -80,74 +77,136 @@ public class DBController {
 			}
 			return null;	
 		}		  
-		public static University dbGetUniversity(String university){	
+		
+		public static University dbGetUniversity(String university) {	
 			String[][] un = univDBlib.university_getUniversities();
-			
+			ArrayList<String> emphasis = new ArrayList<String>();
 			for(int i = 0; i < un.length; i++) {
 				if (un[i][0].equals(university)) {
 					
 					//University Name
-					String universityName = un[i][0]; 
-					//System.out.println(user[0])
+					String universityName = un[i][0];
+					if (universityName.equals("-1")) {
+						universityName = "N/A";
+					}
 					
 					//State
 					String state = un[i][1];
-					//System.out.println(user[1]);
+					if (state.equals("-1")) {
+						state = "N/A";
+					}
 					
 					//Location
 					String location = un[i][2];
-					//System.out.println(user[2]);
+					if (location.equals("-1")) {
+						location = "N/A";
+					}
 					
 					//Control
 					String control = un[i][3];
-					//System.out.println(user[3]);
+					if (control.equals("-1")) {
+						control = "N/A";
+					}
 					
 					//Number of Students
 					int numStudents = Integer.parseInt(un[i][4]);
-					//System.out.println(user[4]);
+					if (numStudents == -1) {
+						numStudents = 0;
+					}
 					
 					//Percent Female
 					double femalePer = Double.parseDouble(un[i][5]);
-					//System.out.println(user[5]);
+					if (femalePer == -1) {
+						femalePer = 0;
+					}
 					
 					//SAT Verbal
 					double verbalSAT = Double.parseDouble(un[i][6]);
+					if (verbalSAT == -1) {
+						verbalSAT = 0;
+					}
 					
 					//SAT Math
 					double mathSAT = Double.parseDouble(un[i][7]);
-					
+					if (mathSAT == -1) {
+						mathSAT = 0;
+					}
 					//Expenses
 					double expenses = Double.parseDouble(un[i][8]);
-					
+					if (expenses == -1) {
+						expenses = 0;
+					}
 					//Financial Aid Percent
 					double finAidPer = Double.parseDouble(un[i][9]);
+					if (finAidPer == -1) {
+						finAidPer = 0;
+					}	
 					
 					//Number of Applicants
 					int numApplicants = Integer.parseInt(un[i][10]);
+					if (numApplicants == -1) {
+						numApplicants = 0;
+					}
 					
 					//Admitted percent
 					double admittedPer = Double.parseDouble(un[i][11]);
+					if (admittedPer == -1) {
+						admittedPer = 0;
+					}
 					
 					//Enrolled percent
 					double enrolledPer = Double.parseDouble(un[i][12]);
+					if (enrolledPer == -1) {
+						enrolledPer = 0;
+					}
 					
 					//Academic Scale
 					int academicsScale = Integer.parseInt(un[i][13]);
+					if (academicsScale == -1) {
+						academicsScale = 0;
+					}
 					
 					//Social Scale
 					int socialScale = Integer.parseInt(un[i][14]);
+					if (socialScale == -1) {
+						socialScale = 0;
+					}
 					
 					//Quality of Life Scale
 					int qualityScale = Integer.parseInt(un[i][15]);
+					if (qualityScale == -1) {
+						qualityScale = 0;
+					}
 					
+					//Emphasis
+					String[][] em = univDBlib.university_getNamesWithEmphases();
+					for(int j = 0; j < em.length; j++) {
+						if (em[j][0].equals(university)) {
+							if (emphasis.contains(em[j][1])) {
+								
+							}
+							else {
+								emphasis.add(em[j][1]);
+							}
+						}
+					}
+						if (emphasis.size() == 0) {
+						emphasis.add("No Emphases");
+					}
+				
+					
+					//Blacklist
+					boolean blacklist = false;
+							
 					University universityRet =  new University(universityName, state, location, control, numStudents, femalePer, verbalSAT, 
-							mathSAT, expenses, finAidPer, numApplicants, admittedPer, enrolledPer, academicsScale, socialScale, qualityScale);
+							mathSAT, expenses, finAidPer, numApplicants, admittedPer, enrolledPer, academicsScale, socialScale, qualityScale, emphasis, blacklist);
 					
 					return universityRet;
 				}
 			}
-			return null;	
-		}		  
+			return null;
+			
+		}
 			/**
 			 * 
 		 * @param universityName
@@ -174,7 +233,7 @@ public class DBController {
 		}
 		/**
 		 * 
-		 * @param schooName
+		 * @param schoolName
 		 * @return
 		 */
 		public static ArrayList<String> searchUniversity(String schoolName) {	// should return a university i assume but diagram doesnt
@@ -217,29 +276,44 @@ public class DBController {
 		 */
 		public static void addUniversity(String universityName, String state, String location, String control, int numStudents, double femalePer, double verSAT,
 				double mathSAT, double tuition, double finAid, int numApplicants, double admitPer, double enrolledPer,
-				int academicScale, int socialScale, int qoaSCale)  {//is this adding all information of a university or just on the saved list? 		
+				int academicScale, int socialScale, int qoaSCale, ArrayList<String> emphasis, boolean blacklist)  {//is this adding all information of a university or just on the saved list? 		
 			univDBlib.university_addUniversity(universityName, state, location, control, numStudents, femalePer, verSAT, mathSAT, tuition, finAid, numApplicants, admitPer, enrolledPer, academicScale, socialScale, qoaSCale);
 			
 		}
 		/**
 		 * 
 		 */
-		public void updateSavedUniversitys() {
-		
+		public static boolean updateSavedUniversities(String username, String uniName) {
+			int output = univDBlib.user_saveSchool(username, uniName);
+			return output == 1;
+
 		}
 		/**
 		 * 
 		 * @return
 		 */
 		public static University[] getAllUniversities() {	//how to return an array 
-			return universityArray; 
+			//return universityArray; 
+			return null;
 		}
 		/**
 		 * 
 		 * @return
 		 */
-		public static User[] getAllUsers() {		//how to return an array 
-			return userArray; 
+		public static ArrayList<Account> getAllUsers() {		//how to return an array
+			String[][] userlist = univDBlib.user_getUsers();
+			ArrayList<Account> users = new ArrayList<>();
+			for (int row = 0; row < userlist.length; row++) {
+				String firstName = userlist[row][0];
+				String lastName = userlist[row][1];
+				String username = userlist[row][2];
+				String password = userlist[row][3];
+				String type = userlist[row][4];
+				String active = userlist[row][5];
+				Account acc = new Account(firstName, lastName, username, password, type, active);
+				users.add(acc);
+			}
+			return users;
 		}
 		/**
 		 * 
@@ -276,7 +350,7 @@ public class DBController {
 		 * @return
 		 */
 		public University lookUpUniversity(String universityName) {
-			return university;
+			return null;
 		}
 		/**
 		 * 
@@ -298,10 +372,10 @@ public class DBController {
 		 * @return
 		 */
 		public static University getUniversity(String universityName) {
-			return university;
+			//return university;
+			return null;
 		}
-		/**
-		 * this method returns an account to be used in UserController
+		/** this method returns an account to be used in UserController
 		 * @param username
 		 * @return account of the username
 		 */
@@ -309,20 +383,22 @@ public class DBController {
 			
 			return null;
 		}
-		public static ArrayList<String> dbGetSavedUniversityList(String username){	
-			String[][] ar = univDBlib.user_getUsernamesWithSavedSchools();
-			ArrayList<String> userSchool = new ArrayList<String>();
-			for(int row = 0; row<ar.length; row++) {
-			if (ar[row][0].equals(username)){
-				userSchool.add(ar[row][0]);
-				//System.out.println(ar[row][0]);
-				userSchool.add(ar[row][1]);
-				userSchool.add(ar[row][2]);
-				return userSchool;
-			}
-		}	
-			return null;	
-	}
+		//public static ArrayList<String> dbGetSavedUniversityList(String username){	
+			//String[][] ar = univDBlib.user_getUsernamesWithSavedSchools();
+			//ArrayList<String> userSchool = new ArrayList<String>();
+			
+			//}
+			//for(int row = 0; row<ar.length; row++) {
+				//if (ar[row][0].equals(username)){
+					//userSchool.add(ar[row][0]);
+					//System.out.println(ar[row][0]);
+					//userSchool.add(ar[row][1]);
+					//userSchool.add(ar[row][2]);
+					//return userSchool;
+				//}
+			//}	
+			//return null;	
+	//}
 		
 }
 	

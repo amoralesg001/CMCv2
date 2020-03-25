@@ -4,9 +4,8 @@
 package CMC;
 import java.util.ArrayList;
 import CMC.Search.*;
+import CMC.University.University;
 import CMC.User.*;
-import dblibrary.project.csci230.UniversityDBLibrary;
-import CMC.University.*;
 
 /**
  * @author Thumb Thumbs
@@ -18,14 +17,15 @@ public class Driver {
 
 	public static void main(String[] args) {
 		String universityTest = "ADELPHI";
-		University university = DBController.dbGetUniversity(universityTest);
-		System.out.println(university.toString());
+		//String universityTest = "STANFORD";
+		//University university = DBController.dbGetUniversity(universityTest);
+		//System.out.println(university.toString());
 		System.out.println("u1 starting");
 		u1();
 		System.out.println("u1 done");
 		System.out.println("Output should be: logged in");
 		System.out.println("u2 starting");
-		//u2("juser"); 
+		//u2("jengh001");
 		System.out.println("u2 done");
 		System.out.println("u3 starting");
 		u3("juser", "user");
@@ -33,12 +33,18 @@ public class Driver {
 		u3("nadmin", "admin");
 		System.out.println("u3 done");
 		System.out.println("u4 starting");
-		u4();
+		u4("ADELPHI");
 		System.out.println("u4 done");
-		System.out.println("\nU5 Starting");
+		System.out.println("output should be: ADELPHI IS FOUND");
+		System.out.println("u4 ALTERNATE starting");
+		u4("ADELPH");
+		System.out.println("u4 done");
+		System.out.println("output should be: no University found");
+		//System.out.println("\nU5 Starting");
+		//System.out.println("Testing Emphasis");
+		System.out.println("\nU5 Starting\n");
 		u5(universityTest);
-		System.out.println("\nU5 Done");
-		
+		System.out.println("\nU5 Done: Should dislpay the information of Stanford. \n");		
 		//u6(universityToRemove);
 		//u7(universityToRemove, universityToRemove, universityToRemove, universityToRemove);
 		System.out.println("\nu7 starting");
@@ -49,7 +55,6 @@ public class Driver {
 		System.out.println("\nu7 done\n");
 		System.out.println("u8 starting");
 		//u8();
-		
 		System.out.println("u8 done");
 		System.out.println("u9 starting");
 		//u9();
@@ -61,11 +66,11 @@ public class Driver {
 		//u11();
 		System.out.println("u11 done");
 		System.out.println("u12 should rb");
-		//u12();
+		u12();
 		System.out.println("u12 done");
 		
 		System.out.println("u16 start");
-		//u16();
+		u16();
 	
 	}
 	/**
@@ -135,14 +140,22 @@ public class Driver {
 		System.out.println("nothing");	
 		}	
 		else {
-		for(int i = 0; i<savedUniversities.size();i++) {
-			System.out.println(savedUniversities.get(i));
-		}
+			for(int i = 0; i<savedUniversities.size();i++) {
+				System.out.println(savedUniversities.get(i));
+			}
 		
 		}
 	}
+	
+	
+	
 	/**
+	 * U2: Display User Information
+	 * @author nlarson002
+	 * Displays the users Information given their username and password
 	 * 
+	 * @param username The users username
+	 * @param password The users password
 	 */
 	public static void u3(String username, String password) {
 		System.out.println("\n");
@@ -176,33 +189,42 @@ public class Driver {
 	 * This allows the user to search for a school
 	 */
 
-	public static void u4() {
+	public static void u4(String universityName) {
 
-		String universityName = "Macalester";
-		ArrayList<String> uni = SearchController.searchUniversities(universityName);
-		System.out.println(uni);
+
+		//String universityName = "Macalester";
+		//ArrayList<String> uni = SearchController.searchUniversities(universityName);
+		//System.out.println(uni);
+
+		University uni = UserUI.searchUniversity(universityName);
+
 		if (uni == null) {
-			System.out.println("no school found");
+			System.out.println("no University found");
 		}
 		else {
+
 			//String uniName = uni.get(0);
 			//System.out.println(uniName);
-			System.out.println(uni);
+
+			System.out.println(uni.toString());
+			System.out.println(uni.getuniversityName() + " is found");
+
 		}
 	}
 
 	/**
 	 * U5: View Individual University
 	 * 
-	 * @param String university name
+	 * @param universityName university name
 	 */
 	public static void u5(String universityName) {
 		UserUI.getUniversity(universityName);
+		
 	}
 	/**
 	 * u6: Remove School From List
 	 * 
-	 * @param String name of university
+	 * @param university name of university
 	 */
 	public static void u6(String university) {
 		UserUI.removeUniversity(university);
@@ -234,9 +256,9 @@ public class Driver {
 	 */
 
 	public static void u9() {
-		String SName = "Saint John's University";
-		String AName = "jengh001";
-		boolean success = UserUI.addSavedUniversties(SName, AName);
+		String SName = "ADELPH";
+		String AName = "juser";
+		boolean success = UserUI.addSavedUniversities(SName, AName);
 		if (success) {
 		   System.out.println("Saved Successfully");
 		}
@@ -250,7 +272,7 @@ public class Driver {
 	 * @author jengh001
 	 */
 	public static void u10() {
-		User[] users = UserUI.manageUsers();
+		ArrayList<Account> users = UserUI.manageUsers();
 		System.out.println(users);
 	}
 	/**
@@ -263,7 +285,7 @@ public class Driver {
 	 * U12 add  school
 	 */
 	public static void u12() {
-		String universityName = "SJU";
+		String universityName = "blahblah1";
 		String state = "MN";
 		String location = "SC";
 		String control = "Private";
@@ -282,14 +304,16 @@ public class Driver {
 		//boolean blacklist = false;
 		//ArrayList<String> emphasis = new ArrayList<String>();
 		
-		if (SearchController.searchUniversities(universityName) != null)
+		if (DBController.dbGetUniversity(universityName) != null)
 		{
 			System.out.println("University with same name exists");
 		}
 		else
 		{
+			System.out.println("University does not exist");
 		UserUI.addSchool(universityName, state, location, control, numStudents, femalePer, verSAT, mathSAT,
 				tuition, finAid, numApplicants, admitPer, enrolledPer, academicScale, socialScale, qoaScale);
+		u5(universityName);
 		}
 	}
 	/**
@@ -308,7 +332,7 @@ public class Driver {
 	 * u16 is editing a school's information
 	 */
 	public static void u16() {
-		String universityName = "SJU";
+		String universityName = "blahblah1";
 		String state = "o";
 		String location = "o";
 		String control = "public";
@@ -327,13 +351,16 @@ public class Driver {
 		//boolean blacklist = true;
 		//ArrayList<String> emphasis = new ArrayList<String>();
 
-		if (SearchController.searchUniversities(universityName) == null)
+		if (DBController.dbGetUniversity(universityName) == null)
 		{
 			System.out.println("School: " + universityName + " does not exist.");
 		}
 		else
 		{
-			UserUI.saveScoolInfo(universityName, state, location, control, numStudents, femalePer, verSAT, mathSAT, tuition, finAid, numApplicants, admitPer, enrolledPer, academicScale, socialScale, qoaScale);
+			UserUI.saveSchoolInfo(universityName, state, location, control, numStudents, femalePer,
+					verSAT, mathSAT, tuition, finAid, numApplicants, admitPer, enrolledPer, academicScale,
+					socialScale, qoaScale);
+			u5(universityName);
 		}
 	}
 	/**
