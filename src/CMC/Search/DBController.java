@@ -393,7 +393,7 @@ public class DBController {
 			}
 			else {
 				ArrayList<String> userSchool = new ArrayList<String>();
-			for(int row = 0; row<=ar.length; row++) {
+			for(int row = 0; row<ar.length; row++) {
 			if (ar[row][0].equals(username)){
 				if (ar[row][1]==null) {
 				return null;	

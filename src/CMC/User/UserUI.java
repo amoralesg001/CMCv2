@@ -112,8 +112,8 @@ public class UserUI {
 	 * @param AName Account username as string
 	 * @return 
 	 */
-	public static boolean addSavedUniversities(String SName, String AName) {
-		return UserController.addSavedUniversities(SName, AName);
+	public static boolean addSavedUniversities(String AName, String SName) {
+		return UserController.addSavedUniversities(AName, SName);
 	}
 
 	/**
@@ -214,8 +214,9 @@ public class UserUI {
 	 * 
 	 * @param university
 	 */
-	public static void removeUniversity(String username, String universityname) {
-		UniversityController.removeUniversity(username, universityname);
+	public static boolean removeUniversity(String username, String universityname) {
+		boolean remove = UniversityController.removeUniversity(username, universityname);
+		return remove;
 	}
 	/**
 	 * 
