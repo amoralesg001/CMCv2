@@ -17,8 +17,8 @@ public class Driver {
 
 	public static void main(String[] args) {
 		String universityTest = "STANFORD";
-		//University university = DBController.dbGetUniversity(universityTest);
-		//System.out.println(university.toString());
+		University university = DBController.dbGetUniversity(universityTest);
+		System.out.println(university.toString());
 		System.out.println("u1 starting");
 		u1();
 		System.out.println("u1 done");
@@ -50,13 +50,13 @@ public class Driver {
 
 		u5(universityTest);
 		System.out.println("\nU5 Done: Should dislpay the information of Stanford. \n");		
-		//u6(universityToRemove);
-		//u7(universityToRemove, universityToRemove, universityToRemove, universityToRemove);
+		u6(universityToRemove);
+		u7(universityToRemove, universityToRemove, universityToRemove, universityToRemove);
 		System.out.println("\nu7 starting");
 		System.out.println("\nTesting user 'John' (in database)");
 		u7("juser", "user", "UpdatedJohn", "UpdatedLastName");
 		System.out.println("\nTesting 'Jack' (NOT in database)");
-		//u7("jyoung001", "jackpassword", "Jack", "Young");
+		u7("jyoung001", "jackpassword", "Jack", "Young");
 		System.out.println("\nu7 done\n");
 		System.out.println("u8 starting");
 		//u8();
