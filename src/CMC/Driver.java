@@ -49,16 +49,10 @@ public class Driver {
 		
 		System.out.println("\nU5 Starting\n");
 		u5(universityTest);
-<<<<<<< HEAD
 		System.out.println("\nU5 Done: Should dislpay the information of Stanford. \n");		
-		u6(universityToRemove);
-		u7(universityToRemove, universityToRemove, universityToRemove, universityToRemove);
-=======
-		System.out.println("\nU5 Done: Should dislpay the information of Stanford. \n");
 		System.out.println("u6 starting");
 		u6(AName, SName);
 		System.out.println("u6 done");
-		
 		System.out.println("u9 starting");
 		u9(AName, SName);
 		System.out.println("u9 done");
@@ -68,7 +62,6 @@ public class Driver {
 		System.out.println("u6 done");
 		
 		//u7(universityToRemove, universityToRemove, universityToRemove, universityToRemove);
->>>>>>> 0abbbc40dea9104959fdad7b810674084142fb44
 		System.out.println("\nu7 starting");
 		System.out.println("\nTesting user 'John' (in database)");
 		u7("juser", "user", "UpdatedJohn", "UpdatedLastName");
