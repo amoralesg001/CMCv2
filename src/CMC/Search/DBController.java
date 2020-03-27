@@ -17,7 +17,7 @@ public class DBController {
 		//public static ArrayList<University> uArray = new ArrayList<University>();
 		static String dbUsername = "thumbthumbs";
 		static String dbPassword = "csci230";
-		static UniversityDBLibrary univDBlib = new UniversityDBLibrary(dbUsername,dbPassword);
+		public static UniversityDBLibrary univDBlib = new UniversityDBLibrary(dbUsername,dbPassword);
 		
 		public static Account getAccountDB(String username, String password) {
 			
@@ -213,13 +213,39 @@ public class DBController {
 		 */
 		public static void updateUniversityDB(String universityName, String state, String location, String control, int numStudents,
 				int femalePer, int verSAT, int mathSAT, double tuition, double finAid, double numApplicants, int admitPer,
-				int enrolledPer, int academicScale, int socialScale, int qoaScale) {
+				int enrolledPer, int academicScale, int socialScale, int qoaScale, ArrayList<String> emphasis, boolean blacklist) {
 			//String[][] un = univDBlib.university_getUniversities();
 			University u = dbGetUniversity(universityName);
 			{
 				if( u.getuniversityName().equals(universityName))
 				{
-					univDBlib.university_editUniversity(u.getuniversityName(), state, location, control, numStudents, femalePer, verSAT, mathSAT, tuition, finAid, (int) numApplicants, admitPer, enrolledPer, academicScale, socialScale, qoaScale);
+					univDBlib.university_editUniversity(u.getuniversityName(), state, location, control, numStudents, femalePer,
+							verSAT, mathSAT, tuition, finAid, (int) numApplicants, admitPer, enrolledPer, academicScale,
+							socialScale, qoaScale);
+					u.setBlacklist(blacklist);
+					ArrayList<String> oldEmphases = new ArrayList<String>();
+					for (int i = 0; i < univDBlib.university_getNamesWithEmphases().length; i ++)
+					{
+						if (univDBlib.university_getNamesWithEmphases()[i][0].equals(universityName))
+						{
+							oldEmphases.add(univDBlib.university_getNamesWithEmphases()[i][1]);
+						}
+					}
+					
+					for(String s: oldEmphases)
+					{
+						
+						if(oldEmphases.contains(s))
+						{
+							univDBlib.university_removeUniversityEmphasis(universityName, s);
+							
+						}
+					}
+					for(String s: emphasis) {
+						univDBlib.university_addUniversityEmphasis(universityName, s);
+					}
+					
+					
 				}
 			}
 			
@@ -276,7 +302,7 @@ public class DBController {
 		 */
 		public static void addUniversity(String universityName, String state, String location, String control, int numStudents, double femalePer, double verSAT,
 				double mathSAT, double tuition, double finAid, int numApplicants, double admitPer, double enrolledPer,
-				int academicScale, int socialScale, int qoaSCale, ArrayList<String> emphasis, boolean blacklist)  {//is this adding all information of a university or just on the saved list? 		
+				int academicScale, int socialScale, int qoaSCale)  {//is this adding all information of a university or just on the saved list? 		
 			univDBlib.university_addUniversity(universityName, state, location, control, numStudents, femalePer, verSAT, mathSAT, tuition, finAid, numApplicants, admitPer, enrolledPer, academicScale, socialScale, qoaSCale);
 			
 		}

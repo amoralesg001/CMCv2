@@ -43,17 +43,17 @@ public class Driver {
 		System.out.println("u4 done");
 		System.out.println("output should be: no University found ");
 		
-		//String username = "juser";
-		//String universityname = "STANFORD";
-		//int i = DBController.removeUniversity(username, universityname);
+		String username = "juser";
+		String universityname = "STANFORD";
+		int i = DBController.removeUniversity(username, universityname);
 		
 		System.out.println("\nU5 Starting\n");
 		u5(universityTest);
-<<<<<<< HEAD
+
 		System.out.println("\nU5 Done: Should dislpay the information of Stanford. \n");		
-		u6(universityToRemove);
-		u7(universityToRemove, universityToRemove, universityToRemove, universityToRemove);
-=======
+		//u6(universityToRemove);
+		//u7(universityToRemove, universityToRemove, universityToRemove, universityToRemove);
+
 		System.out.println("\nU5 Done: Should dislpay the information of Stanford. \n");
 		System.out.println("u6 starting");
 		u6(AName, SName);
@@ -68,12 +68,11 @@ public class Driver {
 		System.out.println("u6 done");
 		
 		//u7(universityToRemove, universityToRemove, universityToRemove, universityToRemove);
->>>>>>> 0abbbc40dea9104959fdad7b810674084142fb44
 		System.out.println("\nu7 starting");
 		System.out.println("\nTesting user 'John' (in database)");
 		u7("juser", "user", "UpdatedJohn", "UpdatedLastName");
 		System.out.println("\nTesting 'Jack' (NOT in database)");
-		u7("jyoung001", "jackpassword", "Jack", "Young");
+		//u7("jyoung001", "jackpassword", "Jack", "Young");
 		System.out.println("\nu7 done\n");
 		System.out.println("u8 starting");
 		//u8();
@@ -312,7 +311,7 @@ public class Driver {
 	 * U12 add  school
 	 */
 	public static void u12() {
-		String universityName = "blahblah1";
+		String universityName = "blahblah10";
 		String state = "MN";
 		String location = "SC";
 		String control = "Private";
@@ -328,8 +327,9 @@ public class Driver {
 		int academicScale = 5;
 		int socialScale = 5;
 		int qoaScale = 5;
-		//boolean blacklist = false;
-		//ArrayList<String> emphasis = new ArrayList<String>();
+		boolean blacklist = true;
+		ArrayList<String> emphasis = new ArrayList<String>();
+		emphasis.add("Accounting");
 		
 		if (DBController.dbGetUniversity(universityName) != null)
 		{
@@ -339,7 +339,12 @@ public class Driver {
 		{
 			System.out.println("University does not exist");
 		UserUI.addSchool(universityName, state, location, control, numStudents, femalePer, verSAT, mathSAT,
-				tuition, finAid, numApplicants, admitPer, enrolledPer, academicScale, socialScale, qoaScale);
+				tuition, finAid, numApplicants, admitPer, enrolledPer, academicScale, socialScale, qoaScale,
+				emphasis, blacklist);
+			for(String s: emphasis)
+			{
+				DBController.univDBlib.university_addUniversityEmphasis(universityName, s);
+			}
 		u5(universityName);
 		}
 	}
@@ -359,7 +364,7 @@ public class Driver {
 	 * u16 is editing a school's information
 	 */
 	public static void u16() {
-		String universityName = "blahblah1";
+		String universityName = "blahblah10";
 		String state = "o";
 		String location = "o";
 		String control = "public";
@@ -375,8 +380,12 @@ public class Driver {
 		int academicScale = 0;
 		int socialScale = 0;
 		int qoaScale = 0;
-		//boolean blacklist = true;
-		//ArrayList<String> emphasis = new ArrayList<String>();
+		boolean blacklist = false;
+		ArrayList<String> emphasis = new ArrayList<String>();
+		emphasis.add("Compsci");
+		emphasis.add("Math");
+		
+		
 
 		if (DBController.dbGetUniversity(universityName) == null)
 		{
@@ -386,9 +395,11 @@ public class Driver {
 		{
 			UserUI.saveSchoolInfo(universityName, state, location, control, numStudents, femalePer,
 					verSAT, mathSAT, tuition, finAid, numApplicants, admitPer, enrolledPer, academicScale,
-					socialScale, qoaScale);
+					socialScale, qoaScale, emphasis, blacklist);
 			u5(universityName);
 		}
+		
+		System.out.println("Finished u16");
 	}
 	/**
 	 * 

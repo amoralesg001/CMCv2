@@ -70,6 +70,7 @@ public class UserUI {
 		System.out.println("School Name: "  + university.getuniversityName());
 		System.out.println("School State Location: " + university.getState());
 		System.out.println("School Location: " + university.getLocation());
+		System.out.println("School Control: " + university.getControl());
 		System.out.println("Number of Students: " + university.getNumStudents());
 		System.out.println("Percentage of Females: " + university.getFemalePer());
 		System.out.println("Average Ver. SAT score: " + university.getVerSAT());
@@ -87,16 +88,13 @@ public class UserUI {
 			System.out.println("No Emphases");
 		}
 		else {
-			for (int i = 0; i < university.getEmphasis().size(); i++) {
-					System.out.println((i + 1) + ". " + university.getEmphasis().get(i));
+			int i = 1;
+			for (String s: university.getEmphasis()) {
+					System.out.println(i +". " + s);
+					i++;
 			}
 		}
-		if (university.isBlacklisted()) {
-			System.out.println("Blacklisted: Yes");
-		}
-		else {
-			System.out.println("Blacklisted: No");
-		}
+		System.out.println("BlackListed: " + university.isBlacklisted());
 
 		
 	}
@@ -136,9 +134,11 @@ public class UserUI {
 	 */
 	public static void saveSchoolInfo(String universityName, String state, String location, String control, int numStudents, int femalePer,
 			int verSAT, int mathSAT, double tuition, double finAid, double numApplicants, int admitPer, int enrolledPer,
-			int academicScale, int socialScale, int qoaScale) {
+			int academicScale, int socialScale, int qoaScale, ArrayList<String> emphasis, boolean blacklist) {
 		// TODO Auto-generated method stub
-		UniversityController.editUniversityinfo(universityName, state, location, control, numStudents, femalePer, verSAT, mathSAT, tuition, finAid, numApplicants, admitPer, enrolledPer, academicScale, socialScale, qoaScale);
+		UniversityController.editUniversityinfo(universityName, state, location, control, numStudents, femalePer,
+				verSAT, mathSAT, tuition, finAid, numApplicants, admitPer, enrolledPer, academicScale, socialScale,
+				qoaScale, emphasis, blacklist);
 	}
 
 	/**
@@ -228,9 +228,9 @@ public class UserUI {
 
 	public static void addSchool(String universityName, String state, String location, String control, int numStudents, int femalePer,
 			int verSAT, int mathSAT, double tuition, double finAid, int numApplicants, int admitPer, int enrolledPer,
-			int academicScale, int socialScale, int qoaScale) {
+			int academicScale, int socialScale, int qoaScale, ArrayList<String> emphasis, boolean blacklist) {
 		// TODO Auto-generated method stub
-		UniversityController.addUniversity(universityName, state, location, control, numStudents, femalePer, verSAT, mathSAT, tuition, finAid, numApplicants, admitPer, enrolledPer, academicScale, socialScale, qoaScale);
+		UniversityController.addUniversity(universityName, state, location, control, numStudents, femalePer, verSAT, mathSAT, tuition, finAid, numApplicants, admitPer, enrolledPer, academicScale, socialScale, qoaScale, emphasis, blacklist);
 	}
 
 	public static void getUniversity(String university) {
