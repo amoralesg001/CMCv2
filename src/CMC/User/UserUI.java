@@ -60,9 +60,6 @@ public class UserUI {
 	}
 	
 	/**
-	 * 
-<<<<<<< HEAD
-	 * @param school School you want to display information about
 	 *
 	 * @param university School you want to display information about
 	 */
@@ -105,10 +102,11 @@ public class UserUI {
 	
 	/**
 	 * Adds a specified school to users saved school list
+	 * In use by John
 	 * @Author John Engh
 	 * @param SName Name of university as string
 	 * @param AName Account username as string
-	 * @return 
+	 * @return boolean if successful or not
 	 */
 	public static boolean addSavedUniversities(String AName, String SName) {
 		return UserController.addSavedUniversities(AName, SName);
@@ -212,14 +210,14 @@ public class UserUI {
 
 	 * Calls UniversityController to pass on to DBController and Account
 	 * 
-	 * @param university
+	 * @param universityname
 	 */
 	public static boolean removeUniversity(String username, String universityname) {
 		boolean remove = UniversityController.removeUniversity(username, universityname);
 		return remove;
 	}
 	/**
-	 * 
+	 * in use by John
 	 */
 	public static ArrayList<Account> manageUsers() {
 		return UserController.getAllUsers();
@@ -237,9 +235,9 @@ public class UserUI {
 		UniversityController.getUniversity(university);
 	}
 	
-	public static University searchUniversity(String universityName) {
-		return SearchController.searchUniversities(universityName);
-	}
+	public static ArrayList<String> searchUniversity(University uniCriteria) {
+        return SearchController.searchUniversities(uniCriteria);
+    }
 
 }
 

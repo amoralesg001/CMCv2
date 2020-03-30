@@ -262,7 +262,7 @@ public class DBController {
 		 * @param schoolName
 		 * @return
 		 */
-		public static ArrayList<String> searchUniversity(String schoolName) {	// should return a university i assume but diagram doesnt
+		public static ArrayList<String> searchUniversity(String schoolName) {	
 			String[][] univ = univDBlib.university_getUniversities();
 			ArrayList<String> univList = new ArrayList<>();
 			for (int row =0; row< univ.length;row++) {
@@ -307,7 +307,10 @@ public class DBController {
 			
 		}
 		/**
-		 * 
+		 * In use by John
+		 * @param username username of account to update
+		 * @param uniName name of university to add to list
+		 * @return boolean if successful or not
 		 */
 		public static boolean updateSavedUniversities(String username, String uniName) {
 			int output = univDBlib.user_saveSchool(username, uniName);
@@ -325,8 +328,8 @@ public class DBController {
 			return null;
 		}
 		/**
-		 * 
-		 * @return
+		 * In use by John
+		 * @return Arraylist of all users in database
 		 */
 		public static ArrayList<Account> getAllUsers() {		//how to return an array
 			String[][] userlist = univDBlib.user_getUsers();
@@ -344,7 +347,7 @@ public class DBController {
 			return users;
 		}
 		/**
-		 * 
+		 * In use by John
 		 * @param username
 		 * @return
 		 */
@@ -414,42 +417,128 @@ public class DBController {
 		}
 		public static ArrayList<String> dbGetSavedUniversityList(String username){	
 			String[][] ar = univDBlib.user_getUsernamesWithSavedSchools();
-			if (ar==null) {
-				return null;
-			}
-			else {
+		
 				ArrayList<String> userSchool = new ArrayList<String>();
 			for(int row = 0; row<ar.length; row++) {
 			if (ar[row][0].equals(username)){
-				if (ar[row][1]==null) {
-				return null;	
-				}
-				else
-				{
+				
 				userSchool.add(ar[row][0]);
 				//System.out.println(ar[row][0]);
 				userSchool.add(ar[row][1]);
 				userSchool.add(ar[row][2]);
 				}
 			}
+			if(userSchool.size()<1) {
+				return null;
 			}
-			return userSchool;
-		}	
-	}
+			else {
+				return userSchool;
+			}
+			}
+		
 
-			//}
-			//for(int row = 0; row<ar.length; row++) {
-				//if (ar[row][0].equals(username)){
-					//userSchool.add(ar[row][0]);
-					//System.out.println(ar[row][0]);
-					//userSchool.add(ar[row][1]);
-					//userSchool.add(ar[row][2]);
-					//return userSchool;
-				//}
-			//}	
-			//return null;	
-	//}
+		public static ArrayList<String> dbSearchUniversity(University uniCriteria) {    
+            String[][] un = univDBlib.university_getUniversities();
+            ArrayList<String> uniSearchFound = new ArrayList<>();
+        
+            for(int i = 0; i < un.length; i++) {
+                
+                if (un[i][0].equals(uniCriteria.getuniversityName())) {
+                String uniName = un[i][0];
+                uniSearchFound.add(uniName);
+                }
+                if (un[i][1].equals(uniCriteria.getState())) {
+                    String uniName = un[i][0];
+                    uniSearchFound.add(uniName);
+                    }
+                if (un[i][2].equals(uniCriteria.getState())) {
+                    String uniName = un[i][0];
+                    uniSearchFound.add(uniName);
+                    }
+                if (un[i][3].equals(uniCriteria.getLocation())) {
+                    String uniName = un[i][0];
+                    uniSearchFound.add(uniName);
+                    }
+                if (un[i][4].equals(uniCriteria.getControl())) {
+                    String uniName = un[i][0];
+                    uniSearchFound.add(uniName);
+                    }
+                if (un[i][5].equals(uniCriteria.getNumStudents())) {
+                    String uniName = un[i][0];
+                    uniSearchFound.add(uniName);
+                    }
+                if (un[i][6].equals(uniCriteria.getFemalePer())) {
+                    String uniName = un[i][0];
+                    uniSearchFound.add(uniName);
+                    }
+                if (un[i][7].equals(uniCriteria.getVerSAT())) {
+                    String uniName = un[i][0];
+                    uniSearchFound.add(uniName);
+                    }
+                if (un[i][8].equals(uniCriteria.getMathSAT())) {
+                    String uniName = un[i][0];
+                    uniSearchFound.add(uniName);
+                    }
+                if (un[i][9].equals(uniCriteria.getTuition())) {
+                    String uniName = un[i][0];
+                    uniSearchFound.add(uniName);
+                    }
+                if (un[i][10].equals(uniCriteria.getFinAid())) {
+                    String uniName = un[i][0];
+                    uniSearchFound.add(uniName);
+                    }
+                if (un[i][10].equals(uniCriteria.getNumApplicants())) {
+                    String uniName = un[i][0];
+                    uniSearchFound.add(uniName);
+                    }
+                if (un[i][11].equals(uniCriteria.getAdmitPer())) {
+                    String uniName = un[i][0];
+                    uniSearchFound.add(uniName);
+                    }
+                if (un[i][12].equals(uniCriteria.getEnrolledPer())) {
+                    String uniName = un[i][0];
+                    uniSearchFound.add(uniName);
+                    }
+                if (un[i][13].equals(uniCriteria.getAcademicScale())) {
+                    String uniName = un[i][0];
+                    uniSearchFound.add(uniName);
+                    }
+                if (un[i][14].equals(uniCriteria.getSocialScale())) {
+                    String uniName = un[i][0];
+                    uniSearchFound.add(uniName);
+                    }
+                if (un[i][15].equals(uniCriteria.getQoaScale())) {
+                    String uniName = un[i][0];
+                    uniSearchFound.add(uniName);
+                }
+            }
+                    
+                
+                    //need to get another loop that gets emphasis
+                    //Emphasis
+                    //String[][] em = univDBlib.university_getNamesWithEmphases();
+                    
+                   // for(int j = 0; j < em.length; j++) {
+                       // if (em[j][1].equals(uniCriteria.getEmphasis()) {//not sure about this
+                       // String uniName =em[j][1];    
+                       // uniSearchFound.add(uniName);
+                        //}
+                    ///}
+            
+            	if(uniSearchFound.size() ==0) {
+            		return null;
+            	}
+            	else {
+                    return uniSearchFound;
+            	}
+                }
+		
+            
+		}	
+	
+
+			
 
 		
-}
+
 	

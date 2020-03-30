@@ -35,11 +35,12 @@ public class Driver {
 		System.out.println("u3 done");
 		
 		System.out.println("u4 starting");
-		u4("ADELPHI");
+		u4("ADELPHI", "", "", "", 0, 0, 0, 0, 0, 0, 0, 0,0, 0, 0, 0, null);
 		System.out.println("u4 done");
 		System.out.println("output should be: ADELPHI IS FOUND\n");
 		System.out.println("u4 ALTERNATE starting");
-		u4("ADELPH");
+		u4("", "MN", "", "", 0, 0, 0, 0, 0, 0, 0, 0,0,
+		           0, 0, 0, null);
 		System.out.println("u4 done");
 		System.out.println("output should be: no University found ");
 		
@@ -49,14 +50,11 @@ public class Driver {
 		
 		System.out.println("\nU5 Starting\n");
 		u5(universityTest);
-
-
 		System.out.println("\nU5 Done: Should dislpay the information of Stanford. \n");		
 		//u6(universityToRemove);
 		//u7(universityToRemove, universityToRemove, universityToRemove, universityToRemove);
 
-		System.out.println("\nU5 Done: Should dislpay the information of Stanford. \n");
-		System.out.println("\nU5 Done: Should dislpay the information of Stanford. \n");		
+	
 
 		System.out.println("u6 starting");
 		u6(AName, SName);
@@ -65,10 +63,14 @@ public class Driver {
 		u9(AName, SName);
 		System.out.println("u9 done");
 		
+		System.out.println("u2 starting");
+		u2("juser");
+		System.out.println("u2 done");
+		
 		System.out.println("u6 starting");
 		u6(AName, SName);
 		System.out.println("u6 done");
-		
+	
 		//u7(universityToRemove, universityToRemove, universityToRemove, universityToRemove);
 		System.out.println("\nu7 starting");
 		System.out.println("\nTesting user 'John' (in database)");
@@ -156,14 +158,11 @@ public class Driver {
 	public static void u2(String username) {
 		
 		ArrayList<String> savedUniversities = UserUI.getSavedUniversityList(username);
-		//or(int i = 0; i<savedUniversities.size();i++) {
-			//System.out.println(savedUniversities.get(i));
-		//ArrayList<String> savedUniversities=UserUI.getSavedUniversityList(username);
+		
 		if(savedUniversities==null) {
-		System.out.println("nothing");	
+		System.out.println("No universities saved under this user");	
 		}	
 		else {
-			System.out.println("something");
 			for(int i = 0; i<savedUniversities.size();i++) {
 				System.out.println(savedUniversities.get(i));
 			}
@@ -210,30 +209,27 @@ public class Driver {
 	/**
 	 * U4: Search For Schools
 	 * @author nlarson002
-	 * This allows the user to search for a school
+	 * This allows the user to search for a school given any of the criterias in a universitiy 
 	 */
 
-	public static void u4(String universityName) {
+	public static void u4(String universityName, String state, String location, String control, int numStudents, double femalePer, double verbalSAT,
+            double mathSAT, double expenses, double finAidPer, int numApplicants, double admitPer, double enrolledPer,
+            int academicScale, int socialScale, int qoaScale, ArrayList<String> emphasis) {
+        
+        University uniCriteria = new University(universityName, state, location, control, numStudents, femalePer, verbalSAT,mathSAT,expenses, finAidPer,numApplicants,admitPer,enrolledPer,academicScale,socialScale,qoaScale,emphasis, false);
+        
+        ArrayList<String> uniSearch = UserUI.searchUniversity(uniCriteria);
+        
+        if (uniSearch == null) {
+            System.out.println("no Universities found with that criteria");
+        }
+        else {
+            System.out.println("Universities found with following criteria: ");
+            for(int i=0; i< uniSearch.size();i++) {
+            System.out.println(uniSearch.get(i));
+            }
 
-
-		//String universityName = "Macalester";
-		//ArrayList<String> uni = SearchController.searchUniversities(universityName);
-		//System.out.println(uni);
-
-		University uni = UserUI.searchUniversity(universityName);
-
-		if (uni == null) {
-			System.out.println("no University found");
-		}
-		else {
-
-			//String uniName = uni.get(0);
-			//System.out.println(uniName);
-
-			System.out.println(uni.toString());
-			System.out.println(uni.getuniversityName() + " is found");
-
-		}
+        }
 	}
 
 	/**
