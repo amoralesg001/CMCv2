@@ -60,10 +60,15 @@ public class Driver {
 		System.out.println("u9 starting");
 		u9(AName, SName);
 		System.out.println("u9 done");
+		
+		System.out.println("u2 starting");
+		u2("juser");
+		System.out.println("u2 done");
+		
 		System.out.println("u6 starting");
 		u6(AName, SName);
 		System.out.println("u6 done");
-		
+	
 		//u7(universityToRemove, universityToRemove, universityToRemove, universityToRemove);
 		System.out.println("\nu7 starting");
 		System.out.println("\nTesting user 'John' (in database)");
@@ -151,14 +156,11 @@ public class Driver {
 	public static void u2(String username) {
 		
 		ArrayList<String> savedUniversities = UserUI.getSavedUniversityList(username);
-		//or(int i = 0; i<savedUniversities.size();i++) {
-			//System.out.println(savedUniversities.get(i));
-		//ArrayList<String> savedUniversities=UserUI.getSavedUniversityList(username);
+		
 		if(savedUniversities==null) {
-		System.out.println("nothing");	
+		System.out.println("No universities saved under this user");	
 		}	
 		else {
-			System.out.println("something");
 			for(int i = 0; i<savedUniversities.size();i++) {
 				System.out.println(savedUniversities.get(i));
 			}

@@ -414,42 +414,30 @@ public class DBController {
 		}
 		public static ArrayList<String> dbGetSavedUniversityList(String username){	
 			String[][] ar = univDBlib.user_getUsernamesWithSavedSchools();
-			if (ar==null) {
-				return null;
-			}
-			else {
-				ArrayList<String> userSchool = new ArrayList<String>();
+		
+			ArrayList<String> userSchool = new ArrayList<String>();
 			for(int row = 0; row<ar.length; row++) {
 			if (ar[row][0].equals(username)){
-				if (ar[row][1]==null) {
-				return null;	
-				}
-				else
-				{
+				
 				userSchool.add(ar[row][0]);
 				//System.out.println(ar[row][0]);
 				userSchool.add(ar[row][1]);
 				userSchool.add(ar[row][2]);
 				}
 			}
+			if(userSchool.size()<1) {
+				return null;
 			}
-			return userSchool;
+			else {
+				return userSchool;
+			}
+			}
+			
 		}	
-	}
+	
 
-			//}
-			//for(int row = 0; row<ar.length; row++) {
-				//if (ar[row][0].equals(username)){
-					//userSchool.add(ar[row][0]);
-					//System.out.println(ar[row][0]);
-					//userSchool.add(ar[row][1]);
-					//userSchool.add(ar[row][2]);
-					//return userSchool;
-				//}
-			//}	
-			//return null;	
-	//}
+			
 
 		
-}
+
 	
