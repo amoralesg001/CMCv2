@@ -237,9 +237,9 @@ public class UserUI {
 		UniversityController.getUniversity(university);
 	}
 	
-	public static University searchUniversity(String universityName) {
-		return SearchController.searchUniversities(universityName);
-	}
+	public static ArrayList<String> searchUniversity(University uniCriteria) {
+        return SearchController.searchUniversities(uniCriteria);
+    }
 
 }
 
