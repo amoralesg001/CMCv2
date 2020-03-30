@@ -77,7 +77,7 @@ public class DBController {
 			}
 			return null;	
 		}		  
-		
+		//USED BY READYSON
 		public static University dbGetUniversity(String university) {	
 			String[][] un = univDBlib.university_getUniversities();
 			ArrayList<String> emphasis = new ArrayList<String>();
@@ -208,7 +208,7 @@ public class DBController {
 			
 		}
 			/**
-			 * 
+			 * METHOD UPDATEUNIVERSITY USED BY READYSONVANG
 		 * @param universityName
 		 */
 		public static void updateUniversityDB(String universityName, String state, String location, String control, int numStudents,
@@ -296,7 +296,7 @@ public class DBController {
 			return null;
 		}
 		/**
-		 * 
+		 * METHOD ADDUNIVERSITY IS USED BY READYSON
 		 * @param universityName
 		 * @return
 		 */

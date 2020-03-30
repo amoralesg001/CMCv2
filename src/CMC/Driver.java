@@ -18,7 +18,7 @@ public class Driver {
 	public static void main(String[] args) {
 		String SName = "ADELPHI";
 		String AName = "juser";
-		String universityTest = "STANFORD";
+		String universityTest = "blahblah1";
 		University university = DBController.dbGetUniversity(universityTest);
 		System.out.println(university.toString());
 		System.out.println("u1 starting");
@@ -52,8 +52,8 @@ public class Driver {
 
 
 		System.out.println("\nU5 Done: Should dislpay the information of Stanford. \n");		
-		u6(universityToRemove);
-		u7(universityToRemove, universityToRemove, universityToRemove, universityToRemove);
+		//u6(universityToRemove);
+		//u7(universityToRemove, universityToRemove, universityToRemove, universityToRemove);
 
 		System.out.println("\nU5 Done: Should dislpay the information of Stanford. \n");
 		System.out.println("\nU5 Done: Should dislpay the information of Stanford. \n");		
@@ -311,9 +311,10 @@ public class Driver {
 	}
 	/**
 	 * U12 add  school
+	 * USED BY READYSON
 	 */
 	public static void u12() {
-		String universityName = "blahblah10";
+		String universityName = "blahblah14";
 		String state = "MN";
 		String location = "SC";
 		String control = "Private";
@@ -347,7 +348,7 @@ public class Driver {
 			{
 				DBController.univDBlib.university_addUniversityEmphasis(universityName, s);
 			}
-		u5(universityName);
+		//u5(universityName);
 		}
 	}
 	/**
@@ -364,9 +365,10 @@ public class Driver {
 	public void u15() {}
 	/**
 	 * u16 is editing a school's information
+	 * USED BY READYSON
 	 */
 	public static void u16() {
-		String universityName = "blahblah10";
+		String universityName = "blahblah8";
 		String state = "o";
 		String location = "o";
 		String control = "public";
@@ -384,8 +386,8 @@ public class Driver {
 		int qoaScale = 0;
 		boolean blacklist = false;
 		ArrayList<String> emphasis = new ArrayList<String>();
-		emphasis.add("Compsci");
-		emphasis.add("Math");
+		emphasis.add("COMPSCI");
+		emphasis.add("PSYCH");
 		
 		
 

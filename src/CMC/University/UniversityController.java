@@ -72,10 +72,15 @@ public class UniversityController {
 	 * @param emphasis
 	 * @param blacklist
 	 */
+	
+	//METHOD ADDSCHOOL IS USED BY READYSON
 	public static void addUniversity(String universityName, String state, String location, String control, int numStudents, double femalePer, double verSAT,
 			double mathSAT, double tuition, double finAid, int numApplicants, double admitPer, double enrolledPer,
 			int academicScale, int socialScale, int qoaSCale, ArrayList<String> emphasis, boolean blacklist) {
-		
+		University display = new University(universityName, state, location, control, numStudents, femalePer, verSAT,
+				mathSAT, tuition, finAid, numApplicants, admitPer, enrolledPer, academicScale, socialScale,
+				qoaSCale, emphasis, blacklist);
+		UserUI.displayUniversityInfo(display);
 		//DBController.addUniversity(newUniversity);
 		DBController.addUniversity(universityName, state, location, control, numStudents, femalePer, verSAT,
 				mathSAT, tuition, finAid, numApplicants, admitPer, enrolledPer, academicScale, socialScale,
@@ -108,6 +113,7 @@ public class UniversityController {
 		// TODO
 	}
 
+	//METHOD EDITUNIVERSITY IS USED BY READYSON
 	public static void editUniversityinfo(String universityName, String state, String location, String control, int numStudents,
 			int femalePer, int verSAT, int mathSAT, double tuition, double finAid, double numApplicants, int admitPer,
 			int enrolledPer, int academicScale, int socialScale, int qoaScale, ArrayList<String> emphasis, boolean blacklist) {

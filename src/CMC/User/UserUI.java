@@ -130,7 +130,7 @@ public class UserUI {
 	}
 	/**
 	 * 
-	 *
+	 *METHOD SAVESCHOOL IS USED BY READYSON
 	 */
 	public static void saveSchoolInfo(String universityName, String state, String location, String control, int numStudents, int femalePer,
 			int verSAT, int mathSAT, double tuition, double finAid, double numApplicants, int admitPer, int enrolledPer,
@@ -225,7 +225,7 @@ public class UserUI {
 		return UserController.getAllUsers();
 		
 	}
-
+//ADDSCHOOL USED BY READYSON
 	public static void addSchool(String universityName, String state, String location, String control, int numStudents, int femalePer,
 			int verSAT, int mathSAT, double tuition, double finAid, int numApplicants, int admitPer, int enrolledPer,
 			int academicScale, int socialScale, int qoaScale, ArrayList<String> emphasis, boolean blacklist) {
