@@ -19,8 +19,8 @@ public class Driver {
 		String SName = "ADELPHI";
 		String AName = "juser";
 		String universityTest = "STANFORD";
-		//University university = DBController.dbGetUniversity(universityTest);
-		//System.out.println(university.toString());
+		University university = DBController.dbGetUniversity(universityTest);
+		System.out.println(university.toString());
 		System.out.println("u1 starting");
 		u1();
 		System.out.println("u1 done");
@@ -34,33 +34,41 @@ public class Driver {
 		System.out.println("u3 done");
 		
 		System.out.println("u4 starting");
-		u4("ADELPHI");
+		u4("ADELPHI", "", "", "", 0, 0, 0, 0, 0, 0, 0, 0,0, 0, 0, 0, null);
 		System.out.println("u4 done");
 		System.out.println("output should be: ADELPHI IS FOUND\n");
 		System.out.println("u4 ALTERNATE starting");
-		u4("ADELPH");
+		u4("", "MN", "", "", 0, 0, 0, 0, 0, 0, 0, 0,0,
+		           0, 0, 0, null);
 		System.out.println("u4 done");
 		System.out.println("output should be: no University found ");
 		
-		//String username = "juser";
-		//String universityname = "STANFORD";
-		//int i = DBController.removeUniversity(username, universityname);
+		String username = "juser";
+		String universityname = "STANFORD";
+		int i = DBController.removeUniversity(username, universityname);
 		
 		System.out.println("\nU5 Starting\n");
 		u5(universityTest);
-		System.out.println("\nU5 Done: Should dislpay the information of Stanford. \n");
+		System.out.println("\nU5 Done: Should dislpay the information of Stanford. \n");		
+		//u6(universityToRemove);
+		//u7(universityToRemove, universityToRemove, universityToRemove, universityToRemove);
+	
+
 		System.out.println("u6 starting");
 		u6(AName, SName);
 		System.out.println("u6 done");
-		
 		System.out.println("u9 starting");
 		u9(AName, SName);
 		System.out.println("u9 done");
 		
+		System.out.println("u2 starting");
+		u2("juser");
+		System.out.println("u2 done");
+		
 		System.out.println("u6 starting");
 		u6(AName, SName);
 		System.out.println("u6 done");
-		
+	
 		//u7(universityToRemove, universityToRemove, universityToRemove, universityToRemove);
 		System.out.println("\nu7 starting");
 		System.out.println("\nTesting user 'John' (in database)");
@@ -149,14 +157,11 @@ public class Driver {
 	public static void u2(String username) {
 		
 		ArrayList<String> savedUniversities = UserUI.getSavedUniversityList(username);
-		//or(int i = 0; i<savedUniversities.size();i++) {
-			//System.out.println(savedUniversities.get(i));
-		//ArrayList<String> savedUniversities=UserUI.getSavedUniversityList(username);
+		
 		if(savedUniversities==null) {
-		System.out.println("nothing");	
+		System.out.println("No universities saved under this user");	
 		}	
 		else {
-			System.out.println("something");
 			for(int i = 0; i<savedUniversities.size();i++) {
 				System.out.println(savedUniversities.get(i));
 			}
@@ -203,30 +208,27 @@ public class Driver {
 	/**
 	 * U4: Search For Schools
 	 * @author nlarson002
-	 * This allows the user to search for a school
+	 * This allows the user to search for a school given any of the criterias in a universitiy 
 	 */
 
-	public static void u4(String universityName) {
+	public static void u4(String universityName, String state, String location, String control, int numStudents, double femalePer, double verbalSAT,
+            double mathSAT, double expenses, double finAidPer, int numApplicants, double admitPer, double enrolledPer,
+            int academicScale, int socialScale, int qoaScale, ArrayList<String> emphasis) {
+        
+        University uniCriteria = new University(universityName, state, location, control, numStudents, femalePer, verbalSAT,mathSAT,expenses, finAidPer,numApplicants,admitPer,enrolledPer,academicScale,socialScale,qoaScale,emphasis, false);
+        
+        ArrayList<String> uniSearch = UserUI.searchUniversity(uniCriteria);
+        
+        if (uniSearch == null) {
+            System.out.println("no Universities found with that criteria");
+        }
+        else {
+            System.out.println("Universities found with following criteria: ");
+            for(int i=0; i< uniSearch.size();i++) {
+            System.out.println(uniSearch.get(i));
+            }
 
-
-		//String universityName = "Macalester";
-		//ArrayList<String> uni = SearchController.searchUniversities(universityName);
-		//System.out.println(uni);
-
-		University uni = UserUI.searchUniversity(universityName);
-
-		if (uni == null) {
-			System.out.println("no University found");
-		}
-		else {
-
-			//String uniName = uni.get(0);
-			//System.out.println(uniName);
-
-			System.out.println(uni.toString());
-			System.out.println(uni.getuniversityName() + " is found");
-
-		}
+        }
 	}
 
 	/**
@@ -306,7 +308,7 @@ public class Driver {
 	 * U12 add  school
 	 */
 	public static void u12() {
-		String universityName = "blahblah1";
+		String universityName = "blahblah10";
 		String state = "MN";
 		String location = "SC";
 		String control = "Private";
@@ -322,8 +324,9 @@ public class Driver {
 		int academicScale = 5;
 		int socialScale = 5;
 		int qoaScale = 5;
-		//boolean blacklist = false;
-		//ArrayList<String> emphasis = new ArrayList<String>();
+		boolean blacklist = true;
+		ArrayList<String> emphasis = new ArrayList<String>();
+		emphasis.add("Accounting");
 		
 		if (DBController.dbGetUniversity(universityName) != null)
 		{
@@ -333,7 +336,12 @@ public class Driver {
 		{
 			System.out.println("University does not exist");
 		UserUI.addSchool(universityName, state, location, control, numStudents, femalePer, verSAT, mathSAT,
-				tuition, finAid, numApplicants, admitPer, enrolledPer, academicScale, socialScale, qoaScale);
+				tuition, finAid, numApplicants, admitPer, enrolledPer, academicScale, socialScale, qoaScale,
+				emphasis, blacklist);
+			for(String s: emphasis)
+			{
+				DBController.univDBlib.university_addUniversityEmphasis(universityName, s);
+			}
 		u5(universityName);
 		}
 	}
@@ -353,7 +361,7 @@ public class Driver {
 	 * u16 is editing a school's information
 	 */
 	public static void u16() {
-		String universityName = "blahblah1";
+		String universityName = "blahblah10";
 		String state = "o";
 		String location = "o";
 		String control = "public";
@@ -369,8 +377,12 @@ public class Driver {
 		int academicScale = 0;
 		int socialScale = 0;
 		int qoaScale = 0;
-		//boolean blacklist = true;
-		//ArrayList<String> emphasis = new ArrayList<String>();
+		boolean blacklist = false;
+		ArrayList<String> emphasis = new ArrayList<String>();
+		emphasis.add("Compsci");
+		emphasis.add("Math");
+		
+		
 
 		if (DBController.dbGetUniversity(universityName) == null)
 		{
@@ -380,9 +392,11 @@ public class Driver {
 		{
 			UserUI.saveSchoolInfo(universityName, state, location, control, numStudents, femalePer,
 					verSAT, mathSAT, tuition, finAid, numApplicants, admitPer, enrolledPer, academicScale,
-					socialScale, qoaScale);
+					socialScale, qoaScale, emphasis, blacklist);
 			u5(universityName);
 		}
+		
+		System.out.println("Finished u16");
 	}
 	/**
 	 * 
