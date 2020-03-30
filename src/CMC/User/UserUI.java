@@ -210,7 +210,7 @@ public class UserUI {
 
 	 * Calls UniversityController to pass on to DBController and Account
 	 * 
-	 * @param university
+	 * @param universityname
 	 */
 	public static boolean removeUniversity(String username, String universityname) {
 		boolean remove = UniversityController.removeUniversity(username, universityname);
