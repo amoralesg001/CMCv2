@@ -36,13 +36,15 @@ public class UserController {
 		return account.getUserType();
 	}
 	/**
+	 * In use by John
 	 * @author jengh001
 	 * @param SName Name of University as string 
 	 * @param AName Username of account as string
+	 * @return boolean if successful or not
 	 */
 	public static boolean addSavedUniversities(String AName, String SName) {
-		University uni = DBController.dbGetUniversity(SName);
-		Account acc = DBController.getUserInfo(AName);
+		//University uni = DBController.dbGetUniversity(SName);
+		//Account acc = DBController.getUserInfo(AName);
 		//acc.addUniversity(uni);
 		return DBController.updateSavedUniversities(AName, SName);
 	}
@@ -113,7 +115,11 @@ public class UserController {
 			return user;
 		}
 	}
-	
+
+	/**
+	 * In use by John
+	 * @return Arraylist of all users in database
+	 */
 	public static ArrayList<Account> getAllUsers() {
 		return DBController.getAllUsers();
 	}

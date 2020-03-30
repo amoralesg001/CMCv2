@@ -307,7 +307,10 @@ public class DBController {
 			
 		}
 		/**
-		 * 
+		 * In use by John
+		 * @param username username of account to update
+		 * @param uniName name of university to add to list
+		 * @return boolean if successful or not
 		 */
 		public static boolean updateSavedUniversities(String username, String uniName) {
 			int output = univDBlib.user_saveSchool(username, uniName);
@@ -325,8 +328,8 @@ public class DBController {
 			return null;
 		}
 		/**
-		 * 
-		 * @return
+		 * In use by John
+		 * @return Arraylist of all users in database
 		 */
 		public static ArrayList<Account> getAllUsers() {		//how to return an array
 			String[][] userlist = univDBlib.user_getUsers();
@@ -344,7 +347,7 @@ public class DBController {
 			return users;
 		}
 		/**
-		 * 
+		 * In use by John
 		 * @param username
 		 * @return
 		 */
