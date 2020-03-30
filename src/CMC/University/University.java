@@ -69,6 +69,8 @@ public class University {
 		this.emphasis = emphasis;
 		this.blacklist = blacklist;
 	}
+	
+
 	/**
 	 * @param universityName the universityName to set
 	 */
@@ -267,8 +269,15 @@ public class University {
 	/**
 	 * @return whether or not the university is blacklisted
 	 */
-	public boolean isBlacklisted() {
-		return blacklist;
+	public String isBlacklisted() {
+		if (blacklist == true)
+		{
+			return "Yes";
+		}
+		else
+		{
+			return "No";
+		}
 	}
 	/**
 	 * @param blacklist change whether or not the university is blacklisted
