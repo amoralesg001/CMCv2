@@ -70,7 +70,7 @@ public class DBController {
 					//Status
 					String status = ar[i][5];
 					//System.out.println(user[5]);
-
+					
 					Account account =  new Account(fName, lName, uName, password, uType, status);
 					return account;
 				}
@@ -295,10 +295,19 @@ public class DBController {
 			}
 			return users;
 		}
+		/**
+		 * In use by John
+		 * @param username
+		 * @return
+		 */
+		public static Account getUserInfo(String username) {
+			return null;
+			//return account;
+		}
 
 		/**
 		 * Updates the account in the database.
-		 * @param username
+		 * @param user
 		 */
 		public static void updateAccountDB(String username, String password, String firstName, String lastName, String userType, String loginStatus) {
 			char uType = userType.charAt(0);
@@ -317,8 +326,45 @@ public class DBController {
 			int i = univDBlib.user_removeSchool(username, universityname);
 			return i;
 		}
-
-
+		/**
+		 * 
+		 * @param universityName
+		 * @return
+		 */
+		public University lookUpUniversity(String universityName) {
+			return null;
+		}
+		/**
+		 * 
+		 * @param accountName
+		 * @return
+		 */
+		public static Account lookUpAccount(String accountName) {
+			return null; 
+		}
+		/**
+		 * 
+		 */
+		public void updateProfile() {
+			
+		}
+		/**
+		 * 
+		 * @param universityName
+		 * @return
+		 */
+		public static University getUniversity(String universityName) {
+			//return university;
+			return null;
+		}
+		/** this method returns an account to be used in UserController
+		 * @param username
+		 * @return account of the username
+		 */
+		public static Account getSavedUniversityList(String username) {
+			
+			return null;
+		}
 		public static ArrayList<String> dbGetSavedUniversityList(String username){	
 			String[][] ar = univDBlib.user_getUsernamesWithSavedSchools();
 		
@@ -421,10 +467,10 @@ public class DBController {
                     //need to get another loop that gets emphasis
                     //Emphasis
                     //String[][] em = univDBlib.university_getNamesWithEmphases();
-                    
+
                    // for(int j = 0; j < em.length; j++) {
                        // if (em[j][1].equals(uniCriteria.getEmphasis()) {//not sure about this
-                       // String uniName =em[j][1];    
+                       // String uniName =em[j][1];
                        // uniSearchFound.add(uniName);
                         //}
                     ///}
