@@ -251,14 +251,14 @@ public class DBController {
 			
 		}
 		/**
-		 * 
+		 * Unused
 		 * @param universityName
 		 */
 		public void updateBlackListDB(University universityName) {
 			
 		}
 		/**
-		 * 
+		 * Unused
 		 * @param schoolName
 		 * @return
 		 */
@@ -347,7 +347,7 @@ public class DBController {
 			return users;
 		}
 		/**
-		 * In use by John
+		 *
 		 * @param username
 		 * @return
 		 */
@@ -358,7 +358,7 @@ public class DBController {
 
 		/**
 		 * Updates the account in the database.
-		 * @param user
+		 * @param username
 		 */
 		public static void updateAccountDB(String username, String password, String firstName, String lastName, String userType, String loginStatus) {
 			char uType = userType.charAt(0);
@@ -370,7 +370,7 @@ public class DBController {
 
 		/**
 		 * 
-		 * @param universityName
+		 * @param universityname
 		 */
 		public static int removeUniversity(String username, String universityname) {
 			int i = univDBlib.user_removeSchool(username, universityname);
