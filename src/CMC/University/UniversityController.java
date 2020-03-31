@@ -23,10 +23,10 @@ public class UniversityController {
 	 *  method returns a list of university
 	 *
 	 */
-	public static void getAllUniversities()
-	{
-		DBController.getAllUniversities();
-	}
+	//public static void getAllUniversities()
+	//{
+	//	DBController.getAllUniversities();
+	//}
 	
 	/* method blacklists university
 	 * 
@@ -92,26 +92,26 @@ public class UniversityController {
 	 * 
 	 * @param String name of university
 	 */
-	public static boolean removeUniversity(String username, String universityname) {
-		//University universityToRemove = DBController.getUniversity(universityname);
+//	public static boolean removeUniversity(String username, String universityname) {
+	//University universityToRemove = DBController.getUniversity(universityname);
 		//Account.removeUniversity(universityToRemove);
-		int i = DBController.removeUniversity(username, universityname);
-		if (i == 1) {
-			return true;
-		}
-		else {
-			return false;
-		}
-	}
+////		int i = DBController.removeUniversity(username, universityname);
+//		if (i == 1) {
+//			return true;
+	//	}
+	///	else {
+//			return false;
+	//	}
+//	}
 	
 
 	
 	/**
 	 * Adds the university to the blacklist.
 	 */
-	public void blacklistUniversity() {
+	//public void blacklistUniversity() {
 		// TODO
-	}
+	//}
 
 	//METHOD EDITUNIVERSITY IS USED BY READYSON
 	public static void editUniversityinfo(String universityName, String state, String location, String control, int numStudents,
