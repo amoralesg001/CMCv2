@@ -49,12 +49,6 @@ public class UserUI {
 	/**
 	 * 
 	 */
-	public void editSchool() {
-		
-	}
-	/**
-	 * 
-	 */
 	public static void manageSchool() {
 		UniversityController.getAllUniversities();
 	}
@@ -95,11 +89,6 @@ public class UserUI {
 
 		
 	}
-	
-	public void getSavedList(Account account) {
-		
-	}
-	
 	/**
 	 * Adds a specified school to users saved school list
 	 * In use by John
@@ -114,20 +103,6 @@ public class UserUI {
 
 	/**
 	 * 
-	 * @param account
-	 */
-	public void displaySavedSchool(Account account) {
-		
-	}
-	/**
-	 * 
-	 * @param school
-	 */
-	public void blacklistSchool(University school) {
-		
-	}
-	/**
-	 * 
 	 *METHOD SAVESCHOOL IS USED BY READYSON
 	 */
 	public static void saveSchoolInfo(String universityName, String state, String location, String control, int numStudents, int femalePer,
@@ -138,20 +113,6 @@ public class UserUI {
 				verSAT, mathSAT, tuition, finAid, numApplicants, admitPer, enrolledPer, academicScale, socialScale,
 				qoaScale, emphasis, blacklist);
 	}
-
-	/**
-	 * 
-	 */
-	public void logOut() {
-		
-	}
-	/**
-	 * 
-	 * @param account
-	 */
-	public void lookup(Account account) {
-		
-	}
 		
 	/**
 	 * Displays the search results to the user.
@@ -161,30 +122,17 @@ public class UserUI {
 		return results;
 	}
 	
-	/**
-	 * 
-	 * @param school
-	 */
-	public void displayUserInfo(University school) {		//need to add to class diagram
-		
-	}
 
 	/**
 	 * 
 	 * @param school
 	 */
-	public void removeSchool(String school) {
-		UniversityController.removeUniversity(school);
-	}
+	//public void removeSchool(String school) {
+		//UniversityController.removeUniversity(school);
+	//}
 	
 	/**
-	 * 
-	 */
-	public void displaySavedList() {
-		// TODO Auto-generated method stub
-		
-	}
-	/**
+	 * USED BY ALEX
 	 * This method goes to the UserController
 	 * @param username the username of Account
 	 */
@@ -192,20 +140,7 @@ public class UserUI {
 		
 		return UserController.getSavedUniversityList(username);
 	}
-	/**
-	 * this method displays the saved universities from the specific account
-	 * @param account
-	 */
-	public static void displaySavedUniversity(Account account) {
-		System.out.println("Here are the schools");
-	}
-	/**
-	 * 
-	 */
-	public static void goToLoginPage() {
-		System.out.println("User is brought to main page");
-		
-	}
+	
 	/**
 
 	 * Calls UniversityController to pass on to DBController and Account
@@ -235,6 +170,11 @@ public class UserUI {
 		UniversityController.getUniversity(university);
 	}
 	
+	/**
+	 * USED BY ALEX
+	 * @param uniCriteria
+	 * @return arrayList of a string of school names
+	 */
 	public static ArrayList<String> searchUniversity(University uniCriteria) {
         return SearchController.searchUniversities(uniCriteria);
     }

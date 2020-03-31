@@ -415,6 +415,11 @@ public class DBController {
 			
 			return null;
 		}
+		/**
+		 * USED BY ALEX
+		 * @param username
+		 * @return
+		 */
 		public static ArrayList<String> dbGetSavedUniversityList(String username){	
 			String[][] ar = univDBlib.user_getUsernamesWithSavedSchools();
 		
@@ -436,7 +441,11 @@ public class DBController {
 			}
 			}
 		
-
+		/**
+		 * USED BY ALEX
+		 * @param uniCriteria
+		 * @return
+		 */
 		public static ArrayList<String> dbSearchUniversity(University uniCriteria) {    
             String[][] un = univDBlib.university_getUniversities();
             ArrayList<String> uniSearchFound = new ArrayList<>();
@@ -514,16 +523,7 @@ public class DBController {
             }
                     
                 
-                    //need to get another loop that gets emphasis
-                    //Emphasis
-                    //String[][] em = univDBlib.university_getNamesWithEmphases();
-                    
-                   // for(int j = 0; j < em.length; j++) {
-                       // if (em[j][1].equals(uniCriteria.getEmphasis()) {//not sure about this
-                       // String uniName =em[j][1];    
-                       // uniSearchFound.add(uniName);
-                        //}
-                    ///}
+               
             
             	if(uniSearchFound.size() ==0) {
             		return null;
