@@ -70,7 +70,7 @@ public class DBController {
 					//Status
 					String status = ar[i][5];
 					//System.out.println(user[5]);
-					
+
 					Account account =  new Account(fName, lName, uName, password, uType, status);
 					return account;
 				}
@@ -309,8 +309,9 @@ public class DBController {
 
 
 		/**
-		 * 
-		 * @param universityname
+		 *
+		 * @param username Username as string
+		 * @param universityname name of university as string to remove
 		 */
 		public static int removeUniversity(String username, String universityname) {
 			int i = univDBlib.user_removeSchool(username, universityname);
