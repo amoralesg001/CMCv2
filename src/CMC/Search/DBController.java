@@ -250,51 +250,8 @@ public class DBController {
 			}
 			
 		}
-		/**
-		 * Unused
-		 * @param universityName
-		 */
-		public void updateBlackListDB(University universityName) {
-			
-		}
-		/**
-		 * Unused
-		 * @param schoolName
-		 * @return
-		 */
-		public static ArrayList<String> searchUniversity(String schoolName) {	
-			String[][] univ = univDBlib.university_getUniversities();
-			ArrayList<String> univList = new ArrayList<>();
-			for (int row =0; row< univ.length;row++) {
-			if (univ[row][0].equals(schoolName)){
-			String univName = univ[row][0];
-			univList.add(univ[row][0]);
-			String State = univ[row][1];
-			univList.add(univ[row][1]);
-			String Location = univ[row][2];
-			univList.add(univ[row][2]);
-			String Control = univ[row][3];
-			String NumOfStud = univ[row][4];
-			String PercFem = univ[row][5];
-			String SATVerb = univ[row][6];
-			String SATmath = univ[row][7];
-			String Expense = univ[row][8];
-			String PercFinancAid = univ[row][9];
-			String NumAppl = univ[row][10];
-			String PercAdmit = univ[row][11];
-			String PercEnroll = univ[row][12];
-			String acadScale = univ[row][13];
-			String socialScale = univ[row][14];
-			String qualOfLifeScale = univ[row][15];
-			}
-			return univList;
-			}
-			//for (int i = 0; i < universityArray.length; i++)
-				//if (universityArray[i].getuniversityName() == schoolName) {
-					//return universityArray[i];
-				//}	
-			return null;
-		}
+
+
 		/**
 		 * METHOD ADDUNIVERSITY IS USED BY READYSON
 		 * @param universityName
@@ -320,14 +277,6 @@ public class DBController {
 
 		}
 		/**
-		 * 
-		 * @return
-		 */
-		public static University[] getAllUniversities() {	//how to return an array 
-			//return universityArray; 
-			return null;
-		}
-		/**
 		 * In use by John
 		 * @return Arraylist of all users in database
 		 */
@@ -345,15 +294,6 @@ public class DBController {
 				users.add(acc);
 			}
 			return users;
-		}
-		/**
-		 *
-		 * @param username
-		 * @return
-		 */
-		public static Account getUserInfo(String username) {
-			return null;
-			//return account;
 		}
 
 		/**
@@ -376,45 +316,8 @@ public class DBController {
 			int i = univDBlib.user_removeSchool(username, universityname);
 			return i;
 		}
-		/**
-		 * 
-		 * @param universityName
-		 * @return
-		 */
-		public University lookUpUniversity(String universityName) {
-			return null;
-		}
-		/**
-		 * 
-		 * @param accountName
-		 * @return
-		 */
-		public static Account lookUpAccount(String accountName) {
-			return null; 
-		}
-		/**
-		 * 
-		 */
-		public void updateProfile() {
-			
-		}
-		/**
-		 * 
-		 * @param universityName
-		 * @return
-		 */
-		public static University getUniversity(String universityName) {
-			//return university;
-			return null;
-		}
-		/** this method returns an account to be used in UserController
-		 * @param username
-		 * @return account of the username
-		 */
-		public static Account getSavedUniversityList(String username) {
-			
-			return null;
-		}
+
+
 		public static ArrayList<String> dbGetSavedUniversityList(String username){	
 			String[][] ar = univDBlib.user_getUsernamesWithSavedSchools();
 		
