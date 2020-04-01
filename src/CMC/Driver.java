@@ -422,15 +422,17 @@ public class Driver {
 	 * 
 	 * @author jyoung001
 	 */
-	public void changeStatus(String username, String status) {
-		
+	public void changeStatus(String username, String password, String status) {
+		Account user = new Account(null, null, null, null, null, null);
+		user.getUserInfo(username, password);
 		String currentStatus = user.getLoginStatus();
 		if (status == "Y") {
 			if (currentStatus == status) {
 				System.out.println("" + user.getUsername() + " is already activated.");
 			}
 			else {
-				// TODO
+				DBController.updateAccountDB(username, password, user.getFirstName(), user.getLastName(), user.getUserType(), status);
+				user.getUserInfo(username, password);
 			}
 		}
 		else if (status == "N") {
@@ -438,7 +440,8 @@ public class Driver {
 				System.out.println("" + user.getUsername() + " is already deactivated.");
 			}
 			else {
-				// TODO
+				DBController.updateAccountDB(username, password, user.getFirstName(), user.getLastName(), user.getUserType(), status);
+				user.getUserInfo(username, password);
 			}
 		}
 		else {
