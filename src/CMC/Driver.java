@@ -257,7 +257,14 @@ public class Driver {
 	}
 	
 	/**
-	 * Edit User Information
+	 * U7: Edit User Information
+	 * 
+	 * @param username the user's username
+	 * @param password the user's password
+	 * @param firstName the new firstName
+	 * @param lastName the new lastName
+	 * 
+	 * @author jyoung001
 	 */
 	public static void u7(String username, String password, String firstName, String lastName) {
 		Account user = UserUI.saveUserInfo(username, password, firstName, lastName);
@@ -409,5 +416,34 @@ public class Driver {
 	 * 
 	 */
 	public void u18() {}
+	
+	/**
+	 * Activate/Deactivate
+	 * 
+	 * @author jyoung001
+	 */
+	public void changeStatus(String username, String status) {
+		
+		String currentStatus = user.getLoginStatus();
+		if (status == "Y") {
+			if (currentStatus == status) {
+				System.out.println("" + user.getUsername() + " is already activated.");
+			}
+			else {
+				// TODO
+			}
+		}
+		else if (status == "N") {
+			if (currentStatus == status) {
+				System.out.println("" + user.getUsername() + " is already deactivated.");
+			}
+			else {
+				// TODO
+			}
+		}
+		else {
+			System.out.println("ERROR: Status must be either 'Y' or 'N'");
+		}
+	}
 
 }
