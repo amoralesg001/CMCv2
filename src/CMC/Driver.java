@@ -53,7 +53,6 @@ public class Driver {
 		System.out.println("\nU5 Done: Should dislpay the information of Stanford. \n");		
 		//u6(universityToRemove);
 		//u7(universityToRemove, universityToRemove, universityToRemove, universityToRemove);
-
 	
 
 		System.out.println("u6 starting");
@@ -96,6 +95,25 @@ public class Driver {
 		
 		System.out.println("u16 start");
 		u16();
+		
+//		System.out.println("changeStatus (activate/deactivate) starting");
+//		System.out.println("\nTesting user 'Lynn'");
+//		System.out.println("Changing to 'n'");
+//		changeStatus("luser", "user", "n");
+//		System.out.println("Changing to 'Y'");
+//		changeStatus("luser", "user", "Y");
+//		System.out.println("Changing back to 'N'");
+//		changeStatus("luser", "user", "N");
+//		System.out.println("\nTesting user 'John'");
+//		System.out.println("Changing to 'Y'");
+//		changeStatus("juser", "user", "Y");
+//		System.out.println("Changing to 'y'");
+//		changeStatus("juser", "user", "y");
+//		System.out.println("Changing to 'n'");
+//		changeStatus("juser", "user", "n");
+//		System.out.println("Changing back to 'y'");
+//		changeStatus("juser", "user", "y");
+//		System.out.println("\nchangeStatus done");
 	
 	}
 	/**
@@ -422,30 +440,31 @@ public class Driver {
 	 * 
 	 * @author jyoung001
 	 */
-	public void changeStatus(String username, String password, String status) {
+	public static void changeStatus(String username, String password, String status) {
 		Account user = new Account(null, null, null, null, null, null);
-		user.getUserInfo(username, password);
+		user = user.getUserInfo(username, password);
 		String currentStatus = user.getLoginStatus();
-		if (status == "Y") {
-			if (currentStatus == status) {
+		System.out.println(currentStatus);
+		if (status.toLowerCase() == "y") {
+			if (currentStatus.toLowerCase() == status.toLowerCase()) {
 				System.out.println("" + user.getUsername() + " is already activated.");
 			}
 			else {
 				DBController.updateAccountDB(username, password, user.getFirstName(), user.getLastName(), user.getUserType(), status);
-				user.getUserInfo(username, password);
+				user = user.getUserInfo(username, password);
 			}
 		}
-		else if (status == "N") {
-			if (currentStatus == status) {
+		else if (status.toLowerCase() == "n") {
+			if (currentStatus.toLowerCase() == status.toLowerCase()) {
 				System.out.println("" + user.getUsername() + " is already deactivated.");
 			}
 			else {
 				DBController.updateAccountDB(username, password, user.getFirstName(), user.getLastName(), user.getUserType(), status);
-				user.getUserInfo(username, password);
+				user = user.getUserInfo(username, password);
 			}
 		}
 		else {
-			System.out.println("ERROR: Status must be either 'Y' or 'N'");
+			System.out.println("ERROR: Status must be either 'Y'/'y' or 'N'/'n'");
 		}
 	}
 
