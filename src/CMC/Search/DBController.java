@@ -211,17 +211,21 @@ public class DBController {
 			 * METHOD UPDATEUNIVERSITY USED BY READYSONVANG
 		 * @param universityName
 		 */
-		public static void updateUniversityDB(String universityName, String state, String location, String control, int numStudents,
+		public static boolean updateUniversityDB(String universityName, String state, String location, String control, int numStudents,
 				int femalePer, int verSAT, int mathSAT, double tuition, double finAid, double numApplicants, int admitPer,
 				int enrolledPer, int academicScale, int socialScale, int qoaScale, ArrayList<String> emphasis, boolean blacklist) {
 			//String[][] un = univDBlib.university_getUniversities();
-			University u = dbGetUniversity(universityName);
+			boolean edited = false;
+			if (dbGetUniversity(universityName) != null)
 			{
+				University u = dbGetUniversity(universityName);
 				if( u.getuniversityName().equals(universityName))
 				{
 					univDBlib.university_editUniversity(u.getuniversityName(), state, location, control, numStudents, femalePer,
 							verSAT, mathSAT, tuition, finAid, (int) numApplicants, admitPer, enrolledPer, academicScale,
 							socialScale, qoaScale);
+					System.out.println("University: " + u.getuniversityName() + " has been found and has been editted.");
+					edited = true;
 					u.setBlacklist(blacklist);
 					ArrayList<String> oldEmphases = new ArrayList<String>();
 					for (int i = 0; i < univDBlib.university_getNamesWithEmphases().length; i ++)
@@ -249,6 +253,13 @@ public class DBController {
 				}
 			}
 			
+			else
+			{
+				throw new NullPointerException("No such University as: " + universityName);
+			}
+
+			return edited;
+			
 		}
 
 
@@ -257,11 +268,24 @@ public class DBController {
 		 * @param universityName
 		 * @return
 		 */
-		public static void addUniversity(String universityName, String state, String location, String control, int numStudents, double femalePer, double verSAT,
+		public static boolean addUniversity(String universityName, String state, String location, String control, int numStudents, double femalePer, double verSAT,
 				double mathSAT, double tuition, double finAid, int numApplicants, double admitPer, double enrolledPer,
 				int academicScale, int socialScale, int qoaSCale)  {//is this adding all information of a university or just on the saved list? 		
-			univDBlib.university_addUniversity(universityName, state, location, control, numStudents, femalePer, verSAT, mathSAT, tuition, finAid, numApplicants, admitPer, enrolledPer, academicScale, socialScale, qoaSCale);
+			boolean added = false;
 			
+			
+			if (dbGetUniversity(universityName) == null)
+			{
+				univDBlib.university_addUniversity(universityName, state, location, control, numStudents, femalePer, verSAT, mathSAT, tuition, finAid, numApplicants, admitPer, enrolledPer, academicScale, socialScale, qoaSCale);
+				added = true;
+				System.out.println("Univerity: " + universityName + " not in database... It will be added.");
+			}
+			else
+			{
+				added = false;
+			}
+				
+			return added;
 		}
 		/**
 		 * In use by John

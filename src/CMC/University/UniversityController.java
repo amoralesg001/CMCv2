@@ -74,18 +74,120 @@ public class UniversityController {
 	 */
 	
 	//METHOD ADDSCHOOL IS USED BY READYSON
-	public static void addUniversity(String universityName, String state, String location, String control, int numStudents, double femalePer, double verSAT,
-			double mathSAT, double tuition, double finAid, int numApplicants, double admitPer, double enrolledPer,
-			int academicScale, int socialScale, int qoaSCale, ArrayList<String> emphasis, boolean blacklist) {
-		University display = new University(universityName, state, location, control, numStudents, femalePer, verSAT,
+	public static boolean addUniversity(String universityName, String state, String location,
+			String control, int numStudents, double femalePer, double verSAT, double mathSAT,
+			double tuition, double finAid, int numApplicants, double admitPer, double enrolledPer,
+			int academicScale, int socialScale, int qoaSCale, ArrayList<String> emphasis,
+			boolean blacklist) {
+		University u = new University(universityName, state, location, control, numStudents, femalePer, verSAT,
 				mathSAT, tuition, finAid, numApplicants, admitPer, enrolledPer, academicScale, socialScale,
 				qoaSCale, emphasis, blacklist);
-		UserUI.displayUniversityInfo(display);
+		if (!emphasis.isEmpty())
+		{
+			for(String s: emphasis)
+			{
+				DBController.univDBlib.university_addUniversityEmphasis(universityName, s);
+			}
+		}
+		
+		//UnsupportedOperationException
+		boolean valid = true;
+		if (u.getuniversityName().length() <= 0 || u.getuniversityName().charAt(0) == ' ')
+		{
+			valid = false;
+			throw new UnsupportedOperationException("Must have name");
+		}
+		if(u.getState().length() <= 0 || u.getState().charAt(0) == ' ')
+		{
+			valid = false;
+			throw new UnsupportedOperationException("Must enter State");
+		}
+		if(u.getLocation().length() <= 0 || u.getLocation().charAt(0) == ' ')
+		{
+			valid = false;
+			throw new UnsupportedOperationException("Must enter location");
+		}
+		if(u.getControl().length() <= 0 || u.getControl().charAt(0) == ' ')
+		{
+			valid = false;
+			throw new UnsupportedOperationException("Must enter Control");
+		}
+		if(u.getNumStudents() < 0)
+		{
+			valid = false;
+			throw new UnsupportedOperationException("Number of students must be greater than 0");
+		}
+		if(u.getFemalePer() < 0 || u.getFemalePer() > 100)
+		{
+			valid = false;
+			throw new UnsupportedOperationException("Female Percent must be between 0 - 100");
+		}
+		if(u.getVerSAT() < 200 || u.getVerSAT() > 800)
+		{
+			valid = false;
+			throw new UnsupportedOperationException("Verbal SAT must be between 200 - 800");
+		}
+		if(u.getMathSAT() < 200 || u.getMathSAT() > 800)
+		{
+			valid = false;
+			throw new UnsupportedOperationException("Math SAT must be between 200 - 800");
+		}
+		if(u.getTuition() < 0)
+		{
+			valid = false;
+			throw new UnsupportedOperationException("Tuition must not be negative");
+		}
+		if(u.getFinAid() < 0)
+		{
+			valid = false;
+			throw new UnsupportedOperationException("Financial Aid Must cannot be negative");
+		}
+		if(u.getNumApplicants() < 0)
+		{
+			valid = false;
+			throw new UnsupportedOperationException("Number of applicants must not be negative");
+		}
+		if(u.getAdmitPer() < 0 || u.getAdmitPer() > 100)
+		{
+			valid = false;
+			throw new UnsupportedOperationException("Admit percent must be from 0 - 100");
+		}
+		if(u.getEnrolledPer() < 0 || u.getEnrolledPer() > 100)
+		{
+			valid = false;
+			throw new UnsupportedOperationException("Enrolled Percent must be from 0 - 100");
+		}
+		if(u.getAcademicScale() < 1 || u.getAcademicScale() > 5)
+		{
+			valid = false;
+			throw new UnsupportedOperationException("Academic Scale must be from 1 - 5");
+		}
+		if(u.getSocialScale() < 1 || u.getSocialScale() > 5)
+		{
+			valid = false;
+			throw new UnsupportedOperationException("Social Scale must be from 1 - 5");
+		}
+		if(u.getQoaScale() < 1 || u.getQoaScale() > 5)
+		{
+			valid = false;
+			throw new UnsupportedOperationException("Academic Scale must be from 1 - 5");
+		}
+		
+		UserUI.displayUniversityInfo(u);
 		//DBController.addUniversity(newUniversity);
-		DBController.addUniversity(universityName, state, location, control, numStudents, femalePer, verSAT,
-				mathSAT, tuition, finAid, numApplicants, admitPer, enrolledPer, academicScale, socialScale,
-				qoaSCale);
-				}
+		if(valid)
+		{
+			System.out.println("all parameters meet requirements.");
+			return DBController.addUniversity(universityName, state, location, control, numStudents, femalePer, verSAT,
+					mathSAT, tuition, finAid, numApplicants, admitPer, enrolledPer, academicScale, socialScale,
+					qoaSCale);
+		}
+		else
+		{
+			System.out.println("Invalid University parameters or University Already exists");
+			return false;
+		}
+	}
 	
 	/**
 	 * Removes a university from the database by name.
@@ -114,14 +216,110 @@ public class UniversityController {
 	//}
 
 	//METHOD EDITUNIVERSITY IS USED BY READYSON
-	public static void editUniversityinfo(String universityName, String state, String location, String control, int numStudents,
+	public static boolean editUniversityinfo(String universityName, String state, String location, String control, int numStudents,
 			int femalePer, int verSAT, int mathSAT, double tuition, double finAid, double numApplicants, int admitPer,
 			int enrolledPer, int academicScale, int socialScale, int qoaScale, ArrayList<String> emphasis, boolean blacklist) {
 		
-		DBController.updateUniversityDB(universityName, state, location,  control,
-				numStudents, femalePer, verSAT, mathSAT, tuition, 
-				finAid, numApplicants, admitPer, enrolledPer, 
-				academicScale, socialScale, qoaScale, emphasis, blacklist);
+		University u = new University(universityName, state, location, control, numStudents, femalePer, verSAT,
+				mathSAT, tuition, finAid, (int) numApplicants, admitPer, enrolledPer, academicScale, socialScale,
+				qoaScale, emphasis, blacklist);
+		
+		boolean valid = true;
+		if (u.getuniversityName().length() <= 0 || u.getuniversityName().charAt(0) == ' ')
+		{
+			valid = false;
+			throw new UnsupportedOperationException("Must have name");
+		}
+		if(u.getState().length() <= 0 || u.getState().charAt(0) == ' ')
+		{
+			valid = false;
+			throw new UnsupportedOperationException("Must enter State");
+		}
+		if(u.getLocation().length() <= 0 || u.getLocation().charAt(0) == ' ')
+		{
+			valid = false;
+			throw new UnsupportedOperationException("Must enter location");
+		}
+		if(u.getControl().length() <= 0 || u.getControl().charAt(0) == ' ')
+		{
+			valid = false;
+			throw new UnsupportedOperationException("Must enter Control");
+		}
+		if(u.getNumStudents() < 0)
+		{
+			valid = false;
+			throw new UnsupportedOperationException("Number of students must be greater than 0");
+		}
+		if(u.getFemalePer() < 0 || u.getFemalePer() > 100)
+		{
+			valid = false;
+			throw new UnsupportedOperationException("Female Percent must be between 0 - 100");
+		}
+		if(u.getVerSAT() < 200 || u.getVerSAT() > 800)
+		{
+			valid = false;
+			throw new UnsupportedOperationException("Verbal SAT must be between 200 - 800");
+		}
+		if(u.getMathSAT() < 200 || u.getMathSAT() > 800)
+		{
+			valid = false;
+			throw new UnsupportedOperationException("Math SAT must be between 200 - 800");
+		}
+		if(u.getTuition() < 0)
+		{
+			valid = false;
+			throw new UnsupportedOperationException("Tuition must not be negative");
+		}
+		if(u.getFinAid() < 0)
+		{
+			valid = false;
+			throw new UnsupportedOperationException("Financial Aid Must cannot be negative");
+		}
+		if(u.getNumApplicants() < 0)
+		{
+			valid = false;
+			throw new UnsupportedOperationException("Number of applicants must not be negative");
+		}
+		if(u.getAdmitPer() < 0 || u.getAdmitPer() > 100)
+		{
+			valid = false;
+			throw new UnsupportedOperationException("Admit percent must be from 0 - 100");
+		}
+		if(u.getEnrolledPer() < 0 || u.getEnrolledPer() > 100)
+		{
+			valid = false;
+			throw new UnsupportedOperationException("Enrolled Percent must be from 0 - 100");
+		}
+		if(u.getAcademicScale() < 1 || u.getAcademicScale() > 5)
+		{
+			valid = false;
+			throw new UnsupportedOperationException("Academic Scale must be from 1 - 5");
+		}
+		if(u.getSocialScale() < 1 || u.getSocialScale() > 5)
+		{
+			valid = false;
+			throw new UnsupportedOperationException("Social Scale must be from 1 - 5");
+		}
+		if(u.getQoaScale() < 1 || u.getQoaScale() > 5)
+		{
+			valid = false;
+			throw new UnsupportedOperationException("Academic Scale must be from 1 - 5");
+		}
+		
+		UserUI.displayUniversityInfo(u);
+		//DBController.addUniversity(newUniversity);
+		if(valid)
+		{
+			System.out.println("all parameters meet requirements.");
+			return DBController.updateUniversityDB(universityName, state, location, control, numStudents, femalePer, verSAT,
+					mathSAT, tuition, finAid, numApplicants, admitPer, enrolledPer, academicScale, socialScale,
+					qoaScale, emphasis, blacklist);
+		}
+		else
+		{
+			System.out.println("Invalid University parameters");
+			return false;
+		}
 	}
 	
 }

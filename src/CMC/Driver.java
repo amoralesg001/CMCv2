@@ -45,18 +45,18 @@ public class Driver {
 		System.out.println("output should be: no University found ");
 		
 		String username = "juser";
-		String universityname = "STANFORD";
+		String universityname = "blahblah18";
 		int i = DBController.removeUniversity(username, universityname);
 		
 		System.out.println("\nU5 Starting\n");
-		u5(universityTest);
+		u5(universityname);
 		System.out.println("\nU5 Done: Should dislpay the information of Stanford. \n");		
 		//u6(universityToRemove);
 		//u7(universityToRemove, universityToRemove, universityToRemove, universityToRemove);
 	
 
 		System.out.println("u6 starting");
-		u6(AName, SName);
+		//u6(AName, SName);
 		System.out.println("u6 done");
 		System.out.println("u9 starting");
 		u9(AName, SName);
@@ -67,7 +67,7 @@ public class Driver {
 		System.out.println("u2 done");
 		
 		System.out.println("u6 starting");
-		u6(AName, SName);
+		//u6(AName, SName);
 		System.out.println("u6 done");
 	
 		//u7(universityToRemove, universityToRemove, universityToRemove, universityToRemove);
@@ -335,14 +335,14 @@ public class Driver {
 	 * USED BY READYSON
 	 */
 	public static void u12() {
-		String universityName = "blahblah14";
+		String universityName = "blahblah17";
 		String state = "MN";
 		String location = "SC";
 		String control = "Private";
-		int numStudents = 2000;
+		int numStudents = 2;
 		int femalePer = 0;
-		int verSAT = 1200;
-		int mathSAT = 1200;
+		int verSAT = 300;
+		int mathSAT = 300;
 		double tuition = 60000;
 		double finAid = 20000;
 		int numApplicants = 4000;
@@ -355,22 +355,20 @@ public class Driver {
 		ArrayList<String> emphasis = new ArrayList<String>();
 		emphasis.add("Accounting");
 		
-		if (DBController.dbGetUniversity(universityName) != null)
+	
+		if(UserUI.addSchool(universityName, state, location, control, numStudents, femalePer, verSAT, mathSAT,
+				tuition, finAid, numApplicants, admitPer, enrolledPer, academicScale, socialScale, qoaScale,
+				emphasis, blacklist))
 		{
-			System.out.println("University with same name exists");
-		}
+			System.out.println("University has been added");
+
+		}	
 		else
 		{
-			System.out.println("University does not exist");
-		UserUI.addSchool(universityName, state, location, control, numStudents, femalePer, verSAT, mathSAT,
-				tuition, finAid, numApplicants, admitPer, enrolledPer, academicScale, socialScale, qoaScale,
-				emphasis, blacklist);
-			for(String s: emphasis)
-			{
-				DBController.univDBlib.university_addUniversityEmphasis(universityName, s);
-			}
-		//u5(universityName);
+			System.out.println("University not added");
 		}
+		//u5(universityName);
+		
 	}
 	/**
 	 * 
@@ -389,26 +387,25 @@ public class Driver {
 	 * USED BY READYSON
 	 */
 	public static void u16() {
-		String universityName = "blahblah8";
-		String state = "o";
-		String location = "o";
-		String control = "public";
-		int numStudents = 0;
-		int femalePer = 8;
-		int verSAT = 0;
-		int mathSAT = 0;
-		double tuition = 0;
-		double finAid = 0;
-		double numApplicants = 0;
-		int admitPer = 0;
-		int enrolledPer = 0;
-		int academicScale = 0;
-		int socialScale = 0;
-		int qoaScale = 0;
-		boolean blacklist = false;
+		String universityName = "blahblah100";
+		String state = "MN";
+		String location = "SC";
+		String control = "Private";
+		int numStudents = 2;
+		int femalePer = 0;
+		int verSAT = 300;
+		int mathSAT = 300;
+		double tuition = 60000;
+		double finAid = 20000;
+		int numApplicants = 4000;
+		int admitPer = 20;
+		int enrolledPer = 80;
+		int academicScale = 5;
+		int socialScale = 5;
+		int qoaScale = 5;
+		boolean blacklist = true;
 		ArrayList<String> emphasis = new ArrayList<String>();
-		emphasis.add("COMPSCI");
-		emphasis.add("PSYCH");
+		emphasis.add("Accounting");
 		
 		
 

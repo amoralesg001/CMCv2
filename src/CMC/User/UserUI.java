@@ -75,14 +75,17 @@ public class UserUI {
 		System.out.println("Social Scale: " + university.getSocialScale());
 		System.out.println("QOA Scale: " + university.getQoaScale());
 		System.out.println("Emphasis: ");
-		if (university.getEmphasis().get(0).equals("No Emphases")) {
-			System.out.println("No Emphases");
-		}
-		else {
-			int i = 1;
-			for (String s: university.getEmphasis()) {
-					System.out.println(i +". " + s);
-					i++;
+		if(!university.getEmphasis().isEmpty())
+		{
+			if (university.getEmphasis().get(0).equals("No Emphases")) {
+				System.out.println("No Emphases");
+			}
+			else {
+				int i = 1;
+				for (String s: university.getEmphasis()) {
+						System.out.println(i +". " + s);
+						i++;
+				}
 			}
 		}
 		System.out.println("BlackListed: " + university.isBlacklisted());
@@ -105,11 +108,11 @@ public class UserUI {
 	 * 
 	 *METHOD SAVESCHOOL IS USED BY READYSON
 	 */
-	public static void saveSchoolInfo(String universityName, String state, String location, String control, int numStudents, int femalePer,
+	public static boolean saveSchoolInfo(String universityName, String state, String location, String control, int numStudents, int femalePer,
 			int verSAT, int mathSAT, double tuition, double finAid, double numApplicants, int admitPer, int enrolledPer,
 			int academicScale, int socialScale, int qoaScale, ArrayList<String> emphasis, boolean blacklist) {
 		// TODO Auto-generated method stub
-		UniversityController.editUniversityinfo(universityName, state, location, control, numStudents, femalePer,
+		return UniversityController.editUniversityinfo(universityName, state, location, control, numStudents, femalePer,
 				verSAT, mathSAT, tuition, finAid, numApplicants, admitPer, enrolledPer, academicScale, socialScale,
 				qoaScale, emphasis, blacklist);
 	}
@@ -159,11 +162,11 @@ public class UserUI {
 		
 	}
 //ADDSCHOOL USED BY READYSON
-	public static void addSchool(String universityName, String state, String location, String control, int numStudents, int femalePer,
+	public static boolean addSchool(String universityName, String state, String location, String control, int numStudents, int femalePer,
 			int verSAT, int mathSAT, double tuition, double finAid, int numApplicants, int admitPer, int enrolledPer,
 			int academicScale, int socialScale, int qoaScale, ArrayList<String> emphasis, boolean blacklist) {
 		// TODO Auto-generated method stub
-		UniversityController.addUniversity(universityName, state, location, control, numStudents, femalePer, verSAT, mathSAT, tuition, finAid, numApplicants, admitPer, enrolledPer, academicScale, socialScale, qoaScale, emphasis, blacklist);
+		 return UniversityController.addUniversity(universityName, state, location, control, numStudents, femalePer, verSAT, mathSAT, tuition, finAid, numApplicants, admitPer, enrolledPer, academicScale, socialScale, qoaScale, emphasis, blacklist);
 	}
 
 	public static void getUniversity(String university) {
