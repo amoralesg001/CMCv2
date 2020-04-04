@@ -107,7 +107,7 @@ public class UserController {
 		if (user.getUsername() != null) {
 			DBController.updateAccountDB(username, password, firstName, lastName, user.getUserType(), user.getLoginStatus());
 			user.updateAccountInfo(username, password, firstName, lastName, user.getUserType(), user.getLoginStatus());
-			user = DBController.getAccountDB(username, password);
+			user = DBController.getAccountDB2(username);
 			return user;
 		}
 		else {

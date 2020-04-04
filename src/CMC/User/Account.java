@@ -110,6 +110,11 @@ public class Account {
 
 	}
 	
+	public Account getUserInfo2(String username) {
+		Account account = DBController.getAccountDB2(username);
+		return account;
+	}
+	
 	/**
 	 * Removes the University from the Account Object
 	 * 
