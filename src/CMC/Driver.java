@@ -70,13 +70,14 @@ public class Driver {
 		//u6(AName, SName);
 		System.out.println("u6 done");
 	
-		//u7(universityToRemove, universityToRemove, universityToRemove, universityToRemove);
-		System.out.println("\nu7 starting");
-		System.out.println("\nTesting user 'John' (in database)");
-		u7("juser", "user", "UpdatedJohn", "UpdatedLastName");
-		System.out.println("\nTesting 'Jack' (NOT in database)");
-		//u7("jyoung001", "jackpassword", "Jack", "Young");
+		// Edit User Information (U7) Test @author: Jack
+		System.out.println("\nu7 (Edit User Info) starting...");
+		System.out.println("\nTesting user 'John' (in database / should not be null)");
+		u7("juser", "user", "John", "User");
+		System.out.println("\nTesting 'Jack' (NOT in database / should be null)");
+		u7("jyoung001", "jackpassword", "Jack", "Young");
 		System.out.println("\nu7 done\n");
+		
 		System.out.println("u8 starting");
 		//u8();
 		System.out.println("u8 done");
@@ -96,25 +97,25 @@ public class Driver {
 		System.out.println("u16 start");
 		u16();
 		
-//		System.out.println("changeStatus (activate/deactivate) starting");
-//		System.out.println("\nTesting user 'Lynn'");
-//		System.out.println("Changing to 'n'");
-//		changeStatus("luser", "user", "n");
-//		System.out.println("Changing to 'Y'");
-//		changeStatus("luser", "user", "Y");
-//		System.out.println("Changing back to 'N'");
-//		changeStatus("luser", "user", "N");
-//		System.out.println("\nTesting user 'John'");
-//		System.out.println("Changing to 'Y'");
-//		changeStatus("juser", "user", "Y");
-//		System.out.println("Changing to 'y'");
-//		changeStatus("juser", "user", "y");
-//		System.out.println("Changing to 'n'");
-//		changeStatus("juser", "user", "n");
-//		System.out.println("Changing back to 'y'");
-//		changeStatus("juser", "user", "y");
-//		System.out.println("\nchangeStatus done");
-	
+		// Activate/Deactivate (for Phase 3) Test @author: Jack
+		System.out.println("\nchangeStatus (activate/deactivate) starting...");
+		System.out.println("-----Testing user 'Lynn'-----");
+		System.out.println("Changing to 'n'");
+		changeStatus("luser", "n");
+		System.out.println("Changing to 'Y'");
+		changeStatus("luser", "Y");
+		System.out.println("Changing back to 'N'");
+		changeStatus("luser", "N");
+		System.out.println("-----Testing user 'John'-----");
+		System.out.println("Changing to 'Y'");
+		changeStatus("juser", "Y");
+		System.out.println("Changing to 'y'");
+		changeStatus("juser", "y");
+		System.out.println("Changing to 'n'");
+		changeStatus("juser", "n");
+		System.out.println("Changing back to 'y'");
+		changeStatus("juser", "y");
+		System.out.println("changeStatus done\n");
 	}
 	/**
 	 * u1: login
@@ -284,13 +285,13 @@ public class Driver {
 	 * 
 	 * @author jyoung001
 	 */
-	public static void u7(String username, String password, String firstName, String lastName) {
-		Account user = UserUI.saveUserInfo(username, password, firstName, lastName);
-		System.out.println("***Edited user info:");
+	public static void u7(String userToEdit, String password, String firstName, String lastName) {
+		Account user = UserUI.saveUserInfo(userToEdit, password, firstName, lastName);
+		System.out.println("***Edited User Info***");
 		System.out.println("Username: " + user.getUsername());
+		System.out.println("Password: " + user.getPassword());
 		System.out.println("First Name: " + user.getFirstName());
 		System.out.println("Last Name: " + user.getLastName());
-		System.out.println("User Type: " + user.getUserType());
 	}
 	
 	/**
@@ -437,32 +438,33 @@ public class Driver {
 	 * 
 	 * @author jyoung001
 	 */
-	public static void changeStatus(String username, String password, String status) {
+	public static void changeStatus(String username, String status) {
 		Account user = new Account(null, null, null, null, null, null);
-		user = user.getUserInfo(username, password);
+		user = user.getUserInfo2(username);
 		String currentStatus = user.getLoginStatus();
-		System.out.println(currentStatus);
-		if (status.toLowerCase() == "y") {
-			if (currentStatus.toLowerCase() == status.toLowerCase()) {
-				System.out.println("" + user.getUsername() + " is already activated.");
+		if (status == "Y" || status == "y") {
+			if (currentStatus == "Y" || currentStatus == "y") {
+				System.out.println(user.getUsername() + " is already activated.");
 			}
 			else {
-				DBController.updateAccountDB(username, password, user.getFirstName(), user.getLastName(), user.getUserType(), status);
-				user = user.getUserInfo(username, password);
+				DBController.updateAccountDB(username, user.getPassword(), user.getFirstName(), user.getLastName(), user.getUserType(), status);
+				user = user.getUserInfo2(username);
 			}
 		}
-		else if (status.toLowerCase() == "n") {
-			if (currentStatus.toLowerCase() == status.toLowerCase()) {
-				System.out.println("" + user.getUsername() + " is already deactivated.");
+		else if (status == "N" || status == "n") {
+			if (currentStatus == "N" || currentStatus == "n") {
+				System.out.println(user.getUsername() + " is already deactivated.");
 			}
 			else {
-				DBController.updateAccountDB(username, password, user.getFirstName(), user.getLastName(), user.getUserType(), status);
-				user = user.getUserInfo(username, password);
+				DBController.updateAccountDB(username, user.getPassword(), user.getFirstName(), user.getLastName(), user.getUserType(), status);
+				user = user.getUserInfo2(username);
 			}
 		}
 		else {
 			System.out.println("ERROR: Status must be either 'Y'/'y' or 'N'/'n'");
 		}
+		System.out.println("***Change Complete***");
+		System.out.println("User Status should be: " + user.getLoginStatus() + "\nUser Status is: " + status + "\n");
 	}
 
 }

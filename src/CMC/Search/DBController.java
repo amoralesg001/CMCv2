@@ -38,6 +38,29 @@ public class DBController {
 			}
 			
 		}
+		
+		public static Account getAccountDB2(String username) {
+			
+			Account user = dbGetUser(username);
+			
+			String tempU;
+			if (user != null) {
+				tempU = user.getUsername();
+			}
+			else {
+				tempU = null;
+			}
+			
+			if (tempU == null){
+				Account tempA = new Account(null, null, null, null, null, null);
+				return tempA;
+			}
+			else {
+				return user;
+			}
+			
+		}
+		
 		public static Account dbGetUser(String username){	
 			String[][] ar = univDBlib.user_getUsers();
 			
@@ -333,11 +356,10 @@ public class DBController {
 		 * Updates the account in the database.
 		 * @param user
 		 */
-		public static void updateAccountDB(String username, String password, String firstName, String lastName, String userType, String loginStatus) {
+		public static void updateAccountDB(String userToUpdate, String password, String firstName, String lastName, String userType, String loginStatus) {
 			char uType = userType.charAt(0);
 			char logStatus = loginStatus.charAt(0);
-			univDBlib.user_editUser(username, firstName, lastName, password, uType, logStatus);
-			System.out.println("*Edited user info in DB*");
+			univDBlib.user_editUser(userToUpdate, firstName, lastName, password, uType, logStatus);
 		}
 
 
@@ -508,7 +530,7 @@ public class DBController {
                 }
 		
             
-		}	
+		}
 	
 
 			

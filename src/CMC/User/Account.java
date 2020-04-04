@@ -94,8 +94,8 @@ public class Account {
 	}
 	
 	
-	public void updateAccountInfo(String username, String password, String firstName, String lastName, String userType, String loginStatus) {
-		this.username = username;
+	public void updateAccountInfo(String userToUpdate, String password, String firstName, String lastName, String userType, String loginStatus) {
+		this.username = userToUpdate;
 		this.password = password;
 		this.firstName = firstName;
 		this.lastName = lastName;
@@ -108,6 +108,11 @@ public class Account {
 		Account account = DBController.getAccountDB(username, password);
 		return account; 
 
+	}
+	
+	public Account getUserInfo2(String username) {
+		Account account = DBController.getAccountDB2(username);
+		return account;
 	}
 	
 	/**
