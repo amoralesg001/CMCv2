@@ -34,13 +34,6 @@ public class Driver {
 		u3("nadmin", "admin");
 		System.out.println("u3 done");
 		
-		System.out.println("\nu7 (Edit User Info) starting...");
-		System.out.println("\nTesting user 'John' (in database)");
-		u7("juser", "user", "NewJohn", "NewLastName");
-		System.out.println("\nTesting 'Jack' (NOT in database)");
-		//u7("jyoung001", "jackpassword", "Jack", "Young");
-		System.out.println("\nu7 done\n");
-		
 		System.out.println("u4 starting");
 		u4("ADELPHI", "", "", "", 0, 0, 0, 0, 0, 0, 0, 0,0, 0, 0, 0, null);
 		System.out.println("u4 done");
@@ -78,11 +71,11 @@ public class Driver {
 		System.out.println("u6 done");
 	
 		// Edit User Information (U7) Test @author: Jack
-		System.out.println("\nu7 starting");
-		System.out.println("\nTesting user 'John' (in database)");
-		u7("juser", "user", "UpdatedJohn", "UpdatedLastName");
-		System.out.println("\nTesting 'Jack' (NOT in database)");
-		//u7("jyoung001", "jackpassword", "Jack", "Young");
+		System.out.println("\nu7 (Edit User Info) starting...");
+		System.out.println("\nTesting user 'John' (in database / should not be null)");
+		u7("juser", "user", "John", "User");
+		System.out.println("\nTesting 'Jack' (NOT in database / should be null)");
+		u7("jyoung001", "jackpassword", "Jack", "Young");
 		System.out.println("\nu7 done\n");
 		
 		System.out.println("u8 starting");
@@ -105,7 +98,7 @@ public class Driver {
 		u16();
 		
 		// Activate/Deactivate (for Phase 3) Test @author: Jack
-		System.out.println("\nchangeStatus (activate/deactivate) starting");
+		System.out.println("\nchangeStatus (activate/deactivate) starting...");
 		System.out.println("-----Testing user 'Lynn'-----");
 		System.out.println("Changing to 'n'");
 		changeStatus("luser", "n");
@@ -292,13 +285,13 @@ public class Driver {
 	 * 
 	 * @author jyoung001
 	 */
-	public static void u7(String username, String password, String firstName, String lastName) {
-		Account user = UserUI.saveUserInfo(username, password, firstName, lastName);
+	public static void u7(String userToEdit, String password, String firstName, String lastName) {
+		Account user = UserUI.saveUserInfo(userToEdit, password, firstName, lastName);
 		System.out.println("***Edited User Info***");
 		System.out.println("Username: " + user.getUsername());
+		System.out.println("Password: " + user.getPassword());
 		System.out.println("First Name: " + user.getFirstName());
 		System.out.println("Last Name: " + user.getLastName());
-		System.out.println("User Type: " + user.getUserType());
 	}
 	
 	/**

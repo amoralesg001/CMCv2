@@ -102,16 +102,15 @@ public class UserController {
 	 * @param firstName
 	 * @param lastName
 	 */
-	public static Account saveUserInfo(String username, String password, String firstName, String lastName) {
-		Account user = DBController.getAccountDB(username, password);
+	public static Account saveUserInfo(String userToSaveInfo, String password, String firstName, String lastName) {
+		Account user = DBController.getAccountDB2(userToSaveInfo);
 		if (user.getUsername() != null) {
-			DBController.updateAccountDB(username, password, firstName, lastName, user.getUserType(), user.getLoginStatus());
-			user.updateAccountInfo(username, password, firstName, lastName, user.getUserType(), user.getLoginStatus());
-			user = DBController.getAccountDB2(username);
+			DBController.updateAccountDB(userToSaveInfo, password, firstName, lastName, user.getUserType(), user.getLoginStatus());
+			user.updateAccountInfo(userToSaveInfo, password, firstName, lastName, user.getUserType(), user.getLoginStatus());
+			user = DBController.getAccountDB2(userToSaveInfo);
 			return user;
 		}
 		else {
-//			user = DBController.getAccountDB(username, password);
 			return user;
 		}
 	}

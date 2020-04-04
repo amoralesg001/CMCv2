@@ -42,8 +42,8 @@ public class UserUI {
 	 * @param firstName
 	 * @param lastName
 	 */
-	public static Account saveUserInfo(String username, String password, String firstName, String lastName) {
-		Account user = UserController.saveUserInfo(username, password, firstName, lastName);
+	public static Account saveUserInfo(String userToSaveInfo, String password, String firstName, String lastName) {
+		Account user = UserController.saveUserInfo(userToSaveInfo, password, firstName, lastName);
 		return user;
 	}
 	/**
