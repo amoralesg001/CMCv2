@@ -16,6 +16,7 @@ public class Driver {
 	//private University university = new University(null, null, null, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, null);
 
 	public static void main(String[] args) {
+		
 		String SName = "ADELPHI";
 		String AName = "juser";
 		String universityTest = "blahblah1";
@@ -45,7 +46,7 @@ public class Driver {
 		System.out.println("output should be: no University found ");
 		
 		String username = "juser";
-		String universityname = "blahblah18";
+		String universityname = "waer2";
 		int i = DBController.removeUniversity(username, universityname);
 		
 		System.out.println("\nU5 Starting\n");
@@ -116,6 +117,8 @@ public class Driver {
 		System.out.println("Changing back to 'y'");
 		changeStatus("juser", "y");
 		System.out.println("changeStatus done\n");
+		
+		
 	}
 	/**
 	 * u1: login
@@ -332,11 +335,11 @@ public class Driver {
 		UserUI.manageSchool();
 	}
 	/**
-	 * U12 add  school
+	 * U12 add school
 	 * USED BY READYSON
 	 */
 	public static void u12() {
-		String universityName = "blahblah17";
+		String universityName = "TestX2";
 		String state = "MN";
 		String location = "SC";
 		String control = "Private";
@@ -388,7 +391,7 @@ public class Driver {
 	 * USED BY READYSON
 	 */
 	public static void u16() {
-		String universityName = "blahblah100";
+		String universityName = "blahblah13";
 		String state = "MN";
 		String location = "SC";
 		String control = "Private";
@@ -406,7 +409,6 @@ public class Driver {
 		int qoaScale = 5;
 		boolean blacklist = true;
 		ArrayList<String> emphasis = new ArrayList<String>();
-		emphasis.add("Accounting");
 		
 		
 
@@ -423,6 +425,7 @@ public class Driver {
 		}
 		
 		System.out.println("Finished u16");
+		DBController.univDBlib.university_deleteUniversity(universityName);
 	}
 	/**
 	 * 

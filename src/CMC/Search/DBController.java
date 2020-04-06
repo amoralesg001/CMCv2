@@ -229,15 +229,37 @@ public class DBController {
 			}
 			return null;
 			
+			
 		}
-			/**
-			 * METHOD UPDATEUNIVERSITY USED BY READYSONVANG
-		 * @param universityName
+		
+		/**
+		 * This method is used to edit all of the information inside of a University object
+		 * 
+		 * @param universityName is university object name
+		 * @param state is university object state
+		 * @param location is university object location
+		 * @param numStudents number of students in the university
+		 * @param femalePer percent of female students going to university
+		 * @param verSAT average Verbal SAT score for university
+		 * @param mathSAT average Math SAT score for university
+		 * @param tuition tuition cost for the university
+		 * @param finAid financial aid for university
+		 * @param numApplicants number of applicants for the university
+		 * @param admitPer Percentage of applicants admitted
+		 * @param enrolledPer percent of enrolled 
+		 * @param academicScale the University's academic scale
+		 * @param socialScale the University's Social scale
+		 * @param qoaScale the University's qoa scale
+		 * @param emphasis the University's emphasis on Majors
+		 * @param blacklist if the school is blacklisted
+		 * 
+		 * @return boolean value if the school has been edited
 		 */
 		public static boolean updateUniversityDB(String universityName, String state, String location, String control, int numStudents,
 				int femalePer, int verSAT, int mathSAT, double tuition, double finAid, double numApplicants, int admitPer,
 				int enrolledPer, int academicScale, int socialScale, int qoaScale, ArrayList<String> emphasis, boolean blacklist) {
 			//String[][] un = univDBlib.university_getUniversities();
+			
 			boolean edited = false;
 			if (dbGetUniversity(universityName) != null)
 			{
@@ -287,19 +309,39 @@ public class DBController {
 
 
 		/**
-		 * METHOD ADDUNIVERSITY IS USED BY READYSON
-		 * @param universityName
-		 * @return
+		 * This method is used to add a University Object to the database
+		 * 
+		 * @param universityName is university object name
+		 * @param state is university object state
+		 * @param location is university object location
+		 * @param numStudents number of students in the university
+		 * @param femalePer percent of female students going to university
+		 * @param verSAT average Verbal SAT score for university
+		 * @param mathSAT average Math SAT score for university
+		 * @param tuition tuition cost for the university
+		 * @param finAid financial aid for university
+		 * @param numApplicants number of applicants for the university
+		 * @param admitPer Percentage of applicants admitted
+		 * @param enrolledPer percent of enrolled 
+		 * @param academicScale the University's academic scale
+		 * @param socialScale the University's Social scale
+		 * @param qoaScale the University's qoa scale
+		 * 
+		 * @return boolean value if the school has been added
 		 */
 		public static boolean addUniversity(String universityName, String state, String location, String control, int numStudents, double femalePer, double verSAT,
 				double mathSAT, double tuition, double finAid, int numApplicants, double admitPer, double enrolledPer,
-				int academicScale, int socialScale, int qoaSCale)  {//is this adding all information of a university or just on the saved list? 		
+				int academicScale, int socialScale, int qoaSCale, ArrayList<String> emphasis)  {//is this adding all information of a university or just on the saved list? 		
 			boolean added = false;
-			
+			univDBlib.university_deleteUniversity("");
 			
 			if (dbGetUniversity(universityName) == null)
 			{
 				univDBlib.university_addUniversity(universityName, state, location, control, numStudents, femalePer, verSAT, mathSAT, tuition, finAid, numApplicants, admitPer, enrolledPer, academicScale, socialScale, qoaSCale);
+				for (String s: emphasis)
+				{
+					univDBlib.university_addUniversityEmphasis(universityName, s);
+				}
 				added = true;
 				System.out.println("Univerity: " + universityName + " not in database... It will be added.");
 			}
