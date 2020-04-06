@@ -27,11 +27,27 @@ public class DBControllerTest {
 	@Test
 	public void testDbGetSavedUniversityList() {
 		String userName = "juser";
-		ArrayList<String> size = new ArrayList<String>(); 
+		ArrayList<String> size = new ArrayList<String>();
 		size.add("ad");
 		
 		Assert.assertEquals("userIsFound", size.size(),DBController.dbGetSavedUniversityList(userName));
 		//Assert.assertEquals("userIsFound",PUT WHAT I EXPECT TO RETURN HERE, DBController)
+	}
+
+	@Test
+	public void testGetAllUsers() {
+		ArraryList<Account> users = new ArrayList<Account>();
+		users.add(Account("John", "User", "juser", "user", 'u', 'y'));
+		users.add(Account("Lynn", "User", "luser", "user", 'u', 'N'));
+		users.add(Account("Noreen", "Admin", "nadmin", "admin", 'a', 'y'));
+		Assert.assertEquals("Got all users", users, DBController.getAllUsers());
+	}
+
+	@Test
+	public void testUpdateSavedUniversities() {
+		String username = "juser";
+		String uniName = "AUGSBURG";
+		Assert.assertTrue("Saved university to list", updateSavedUniversities(username, uniName))
 	}
 
 }
