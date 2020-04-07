@@ -261,7 +261,13 @@ public class DBController {
 			//String[][] un = univDBlib.university_getUniversities();
 			
 			boolean edited = false;
-			if (dbGetUniversity(universityName) != null)
+			if (dbGetUniversity(universityName) == null)
+			{
+				System.out.println("No such university as: " + universityName);
+				throw new NullPointerException("No such University");
+			}
+			
+			else
 			{
 				University u = dbGetUniversity(universityName);
 				if( u.getuniversityName().equals(universityName))
@@ -297,11 +303,6 @@ public class DBController {
 					
 				}
 			}
-			
-			else
-			{
-				throw new NullPointerException("No such University as: " + universityName);
-			}
 
 			return edited;
 			
@@ -333,7 +334,7 @@ public class DBController {
 				double mathSAT, double tuition, double finAid, int numApplicants, double admitPer, double enrolledPer,
 				int academicScale, int socialScale, int qoaSCale, ArrayList<String> emphasis)  {//is this adding all information of a university or just on the saved list? 		
 			boolean added = false;
-			univDBlib.university_deleteUniversity("");
+	
 			
 			if (dbGetUniversity(universityName) == null)
 			{
@@ -347,6 +348,7 @@ public class DBController {
 			}
 			else
 			{
+		
 				added = false;
 			}
 				
