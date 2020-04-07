@@ -456,7 +456,7 @@ public class DBController {
 		public static ArrayList<String> dbGetSavedUniversityList(String username){	
 			String[][] ar = univDBlib.user_getUsernamesWithSavedSchools();
 		
-				ArrayList<String> userSchool = new ArrayList<String>();
+			ArrayList<String> userSchool = new ArrayList<String>();
 			for(int row = 0; row<ar.length; row++) {
 			if (ar[row][0].equals(username)){
 				
@@ -580,8 +580,15 @@ public class DBController {
                     return uniSearchFound;
             	
                 }
-		
-            
+		//using this to create my own user for the test case. 
+            public static Account addUser(String firstName, String lastName, String userName, String password, char userType) {
+            	String userTypeString = Character.toString(userType);
+            	Account user = new Account(firstName,lastName, userName, password, userTypeString,"Y");
+            	
+            	int userUpdate = univDBlib.user_addUser(firstName, lastName, userName, password, userType);
+            	
+            	return user;
+            }
 		}
 	
 

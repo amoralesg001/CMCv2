@@ -9,17 +9,17 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import CMC.User.Account;
 import junit.framework.Assert;
 
 public class DBControllerTest {
-
+    Account fakeAccount;//instance for Alex in tear down
 	@Before
 	public void setUp() throws Exception {
 		
 	//setup for U2: Alex 
-	boolean set1 = DBController.updateSavedUniversities("juser","blahblah");
-	boolean set2 = DBController.updateSavedUniversities("juser","blahblah13");
-	boolean set3 = DBController.updateSavedUniversities("juser","waer2");
+	fakeAccount= DBController.addUser("Alex", "Morales", "amoralesg001", "lakdjf", 'u');
+	DBController.updateSavedUniversities(fakeAccount.getUsername(), "ADELPHI");
 	
 	}
 
@@ -27,6 +27,7 @@ public class DBControllerTest {
 	public void tearDown() throws Exception {
 		
 	//tearDown for u2: Alex
+	DBController.removeUniversity(fakeAccount.getUsername(), "ADELPHI");
 	}
 
 	@Test
@@ -35,21 +36,12 @@ public class DBControllerTest {
 	}
 	
 	@Test
-<<<<<<< HEAD
 	public void testdbGetSavedUniversityList() {
 	ArrayList<String> sizeA = new ArrayList<String>();
 	sizeA.add("");
-	sizeA.add("");
-	sizeA.add("");
-	sizeA.add("");
-	Assert.assertEquals(sizeA.size()==3, DBController.dbGetSavedUniversityList("juser"));
+	
+	Assert.assertEquals(sizeA.size()==1, DBController.dbGetSavedUniversityList("amoralesg001"));
 	//Assert.assertEquals("userIsFound",PUT WHAT I EXPECT TO RETURN HERE, DBController)
-=======
-	public void testDbGetSavedUniversityList() {
-		String userName = "juser";
-		ArrayList<String> size = new ArrayList<String>();
-		size.add("ad");
->>>>>>> e6741b02f6e8b4a7f207de0e577316c6b66b0ba7
 		
 	}
 	
