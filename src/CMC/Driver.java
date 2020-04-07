@@ -35,17 +35,19 @@ public class Driver {
 		System.out.println("u3 done");
 		
 		System.out.println("u4 starting");
-		u4("ADELPHI", "", "", "", 0, 0, 0, 0, 0, 0, 0, 0,0, 0, 0, 0, null);
+		u4("blahblah13", "MN", "", "private", 2,0 , 0, 0, 0, 0, 0, 0,0, 0, 0, 0, null);
 		System.out.println("u4 done");
 		System.out.println("output should be: ADELPHI IS FOUND\n");
 		System.out.println("u4 ALTERNATE starting");
-		u4("", "MN", "", "", 0, 0, 0, 0, 0, 0, 0, 0,0,
+		u4("blahblah13", "", "", "", 3, 0, 0, 0, 0, 0, 0, 0,0,
 		           0, 0, 0, null);
 		System.out.println("u4 done");
 		System.out.println("output should be: no University found ");
-		
+		System.out.println();
+	
 		String username = "juser";
 		String universityname = "waer2";
+
 		int i = DBController.removeUniversity(username, universityname);
 		
 		System.out.println("\nU5 Starting\n");
@@ -237,12 +239,12 @@ public class Driver {
 	public static void u4(String universityName, String state, String location, String control, int numStudents, double femalePer, double verbalSAT,
             double mathSAT, double expenses, double finAidPer, int numApplicants, double admitPer, double enrolledPer,
             int academicScale, int socialScale, int qoaScale, ArrayList<String> emphasis) {
-        
+		
         University uniCriteria = new University(universityName, state, location, control, numStudents, femalePer, verbalSAT,mathSAT,expenses, finAidPer,numApplicants,admitPer,enrolledPer,academicScale,socialScale,qoaScale,emphasis, false);
         
         ArrayList<String> uniSearch = UserUI.searchUniversity(uniCriteria);
         
-        if (uniSearch == null) {
+        if (uniSearch.size() == 0) {
             System.out.println("no Universities found with that criteria");
         }
         else {

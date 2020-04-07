@@ -116,6 +116,9 @@ public class University {
 	public long getNumStudents() {
 		return (long) numStudents;
 	}
+	public int intGetNumStudents() {
+		return numStudents;
+	}
 	/**
 	 * @param numStudents the numStudents to set
 	 */
