@@ -229,15 +229,37 @@ public class DBController {
 			}
 			return null;
 			
+			
 		}
-			/**
-			 * METHOD UPDATEUNIVERSITY USED BY READYSONVANG
-		 * @param universityName
+		
+		/**
+		 * This method is used to edit all of the information inside of a University object
+		 * 
+		 * @param universityName is university object name
+		 * @param state is university object state
+		 * @param location is university object location
+		 * @param numStudents number of students in the university
+		 * @param femalePer percent of female students going to university
+		 * @param verSAT average Verbal SAT score for university
+		 * @param mathSAT average Math SAT score for university
+		 * @param tuition tuition cost for the university
+		 * @param finAid financial aid for university
+		 * @param numApplicants number of applicants for the university
+		 * @param admitPer Percentage of applicants admitted
+		 * @param enrolledPer percent of enrolled 
+		 * @param academicScale the University's academic scale
+		 * @param socialScale the University's Social scale
+		 * @param qoaScale the University's qoa scale
+		 * @param emphasis the University's emphasis on Majors
+		 * @param blacklist if the school is blacklisted
+		 * 
+		 * @return boolean value if the school has been edited
 		 */
 		public static boolean updateUniversityDB(String universityName, String state, String location, String control, int numStudents,
 				int femalePer, int verSAT, int mathSAT, double tuition, double finAid, double numApplicants, int admitPer,
 				int enrolledPer, int academicScale, int socialScale, int qoaScale, ArrayList<String> emphasis, boolean blacklist) {
 			//String[][] un = univDBlib.university_getUniversities();
+			
 			boolean edited = false;
 			if (dbGetUniversity(universityName) != null)
 			{
@@ -287,19 +309,39 @@ public class DBController {
 
 
 		/**
-		 * METHOD ADDUNIVERSITY IS USED BY READYSON
-		 * @param universityName
-		 * @return
+		 * This method is used to add a University Object to the database
+		 * 
+		 * @param universityName is university object name
+		 * @param state is university object state
+		 * @param location is university object location
+		 * @param numStudents number of students in the university
+		 * @param femalePer percent of female students going to university
+		 * @param verSAT average Verbal SAT score for university
+		 * @param mathSAT average Math SAT score for university
+		 * @param tuition tuition cost for the university
+		 * @param finAid financial aid for university
+		 * @param numApplicants number of applicants for the university
+		 * @param admitPer Percentage of applicants admitted
+		 * @param enrolledPer percent of enrolled 
+		 * @param academicScale the University's academic scale
+		 * @param socialScale the University's Social scale
+		 * @param qoaScale the University's qoa scale
+		 * 
+		 * @return boolean value if the school has been added
 		 */
 		public static boolean addUniversity(String universityName, String state, String location, String control, int numStudents, double femalePer, double verSAT,
 				double mathSAT, double tuition, double finAid, int numApplicants, double admitPer, double enrolledPer,
-				int academicScale, int socialScale, int qoaSCale)  {//is this adding all information of a university or just on the saved list? 		
+				int academicScale, int socialScale, int qoaSCale, ArrayList<String> emphasis)  {//is this adding all information of a university or just on the saved list? 		
 			boolean added = false;
-			
+			univDBlib.university_deleteUniversity("");
 			
 			if (dbGetUniversity(universityName) == null)
 			{
 				univDBlib.university_addUniversity(universityName, state, location, control, numStudents, femalePer, verSAT, mathSAT, tuition, finAid, numApplicants, admitPer, enrolledPer, academicScale, socialScale, qoaSCale);
+				for (String s: emphasis)
+				{
+					univDBlib.university_addUniversityEmphasis(universityName, s);
+				}
 				added = true;
 				System.out.println("Univerity: " + universityName + " not in database... It will be added.");
 			}
@@ -436,222 +478,88 @@ public class DBController {
 		public static ArrayList<String> dbSearchUniversity(University uniCriteria) {    
             String[][] un = univDBlib.university_getUniversities();
             ArrayList<String> uniSearchFound = new ArrayList<>();
-            boolean search;
-            boolean nothing;
+            boolean searchCondition=true; 
             
             for(int i = 0; i < un.length; i++) {
-                search=false;
-                nothing=false;
-                
-          
-               
-                if (un[i][0].equals(uniCriteria.getuniversityName())) {
-               search = true; 
-               nothing = false; 
-                }
-               else if (uniCriteria.getuniversityName()==null){
-               nothing = true; 
-                }
-                else {
-                search = false;
-                }
-                   
-                if (search==true||nothing==true) {
-                if (un[i][1].equals(uniCriteria.getState())) {
-                    search = true;
-                    nothing=false; 
-                    }
-                else if(uniCriteria.getState()==null) {
-                nothing=true; 
-                }
-                else {
-                search =false; 	
-                }
-                }
-                
-                if(search==true||nothing==true) {
-                if (un[i][2].equals(uniCriteria.getLocation())) {
-                    search = true;
-                    nothing=false; 
-                    }
-                else if(uniCriteria.getLocation()==null) {
-                nothing =true; 	
-                }
-                else {
-                search =false; 	
-                }
-                }
-                
-                if(search==true||nothing==true) {
-                    if (un[i][3].equals(uniCriteria.getControl())) {
-                        search=true; 
-                        nothing=false; 
-                        }
-                    else if(uniCriteria.getControl()==null) {
-                    nothing =true; 	
-                    }
-                    else {
-                    search =false; 	
-                    }
-                    }
+            	searchCondition = true; 
+            	
+            	if((!uniCriteria.getuniversityName().equals("")) && (!un[i][0].contains(uniCriteria.getuniversityName()))){
+            		searchCondition = false; 
+            	}
+            	
+            	if((!uniCriteria.getState().equals("")) && (!un[i][1].contains(uniCriteria.getState()))){
+            		searchCondition = false; 
+        	    }  
 
-                if(search==true||nothing==true) {
-               int convert =Integer.parseInt(un[i][4]);
-                if (convert==uniCriteria.intGetNumStudents()) {
-                    search=true; 
-                    nothing=false; 
-                    }
-                else if(uniCriteria.intGetNumStudents()==0) {
-                nothing =true; 	
-                }
-                else {
-                search =false; 	
-                }
-                }
-                
-//                if(search==true||nothing==true) {
-//                if (un[i][5].equals(uniCriteria.getFemalePer())) {
-//                    search=true;
-//                    nothing=false;
-//                    }
-//                else if(uniCriteria.getFemalePer()==0.00) {
-//                	nothing=true; 
-//                }
-//                else {
-//                search =false; 	
-//                }
-//                }
-//                
-//                if (search==true||nothing==true){
-//                if (un[i][5].equals(uniCriteria.getVerSAT())) {
-//                    search =true; 
-//                    nothing=false;
-//                    }
-//                else if(uniCriteria.getVerSAT()==0) {
-//                	nothing=true; 
-//                }
-//                else {
-//                search =false; 	
-//                }
-//                }
-//                
-//                if (search==true||nothing==true) {
-//                if (un[i][7].equals(uniCriteria.getMathSAT())) {
-//                   search = true;
-//                   nothing=false;
-//                    }
-//                else if(uniCriteria.getMathSAT()==0) {
-//                nothing =true; 
-//                }
-//                else {
-//                search =false; 	
-//                }
-//                }
-//                
-//                if (search==true||nothing==true) {
-//                if (un[i][8].equals(uniCriteria.getTuition())) {
-//                    search = true;
-//                    nothing=false;
-//                    }
-//                else if(uniCriteria.getTuition()==0) {
-//                	nothing=true;
-//                }
-//                else {
-//                search =false; 	
-//                }
-//                }
-//                
-//                if (search==true||nothing==true) {
-//                if (un[i][9].equals(uniCriteria.getFinAid())) {
-//                    search=true;
-//                    nothing=false;
-//                    }
-//                else if(uniCriteria.getFinAid()==0) {
-//                nothing=true;
-//                }
-//                else {
-//                search =false; 	
-//                }
-//                }
-            
-//            
-//                if(search=true) {
-//                if (un[i][10].equals(uniCriteria.getNumApplicants())) {
-//                    search=true;
-//                    }
-//                else if(uniCriteria.getState()==null) {
-//                	
-//                }
-//                else {
-//                search =false; 	
-//                }
-//                }
-//                
-//                if(search=true) {
-//                if (un[i][11].equals(uniCriteria.getAdmitPer())) {
-//                    search = false; 
-//                    }
-//                else if(uniCriteria.getState()==null) {
-//                	
-//                }
-//                else {
-//                search =false; 	
-//                }
-//                
-//                }
-//                if(search=true) {
-//                if (un[i][12].equals(uniCriteria.getEnrolledPer())) {
-//                    search=true;
-//                    }
-//                else if(uniCriteria.getState()==null) {
-//                	
-//                }
-//                else {
-//                search =false; 	
-//                }
-//                }
-//                
-//                if(search=true) {
-//                if (un[i][13].equals(uniCriteria.getAcademicScale())) {
-//                    search = true;
-//                    }
-//                else if(uniCriteria.getState()==null) {
-//                	
-//                }
-//                else {
-//                search =false; 	
-//                }
-//                }
-//                
-//                if(search=true) {
-//                if (un[i][14].equals(uniCriteria.getSocialScale())) {
-//                    search =true; 
-//                    }
-//                else if(uniCriteria.getState()==null) {
-//                	
-//                }
-//                else {
-//                search =false; 	
-//                }
-//                }
-//                
-//                if(search=true) {
-//                if (un[i][15].equals(uniCriteria.getQoaScale())) {
-//                    search = true; 
-//                }
-//                else if(uniCriteria.getState()==null) {
-//                	
-//                }
-//                else {
-//                search =false; 	
-//                }
-//                }
-                
-                
-                if (search == true) {
+            	if((!uniCriteria.getLocation().equals("")) && (!un[i][2].contains(uniCriteria.getLocation()))){	//still isnt working for some reason but the rest do!
+            		searchCondition = false; 
+        	    } 
+            	if((!uniCriteria.getControl().equals("")) && (!un[i][3].contains(uniCriteria.getLocation()))) {
+            		searchCondition = false; 
+            	}
+            	if((uniCriteria.getNumStudents()!=-1) && (Integer.parseInt(un[i][4])!=uniCriteria.intGetNumStudents())){
+            		searchCondition = false; 
+        	    } 
+            	if (searchCondition!=false) {
                 	String uniName = un[i][0];
-                	uniSearchFound.add(uniName);
-                }
+            		uniSearchFound.add(uniName);
+                  }
+
+//                    if (un[i][4].equals(uniCriteria.getControl())) {
+//                        String uniName = un[i][0];
+//                        uniSearchFound.add(uniName);
+//                        }
+//                    if (un[i][5].equals(uniCriteria.getNumStudents())) {
+//                        String uniName = un[i][0];
+//                        uniSearchFound.add(uniName);
+//                        }
+//                    if (un[i][6].equals(uniCriteria.getFemalePer())) {
+//                        String uniName = un[i][0];
+//                        uniSearchFound.add(uniName);
+//                        }
+//                    if (un[i][7].equals(uniCriteria.getVerSAT())) {
+//                        String uniName = un[i][0];
+//                        uniSearchFound.add(uniName);
+//                        }
+//                    if (un[i][8].equals(uniCriteria.getMathSAT())) {
+//                        String uniName = un[i][0];
+//                        uniSearchFound.add(uniName);
+//                        }
+//                    if (un[i][9].equals(uniCriteria.getTuition())) {
+//                        String uniName = un[i][0];
+//                        uniSearchFound.add(uniName);
+//                        }
+//                    if (un[i][10].equals(uniCriteria.getFinAid())) {
+//                        String uniName = un[i][0];
+//                        uniSearchFound.add(uniName);
+//                        }
+//                    if (un[i][10].equals(uniCriteria.getNumApplicants())) {
+//                        String uniName = un[i][0];
+//                        uniSearchFound.add(uniName);
+//                        }
+//                    if (un[i][11].equals(uniCriteria.getAdmitPer())) {
+//                        String uniName = un[i][0];
+//                        uniSearchFound.add(uniName);
+//                        }
+//                    if (un[i][12].equals(uniCriteria.getEnrolledPer())) {
+//                        String uniName = un[i][0];
+//                        uniSearchFound.add(uniName);
+//                        }
+//                    if (un[i][13].equals(uniCriteria.getAcademicScale())) {
+//                        String uniName = un[i][0];
+//                        uniSearchFound.add(uniName);
+//                        }
+//                    if (un[i][14].equals(uniCriteria.getSocialScale())) {
+//                        String uniName = un[i][0];
+//                        uniSearchFound.add(uniName);
+//                        }
+//                    if (un[i][15].equals(uniCriteria.getQoaScale())) {
+//                        String uniName = un[i][0];
+//                        uniSearchFound.add(uniName);
+//                    }
+//                
+//                
+
                 
                 
             }
@@ -668,13 +576,9 @@ public class DBController {
                         //}
                     ///}
             
-            	if(uniSearchFound.size() ==0) {
-            		return null;
-            	}
-            
-            	else {
+            	
                     return uniSearchFound;
-            	}
+            	
                 }
 		
             
