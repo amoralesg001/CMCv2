@@ -38,6 +38,29 @@ public class DBController {
 			}
 			
 		}
+		
+		public static Account getAccountDB2(String username) {
+			
+			Account user = dbGetUser(username);
+			
+			String tempU;
+			if (user != null) {
+				tempU = user.getUsername();
+			}
+			else {
+				tempU = null;
+			}
+			
+			if (tempU == null){
+				Account tempA = new Account(null, null, null, null, null, null);
+				return tempA;
+			}
+			else {
+				return user;
+			}
+			
+		}
+		
 		public static Account dbGetUser(String username){	
 			String[][] ar = univDBlib.user_getUsers();
 			
@@ -77,7 +100,7 @@ public class DBController {
 			}
 			return null;	
 		}		  
-		
+		//USED BY READYSON
 		public static University dbGetUniversity(String university) {	
 			String[][] un = univDBlib.university_getUniversities();
 			ArrayList<String> emphasis = new ArrayList<String>();
@@ -206,22 +229,48 @@ public class DBController {
 			}
 			return null;
 			
+			
 		}
-			/**
-			 * 
-		 * @param universityName
+		
+		/**
+		 * This method is used to edit all of the information inside of a University object
+		 * 
+		 * @param universityName is university object name
+		 * @param state is university object state
+		 * @param location is university object location
+		 * @param numStudents number of students in the university
+		 * @param femalePer percent of female students going to university
+		 * @param verSAT average Verbal SAT score for university
+		 * @param mathSAT average Math SAT score for university
+		 * @param tuition tuition cost for the university
+		 * @param finAid financial aid for university
+		 * @param numApplicants number of applicants for the university
+		 * @param admitPer Percentage of applicants admitted
+		 * @param enrolledPer percent of enrolled 
+		 * @param academicScale the University's academic scale
+		 * @param socialScale the University's Social scale
+		 * @param qoaScale the University's qoa scale
+		 * @param emphasis the University's emphasis on Majors
+		 * @param blacklist if the school is blacklisted
+		 * 
+		 * @return boolean value if the school has been edited
 		 */
-		public static void updateUniversityDB(String universityName, String state, String location, String control, int numStudents,
+		public static boolean updateUniversityDB(String universityName, String state, String location, String control, int numStudents,
 				int femalePer, int verSAT, int mathSAT, double tuition, double finAid, double numApplicants, int admitPer,
 				int enrolledPer, int academicScale, int socialScale, int qoaScale, ArrayList<String> emphasis, boolean blacklist) {
 			//String[][] un = univDBlib.university_getUniversities();
-			University u = dbGetUniversity(universityName);
+			
+			boolean edited = false;
+			if (dbGetUniversity(universityName) != null)
 			{
+				University u = dbGetUniversity(universityName);
 				if( u.getuniversityName().equals(universityName))
 				{
 					univDBlib.university_editUniversity(u.getuniversityName(), state, location, control, numStudents, femalePer,
 							verSAT, mathSAT, tuition, finAid, (int) numApplicants, admitPer, enrolledPer, academicScale,
 							socialScale, qoaScale);
+					System.out.println("University: " + u.getuniversityName() + " has been found and has been editted.");
+					edited = true;
 					u.setBlacklist(blacklist);
 					ArrayList<String> oldEmphases = new ArrayList<String>();
 					for (int i = 0; i < univDBlib.university_getNamesWithEmphases().length; i ++)
@@ -249,65 +298,65 @@ public class DBController {
 				}
 			}
 			
-		}
-		/**
-		 * 
-		 * @param universityName
-		 */
-		public void updateBlackListDB(University universityName) {
+			else
+			{
+				throw new NullPointerException("No such University as: " + universityName);
+			}
+
+			return edited;
 			
 		}
+
+
 		/**
+		 * This method is used to add a University Object to the database
 		 * 
-		 * @param schoolName
-		 * @return
-		 */
-		public static ArrayList<String> searchUniversity(String schoolName) {	
-			String[][] univ = univDBlib.university_getUniversities();
-			ArrayList<String> univList = new ArrayList<>();
-			for (int row =0; row< univ.length;row++) {
-			if (univ[row][0].equals(schoolName)){
-			String univName = univ[row][0];
-			univList.add(univ[row][0]);
-			String State = univ[row][1];
-			univList.add(univ[row][1]);
-			String Location = univ[row][2];
-			univList.add(univ[row][2]);
-			String Control = univ[row][3];
-			String NumOfStud = univ[row][4];
-			String PercFem = univ[row][5];
-			String SATVerb = univ[row][6];
-			String SATmath = univ[row][7];
-			String Expense = univ[row][8];
-			String PercFinancAid = univ[row][9];
-			String NumAppl = univ[row][10];
-			String PercAdmit = univ[row][11];
-			String PercEnroll = univ[row][12];
-			String acadScale = univ[row][13];
-			String socialScale = univ[row][14];
-			String qualOfLifeScale = univ[row][15];
-			}
-			return univList;
-			}
-			//for (int i = 0; i < universityArray.length; i++)
-				//if (universityArray[i].getuniversityName() == schoolName) {
-					//return universityArray[i];
-				//}	
-			return null;
-		}
-		/**
+		 * @param universityName is university object name
+		 * @param state is university object state
+		 * @param location is university object location
+		 * @param numStudents number of students in the university
+		 * @param femalePer percent of female students going to university
+		 * @param verSAT average Verbal SAT score for university
+		 * @param mathSAT average Math SAT score for university
+		 * @param tuition tuition cost for the university
+		 * @param finAid financial aid for university
+		 * @param numApplicants number of applicants for the university
+		 * @param admitPer Percentage of applicants admitted
+		 * @param enrolledPer percent of enrolled 
+		 * @param academicScale the University's academic scale
+		 * @param socialScale the University's Social scale
+		 * @param qoaScale the University's qoa scale
 		 * 
-		 * @param universityName
-		 * @return
+		 * @return boolean value if the school has been added
 		 */
-		public static void addUniversity(String universityName, String state, String location, String control, int numStudents, double femalePer, double verSAT,
+		public static boolean addUniversity(String universityName, String state, String location, String control, int numStudents, double femalePer, double verSAT,
 				double mathSAT, double tuition, double finAid, int numApplicants, double admitPer, double enrolledPer,
-				int academicScale, int socialScale, int qoaSCale)  {//is this adding all information of a university or just on the saved list? 		
-			univDBlib.university_addUniversity(universityName, state, location, control, numStudents, femalePer, verSAT, mathSAT, tuition, finAid, numApplicants, admitPer, enrolledPer, academicScale, socialScale, qoaSCale);
+				int academicScale, int socialScale, int qoaSCale, ArrayList<String> emphasis)  {//is this adding all information of a university or just on the saved list? 		
+			boolean added = false;
+			univDBlib.university_deleteUniversity("");
 			
+			if (dbGetUniversity(universityName) == null)
+			{
+				univDBlib.university_addUniversity(universityName, state, location, control, numStudents, femalePer, verSAT, mathSAT, tuition, finAid, numApplicants, admitPer, enrolledPer, academicScale, socialScale, qoaSCale);
+				for (String s: emphasis)
+				{
+					univDBlib.university_addUniversityEmphasis(universityName, s);
+				}
+				added = true;
+				System.out.println("Univerity: " + universityName + " not in database... It will be added.");
+			}
+			else
+			{
+				added = false;
+			}
+				
+			return added;
 		}
 		/**
-		 * 
+		 * In use by John
+		 * @param username username of account to update
+		 * @param uniName name of university to add to list
+		 * @return boolean if successful or not
 		 */
 		public static boolean updateSavedUniversities(String username, String uniName) {
 			int output = univDBlib.user_saveSchool(username, uniName);
@@ -317,16 +366,8 @@ public class DBController {
 
 		}
 		/**
-		 * 
-		 * @return
-		 */
-		public static University[] getAllUniversities() {	//how to return an array 
-			//return universityArray; 
-			return null;
-		}
-		/**
-		 * 
-		 * @return
+		 * In use by John
+		 * @return Arraylist of all users in database
 		 */
 		public static ArrayList<Account> getAllUsers() {		//how to return an array
 			String[][] userlist = univDBlib.user_getUsers();
@@ -344,7 +385,7 @@ public class DBController {
 			return users;
 		}
 		/**
-		 * 
+		 * In use by John
 		 * @param username
 		 * @return
 		 */
@@ -357,17 +398,17 @@ public class DBController {
 		 * Updates the account in the database.
 		 * @param user
 		 */
-		public static void updateAccountDB(String username, String password, String firstName, String lastName, String userType, String loginStatus) {
+		public static void updateAccountDB(String userToUpdate, String password, String firstName, String lastName, String userType, String loginStatus) {
 			char uType = userType.charAt(0);
 			char logStatus = loginStatus.charAt(0);
-			univDBlib.user_editUser(username, firstName, lastName, password, uType, logStatus);
-			System.out.println("*Edited user info in DB*");
+			univDBlib.user_editUser(userToUpdate, firstName, lastName, password, uType, logStatus);
 		}
 
 
 		/**
-		 * 
-		 * @param universityName
+		 *
+		 * @param username Username as string
+		 * @param universityname name of university as string to remove
 		 */
 		public static int removeUniversity(String username, String universityname) {
 			int i = univDBlib.user_removeSchool(username, universityname);
@@ -514,10 +555,10 @@ public class DBController {
                     //need to get another loop that gets emphasis
                     //Emphasis
                     //String[][] em = univDBlib.university_getNamesWithEmphases();
-                    
+
                    // for(int j = 0; j < em.length; j++) {
                        // if (em[j][1].equals(uniCriteria.getEmphasis()) {//not sure about this
-                       // String uniName =em[j][1];    
+                       // String uniName =em[j][1];
                        // uniSearchFound.add(uniName);
                         //}
                     ///}
@@ -531,7 +572,7 @@ public class DBController {
                 }
 		
             
-		}	
+		}
 	
 
 			

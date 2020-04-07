@@ -14,18 +14,18 @@ public class User extends Account{
 	}
 	
 	public void setUserName(String name) {
-		super.updateAccountInfo(name, super.getPassword(), super.getFirstName(), super.getLastName(), super.getUserType());
+		super.updateAccountInfo(name, super.getPassword(), super.getFirstName(), super.getLastName(), super.getUserType(), super.getLoginStatus());
 	}
 	
 	public void setUserPassword(String password) {
-		super.updateAccountInfo(super.getUsername(), password, super.getFirstName(), super.getLastName(), super.getUserType());
+		super.updateAccountInfo(super.getUsername(), password, super.getFirstName(), super.getLastName(), super.getUserType(), super.getLoginStatus());
 	}
 	
 	public void setUserFirstName(String firstName) {
-		super.updateAccountInfo(super.getUsername(), super.getPassword(), firstName, super.getLastName(), super.getUserType());
+		super.updateAccountInfo(super.getUsername(), super.getPassword(), firstName, super.getLastName(), super.getUserType(), super.getLoginStatus());
 	}
 	
 	public void setUserLastName(String lastName) {
-		super.updateAccountInfo(super.getUsername(), super.getPassword(), super.getFirstName(), lastName, super.getUserType());
+		super.updateAccountInfo(super.getUsername(), super.getPassword(), super.getFirstName(), lastName, super.getUserType(), super.getLoginStatus());
 	}
 }

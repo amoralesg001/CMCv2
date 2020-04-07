@@ -16,9 +16,10 @@ public class Driver {
 	//private University university = new University(null, null, null, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, null);
 
 	public static void main(String[] args) {
+		
 		String SName = "ADELPHI";
 		String AName = "juser";
-		String universityTest = "STANFORD";
+		String universityTest = "blahblah1";
 		University university = DBController.dbGetUniversity(universityTest);
 		System.out.println(university.toString());
 		System.out.println("u1 starting");
@@ -44,18 +45,18 @@ public class Driver {
 		System.out.println("output should be: no University found ");
 		
 		String username = "juser";
-		String universityname = "STANFORD";
+		String universityname = "waer2";
 		int i = DBController.removeUniversity(username, universityname);
 		
 		System.out.println("\nU5 Starting\n");
-		u5(universityTest);
+		u5(universityname);
 		System.out.println("\nU5 Done: Should dislpay the information of Stanford. \n");		
 		//u6(universityToRemove);
 		//u7(universityToRemove, universityToRemove, universityToRemove, universityToRemove);
 	
 
 		System.out.println("u6 starting");
-		u6(AName, SName);
+		//u6(AName, SName);
 		System.out.println("u6 done");
 		System.out.println("u9 starting");
 		u9(AName, SName);
@@ -66,16 +67,17 @@ public class Driver {
 		System.out.println("u2 done");
 		
 		System.out.println("u6 starting");
-		u6(AName, SName);
+		//u6(AName, SName);
 		System.out.println("u6 done");
 	
-		//u7(universityToRemove, universityToRemove, universityToRemove, universityToRemove);
-		System.out.println("\nu7 starting");
-		System.out.println("\nTesting user 'John' (in database)");
-		u7("juser", "user", "UpdatedJohn", "UpdatedLastName");
-		System.out.println("\nTesting 'Jack' (NOT in database)");
-		//u7("jyoung001", "jackpassword", "Jack", "Young");
+		// Edit User Information (U7) Test @author: Jack
+		System.out.println("\nu7 (Edit User Info) starting...");
+		System.out.println("\nTesting user 'John' (in database / should not be null)");
+		u7("juser", "user", "John", "User");
+		System.out.println("\nTesting 'Jack' (NOT in database / should be null)");
+		u7("jyoung001", "jackpassword", "Jack", "Young");
 		System.out.println("\nu7 done\n");
+		
 		System.out.println("u8 starting");
 		//u8();
 		System.out.println("u8 done");
@@ -94,7 +96,28 @@ public class Driver {
 		
 		System.out.println("u16 start");
 		u16();
-	
+		
+		// Activate/Deactivate (for Phase 3) Test @author: Jack
+		System.out.println("\nchangeStatus (activate/deactivate) starting...");
+		System.out.println("-----Testing user 'Lynn'-----");
+		System.out.println("Changing to 'n'");
+		changeStatus("luser", "n");
+		System.out.println("Changing to 'Y'");
+		changeStatus("luser", "Y");
+		System.out.println("Changing back to 'N'");
+		changeStatus("luser", "N");
+		System.out.println("-----Testing user 'John'-----");
+		System.out.println("Changing to 'Y'");
+		changeStatus("juser", "Y");
+		System.out.println("Changing to 'y'");
+		changeStatus("juser", "y");
+		System.out.println("Changing to 'n'");
+		changeStatus("juser", "n");
+		System.out.println("Changing back to 'y'");
+		changeStatus("juser", "y");
+		System.out.println("changeStatus done\n");
+		
+		
 	}
 	/**
 	 * u1: login
@@ -256,15 +279,22 @@ public class Driver {
 	}
 	
 	/**
-	 * Edit User Information
+	 * U7: Edit User Information
+	 * 
+	 * @param username the user's username
+	 * @param password the user's password
+	 * @param firstName the new firstName
+	 * @param lastName the new lastName
+	 * 
+	 * @author jyoung001
 	 */
-	public static void u7(String username, String password, String firstName, String lastName) {
-		Account user = UserUI.saveUserInfo(username, password, firstName, lastName);
-		System.out.println("***Edited user info:");
+	public static void u7(String userToEdit, String password, String firstName, String lastName) {
+		Account user = UserUI.saveUserInfo(userToEdit, password, firstName, lastName);
+		System.out.println("***Edited User Info***");
 		System.out.println("Username: " + user.getUsername());
+		System.out.println("Password: " + user.getPassword());
 		System.out.println("First Name: " + user.getFirstName());
 		System.out.println("Last Name: " + user.getLastName());
-		System.out.println("User Type: " + user.getUserType());
 	}
 	
 	/**
@@ -305,17 +335,18 @@ public class Driver {
 		UserUI.manageSchool();
 	}
 	/**
-	 * U12 add  school
+	 * U12 add school
+	 * USED BY READYSON
 	 */
 	public static void u12() {
-		String universityName = "blahblah10";
+		String universityName = "TestX2";
 		String state = "MN";
 		String location = "SC";
 		String control = "Private";
-		int numStudents = 2000;
+		int numStudents = 2;
 		int femalePer = 0;
-		int verSAT = 1200;
-		int mathSAT = 1200;
+		int verSAT = 300;
+		int mathSAT = 300;
 		double tuition = 60000;
 		double finAid = 20000;
 		int numApplicants = 4000;
@@ -328,22 +359,20 @@ public class Driver {
 		ArrayList<String> emphasis = new ArrayList<String>();
 		emphasis.add("Accounting");
 		
-		if (DBController.dbGetUniversity(universityName) != null)
+	
+		if(UserUI.addSchool(universityName, state, location, control, numStudents, femalePer, verSAT, mathSAT,
+				tuition, finAid, numApplicants, admitPer, enrolledPer, academicScale, socialScale, qoaScale,
+				emphasis, blacklist))
 		{
-			System.out.println("University with same name exists");
-		}
+			System.out.println("University has been added");
+
+		}	
 		else
 		{
-			System.out.println("University does not exist");
-		UserUI.addSchool(universityName, state, location, control, numStudents, femalePer, verSAT, mathSAT,
-				tuition, finAid, numApplicants, admitPer, enrolledPer, academicScale, socialScale, qoaScale,
-				emphasis, blacklist);
-			for(String s: emphasis)
-			{
-				DBController.univDBlib.university_addUniversityEmphasis(universityName, s);
-			}
-		u5(universityName);
+			System.out.println("University not added");
 		}
+		//u5(universityName);
+		
 	}
 	/**
 	 * 
@@ -359,28 +388,27 @@ public class Driver {
 	public void u15() {}
 	/**
 	 * u16 is editing a school's information
+	 * USED BY READYSON
 	 */
 	public static void u16() {
-		String universityName = "blahblah10";
-		String state = "o";
-		String location = "o";
-		String control = "public";
-		int numStudents = 0;
-		int femalePer = 8;
-		int verSAT = 0;
-		int mathSAT = 0;
-		double tuition = 0;
-		double finAid = 0;
-		double numApplicants = 0;
-		int admitPer = 0;
-		int enrolledPer = 0;
-		int academicScale = 0;
-		int socialScale = 0;
-		int qoaScale = 0;
-		boolean blacklist = false;
+		String universityName = "blahblah13";
+		String state = "MN";
+		String location = "SC";
+		String control = "Private";
+		int numStudents = 2;
+		int femalePer = 0;
+		int verSAT = 300;
+		int mathSAT = 300;
+		double tuition = 60000;
+		double finAid = 20000;
+		int numApplicants = 4000;
+		int admitPer = 20;
+		int enrolledPer = 80;
+		int academicScale = 5;
+		int socialScale = 5;
+		int qoaScale = 5;
+		boolean blacklist = true;
 		ArrayList<String> emphasis = new ArrayList<String>();
-		emphasis.add("Compsci");
-		emphasis.add("Math");
 		
 		
 
@@ -397,6 +425,7 @@ public class Driver {
 		}
 		
 		System.out.println("Finished u16");
+		DBController.univDBlib.university_deleteUniversity(universityName);
 	}
 	/**
 	 * 
@@ -406,5 +435,39 @@ public class Driver {
 	 * 
 	 */
 	public void u18() {}
+	
+	/**
+	 * Activate/Deactivate
+	 * 
+	 * @author jyoung001
+	 */
+	public static void changeStatus(String username, String status) {
+		Account user = new Account(null, null, null, null, null, null);
+		user = user.getUserInfo2(username);
+		String currentStatus = user.getLoginStatus();
+		if (status == "Y" || status == "y") {
+			if (currentStatus == "Y" || currentStatus == "y") {
+				System.out.println(user.getUsername() + " is already activated.");
+			}
+			else {
+				DBController.updateAccountDB(username, user.getPassword(), user.getFirstName(), user.getLastName(), user.getUserType(), status);
+				user = user.getUserInfo2(username);
+			}
+		}
+		else if (status == "N" || status == "n") {
+			if (currentStatus == "N" || currentStatus == "n") {
+				System.out.println(user.getUsername() + " is already deactivated.");
+			}
+			else {
+				DBController.updateAccountDB(username, user.getPassword(), user.getFirstName(), user.getLastName(), user.getUserType(), status);
+				user = user.getUserInfo2(username);
+			}
+		}
+		else {
+			System.out.println("ERROR: Status must be either 'Y'/'y' or 'N'/'n'");
+		}
+		System.out.println("***Change Complete***");
+		System.out.println("User Status should be: " + user.getLoginStatus() + "\nUser Status is: " + status + "\n");
+	}
 
 }

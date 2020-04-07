@@ -36,13 +36,15 @@ public class UserController {
 		return account.getUserType();
 	}
 	/**
+	 * In use by John
 	 * @author jengh001
 	 * @param SName Name of University as string 
 	 * @param AName Username of account as string
+	 * @return boolean if successful or not
 	 */
 	public static boolean addSavedUniversities(String AName, String SName) {
-		University uni = DBController.dbGetUniversity(SName);
-		Account acc = DBController.getUserInfo(AName);
+		//University uni = DBController.dbGetUniversity(SName);
+		//Account acc = DBController.getUserInfo(AName);
 		//acc.addUniversity(uni);
 		return DBController.updateSavedUniversities(AName, SName);
 	}
@@ -100,20 +102,23 @@ public class UserController {
 	 * @param firstName
 	 * @param lastName
 	 */
-	public static Account saveUserInfo(String username, String password, String firstName, String lastName) {
-		Account user = DBController.getAccountDB(username, password);
+	public static Account saveUserInfo(String userToSaveInfo, String password, String firstName, String lastName) {
+		Account user = DBController.getAccountDB2(userToSaveInfo);
 		if (user.getUsername() != null) {
-			DBController.updateAccountDB(username, password, firstName, lastName, user.getUserType(), user.getLoginStatus());
-			user.updateAccountInfo(username, password, firstName, lastName, user.getUserType(), user.getLoginStatus());
-			user = DBController.getAccountDB(username, password);
+			DBController.updateAccountDB(userToSaveInfo, password, firstName, lastName, user.getUserType(), user.getLoginStatus());
+			user.updateAccountInfo(userToSaveInfo, password, firstName, lastName, user.getUserType(), user.getLoginStatus());
+			user = DBController.getAccountDB2(userToSaveInfo);
 			return user;
 		}
 		else {
-//			user = DBController.getAccountDB(username, password);
 			return user;
 		}
 	}
-	
+
+	/**
+	 * In use by John
+	 * @return Arraylist of all users in database
+	 */
 	public static ArrayList<Account> getAllUsers() {
 		return DBController.getAllUsers();
 	}
