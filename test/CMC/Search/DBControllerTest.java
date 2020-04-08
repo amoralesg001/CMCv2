@@ -9,6 +9,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import CMC.University.University;
 import CMC.User.Account;
 import junit.framework.Assert;
 
@@ -20,7 +21,7 @@ public class DBControllerTest {
 	//setup for U2: Alex 
 	fakeAccount= DBController.addUser("Alex", "Morales", "amoralesg001", "lakdjf", 'u');
 	DBController.updateSavedUniversities(fakeAccount.getUsername(), "ADELPHI");
-	
+	//setup for u4: Alex
 	}
 
 	@After
@@ -35,19 +36,27 @@ public class DBControllerTest {
 		//fail("Not yet implemented");
 	}
 	
+	//testing for my u2: Alex
 	@Test
 	public void testdbGetSavedUniversityList() {
 	ArrayList<String> sizeA = new ArrayList<String>();
-	sizeA.add("");
-	
-	Assert.assertEquals(sizeA.size()==1, DBController.dbGetSavedUniversityList("amoralesg001"));
+	sizeA.add("ADELPHI");
+	Assert.assertTrue(DBController.dbGetSavedUniversityList("amoralesg001").contains(sizeA.get(0)));
+	//Assert.assertEquals(sizeA.size()==1, DBController.dbGetSavedUniversityList("amoralesg001"));
 	//Assert.assertEquals("userIsFound",PUT WHAT I EXPECT TO RETURN HERE, DBController)
 		
 	}
 	
+	//testing my u4: Alex
 	@Test
 	public void testDbSearchUniversity() {
-
+	ArrayList<String> searchesFound = new ArrayList<String>();
+	searchesFound.add("UNIVERSITY OF MINNESOTA");//check if it contains this
+	
+	University uniTest1= new University("UNIVERSITY OF MINNESOTA", "", "", "", 40000, 45, -1, -1, -1, -1, -1, -1, -1, -1, 3, 4, null, false);
+	
+	//Assert.assertEquals(DBController.dbSearchUniversity(uniTest1).contains(uniTest1.getuniversityName()),DBController.dbSearchUniversity(uniTest1));
+	Assert.assertTrue(DBController.dbSearchUniversity(uniTest1).contains(uniTest1.getuniversityName()));
 	}
 
 	@Test

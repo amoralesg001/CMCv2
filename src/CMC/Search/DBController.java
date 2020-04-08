@@ -447,14 +447,7 @@ public class DBController {
 			//return university;
 			return null;
 		}
-		/** this method returns an account to be used in UserController
-		 * @param username
-		 * @return account of the username
-		 */
-		public static Account getSavedUniversityList(String username) {
-			
-			return null;
-		}
+	
 		public static ArrayList<String> dbGetSavedUniversityList(String username){	
 			String[][] ar = univDBlib.user_getUsernamesWithSavedSchools();
 		
@@ -463,7 +456,6 @@ public class DBController {
 			if (ar[row][0].equals(username)){
 				
 				userSchool.add(ar[row][0]);
-				//System.out.println(ar[row][0]);
 				userSchool.add(ar[row][1]);
 				userSchool.add(ar[row][2]);
 				}
@@ -496,7 +488,7 @@ public class DBController {
             	if((!uniCriteria.getLocation().equals("")) && (!un[i][2].contains(uniCriteria.getLocation()))){	//still isnt working for some reason but the rest do!
             		searchCondition = false; 
         	    } 
-            	if((!uniCriteria.getControl().equals("")) && (!un[i][3].contains(uniCriteria.getLocation()))) {
+            	if((!uniCriteria.getControl().equals("")) && (!un[i][3].contains(uniCriteria.getControl()))) {
             		searchCondition = false; 
             	}
             	if((uniCriteria.getNumStudents()!=-1) && (Integer.parseInt(un[i][4])!=uniCriteria.intGetNumStudents())){
