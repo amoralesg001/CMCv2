@@ -75,4 +75,26 @@ public class DBControllerTest {
 		Assert.assertTrue("Saved university to list", updateSavedUniversities(username, uniName))
 	}
 
+	
+	
+	
+	
+	//Testing U1: Login
+	//Nick
+	@Test
+	public void testGetAccountDB() {
+		String username = "juser";
+		String password = "user";
+		
+		String wrongUsername = "juserr"
+		String wrongPassword = "userr"
+		
+		Account testAccount  = DBController.getAccountDB(username, password);
+		Account testWrongUsername = DBController.getAccountDB(wrongUsername, password);
+		Account testWrongPassword = DBController.getAccountDB(username, wrongPassword);
+		
+		Assert.assertTrue((testAccount.getUsername() == juser) && testAccount.getPassword() == password);
+		Assert.assertTrue(testWrongUsername.getUsername() == null);
+		Assert.assertTrue(testWrongPassword.getPassword() == null);
+	}
 }
