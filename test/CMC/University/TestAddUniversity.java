@@ -4,14 +4,30 @@ import static org.junit.Assert.*;
 
 import java.util.ArrayList;
 
-import org.junit.Test;
+import org.junit.*;
 
+import CMC.Search.DBController;
 import junit.framework.Assert;
 import junit.framework.TestCase;
 
-public class AddUniversityTest  {
+public class TestAddUniversity  {
 	
 	ArrayList<String> emp = new ArrayList<String>();
+	ArrayList<String> emptyEmp = new ArrayList<String>();
+	ArrayList<String> invalidEmp = new ArrayList<String>();
+	
+	@Before 
+	public void setUp() throws Exception{
+		emp.add("COMPUTER SCIENCE");
+		emptyEmp.add("");
+		invalidEmp.add(" COMPUTER SCIENCE");
+	}
+	
+	@After
+	public void tearDown() throws Exception{
+		DBController.univDBlib.university_removeUniversityEmphasis("Test7", "COMPUTER SCIENCE");
+		DBController.univDBlib.university_deleteUniversity("Test7");
+	}
 
 	  @Test (expected=UnsupportedOperationException.class)
 	  public void testNoLengthUniversityName(){
@@ -152,12 +168,22 @@ public class AddUniversityTest  {
 		  UniversityController.addUniversity("Test", "MN", "Urban", "private", 100, 10, 200, 200, 1, 1, 1, 0, 1, 1, 1, 6, emp, true);
 	  }
 	  
+	  @Test (expected = UnsupportedOperationException.class)
+	  public void testEmptyStringEmphasis() {
+		  UniversityController.addUniversity("STANFORD", "MN", "Urban", "private", 100, 10, 200, 200, 1, 1, 1, 0, 1, 1, 1, 1, emptyEmp, true);
+	  }
+	  
+	  @Test (expected = UnsupportedOperationException.class)
+	  public void testEmptyCharEmphasis() {
+		  UniversityController.addUniversity("STANFORD", "MN", "Urban", "private", 100, 10, 200, 200, 1, 1, 1, 0, 1, 1, 1, 1, invalidEmp, true);
+	  }
+	  
 	  @Test
 	  public void testValidParametersForUniversity(){
 		//University Already Exists with same name, University is not added
 	    Assert.assertFalse("ValidParameters, but University already Exists",UniversityController.addUniversity("Test5", "MN", "Urban", "private", 100, 10, 200, 200, 1, 1, 1, 0, 0, 1, 1, 1, emp, true));
 	    //For the test below, the universityName must be changed
-	    Assert.assertFalse("ValidParameters, but University already Exists",UniversityController.addUniversity("Test7", "MN", "Urban", "private", 100, 10, 200, 200, 1, 1, 1, 0, 0, 1, 1, 1, emp, true));
+	    Assert.assertTrue("ValidParameters, but University already Exists",UniversityController.addUniversity("Test7", "MN", "Urban", "private", 100, 10, 200, 200, 1, 1, 1, 0, 0, 1, 1, 1, emp, true));
 
 	    
 	  }

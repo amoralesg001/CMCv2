@@ -46,7 +46,12 @@ public class UniversityController {
 
 	public static void getUniversity(String universityName) {
 		University universityToDisplay = DBController.dbGetUniversity(universityName);
+		if (universityToDisplay == null) {
+			System.out.println("University " + universityName + " does not exist.");
+		}
+		else {
 		UserUI.displayUniversityInfo(universityToDisplay);
+		}
 		
 
 	}
@@ -82,13 +87,8 @@ public class UniversityController {
 		University u = new University(universityName, state, location, control, numStudents, femalePer, verSAT,
 				mathSAT, tuition, finAid, numApplicants, admitPer, enrolledPer, academicScale, socialScale,
 				qoaSCale, emphasis, blacklist);
-		if (!emphasis.isEmpty())
-		{
-			for(String s: emphasis)
-			{
-				DBController.univDBlib.university_addUniversityEmphasis(universityName, s);
-			}
-		}
+		
+
 		
 		//UnsupportedOperationException
 		boolean valid = true;
@@ -172,6 +172,16 @@ public class UniversityController {
 			valid = false;
 			throw new UnsupportedOperationException("Academic Scale must be from 1 - 5");
 		}
+		for(String s: emphasis)
+		{
+			if(s.length() == 0 || s.charAt(0) == ' ')
+			{
+				valid = false;
+				throw new UnsupportedOperationException("Invalid emphasis");
+			}
+		}
+		
+
 		
 		UserUI.displayUniversityInfo(u);
 		//DBController.addUniversity(newUniversity);
@@ -194,17 +204,17 @@ public class UniversityController {
 	 * 
 	 * @param String name of university
 	 */
-//	public static boolean removeUniversity(String username, String universityname) {
-	//University universityToRemove = DBController.getUniversity(universityname);
-		//Account.removeUniversity(universityToRemove);
-////		int i = DBController.removeUniversity(username, universityname);
-//		if (i == 1) {
-//			return true;
-	//	}
-	///	else {
-//			return false;
-	//	}
-//	}
+	public static boolean removeUniversity(String username, String universityname) {
+		University universityToRemove = DBController.getUniversity(universityname);
+		Account.removeUniversity(universityToRemove);
+		int i = DBController.removeUniversity(username, universityname);
+		if (i == 1) {
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
 	
 
 	
@@ -327,8 +337,15 @@ public class UniversityController {
 			valid = false;
 			throw new UnsupportedOperationException("Academic Scale must be from 1 - 5");
 		}
+		for(String s: emphasis)
+		{
+			if(s.length() == 0 || s.charAt(0) == ' ')
+			{
+				valid = false;
+				throw new UnsupportedOperationException("Invalid emphasis");
+			}
+		}
 		
-		UserUI.displayUniversityInfo(u);
 		//DBController.addUniversity(newUniversity);
 		if(valid)
 		{

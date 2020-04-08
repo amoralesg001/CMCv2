@@ -4,14 +4,29 @@ import static org.junit.Assert.*;
 
 import java.util.ArrayList;
 
-import org.junit.Test;
+import org.junit.*;
 
+import CMC.Search.DBController;
 import junit.framework.Assert;
 import junit.framework.TestCase;
 
-public class EditUniversityTest{
+public class TestEditUniversity{
 	
 	ArrayList<String> emp = new ArrayList<String>();
+	ArrayList<String> emptyEmp = new ArrayList<String>();
+	ArrayList<String> invalidEmp = new ArrayList<String>();
+	
+	@Before
+	public void setUp() throws Exception{
+		emp.add("COMPUTER SCIENCE");
+		emptyEmp.add("");
+		invalidEmp.add(" COMPUTER SCIENCE");
+	}
+	
+	@After
+	public void tearDown() throws Exception{
+		DBController.univDBlib.university_deleteUniversity("Test");
+	}
 
 	  @Test (expected=UnsupportedOperationException.class)
 	  public void testNoLengthUniversityName(){
@@ -151,17 +166,41 @@ public class EditUniversityTest{
 	  public void testQOAScaleGreaterThan5(){
 		  UniversityController.editUniversityinfo("Test", "MN", "Urban", "private", 100, 10, 200, 200, 1, 1, 1, 0, 1, 1, 1, 6, emp, true);
 	  }
+	  
+	  @Test (expected = UnsupportedOperationException.class)
+	  public void testEmptyStringEmphasis() {
+		  UniversityController.editUniversityinfo("STANFORD", "MN", "Urban", "private", 100, 10, 200, 200, 1, 1, 1, 0, 1, 1, 1, 1, emptyEmp, true);
+	  }
+	  
+	  @Test (expected = UnsupportedOperationException.class)
+	  public void testEmptyCharEmphasis() {
+		  UniversityController.editUniversityinfo("STANFORD", "MN", "Urban", "private", 100, 10, 200, 200, 1, 1, 1, 0, 1, 1, 1, 1, invalidEmp, true);
+	  }
+	  
+	  @Test
+	  public void testUniversityNameWithEmphasis() {
+		  String universityName = "ADELPHI";
+		  System.out.println(universityName + " emphases are:");
+			for (int i = 0; i < DBController.univDBlib.university_getNamesWithEmphases().length; i ++)
+			{
+				if (DBController.univDBlib.university_getNamesWithEmphases()[i][0].equals(universityName))
+				{
+					System.out.println(DBController.univDBlib.university_getNamesWithEmphases()[i][1]);
+					
+				}
+			}
+	  }
 
 	  @Test (expected = NullPointerException.class)
 	  public void testValidParametersForNoUniversity(){
-	    Assert.assertFalse("ValidParameters, but University already Exists",UniversityController.editUniversityinfo("TestFail", "MN", "Urban", "private", 100, 10, 200, 200, 1, 1, 1, 0, 0, 1, 1, 1, emp, true));
+	    Assert.assertFalse("ValidParameters, but University does NOT Exists",UniversityController.editUniversityinfo("TestFail", "MN", "Urban", "private", 100, 10, 200, 200, 1, 1, 1, 0, 0, 1, 1, 1, emp, true));
 
 	    
 	  }
 	  
 	  @Test
 	  public void testValidParametersForUniversity(){
-	    Assert.assertTrue("ValidParameters, but University already Exists",UniversityController.editUniversityinfo("blahblah13", "MN", "Urban", "private", 100, 10, 200, 200, 1, 1, 1, 0, 0, 1, 1, 1, emp, true));
+	    Assert.assertTrue("ValidParameters",UniversityController.editUniversityinfo("Test5", "MN", "Urban", "private", 100, 10, 200, 200, 1, 1, 1, 0, 0, 1, 1, 1, emp, true));
 
 	    
 	  }
