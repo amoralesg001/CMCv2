@@ -52,7 +52,7 @@ public class DBControllerTest {
 
 	@Test
 	public void testGetAllUsers() {
-		ArraryList<Account> users = new ArrayList<Account>();
+		ArrayList<Account> users = new ArrayList<Account>();
 		users.add(Account("John", "User", "juser", "user", 'u', 'y'));
 		users.add(Account("Lynn", "User", "luser", "user", 'u', 'N'));
 		users.add(Account("Noreen", "Admin", "nadmin", "admin", 'a', 'y'));

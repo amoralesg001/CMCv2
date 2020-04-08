@@ -46,7 +46,12 @@ public class UniversityController {
 
 	public static void getUniversity(String universityName) {
 		University universityToDisplay = DBController.dbGetUniversity(universityName);
+		if (universityToDisplay == null) {
+			System.out.println("University " + universityName + " does not exist.");
+		}
+		else {
 		UserUI.displayUniversityInfo(universityToDisplay);
+		}
 		
 
 	}
@@ -199,17 +204,17 @@ public class UniversityController {
 	 * 
 	 * @param String name of university
 	 */
-//	public static boolean removeUniversity(String username, String universityname) {
-	//University universityToRemove = DBController.getUniversity(universityname);
-		//Account.removeUniversity(universityToRemove);
-////		int i = DBController.removeUniversity(username, universityname);
-//		if (i == 1) {
-//			return true;
-	//	}
-	///	else {
-//			return false;
-	//	}
-//	}
+	public static boolean removeUniversity(String username, String universityname) {
+		University universityToRemove = DBController.getUniversity(universityname);
+		Account.removeUniversity(universityToRemove);
+		int i = DBController.removeUniversity(username, universityname);
+		if (i == 1) {
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
 	
 
 	

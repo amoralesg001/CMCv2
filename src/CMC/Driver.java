@@ -16,7 +16,7 @@ public class Driver {
 	//private University university = new University(null, null, null, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, null);
 
 	public static void main(String[] args) {
-		
+		String univTest = "SAINT JOHN'S";
 		String SName = "ADELPHI";
 		String AName = "juser";
 		String universityTest = "blahblah1";
@@ -52,14 +52,14 @@ public class Driver {
 		int i = DBController.removeUniversity(username, universityname);
 		
 		System.out.println("\nU5 Starting\n");
-		u5(universityname);
-		System.out.println("\nU5 Done: Should dislpay the information of Stanford. \n");		
+		u5(univTest);
+		System.out.println("\nU5 Done: Should dislpay the information of Adelphi. \n");		
 		//u6(universityToRemove);
 		//u7(universityToRemove, universityToRemove, universityToRemove, universityToRemove);
 	
 
 		System.out.println("u6 starting");
-		//u6(AName, SName);
+		u6(AName, SName);
 		System.out.println("u6 done");
 		System.out.println("u9 starting");
 		u9(AName, SName);
@@ -70,7 +70,7 @@ public class Driver {
 		System.out.println("u2 done");
 		
 		System.out.println("u6 starting");
-		//u6(AName, SName);
+		u6(AName, SName);
 		System.out.println("u6 done");
 	
 		// Edit User Information (U7) Test @author: Jack

@@ -121,8 +121,8 @@ public class Account {
 	 * @param universityToRemove
 	 */
 	public static void removeUniversity(University universityToRemove) {
-		ArrayList<University> universitys = new ArrayList<University>();
-		universitys.remove(universityToRemove);
+		ArrayList<University> universities = new ArrayList<University>();
+		universities.remove(universityToRemove);
 	}
 	/**
 	 * Adds university to saved schools list

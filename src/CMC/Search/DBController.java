@@ -109,25 +109,25 @@ public class DBController {
 					
 					//University Name
 					String universityName = un[i][0];
-					if (universityName.equals("-1")) {
+					if (universityName.equals("o")) {
 						universityName = "N/A";
 					}
 					
 					//State
 					String state = un[i][1];
-					if (state.equals("-1")) {
+					if (state.equals("o")) {
 						state = "N/A";
 					}
 					
 					//Location
 					String location = un[i][2];
-					if (location.equals("-1")) {
+					if (location.equals("o")) {
 						location = "N/A";
 					}
 					
 					//Control
 					String control = un[i][3];
-					if (control.equals("-1")) {
+					if (control.equals("o")) {
 						control = "N/A";
 					}
 					
