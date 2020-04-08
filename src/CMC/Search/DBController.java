@@ -447,14 +447,7 @@ public class DBController {
 			//return university;
 			return null;
 		}
-		/** this method returns an account to be used in UserController
-		 * @param username
-		 * @return account of the username
-		 */
-		public static Account getSavedUniversityList(String username) {
-			
-			return null;
-		}
+	
 		public static ArrayList<String> dbGetSavedUniversityList(String username){	
 			String[][] ar = univDBlib.user_getUsernamesWithSavedSchools();
 		
@@ -463,7 +456,6 @@ public class DBController {
 			if (ar[row][0].equals(username)){
 				
 				userSchool.add(ar[row][0]);
-				//System.out.println(ar[row][0]);
 				userSchool.add(ar[row][1]);
 				userSchool.add(ar[row][2]);
 				}

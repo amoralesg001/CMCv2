@@ -35,16 +35,15 @@ public class Driver {
 		u3("nadmin", "admin");
 		System.out.println("u3 done");
 		
-		System.out.println("u4 starting");
-		u4("", "TA", "", "", -1,0 , 0, 0, 0, 0, 0, 0,0, 0, 0, 0, null);
+		System.out.println("u4 scenerio: all three criterias are correct");
+		u4("UNIVERS", "MINN", "", "", 40000,0 , 0, 0, 0, 0, 0, 0,0, 0, 0, 0, null);
 		System.out.println("u4 done");
-		System.out.println("output should be: ADELPHI IS FOUND\n");
-		System.out.println("u4 ALTERNATE starting");
-		u4("HOLY CR", "MA", "", "", -1, 0, 0, 0, 0, 0, 0, 0,0,
+		System.out.println("output should be: university with the follwoing criterias found: \nUNIVERSITY OF MINNESOTA");
+		System.out.println("\nu4 ALTERNATE Scenerio: all three criterias are incorrect: ");
+		u4("UNIVSK", "MINAT", "", "", 4000, 0, 0, 0, 0, 0, 0, 0,0,
 		           0, 0, 0, null);
 		System.out.println("u4 done");
-		System.out.println("output should be: no University found ");
-		System.out.println();
+		System.out.println("output should be: No Universities Found with that criteria \n ");
 	
 		String username = "juser";
 		String universityname = "waer2";
@@ -65,14 +64,20 @@ public class Driver {
 		u9(AName, SName);
 		System.out.println("u9 done");
 		
-		System.out.println("u2 starting");
+		System.out.println("/nu2 Scenerio: A user has saved universities under their account");
 		u2("juser");
 		System.out.println("u2 done");
+		System.out.println("The Output should be: JUSER \n ADELPHI \n DATE ADDED\n");
 		
 		System.out.println("u6 starting");
 		u6(AName, SName);
 		System.out.println("u6 done");
-	
+		
+		System.out.println("\nu2 ALTERNATE Scenerio: the user has no saved universities under their account");
+		u2("juser");
+		System.out.println("u2 done");
+		System.out.println("The Output should be: No universities saved under this user");
+		
 		// Edit User Information (U7) Test @author: Jack
 		System.out.println("\nu7 (Edit User Info) starting...");
 		System.out.println("\nTesting user 'John' (in database / should not be null)");
