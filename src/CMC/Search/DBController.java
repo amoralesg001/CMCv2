@@ -496,7 +496,7 @@ public class DBController {
             	if((!uniCriteria.getLocation().equals("")) && (!un[i][2].contains(uniCriteria.getLocation()))){	//still isnt working for some reason but the rest do!
             		searchCondition = false; 
         	    } 
-            	if((!uniCriteria.getControl().equals("")) && (!un[i][3].contains(uniCriteria.getLocation()))) {
+            	if((!uniCriteria.getControl().equals("")) && (!un[i][3].contains(uniCriteria.getControl()))) {
             		searchCondition = false; 
             	}
             	if((uniCriteria.getNumStudents()!=-1) && (Integer.parseInt(un[i][4])!=uniCriteria.intGetNumStudents())){

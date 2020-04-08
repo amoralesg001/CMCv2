@@ -9,6 +9,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import CMC.University.University;
 import CMC.User.Account;
 import junit.framework.Assert;
 
@@ -20,7 +21,7 @@ public class DBControllerTest {
 	//setup for U2: Alex 
 	fakeAccount= DBController.addUser("Alex", "Morales", "amoralesg001", "lakdjf", 'u');
 	DBController.updateSavedUniversities(fakeAccount.getUsername(), "ADELPHI");
-	
+	//setup for u4: Alex
 	}
 
 	@After
@@ -47,7 +48,13 @@ public class DBControllerTest {
 	
 	@Test
 	public void testDbSearchUniversity() {
-
+	ArrayList<String> searchesFound = new ArrayList<String>();
+	searchesFound.add("UNIVERSITY OF MINNESOTA");//check if it contains this
+	
+	University uniTest1= new University("UNIVERSITY OF MINNESOTA", "", "", "", 40000, 45, -1, -1, -1, -1, -1, -1, -1, -1, 3, 4, null, false);
+	
+	Assert.assertEquals(DBController.dbSearchUniversity(uniTest1).contains(uniTest1.getuniversityName()),DBController.dbSearchUniversity(uniTest1));
+	
 	}
 
 	@Test
