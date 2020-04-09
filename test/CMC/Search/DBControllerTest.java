@@ -45,9 +45,7 @@ public class DBControllerTest {
 		Assert.assertEquals("Testing remove University with the university saved in list", 1, 
 				DBController.removeUniversity(username, univName));
 	}
-<<<<<<< HEAD
-	
-	
+
 	//Testing U1: Login
 	//Nick
 	@Test
@@ -67,8 +65,8 @@ public class DBControllerTest {
 		Assert.assertTrue(testWrongPassword.getPassword() == null);
 	}
  
-}
-=======
+
+
 
 	//testing for my u2: Alex
 	@Test
@@ -96,10 +94,7 @@ public class DBControllerTest {
 
 
 	Assert.assertTrue(DBController.dbSearchUniversity(uniTest1).contains(uniTest1.getuniversityName()));
-	}
 	
 	}
+}
 	
-
-
->>>>>>> 20886e53e221351877e21861eba1e67a4687f47a
