@@ -16,8 +16,10 @@ public class UserControllerTest {
 	public void tearDown() throws Exception {
 	}
 
+	// Testing U7: Save User Info
+	// Jack
 	@Test
-	public void test() {
+	public void testSaveUserInfo() {
 		fail("Not yet implemented");
 	}
 
