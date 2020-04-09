@@ -46,11 +46,7 @@ public class DBControllerTest {
 				DBController.removeUniversity(username, univName));
 	}
 
-<<<<<<< HEAD
-	
-	
-=======
->>>>>>> d829d0904b113d13514ea68eaf68d74164e1aca0
+
 	//Testing U1: Login
 	//Nick
 	@Test
@@ -69,10 +65,7 @@ public class DBControllerTest {
 		Assert.assertTrue(testWrongUsername.getUsername() == null);
 		Assert.assertTrue(testWrongPassword.getPassword() == null);
 	}
-<<<<<<< HEAD
- 
-=======
->>>>>>> d829d0904b113d13514ea68eaf68d74164e1aca0
+
 
 
 
@@ -120,7 +113,4 @@ public class DBControllerTest {
 }
 	
 
-<<<<<<< HEAD
 
-=======
->>>>>>> d829d0904b113d13514ea68eaf68d74164e1aca0
