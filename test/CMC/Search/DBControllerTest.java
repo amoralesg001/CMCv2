@@ -33,5 +33,5 @@ public class DBControllerTest {
 		Assert.assertEquals("Testing remove University with the university saved in list", 1, 
 				DBController.removeUniversity(username, univName));
 	}
-
+ 
 }
