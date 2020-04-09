@@ -74,7 +74,7 @@ public class Driver {
 		u9(AName, SName);
 		System.out.println("u9 done");
 		
-		System.out.println("/nu2 Scenerio: A user has saved universities under their account");
+		System.out.println("/nu Scenerio: A user has saved universities under their account");
 		u2("juser");
 		System.out.println("u2 done");
 		System.out.println("The Output should be: JUSER \n ADELPHI \n DATE ADDED\n");
@@ -83,7 +83,7 @@ public class Driver {
 		u6(AName, SName);
 		System.out.println("u6 done");
 		
-		System.out.println("\nu2 ALTERNATE Scenerio: the user has no saved universities under their account");
+		System.out.println("\nu ALTERNATE Scenerio: the user has no saved universities under their account");
 		u2("juser");
 		System.out.println("u2 done");
 		System.out.println("The Output should be: No universities saved under this user");
