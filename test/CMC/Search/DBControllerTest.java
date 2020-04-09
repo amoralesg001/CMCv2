@@ -118,10 +118,13 @@ public class DBControllerTest {
 
 	@Test
 	public void testGetAllUsers() {
-		ArraryList<Account> users = new ArrayList<Account>();
-		users.add(Account("John", "User", "juser", "user", 'u', 'y'));
-		users.add(Account("Lynn", "User", "luser", "user", 'u', 'N'));
-		users.add(Account("Noreen", "Admin", "nadmin", "admin", 'a', 'y'));
+		ArrayList<Account> users = new ArrayList<Account>();
+		Account juser = new Account("John", "User", "juser", "user", "u", "y");
+		users.add(juser);
+		Account luser = new Account("Lynn", "User", "luser", "user", "u", "N");
+		users.add(luser);
+		Account nadmin = new Account("Noreen", "Admin", "nadmin", "admin", "a", "y");
+		users.add(nadmin);
 		Assert.assertEquals("Got all users", users, DBController.getAllUsers());
 	}
 	// testing u10: save university
@@ -129,8 +132,8 @@ public class DBControllerTest {
 	@Test
 	public void testUpdateSavedUniversities() {
 		String username = "juser";
-		String uniName = "AUGSBURG";
-		Assert.assertTrue("Saved university to list", updateSavedUniversities(username, uniName))
+		String uniName = "ADELPHI";
+		Assert.assertTrue("Saved university to list", DBController.updateSavedUniversities(username, uniName));
 	}
 }
 	
