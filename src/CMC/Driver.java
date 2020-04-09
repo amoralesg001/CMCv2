@@ -20,22 +20,28 @@ public class Driver {
 		String SName = "ADELPHI";
 		String AName = "juser";
 		String universityTest = "blahblah1";
-		University university = DBController.dbGetUniversity(universityTest);
-		System.out.println(university.toString());
+		//University university = DBController.dbGetUniversity(universityTest);
+		//System.out.println(university.toString());
 		System.out.println("u1 starting");
 		u1();
 		System.out.println("u1 done");
 
-		System.out.println("Output should be: logged in");
+		//System.out.println("Output should be: logged in");
 
 		System.out.println("u2 starting");
 		u2("juser");
 		System.out.println("u2 done");
 
 		System.out.println("u3 starting");
+		System.out.println("Displaying Information for John:");	
 		u3("juser", "user");
+		System.out.println("\n");
+		System.out.println("Attempt to display information for Lynn:");
 		u3("luser", "user");
+		System.out.println("\n");
+		System.out.println("Displaying Information for Noreen:");
 		u3("nadmin", "admin");
+		System.out.println("\n");
 		System.out.println("u3 done");
 		
 		System.out.println("u4 scenerio: all three criterias are correct");
@@ -206,7 +212,7 @@ public class Driver {
 	
 	
 	/**
-	 * U2: Display User Information
+	 * U3: Display User Information
 	 * @author nlarson002
 	 * Displays the users Information given their username and password
 	 * 
@@ -215,27 +221,7 @@ public class Driver {
 	 */
 	public static void u3(String username, String password) {
 		System.out.println("\n");
-		Account account = UserUI.getUserInfo(username, password);
-		String usernameTest = account.getUsername();
-		String passwordTest = account.getPassword();
-		String firstName = account.getFirstName();
-		String lastName = account.getLastName();
-		String status = account.getLoginStatus();
-
-		if (usernameTest == null) {
-			System.out.println("User is blocked or does not exist");
-			
-		}
-		else {
-			System.out.println("Displaying user information for " + firstName);
-			System.out.println("Username: " + usernameTest);
-			System.out.println("Password: " + passwordTest);
-			System.out.println("First Name: " + firstName);
-			System.out.println("Last Name: "  + lastName);
-			System.out.println("Status: " + status);
-			System.out.println("\n");
-		}
-	
+		UserUI.getUserInfo(username, password);
 	}
 	
 	
@@ -342,9 +328,9 @@ public class Driver {
 	/**
 	 * 
 	 */
-	public static void u11() {
-		UserUI.manageSchool();
-	}
+	//public static void u11() {
+		//UserUI.manageSchool();
+	//}
 	/**
 	 * U12 add school
 	 * USED BY READYSON

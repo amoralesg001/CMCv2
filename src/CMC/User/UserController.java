@@ -66,7 +66,7 @@ public class UserController {
 			tempS = account.getLoginStatus();
 		}
 		
-		if (tempU.equals(username) && tempP.equals(password) && tempS.equals("Y")){
+		if (tempU.equals(username) && tempP.equals(password) && (tempS.equals("Y") || tempS.equals("y"))){
 			
 			return true;
 			

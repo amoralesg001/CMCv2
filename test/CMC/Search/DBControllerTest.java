@@ -57,12 +57,11 @@ public class DBControllerTest {
 		String wrongPassword = "userr";
 
 		Account testAccount  = DBController.getAccountDB(username, password);
-		Account testWrongUsername = DBController.getAccountDB(wrongUsername, password);
-		Account testWrongPassword = DBController.getAccountDB(username, wrongPassword);
-
-		Assert.assertTrue((testAccount.getUsername() == "juser") && testAccount.getPassword() == password);
-		Assert.assertTrue(testWrongUsername.getUsername() == null);
-		Assert.assertTrue(testWrongPassword.getPassword() == null);
+		//Account testWrongUsername = DBController.getAccountDB(wrongUsername, password);
+		//Account testWrongPassword = DBController.getAccountDB(username, wrongPassword);
+		Assert.assertTrue((testAccount.getUsername().equals(username)) && testAccount.getPassword().equals(password));
+		//Assert.assertTrue(DBController.getAccountDB(wrongUsername, password).equals(null));
+		//Assert.assertTrue(testWrongPassword.getPassword() == null
 	}
 
 
@@ -113,6 +112,27 @@ public class DBControllerTest {
 		Assert.assertTrue(testIncorrectUsername.getUsername() == null);
 		Assert.assertTrue(testIncorrectUsername.getFirstName() == null);
 		Assert.assertFalse(testIncorrectUsername.getLoginStatus() == "N");
+	}
+	// Testing U9: get all users
+
+	@Test
+	public void testGetAllUsers() {
+		ArrayList<Account> users = new ArrayList<Account>();
+		Account juser = new Account("John", "User", "juser", "user", "u", "y");
+		users.add(juser);
+		Account luser = new Account("Lynn", "User", "luser", "user", "u", "N");
+		users.add(luser);
+		Account nadmin = new Account("Noreen", "Admin", "nadmin", "admin", "a", "y");
+		users.add(nadmin);
+		Assert.assertEquals("Got all users", users, DBController.getAllUsers());
+	}
+	// testing u10: save university
+
+	@Test
+	public void testUpdateSavedUniversities() {
+		String username = "juser";
+		String uniName = "ADELPHI";
+		Assert.assertTrue("Saved university to list", DBController.updateSavedUniversities(username, uniName));
 	}
 }
 	
