@@ -25,9 +25,13 @@ public class Driver {
 		System.out.println("u1 starting");
 		u1();
 		System.out.println("u1 done");
+
+		System.out.println("Output should be: logged in");
+
 		System.out.println("u2 starting");
 		u2("juser");
 		System.out.println("u2 done");
+
 		System.out.println("u3 starting");
 		u3("juser", "user");
 		u3("luser", "user");
