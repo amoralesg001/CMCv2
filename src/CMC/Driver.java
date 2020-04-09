@@ -20,22 +20,28 @@ public class Driver {
 		String SName = "ADELPHI";
 		String AName = "juser";
 		String universityTest = "blahblah1";
-		University university = DBController.dbGetUniversity(universityTest);
-		System.out.println(university.toString());
+		//University university = DBController.dbGetUniversity(universityTest);
+		//System.out.println(university.toString());
 		System.out.println("u1 starting");
 		u1();
 		System.out.println("u1 done");
 
-		System.out.println("Output should be: logged in");
+		//System.out.println("Output should be: logged in");
 
 		System.out.println("u2 starting");
 		u2("juser");
 		System.out.println("u2 done");
 
 		System.out.println("u3 starting");
+		System.out.println("Displaying Information for John:");	
 		u3("juser", "user");
+		System.out.println("\n");
+		System.out.println("Attempt to display information for Lynn:");
 		u3("luser", "user");
+		System.out.println("\n");
+		System.out.println("Displaying Information for Noreen:");
 		u3("nadmin", "admin");
+		System.out.println("\n");
 		System.out.println("u3 done");
 		
 		System.out.println("u4 scenerio: all three criterias are correct");

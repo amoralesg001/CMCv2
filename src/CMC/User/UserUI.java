@@ -49,9 +49,9 @@ public class UserUI {
 	/**
 	 * 
 	 */
-	public static void manageSchool() {
-		UniversityController.getAllUniversities();
-	}
+	//public static void manageSchool() {
+		//UniversityController.getAllUniversities();
+	//}
 	
 	/**
 	 *
