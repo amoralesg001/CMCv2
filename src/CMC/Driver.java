@@ -28,9 +28,10 @@ public class Driver {
 
 		System.out.println("Output should be: logged in");
 
-		System.out.println("u2 starting");
+		System.out.println("\nu2 ALTERNATE Scenerio: the user has no saved universities under their account");
 		u2("juser");
 		System.out.println("u2 done");
+		System.out.println("The Output should be: No universities saved under this user");
 
 		System.out.println("u3 starting");
 		u3("juser", "user");

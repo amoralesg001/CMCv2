@@ -45,7 +45,7 @@ public class DBControllerTest {
 		Assert.assertEquals("Testing remove University with the university saved in list", 1, 
 				DBController.removeUniversity(username, univName));
 	}
-<<<<<<< HEAD
+
 	
 	
 	//Testing U1: Login
@@ -67,16 +67,14 @@ public class DBControllerTest {
 		Assert.assertTrue(testWrongPassword.getPassword() == null);
 	}
  
-}
-=======
+
+
 
 	//testing for my u2: Alex
 	@Test
 	
 	public void testdbGetSavedUniversityList() {
 	ArrayList<String> sizeA = new ArrayList<String>();
-	
-
 	sizeA.add("ADELPHI");
 
 	Assert.assertTrue(DBController.dbGetSavedUniversityList("amoralesg001").contains(sizeA.get(0)));
@@ -91,10 +89,6 @@ public class DBControllerTest {
 
 	University uniTest1= new University("UNIVERSITY OF MINNESOTA", "", "", "", 40000, 45, -1, -1, -1, -1, -1, -1, -1, -1, 3, 4, null, false);
 
-
-
-
-
 	Assert.assertTrue(DBController.dbSearchUniversity(uniTest1).contains(uniTest1.getuniversityName()));
 	}
 	
@@ -102,4 +96,3 @@ public class DBControllerTest {
 	
 
 
->>>>>>> 20886e53e221351877e21861eba1e67a4687f47a
