@@ -64,7 +64,6 @@ public class DBControllerTest {
 		Assert.assertTrue(testWrongUsername.getUsername() == null);
 		Assert.assertTrue(testWrongPassword.getPassword() == null);
 	}
- 
 
 
 
@@ -94,7 +93,26 @@ public class DBControllerTest {
 
 
 	Assert.assertTrue(DBController.dbSearchUniversity(uniTest1).contains(uniTest1.getuniversityName()));
-	
+	}
+	// Testing U7: Edit User Info
+	// Jack
+	@Test
+	public void testGetAccountDB2() {
+		// Setup: corrrect and incorrect username variables for the test
+		String correctUsername = "luser";
+		String incorrectUsername = "lynnuser";
+		// Setup: Account objects for the test
+		Account testCorrectUsername = DBController.getAccountDB2(correctUsername);
+		Account testIncorrectUsername = DBController.getAccountDB2(incorrectUsername);
+		// Test: correctUsername should return the correct user object
+		Assert.assertFalse(testCorrectUsername.getUsername() == correctUsername); // should be true
+		Assert.assertFalse(testCorrectUsername.getFirstName() == "Lynn"); // should be true
+		Assert.assertFalse(testCorrectUsername.getLoginStatus() == "N"); // should be true
+		// Test: incorrectUsername should return an account object with all 'null' information
+		Assert.assertTrue(testIncorrectUsername.getUsername() == null);
+		Assert.assertTrue(testIncorrectUsername.getFirstName() == null);
+		Assert.assertFalse(testIncorrectUsername.getLoginStatus() == "N");
 	}
 }
 	
+
