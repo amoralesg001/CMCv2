@@ -25,7 +25,13 @@ public class Driver {
 		System.out.println("u1 starting");
 		u1();
 		System.out.println("u1 done");
+
 		System.out.println("Output should be: logged in");
+
+		System.out.println("u2 starting");
+		u2("juser");
+		System.out.println("u2 done");
+
 		System.out.println("u3 starting");
 		u3("juser", "user");
 		u3("luser", "user");
@@ -161,6 +167,7 @@ public class Driver {
 		username = "nadmin";
 		password = "admin";
 		System.out.println("Testing for user Noreen");
+		System.out.println("Output should be: Logged in");
 		verify = UserUI.login(username, password);
 		if (verify == true) {
 			System.out.println("Logged in");	
