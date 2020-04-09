@@ -114,6 +114,24 @@ public class DBControllerTest {
 		Assert.assertTrue(testIncorrectUsername.getFirstName() == null);
 		Assert.assertFalse(testIncorrectUsername.getLoginStatus() == "N");
 	}
+	// Testing U9: get all users
+
+	@Test
+	public void testGetAllUsers() {
+		ArraryList<Account> users = new ArrayList<Account>();
+		users.add(Account("John", "User", "juser", "user", 'u', 'y'));
+		users.add(Account("Lynn", "User", "luser", "user", 'u', 'N'));
+		users.add(Account("Noreen", "Admin", "nadmin", "admin", 'a', 'y'));
+		Assert.assertEquals("Got all users", users, DBController.getAllUsers());
+	}
+	// testing u10: save university
+
+	@Test
+	public void testUpdateSavedUniversities() {
+		String username = "juser";
+		String uniName = "AUGSBURG";
+		Assert.assertTrue("Saved university to list", updateSavedUniversities(username, uniName))
+	}
 }
 	
 
