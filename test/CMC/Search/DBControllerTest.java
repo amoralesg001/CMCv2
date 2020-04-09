@@ -132,7 +132,7 @@ public class DBControllerTest {
 	@Test
 	public void testUpdateSavedUniversities() {
 		String username = "juser";
-		String uniName = "AUGSBURG";
+		String uniName = "ADELPHI";
 		Assert.assertTrue("Saved university to list", DBController.updateSavedUniversities(username, uniName));
 	}
 }
