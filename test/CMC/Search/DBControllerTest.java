@@ -95,7 +95,7 @@ public class DBControllerTest {
 	Assert.assertTrue(DBController.dbSearchUniversity(uniTest1).contains(uniTest1.getuniversityName()));
 	}
 	
-	// Testing U7: Edit User Info
+	// Testing U7: Edit User Info && Activate/Deactivate: changeStatus
 	// Jack
 	@Test
 	public void testGetAccountDB2() {
