@@ -22,18 +22,20 @@ public class DBController {
 		public static Account getAccountDB(String username, String password) {
 			
 			Account user = dbGetUser(username);
-			
+			//System.out.println(user.getPassword());
+			//System.out.println(user.getLoginStatus());
 			String tempU = user.getUsername();
 			String tempP = user.getPassword();
 			String tempS = user.getLoginStatus();
 			
-			if (tempU.equals(username) && tempP.equals(password) && tempS.equals("Y")){
-				
+			if (tempU.equals(username) && tempP.equals(password) && (tempS.equals("Y") || tempS.equals("y"))){
+				//System.out.println("pass");
 				return user;
 				
 			}
 			else {
 				Account tempA = new Account(null, null, null, null, null, null);
+				//System.out.println("fail");
 				return tempA;
 			}
 			

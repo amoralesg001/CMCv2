@@ -18,12 +18,17 @@ public class UniversityControllerTest {
 	 ArrayList<String> emp = new ArrayList<String>();
 	 ArrayList<String> emptyEmp = new ArrayList<String>();
 	 ArrayList<String> invalidEmp = new ArrayList<String>();
+	 ArrayList<String> uniNames = new ArrayList<String>();
 	 
 	 @Before 
 	 public void setUp() throws Exception{
 	  emp.add("COMPUTER SCIENCE");
 	  emptyEmp.add("");
 	  invalidEmp.add(" COMPUTER SCIENCE");
+	  uniNames.add("ADELPHI");
+	  uniNames.add(" ADELPHI");
+	  uniNames.add("");
+	  
 	 }
 	 
 	 @After
@@ -356,19 +361,32 @@ public class UniversityControllerTest {
 	   public void testEditEmptyCharEmphasis() {
 	    UniversityController.editUniversityinfo("STANFORD", "MN", "Urban", "private", 100, 10, 200, 200, 1, 1, 1, 0, 1, 1, 1, 1, invalidEmp, true);
 	   }
-	   
+	   //BLACK BOX TESTING
 	   @Test
 	   public void testUniversityNameWithEmphasis() {
-	    String universityName = "ADELPHI";
-	    System.out.println(universityName + " emphases are:");
-	   for (int i = 0; i < DBController.univDBlib.university_getNamesWithEmphases().length; i ++)
-	   {
-	    if (DBController.univDBlib.university_getNamesWithEmphases()[i][0].equals(universityName))
+	    for (String universityName : uniNames)
 	    {
-	     System.out.println(DBController.univDBlib.university_getNamesWithEmphases()[i][1]);
+	    	boolean found = false;
+	    	System.out.println(universityName + " emphases are:");
+	    	for (int i = 0; i < DBController.univDBlib.university_getNamesWithEmphases().length; i ++)
+	    	{
+	    		if (DBController.univDBlib.university_getNamesWithEmphases()[i][0].equals(universityName))
+	    		{
+	    			found = true;
+	    			System.out.println(DBController.univDBlib.university_getNamesWithEmphases()[i][1]);
 	     
+	    		}
+
+	    	}
+    		if (found)
+    		{
+    			System.out.println("University: " + universityName + " was found");
+    		}
+    		else
+    		{
+    			System.out.println("University: " + universityName + " was NOT found");
+    		}
 	    }
-	   }
 	   }
 
 	   @Test (expected = NullPointerException.class)

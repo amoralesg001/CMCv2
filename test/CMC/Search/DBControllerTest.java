@@ -46,6 +46,7 @@ public class DBControllerTest {
 				DBController.removeUniversity(username, univName));
 	}
 
+
 	//Testing U1: Login
 	//Nick
 	@Test
@@ -57,13 +58,13 @@ public class DBControllerTest {
 		String wrongPassword = "userr";
 
 		Account testAccount  = DBController.getAccountDB(username, password);
-		Account testWrongUsername = DBController.getAccountDB(wrongUsername, password);
-		Account testWrongPassword = DBController.getAccountDB(username, wrongPassword);
-
-		Assert.assertTrue((testAccount.getUsername() == "juser") && testAccount.getPassword() == password);
-		Assert.assertTrue(testWrongUsername.getUsername() == null);
-		Assert.assertTrue(testWrongPassword.getPassword() == null);
+		//Account testWrongUsername = DBController.getAccountDB(wrongUsername, password);
+		//Account testWrongPassword = DBController.getAccountDB(username, wrongPassword);
+		Assert.assertTrue((testAccount.getUsername().equals(username)) && testAccount.getPassword().equals(password));
+		//Assert.assertTrue(DBController.getAccountDB(wrongUsername, password).equals(null));
+		//Assert.assertTrue(testWrongPassword.getPassword() == null
 	}
+
 
 
 
@@ -72,8 +73,6 @@ public class DBControllerTest {
 	
 	public void testdbGetSavedUniversityList() {
 	ArrayList<String> sizeA = new ArrayList<String>();
-	
-
 	sizeA.add("ADELPHI");
 
 	Assert.assertTrue(DBController.dbGetSavedUniversityList("amoralesg001").contains(sizeA.get(0)));
@@ -87,10 +86,6 @@ public class DBControllerTest {
 	searchesFound.add("UNIVERSITY OF MINNESOTA");//check if it contains this
 
 	University uniTest1= new University("UNIVERSITY OF MINNESOTA", "", "", "", 40000, 45, -1, -1, -1, -1, -1, -1, -1, -1, 3, 4, null, false);
-
-
-
-
 
 	Assert.assertTrue(DBController.dbSearchUniversity(uniTest1).contains(uniTest1.getuniversityName()));
 	}
@@ -118,10 +113,13 @@ public class DBControllerTest {
 
 	@Test
 	public void testGetAllUsers() {
-		ArraryList<Account> users = new ArrayList<Account>();
-		users.add(Account("John", "User", "juser", "user", 'u', 'y'));
-		users.add(Account("Lynn", "User", "luser", "user", 'u', 'N'));
-		users.add(Account("Noreen", "Admin", "nadmin", "admin", 'a', 'y'));
+		ArrayList<Account> users = new ArrayList<Account>();
+		Account juser = new Account("John", "User", "juser", "user", "u", "y");
+		users.add(juser);
+		Account luser = new Account("Lynn", "User", "luser", "user", "u", "N");
+		users.add(luser);
+		Account nadmin = new Account("Noreen", "Admin", "nadmin", "admin", "a", "y");
+		users.add(nadmin);
 		Assert.assertEquals("Got all users", users, DBController.getAllUsers());
 	}
 	// testing u10: save university
@@ -129,9 +127,10 @@ public class DBControllerTest {
 	@Test
 	public void testUpdateSavedUniversities() {
 		String username = "juser";
-		String uniName = "AUGSBURG";
-		Assert.assertTrue("Saved university to list", updateSavedUniversities(username, uniName))
+		String uniName = "ADELPHI";
+		Assert.assertTrue("Saved university to list", DBController.updateSavedUniversities(username, uniName));
 	}
 }
 	
+
 
