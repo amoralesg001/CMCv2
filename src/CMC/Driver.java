@@ -212,7 +212,7 @@ public class Driver {
 	
 	
 	/**
-	 * U2: Display User Information
+	 * U3: Display User Information
 	 * @author nlarson002
 	 * Displays the users Information given their username and password
 	 * 
@@ -221,27 +221,7 @@ public class Driver {
 	 */
 	public static void u3(String username, String password) {
 		System.out.println("\n");
-		Account account = UserUI.getUserInfo(username, password);
-		String usernameTest = account.getUsername();
-		String passwordTest = account.getPassword();
-		String firstName = account.getFirstName();
-		String lastName = account.getLastName();
-		String status = account.getLoginStatus();
-
-		if (usernameTest == null) {
-			System.out.println("User is blocked or does not exist");
-			
-		}
-		else {
-			System.out.println("Displaying user information for " + firstName);
-			System.out.println("Username: " + usernameTest);
-			System.out.println("Password: " + passwordTest);
-			System.out.println("First Name: " + firstName);
-			System.out.println("Last Name: "  + lastName);
-			System.out.println("Status: " + status);
-			System.out.println("\n");
-		}
-	
+		UserUI.getUserInfo(username, password);
 	}
 	
 	
@@ -348,9 +328,9 @@ public class Driver {
 	/**
 	 * 
 	 */
-	public static void u11() {
-		UserUI.manageSchool();
-	}
+	//public static void u11() {
+		//UserUI.manageSchool();
+	//}
 	/**
 	 * U12 add school
 	 * USED BY READYSON

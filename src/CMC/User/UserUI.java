@@ -31,8 +31,27 @@ public class UserUI {
 	}
 	
 	//instead of using the goToPage method for my use case, I changed the method to this. Its more specific
-	public static Account getUserInfo(String username, String password) { 
-		return UserController.getUserInfo(username, password);
+	public static void getUserInfo(String username, String password) { 
+		Account account = UserController.getUserInfo(username, password);
+		String usernameTest = account.getUsername();
+		String passwordTest = account.getPassword();
+		String firstName = account.getFirstName();
+		String lastName = account.getLastName();
+		String status = account.getLoginStatus();
+
+		if (usernameTest == null) {
+			System.out.println("User is blocked or does not exist");
+			
+		}
+		else {
+			System.out.println("Displaying user information for " + firstName);
+			System.out.println("Username: " + usernameTest);
+			System.out.println("Password: " + passwordTest);
+			System.out.println("First Name: " + firstName);
+			System.out.println("Last Name: "  + lastName);
+			System.out.println("Status: " + status);
+			System.out.println("\n");
+		}
 	} 
 	
 	/**

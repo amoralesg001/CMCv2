@@ -58,11 +58,10 @@ public class DBControllerTest {
 
 		Account testAccount  = DBController.getAccountDB(username, password);
 		//Account testWrongUsername = DBController.getAccountDB(wrongUsername, password);
-		Account testWrongPassword = DBController.getAccountDB(username, wrongPassword);
-
-		Assert.assertTrue((testAccount.getUsername() == username) && testAccount.getPassword() == password);
-		//Assert.assertTrue(testWrongUsername.getUsername() == null);
-		Assert.assertTrue(testWrongPassword.getPassword() == null);
+		//Account testWrongPassword = DBController.getAccountDB(username, wrongPassword);
+		Assert.assertTrue((testAccount.getUsername().equals(username)) && testAccount.getPassword().equals(password));
+		//Assert.assertTrue(DBController.getAccountDB(wrongUsername, password).equals(null));
+		//Assert.assertTrue(testWrongPassword.getPassword() == null
 	}
 
 
