@@ -45,8 +45,7 @@ public class DBControllerTest {
 		Assert.assertEquals("Testing remove University with the university saved in list", 1, 
 				DBController.removeUniversity(username, univName));
 	}
-	
-	
+
 	//Testing U1: Login
 	//Nick
 	@Test
@@ -65,6 +64,7 @@ public class DBControllerTest {
 		Assert.assertTrue(testWrongUsername.getUsername() == null);
 		Assert.assertTrue(testWrongPassword.getPassword() == null);
 	}
+
 
 
 	//testing for my u2: Alex
@@ -114,6 +114,6 @@ public class DBControllerTest {
 		Assert.assertTrue(testIncorrectUsername.getFirstName() == null);
 		Assert.assertFalse(testIncorrectUsername.getLoginStatus() == "N");
 	}
-	
 }
+	
 
