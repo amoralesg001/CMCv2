@@ -20,7 +20,7 @@ public class DBControllerTest {
 		
 		fakeAccount= DBController.addUser("Alex", "Morales", "amoralesg001", "lakdjf", 'u');
 		DBController.updateSavedUniversities(fakeAccount.getUsername(), "ADELPHI");
-		DBController.updateSavedUniversities(fakeAccount.getUsername(), "ADELPHI");
+		
 
 		//setup for u4: Alex
 	}
