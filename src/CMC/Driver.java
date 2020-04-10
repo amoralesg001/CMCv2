@@ -46,20 +46,20 @@ public class Driver {
 		System.out.println("u3 done");
 		
 		System.out.println("u4 scenerio: all three criterias are correct");
-		u4("UNIVERS", "MINN", "", "", 40000,0 , 0, 0, 0, 0, 0, 0,0, 0, 0, 0, null);
+		u4("UNIVERS", "MINN", "UR","STATE", "40000","45" ,"490", "557", "13772", "50", "8500", "80","60", "4", "3", "4", null);
 		System.out.println("u4 done");
 		System.out.println("output should be: university with the follwoing criterias found: \nUNIVERSITY OF MINNESOTA");
 		System.out.println("\nu4 ALTERNATE Scenerio: all three criterias are incorrect: ");
-		u4("UNIVSK", "MINAT", "", "", 4000, 0, 0, 0, 0, 0, 0, 0,0,
-		           0, 0, 0, null);
+		u4("UNIVERS", "MINN", "", "STADFATE", "4000", "", "", "", "", "", "", "","",
+		           "", "", "", null);
 		System.out.println("u4 done");
 		System.out.println("output should be: No Universities Found with that criteria \n ");
 	
-		String username = "juser";
-		String universityname = "waer2";
-
-		int i = DBController.removeUniversity(username, universityname);
-		
+//		String username = "juser";
+//		String universityname = "waer2";
+//
+//		int i = DBController.removeUniversity(username, universityname);
+//		
 		System.out.println("\nU5 Starting\n");
 		u5("UNIVERSITY OF MINNESOTA");
 		System.out.println("\nU5 Done: Should dislpay the information of Adelphi. \n");		
@@ -232,13 +232,11 @@ public class Driver {
 	 * This allows the user to search for a school given any of the criterias in a universitiy 
 	 */
 
-	public static void u4(String universityName, String state, String location, String control, int numStudents, double femalePer, double verbalSAT,
-            double mathSAT, double expenses, double finAidPer, int numApplicants, double admitPer, double enrolledPer,
-            int academicScale, int socialScale, int qoaScale, ArrayList<String> emphasis) {
-		
-        University uniCriteria = new University(universityName, state, location, control, numStudents, femalePer, verbalSAT,mathSAT,expenses, finAidPer,numApplicants,admitPer,enrolledPer,academicScale,socialScale,qoaScale,emphasis, false);
+	public static void u4(String universityName, String state, String location, String control, String numStudents, String femalePer, String verbalSAT,
+            String mathSAT, String expenses, String finAidPer, String numApplicants, String admitPer, String enrolledPer,
+            String academicScale, String socialScale, String qoaScale, ArrayList<String> emphasis) {
         
-        ArrayList<String> uniSearch = UserUI.searchUniversity(uniCriteria);
+        ArrayList<String> uniSearch = UserUI.searchUniversity(universityName, state, location, control, numStudents, femalePer, verbalSAT,mathSAT,expenses, finAidPer,numApplicants,admitPer,enrolledPer,academicScale,socialScale,qoaScale,emphasis);
         
         if (uniSearch.size() == 0) {
             System.out.println("no Universities found with that criteria");

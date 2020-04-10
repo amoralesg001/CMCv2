@@ -455,8 +455,9 @@ public class DBController {
 		
 			ArrayList<String> userSchool = new ArrayList<String>();
 			for(int row = 0; row<ar.length; row++) {
+			boolean userFound=false;
 			if (ar[row][0].equals(username)){
-				
+				userFound=true;
 				userSchool.add(ar[row][0]);
 				userSchool.add(ar[row][1]);
 				userSchool.add(ar[row][2]);
@@ -468,75 +469,89 @@ public class DBController {
 			else {
 				return userSchool;
 			}
+			
 			}
 		
 
-		public static ArrayList<String> dbSearchUniversity(University uniCriteria) {    
+		public static ArrayList<String> dbSearchUniversity(String universityName, String state, String location, String control, String numStudents, String femalePer, String verbalSAT,
+	            String mathSAT, String expenses, String finAidPer, String numApplicants, String admitPer, String enrolledPer,
+	            String academicScale, String socialScale, String qoaScale, ArrayList<String> emphasis) {    
             String[][] un = univDBlib.university_getUniversities();
             ArrayList<String> uniSearchFound = new ArrayList<>();
             boolean searchCondition=true; 
-            
+          
             for(int i = 0; i < un.length; i++) {
             	searchCondition = true; 
             	
-            	if((!uniCriteria.getuniversityName().equals("")) && (!un[i][0].contains(uniCriteria.getuniversityName()))){
+            	if((!universityName.equals("")) && (!un[i][0].contains(universityName))){
             		searchCondition = false; 
             	}
             	
-            	if((!uniCriteria.getState().equals("")) && (!un[i][1].contains(uniCriteria.getState()))){
+            	if((!state.equals("")) && (!un[i][1].contains(state))){
             		searchCondition = false; 
         	    }  
 
-            	if((!uniCriteria.getLocation().equals("")) && (!un[i][2].contains(uniCriteria.getLocation()))){	//still isnt working for some reason but the rest do!
+            	if((!location.equals("")) && (!un[i][2].contains(location))){	//still isnt working for some reason but the rest do!
             		searchCondition = false; 
         	    } 
-            	if((!uniCriteria.getControl().equals("")) && (!un[i][3].contains(uniCriteria.getControl()))) {
+            	if((!control.equals("")) && (!un[i][3].contains(control))) {
             		searchCondition = false; 
             	}
-            	if((uniCriteria.getNumStudents()!=-1) && (Integer.parseInt(un[i][4])!=uniCriteria.intGetNumStudents())){
+            	if((!numStudents.equals("")) && (Double.parseDouble(un[i][4])!=Double.parseDouble(numStudents))){
+            		searchCondition = false; 
+            		
+        	    } 
+            	
+            	if((!femalePer.equals("")) && (Double.parseDouble(un[i][5])!=Double.parseDouble(femalePer))){
             		searchCondition = false; 
         	    } 
+            	
+            	if((!verbalSAT.equals("")) && (Double.parseDouble(un[i][6])!=Double.parseDouble(verbalSAT))){
+            		searchCondition = false; 
+        	    }           	
+    
+            	if((!mathSAT.equals("")) && (Double.parseDouble(un[i][7])!=Double.parseDouble(mathSAT))){
+            		searchCondition = false; 
+        	    } 
+            	
+            	if((!expenses.equals("")) && (Double.parseDouble(un[i][8])!=Double.parseDouble(expenses))){
+            		searchCondition = false; 
+        	    } 
+            	
+            	if((!finAidPer.equals("")) && (Double.parseDouble(un[i][9])!=Double.parseDouble(finAidPer))){
+            		searchCondition = false; 
+        	    } 
+            	
+            	if((!numApplicants.equals("")) && (Double.parseDouble(un[i][10])!=Double.parseDouble(numApplicants))){
+            		searchCondition = false; 
+        	    } 
+            	
+            	if((!admitPer.equals("")) && (Double.parseDouble(un[i][11])!=Double.parseDouble(admitPer))){
+            		searchCondition = false; 
+        	    } 
+            	
+            	if((!enrolledPer.equals("")) && (Double.parseDouble(un[i][12])!=Double.parseDouble(enrolledPer))){
+            		searchCondition = false; 
+        	    } 
+            	
+            	if((!academicScale.equals("")) && (Double.parseDouble(un[i][13])!=Double.parseDouble(academicScale))){
+            		searchCondition = false; 
+        	    } 
+            	
+            	if((!socialScale.equals("")) && (Double.parseDouble(un[i][14])!=Double.parseDouble(socialScale))){
+            		searchCondition = false; 
+        	    } 
+            	
+            	if((!qoaScale.equals("")) && (Integer.parseInt(un[i][15])!=Integer.parseInt(qoaScale))){
+            		searchCondition = false; 
+        	    } 
+            	
             	if (searchCondition!=false) {
                 	String uniName = un[i][0];
             		uniSearchFound.add(uniName);
                   }
 
-//                    if (un[i][4].equals(uniCriteria.getControl())) {
-//                        String uniName = un[i][0];
-//                        uniSearchFound.add(uniName);
-//                        }
-//                    if (un[i][5].equals(uniCriteria.getNumStudents())) {
-//                        String uniName = un[i][0];
-//                        uniSearchFound.add(uniName);
-//                        }
-//                    if (un[i][6].equals(uniCriteria.getFemalePer())) {
-//                        String uniName = un[i][0];
-//                        uniSearchFound.add(uniName);
-//                        }
-//                    if (un[i][7].equals(uniCriteria.getVerSAT())) {
-//                        String uniName = un[i][0];
-//                        uniSearchFound.add(uniName);
-//                        }
-//                    if (un[i][8].equals(uniCriteria.getMathSAT())) {
-//                        String uniName = un[i][0];
-//                        uniSearchFound.add(uniName);
-//                        }
-//                    if (un[i][9].equals(uniCriteria.getTuition())) {
-//                        String uniName = un[i][0];
-//                        uniSearchFound.add(uniName);
-//                        }
-//                    if (un[i][10].equals(uniCriteria.getFinAid())) {
-//                        String uniName = un[i][0];
-//                        uniSearchFound.add(uniName);
-//                        }
-//                    if (un[i][10].equals(uniCriteria.getNumApplicants())) {
-//                        String uniName = un[i][0];
-//                        uniSearchFound.add(uniName);
-//                        }
-//                    if (un[i][11].equals(uniCriteria.getAdmitPer())) {
-//                        String uniName = un[i][0];
-//                        uniSearchFound.add(uniName);
-//                        }
+//                  
 //                    if (un[i][12].equals(uniCriteria.getEnrolledPer())) {
 //                        String uniName = un[i][0];
 //                        uniSearchFound.add(uniName);
