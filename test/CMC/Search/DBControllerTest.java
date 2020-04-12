@@ -85,7 +85,7 @@ public class DBControllerTest {
 	String universityName =("UNIVERSITY OF MINNESOTA");//check if it contains this
 
 
-	Assert.assertTrue(DBController.dbSearchUniversity("UNIVERSITY OF MINNESOTA", "", "", "", "40000", "45", "", "", "", "", "", "", "", "", "", "", null).contains(universityName));
+	Assert.assertTrue(DBController.dbSearchUniversity("UNIVERS", "MINN", "UR","STATE", "40000","45" ,"490", "557", "13772", "50", "8500", "80","60", "4", "3", "4", null).contains(universityName));
 	}
 	
 	// Testing U7: Edit User Info && Activate/Deactivate: changeStatus
