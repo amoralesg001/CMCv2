@@ -14,7 +14,9 @@ import CMC.University.University;
 
 public class SearchController {
 
-	public static ArrayList<String> searchUniversities(University uniCriteria) { // Should this method return a University object???
-		return DBController.dbSearchUniversity(uniCriteria);
+	public static ArrayList<String> searchUniversities(String universityName, String state, String location, String control, String numStudents, String femalePer, String verbalSAT,
+            String mathSAT, String expenses, String finAidPer, String numApplicants, String admitPer, String enrolledPer,
+            String academicScale, String socialScale, String qoaScale, ArrayList<String> emphasis) { // Should this method return a University object???
+		return DBController.dbSearchUniversity(universityName, state, location, control, numStudents, femalePer, verbalSAT,mathSAT,expenses, finAidPer,numApplicants,admitPer,enrolledPer,academicScale,socialScale,qoaScale,emphasis);
 	}
 }

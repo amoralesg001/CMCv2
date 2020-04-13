@@ -87,19 +87,17 @@ public class DBControllerTest {
 	ArrayList<String> sizeA = new ArrayList<String>();
 	sizeA.add("ADELPHI");
 
-	Assert.assertTrue(DBController.dbGetSavedUniversityList("amoralesg001").contains(sizeA.get(0)));
+	Assert.assertTrue("users Saved universities are: ", DBController.dbGetSavedUniversityList("amoralesg001").contains(sizeA.get(0)));
 
 	}
 	
 	@Test
 	public void testDbSearchUniversity() {
-	ArrayList<String> searchesFound = new ArrayList<String>();
 	
-	searchesFound.add("UNIVERSITY OF MINNESOTA");//check if it contains this
+	String universityName =("UNIVERSITY OF MINNESOTA");//check if it contains this
 
-	University uniTest1= new University("UNIVERSITY OF MINNESOTA", "", "", "", 40000, 45, -1, -1, -1, -1, -1, -1, -1, -1, 3, 4, null, false);
 
-	Assert.assertTrue(DBController.dbSearchUniversity(uniTest1).contains(uniTest1.getuniversityName()));
+	Assert.assertTrue(DBController.dbSearchUniversity("UNIVERS", "MINN", "UR","STATE", "40000","45" ,"490", "557", "13772", "50", "8500", "80","60", "4", "3", "4", null).contains(universityName));
 	}
 	
 	// Testing U7: Edit User Info && Activate/Deactivate: changeStatus

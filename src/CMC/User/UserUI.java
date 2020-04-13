@@ -239,8 +239,10 @@ public class UserUI {
 	 * @param uniCriteria
 	 * @return arrayList of a string of school names
 	 */
-	public static ArrayList<String> searchUniversity(University uniCriteria) {
-        return SearchController.searchUniversities(uniCriteria);
+	public static ArrayList<String> searchUniversity(String universityName, String state, String location, String control, String numStudents, String femalePer, String verbalSAT,
+            String mathSAT, String expenses, String finAidPer, String numApplicants, String admitPer, String enrolledPer,
+            String academicScale, String socialScale, String qoaScale, ArrayList<String> emphasis) {
+        return SearchController.searchUniversities(universityName, state, location, control, numStudents, femalePer, verbalSAT,mathSAT,expenses, finAidPer,numApplicants,admitPer,enrolledPer,academicScale,socialScale,qoaScale,emphasis);
     }
 
 }
