@@ -43,13 +43,19 @@ public class UniversityControllerTest {
 	public void testRemoveUniversity() {
 		String username = "juser";
 		String univName = "ADELPHI";
-		Assert.assertEquals("Testing remove University with no university", false, 
+		Assert.assertEquals("Testing remove University with no university", 0, 
 				UniversityController.removeUniversity(username, univName));
 		
 		boolean add = UserUI.addSavedUniversities(username, univName);
 		
-		Assert.assertEquals("Testing remove University with the university saved in list", true, 
+		Assert.assertEquals("Testing remove University with the university saved in list", 1, 
 				UniversityController.removeUniversity(username, univName));
+		
+		String invalidUsername = "asdf";
+		
+		Assert.assertEquals("Testing remove University with an invalid username", 2, 
+				UniversityController.removeUniversity(invalidUsername, univName));
+		
 	}
 	
 //AddUniversityTest

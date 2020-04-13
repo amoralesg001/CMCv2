@@ -83,6 +83,12 @@ public class Driver {
 		u6(AName, SName);
 		System.out.println("u6 done");
 		
+		String invalidUser = "asdf";
+		
+		System.out.println("u6 starting");
+		u6(invalidUser, SName);
+		System.out.println("u6 done");
+		
 		System.out.println("\nu ALTERNATE Scenerio: the user has no saved universities under their account");
 		u2("juser");
 		System.out.println("u2 done");
@@ -267,12 +273,15 @@ public class Driver {
 	 * @param university name of university
 	 */
 	public static void u6(String username, String universityname) {
-		boolean remove = UserUI.removeUniversity(username, universityname);
-		if (remove) {
+		int remove = UserUI.removeUniversity(username, universityname);
+		if (remove == 1) {
 			System.out.println(universityname + " was removed from the list");
 		}
-		else {
+		if (remove == 0) {
 			System.out.println(universityname + " was not in the saved schools list.");
+		}
+		if (remove == 2) {
+			System.out.println("user " + username + " is an invalid user");
 		}
 	}
 	

@@ -188,8 +188,8 @@ public class UserUI {
 	 * 
 	 * @param universityname
 	 */
-	public static boolean removeUniversity(String username, String universityname) {
-		boolean remove = UniversityController.removeUniversity(username, universityname);
+	public static int removeUniversity(String username, String universityname) {
+		int remove = UniversityController.removeUniversity(username, universityname);
 		return remove;
 	}
 	/**

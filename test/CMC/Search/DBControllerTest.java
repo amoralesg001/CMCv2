@@ -1,5 +1,6 @@
 package CMC.Search;
 import CMC.University.University;
+import CMC.University.UniversityController;
 import CMC.User.*;
 
 import static org.junit.Assert.*;
@@ -15,12 +16,13 @@ import junit.framework.Assert;
 
 public class DBControllerTest {
 	public Account fakeAccount;
+	public Account fakeAccount2;
 	@Before
 	public void setUp() throws Exception {
 		
 		fakeAccount= DBController.addUser("Alex", "Morales", "amoralesg001", "lakdjf", 'u');
 		DBController.updateSavedUniversities(fakeAccount.getUsername(), "ADELPHI");
-		
+		fakeAccount2 = DBController.dbGetUser("juser");
 
 		//setup for u4: Alex
 	}
@@ -29,10 +31,20 @@ public class DBControllerTest {
 	public void tearDown() throws Exception {
 		//tearDown for u2: Alex
 		DBController.removeUniversity(fakeAccount.getUsername(), "ADELPHI");
-		
+		fakeAccount2 = null;
 	}
 
-
+	@Test
+	public void testDBGetUser() {
+		String username = "juser";
+		String invalidUsername = "asdf";
+		
+		Assert.assertEquals("Testing dbGetUser with valid username", true, 
+				DBController.dbGetUser(username).equals(fakeAccount2));
+		
+		Assert.assertEquals("Testing dbGetUser with invalid username", null,
+				DBController.dbGetUser(invalidUsername));
+	}
 	@Test
 	public void testRemoveUniversity() {
 		String username = "juser";
