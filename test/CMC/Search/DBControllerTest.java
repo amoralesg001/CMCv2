@@ -15,14 +15,18 @@ import junit.framework.Assert;
 
 public class DBControllerTest {
 	public Account fakeAccount;
+	
 	@Before
 	public void setUp() throws Exception {
 		
+		/**
+		 * setup for u2: Alex
+		 */
 		fakeAccount= DBController.addUser("Alex", "Morales", "amoralesg001", "lakdjf", 'u');
 		DBController.updateSavedUniversities(fakeAccount.getUsername(), "ADELPHI");
 		
 
-		//setup for u4: Alex
+		
 	}
 
 	@After
@@ -68,9 +72,12 @@ public class DBControllerTest {
 
 
 
-	//testing for my u2: Alex
+	/**
+	 * author: alex morales
+	 * white box testing for the method dbGetSavedUniversity that i use on my u2 use case:
+	 * searches for saved uviversities from speciic users
+	 */
 	@Test
-	
 	public void testdbGetSavedUniversityList() {
 	ArrayList<String> sizeA = new ArrayList<String>();
 	sizeA.add("ADELPHI");
@@ -79,6 +86,11 @@ public class DBControllerTest {
 
 	}
 	
+	/**
+	 * author morales
+	 * white box testing for the method dbsearchUniversity that i use on my u4 use case:
+	 * user searches university from different criterias and the method will return the universities that match the given criterias. 
+	 */
 	@Test
 	public void testDbSearchUniversity() {
 	

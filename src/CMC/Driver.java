@@ -46,12 +46,11 @@ public class Driver {
 		System.out.println("u3 done");
 		
 		System.out.println("u4 scenerio: all three criterias are correct");
-		u4("UNIVERS", "MINN", "UR","STATE", "40000","45" ,"490", "557", "13772", "50", "8500", "80","60", "4", "3", "4", null);
+		u4("UNIVERS", "MINN", "UR","STATE", "40000","45" ,"490", "557", "13772", "50", "8500", "80","60", "4", "3", "4","","","","","");
 		System.out.println("u4 done");
 		System.out.println("output should be: university with the follwoing criterias found: \nUNIVERSITY OF MINNESOTA");
 		System.out.println("\nu4 ALTERNATE Scenerio: all three criterias are incorrect: ");
-		u4("UNIVERS", "MINN", "", "STADFATE", "4000", "", "", "", "", "", "", "","",
-		           "", "", "", null);
+		u4("UNIVERS", "MINN", "", "STADFATE", "4000", "", "", "", "", "", "", "","","","","","","","","","");
 		System.out.println("u4 done");
 		System.out.println("output should be: No Universities Found with that criteria \n ");
 	
@@ -234,9 +233,14 @@ public class Driver {
 
 	public static void u4(String universityName, String state, String location, String control, String numStudents, String femalePer, String verbalSAT,
             String mathSAT, String expenses, String finAidPer, String numApplicants, String admitPer, String enrolledPer,
-            String academicScale, String socialScale, String qoaScale, ArrayList<String> emphasis) {
-        
-        ArrayList<String> uniSearch = UserUI.searchUniversity(universityName, state, location, control, numStudents, femalePer, verbalSAT,mathSAT,expenses, finAidPer,numApplicants,admitPer,enrolledPer,academicScale,socialScale,qoaScale,emphasis);
+            String academicScale, String socialScale, String qoaScale, String emphasis0, String emphasis1, String emphasis2, String emphasis3, String emphasis4) {
+        String emphasis[] = new String[5];
+        emphasis[0] = emphasis0;
+        emphasis[1] = emphasis1;
+        emphasis[2] = emphasis2;
+        emphasis[3] = emphasis3;
+        emphasis[4] = emphasis4;
+        ArrayList<String> uniSearch = UserUI.searchUniversity(universityName, state, location, control, numStudents, femalePer, verbalSAT,mathSAT,expenses, finAidPer,numApplicants,admitPer,enrolledPer,academicScale,socialScale,qoaScale, emphasis);
         
         if (uniSearch.size() == 0) {
             System.out.println("no Universities found with that criteria");

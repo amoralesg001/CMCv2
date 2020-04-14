@@ -472,10 +472,32 @@ public class DBController {
 			
 			}
 		
-
+		/**
+		 * In use by alex morales
+		 * 
+		 * This method searches universities from the criterias given beloow. 
+		 * @param universityName
+		 * @param state
+		 * @param location
+		 * @param control
+		 * @param numStudents
+		 * @param femalePer
+		 * @param verbalSAT
+		 * @param mathSAT
+		 * @param expenses
+		 * @param finAidPer
+		 * @param numApplicants
+		 * @param admitPer
+		 * @param enrolledPer
+		 * @param academicScale
+		 * @param socialScale
+		 * @param qoaScale
+		 * @param emphasis
+		 * @return ArrayList of a string that has the universities that match those criterias
+		 */
 		public static ArrayList<String> dbSearchUniversity(String universityName, String state, String location, String control, String numStudents, String femalePer, String verbalSAT,
 	            String mathSAT, String expenses, String finAidPer, String numApplicants, String admitPer, String enrolledPer,
-	            String academicScale, String socialScale, String qoaScale, ArrayList<String> emphasis) {    
+	            String academicScale, String socialScale, String qoaScale, String[] emphasis) {    
             String[][] un = univDBlib.university_getUniversities();
             ArrayList<String> uniSearchFound = new ArrayList<>();
             boolean searchCondition=true; 
@@ -549,49 +571,52 @@ public class DBController {
             	if (searchCondition!=false) {
                 	String uniName = un[i][0];
             		uniSearchFound.add(uniName);
-                  }
-
-//                  
-//                    if (un[i][12].equals(uniCriteria.getEnrolledPer())) {
-//                        String uniName = un[i][0];
-//                        uniSearchFound.add(uniName);
-//                        }
-//                    if (un[i][13].equals(uniCriteria.getAcademicScale())) {
-//                        String uniName = un[i][0];
-//                        uniSearchFound.add(uniName);
-//                        }
-//                    if (un[i][14].equals(uniCriteria.getSocialScale())) {
-//                        String uniName = un[i][0];
-//                        uniSearchFound.add(uniName);
-//                        }
-//                    if (un[i][15].equals(uniCriteria.getQoaScale())) {
-//                        String uniName = un[i][0];
-//                        uniSearchFound.add(uniName);
-//                    }
-//                
-//                
-
-                
-                
+            	}   
             }
                     
-                
-                    //need to get another loop that gets emphasis
-                    //Emphasis
-                    //String[][] em = univDBlib.university_getNamesWithEmphases();
 
-                   // for(int j = 0; j < em.length; j++) {
-                       // if (em[j][1].equals(uniCriteria.getEmphasis()) {//not sure about this
-                       // String uniName =em[j][1];
-                       // uniSearchFound.add(uniName);
-                        //}
-                    ///}
-            
-            	
-                    return uniSearchFound;
-            	
-                }
-		//using this to create my own user for the test case. 
+//                    //need to get another loop that gets emphasis
+//                    //Emphasis
+//                    String[][] em = univDBlib.university_getNamesWithEmphases();
+//                   boolean emphasisMatches;
+//                   ArrayList<String> emphasisFound = null;
+//                   for (int i=0; i<em.length;i++) {
+//                	   emphasisMatches = false;
+//                	   for(int j=0; j<em[i].length;j++) {	  
+//                		  if(em[i][j].contains(emphasis[0]) && emphasis[0]!="") {
+//                			  emphasisMatches=true;
+//                		  }
+//                		  if(em[i][j].contains(emphasis[1]) && emphasis[1]!="") {
+//                			  emphasisMatches=true;
+//                		  }
+//                		  if(em[i][j].contains(emphasis[2]) && emphasis[2]!="") {
+//                			  emphasisMatches=true;
+//                		  }
+//                		  if(em[i][j].contains(emphasis[3]) && emphasis[3]!="") {
+//                			  emphasisMatches=true;
+//                		  }
+//                		  if(em[i][j].contains(emphasis[4]) && emphasis[4]!="") {
+//                			  emphasisMatches=true;
+//                		  }
+//                	   }
+//                	   if (emphasisMatches!=false) {
+//                		   emphasisFound.add(em[i][0]);
+//                	   }
+//                	
+//                   }
+                   return uniSearchFound;
+		}
+        
+		 /**
+		  * @author alex morales
+		  * this method is simply used for my testing JUNIT. I do not use this apart from that 
+		  * @param firstName
+		  * @param lastName
+		  * @param userName
+		  * @param password
+		  * @param userType
+		  * @return
+		  */
             public static Account addUser(String firstName, String lastName, String userName, String password, char userType) {
             	String userTypeString = Character.toString(userType);
             	Account user = new Account(firstName,lastName, userName, password, userTypeString,"Y");
