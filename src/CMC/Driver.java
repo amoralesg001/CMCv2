@@ -228,7 +228,7 @@ public class Driver {
 	 */
 	public static void u3(String username, String password) {
 		System.out.println("\n");
-		UserUI.getUserInfo(username, password);
+		boolean b = UserUI.getUserInfo(username, password);
 	}
 	
 	

@@ -32,4 +32,25 @@ public class UserUITest {
 		Assert.assertEquals("Testing displayUniversityInfo with invalid university", false, 
 				(UserUI.displayUniversityInfo(fakeUniversity)));
 	}
+	
+	@Test
+	public void testLogin() {
+		//Test for regular user
+		Assert.assertTrue(UserUI.login("juser", "user"));
+		//Test for admin
+		Assert.assertTrue(UserUI.login("nadmin", "admin"));
+		//Test for blocked user
+		Assert.assertFalse(UserUI.login("luser", "user"));
+	}
+	
+	@Test
+	public void testGetUserInfo() {
+		//Test for regular user
+		Assert.assertTrue(UserUI.getUserInfo("juser", "user"));
+		//Test for admin		
+		Assert.assertTrue(UserUI.getUserInfo("nadmin", "admin"));
+		//Test for regular user
+		Assert.assertFalse(UserUI.getUserInfo("luser", "user"));
+		
+	}
 }
