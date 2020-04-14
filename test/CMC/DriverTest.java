@@ -9,6 +9,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import CMC.Search.DBController;
+import CMC.University.UniversityController;
 import CMC.User.Account;
 import CMC.User.UserUI;
 import junit.framework.Assert;
@@ -61,6 +62,25 @@ public class DriverTest {
 	//scenerio 2: Search of university criteria not found
 	Assert.assertTrue("no universitties found with that criteria:", UserUI.searchUniversity("UNIVERSLKAJ", "MINN", "UR","STATE", "40000","45" ,"490", "557", "13772", "50", "850900", "1380","60", "4", "3", "4", null).size()==0);
 	}
+	
+	
+	@Test
+	public void u6() {
+		String username = "juser";
+		String univName = "UNIVERSITY OF MINNESOTA";
+		Assert.assertEquals("Testing remove University with no university", 0, 
+				UniversityController.removeUniversity(username, univName));
+		
+		boolean add = UserUI.addSavedUniversities(username, univName);
+		
+		Assert.assertEquals("Testing remove University with the university saved in list", 1, 
+				UniversityController.removeUniversity(username, univName));
+		
+		String invalidUsername = "asdf";
+		
+		Assert.assertEquals("Testing remove University with an invalid username", 2, 
+				UniversityController.removeUniversity(invalidUsername, univName));		
 	}
+}
 
 

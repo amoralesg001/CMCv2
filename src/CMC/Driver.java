@@ -257,8 +257,10 @@ public class Driver {
 	}
 
 	/**
+	 * @author Carter
 	 * U5: View Individual University
-	 * 
+	 * Calls UserUI with a university name not returning
+	 * anything back to the Driver.
 	 * @param universityName university name
 	 */
 	public static void u5(String universityName) {
@@ -266,8 +268,11 @@ public class Driver {
 		
 	}
 	/**
+	 * @author Carter
 	 * u6: Remove School From List
-	 * 
+	 * Calls UserUI to remove a university from the list
+	 * returning a boolean true if the university is in the list
+	 * and returning a boolean false if the university is not in the list.
 	 * @param university name of university
 	 */
 	public static void u6(String username, String universityname) {

@@ -46,62 +46,62 @@ public class UniversityTest {
 		
 		@Test
 		public void testGetNumStudents() {
-			Assert.assertEquals(100, universityTest.getNumStudents());
+			Assert.assertEquals(true, universityTest.getNumStudents().equals("100"));
 		}
 		
 		@Test
 		public void testGetFemalePer() {
-			Assert.assertEquals(50.0, universityTest.getFemalePer());
+			Assert.assertEquals(true, universityTest.getFemalePer().equals("50"));
 		}
 		
 		@Test
 		public void testGetVerbSAT() {
-			Assert.assertEquals(101.0, universityTest.getVerSAT());
+			Assert.assertEquals(true, universityTest.getVerSAT().equals("101"));
 		}
 		
 		@Test
 		public void testGetMathSAT() {
-			Assert.assertEquals(102.0, universityTest.getMathSAT());
+			Assert.assertEquals(true, universityTest.getMathSAT().equals("102"));
 		}
 		
 		@Test
 		public void testGetTuition() {
-			Assert.assertEquals(103.0, universityTest.getTuition());
+			Assert.assertEquals(true, universityTest.getTuition().equals("103"));
 		}
 		
 		@Test
 		public void testGetFinAid() {
-			Assert.assertEquals(104.0, universityTest.getFinAid());
+			Assert.assertEquals(true, universityTest.getFinAid().equals("104"));
 		}
 		
 		@Test
 		public void testGetNumApplicants() {
-			Assert.assertEquals(105.0, universityTest.getNumApplicants());
+			Assert.assertEquals(true, universityTest.getNumApplicants().equals("105"));
 		}
 		
 		@Test
 		public void testGetAdmitPer() {
-			Assert.assertEquals(106.0, universityTest.getAdmitPer());
+			Assert.assertEquals(true, universityTest.getAdmitPer().equals("106"));
 		}
 		
 		@Test
 		public void testGetEnrolledPer() {
-			Assert.assertEquals(107.0, universityTest.getEnrolledPer());
+			Assert.assertEquals(true, universityTest.getEnrolledPer().equals("107"));
 		}
 		
 		@Test
 		public void testGetAcademicScale() {
-			Assert.assertEquals(108, universityTest.getAcademicScale());
+			Assert.assertEquals(true, universityTest.getAcademicScale().equals("108"));
 		}
 		
 		@Test
 		public void testGetSocialScale() {
-			Assert.assertEquals(109, universityTest.getSocialScale());
+			Assert.assertEquals(true, universityTest.getSocialScale().equals("109"));
 		}
 		
 		@Test
 		public void testQoaScale() {
-			Assert.assertEquals(110, universityTest.getQoaScale());
+			Assert.assertEquals(true, universityTest.getQoaScale().equals("110"));
 		}
 		
 		@Test
