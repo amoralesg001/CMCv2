@@ -284,7 +284,13 @@ public class Driver {
 			System.out.println(universityname + " was not in the saved schools list.");
 		}
 		if (remove == 2) {
-			System.out.println("user " + username + " is an invalid user");
+			System.out.println("User " + username + " is an invalid user");
+		}
+		if (remove == 3) {
+			System.out.println("University name " + universityname + " is an unvalid University");
+		}
+		else {
+			System.out.println("Something went wrong.");
 		}
 	}
 	
