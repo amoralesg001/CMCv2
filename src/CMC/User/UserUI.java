@@ -76,7 +76,8 @@ public class UserUI {
 	 *
 	 * @param university School you want to display information about
 	 */
-	public static void displayUniversityInfo(University university) {
+	public static boolean displayUniversityInfo(University university) {
+		if (university != null) {
 		System.out.println("School Name: "  + university.getuniversityName());
 		System.out.println("School State Location: " + university.getState());
 		System.out.println("School Location: " + university.getLocation());
@@ -108,7 +109,12 @@ public class UserUI {
 			}
 		}
 		System.out.println("BlackListed: " + university.isBlacklisted());
-
+		return true;
+		}
+		else {
+			System.out.println("The University you wanted to display is not valid");
+			return false;
+		}
 		
 	}
 	/**

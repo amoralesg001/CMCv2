@@ -19,6 +19,7 @@ public class UniversityControllerTest {
 	 ArrayList<String> emptyEmp = new ArrayList<String>();
 	 ArrayList<String> invalidEmp = new ArrayList<String>();
 	 ArrayList<String> uniNames = new ArrayList<String>();
+	 public University fakeUniv;
 	 
 	 @Before 
 	 public void setUp() throws Exception{
@@ -28,7 +29,6 @@ public class UniversityControllerTest {
 	  uniNames.add("ADELPHI");
 	  uniNames.add(" ADELPHI");
 	  uniNames.add("");
-	  
 	 }
 	 
 	 @After
@@ -56,6 +56,30 @@ public class UniversityControllerTest {
 		Assert.assertEquals("Testing remove University with an invalid username", 2, 
 				UniversityController.removeUniversity(invalidUsername, univName));
 		
+	}
+
+//GetUniversityTest
+	@Test
+	public void testGetUniversity() {
+		Assert.assertEquals("Testing getUniversity with valid university", true, 
+				(UniversityController.getUniversity("UNIVERSITY OF MINNESOTA")));
+		
+		Assert.assertEquals("Testing dbGetUniversity with invalid university", false, 
+				(UniversityController.getUniversity("ASDF")));
+	}
+	
+	public static boolean getUniversity(String universityName) {
+		University universityToDisplay = DBController.dbGetUniversity(universityName);
+		if (universityToDisplay == null) {
+			System.out.println("University " + universityName + " does not exist.");
+			return false;
+		}
+		else {
+		UserUI.displayUniversityInfo(universityToDisplay);
+		return true;
+		}
+		
+
 	}
 	
 //AddUniversityTest

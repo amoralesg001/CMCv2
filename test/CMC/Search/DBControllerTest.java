@@ -17,13 +17,14 @@ import junit.framework.Assert;
 public class DBControllerTest {
 	public Account fakeAccount;
 	public Account fakeAccount2;
+	public University fakeUniv;
 	@Before
 	public void setUp() throws Exception {
 		
 		fakeAccount= DBController.addUser("Alex", "Morales", "amoralesg001", "lakdjf", 'u');
 		DBController.updateSavedUniversities(fakeAccount.getUsername(), "ADELPHI");
 		fakeAccount2 = DBController.dbGetUser("juser");
-
+		fakeUniv = DBController.dbGetUniversity("ADELPHI");
 		//setup for u4: Alex
 	}
 
@@ -32,8 +33,21 @@ public class DBControllerTest {
 		//tearDown for u2: Alex
 		DBController.removeUniversity(fakeAccount.getUsername(), "ADELPHI");
 		fakeAccount2 = null;
+		fakeUniv = null;
 	}
-
+	
+	@Test
+	public void testDBGetUniversity() {
+		String univName = "ADELPHI";
+		String fakeUnivName = "asdf";
+		
+		Assert.assertEquals("Testing dbGetUniversity with valid university name", true, 
+				(DBController.dbGetUniversity(univName) != null));
+		
+		Assert.assertEquals("Testing dbGetUniversity with valid university name", false, 
+				(DBController.dbGetUniversity(fakeUnivName) != null));
+	}
+	
 	@Test
 	public void testDBGetUser() {
 		String username = "juser";

@@ -44,13 +44,15 @@ public class UniversityController {
 	 * @param universityName university name to get the university object
 	 */
 
-	public static void getUniversity(String universityName) {
+	public static boolean getUniversity(String universityName) {
 		University universityToDisplay = DBController.dbGetUniversity(universityName);
 		if (universityToDisplay == null) {
 			System.out.println("University " + universityName + " does not exist.");
+			return false;
 		}
 		else {
 		UserUI.displayUniversityInfo(universityToDisplay);
+		return true;
 		}
 		
 
