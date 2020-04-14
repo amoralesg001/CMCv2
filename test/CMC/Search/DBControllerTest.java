@@ -18,6 +18,11 @@ public class DBControllerTest {
 	public Account fakeAccount;
 	public Account fakeAccount2;
 	public University fakeUniv;
+	ArrayList<String> emptyEmp = new ArrayList<String>();
+	ArrayList<String> emp = new ArrayList<String>();
+	ArrayList<String> invalidEmp = new ArrayList<String>();
+	ArrayList<String> halfValid = new ArrayList<String>();
+	
 	@Before
 	public void setUp() throws Exception {
 		
@@ -26,6 +31,16 @@ public class DBControllerTest {
 		fakeAccount2 = DBController.dbGetUser("juser");
 		fakeUniv = DBController.dbGetUniversity("ADELPHI");
 		//setup for u4: Alex
+		invalidEmp.add("Art");
+		invalidEmp.add("PHSYCHOLOGY");
+		halfValid.add("Computer Science");
+		halfValid.add("Art");
+		emp.add("Computer Science");
+		emp.add("Math");
+		DBController.addUniversity("TestAddEmp", "MN", "Urban", "private", "100", "10", "200", "200", "1", "1", "1", "0", "0", "1", "1", "1", emptyEmp);
+		DBController.addUniversity("TestRemove", "MN", "Urban", "private", "100", "10", "200", "200", "1", "1", "1", "0", "0", "1", "1", "1", emp);
+		DBController.addUniversity("TestRemove2", "MN", "Urban", "private", "100", "10", "200", "200", "1", "1", "1", "0", "0", "1", "1", "1", emp);
+		DBController.addUniversity("TestRemove3", "MN", "Urban", "private", "100", "10", "200", "200", "1", "1", "1", "0", "0", "1", "1", "1", emp);
 	}
 
 	@After
@@ -34,6 +49,16 @@ public class DBControllerTest {
 		DBController.removeUniversity(fakeAccount.getUsername(), "ADELPHI");
 		fakeAccount2 = null;
 		fakeUniv = null;
+		for(String s: emp)
+		{
+			DBController.univDBlib.university_removeUniversityEmphasis("TestRemove2", s);
+			DBController.univDBlib.university_removeUniversityEmphasis("TestRemove3", s);
+			DBController.univDBlib.university_removeUniversityEmphasis("TestAddEmp", s);
+		}
+		DBController.univDBlib.university_deleteUniversity("TestRemove");
+		DBController.univDBlib.university_deleteUniversity("TestRemove2");
+		DBController.univDBlib.university_deleteUniversity("TestRemove3");
+		DBController.univDBlib.university_deleteUniversity("TestAddEmp");
 	}
 	
 	@Test
@@ -153,6 +178,99 @@ public class DBControllerTest {
 		String username = "juser";
 		String uniName = "ADELPHI";
 		Assert.assertTrue("Saved university to list", DBController.updateSavedUniversities(username, uniName));
+	}
+	
+	@Test
+	public void testRemoveEmphases() {
+		ArrayList<String> dbEmp = new ArrayList<String>();
+		for(String s: emp) {
+			System.out.println("Valid Emphasis: " + s);
+			DBController.univDBlib.university_removeUniversityEmphasis("TestRemove", s);
+		}
+		for (int i = 0; i < DBController.univDBlib.university_getNamesWithEmphases().length; i ++)
+		{
+			if (DBController.univDBlib.university_getNamesWithEmphases()[i][0].equals("TestRemove"))
+			{
+				System.out.println("Still in DB: " + DBController.univDBlib.university_getNamesWithEmphases()[i][1]);
+				dbEmp.add(DBController.univDBlib.university_getNamesWithEmphases()[i][1]);
+				
+			}
+		}
+		Assert.assertTrue(dbEmp.size() == 0);
+	}
+	
+	@Test
+	public void testRemoveInvalidEmphases() {
+		ArrayList<String> dbEmp = new ArrayList<String>();
+		for(String s: invalidEmp) {
+			System.out.println("Invalid Emphasis: " + s);
+			DBController.univDBlib.university_removeUniversityEmphasis("TestRemove2", s);
+		}
+		for (int i = 0; i < DBController.univDBlib.university_getNamesWithEmphases().length; i ++)
+		{
+			if (DBController.univDBlib.university_getNamesWithEmphases()[i][0].equals("TestRemove2"))
+			{
+				System.out.println("Still in DB: " + DBController.univDBlib.university_getNamesWithEmphases()[i][1]);
+				dbEmp.add(DBController.univDBlib.university_getNamesWithEmphases()[i][1]);
+				
+			}
+		}
+		Assert.assertTrue(dbEmp.size() == 2);
+	}
+	
+	@Test
+	public void testRemoveHalfValidEmphases() {
+		ArrayList<String> dbEmp = new ArrayList<String>();
+		for(String s: halfValid) {
+			System.out.println("Half valid: " + s);
+			DBController.univDBlib.university_removeUniversityEmphasis("TestRemove3", s);
+		}
+		for (int i = 0; i < DBController.univDBlib.university_getNamesWithEmphases().length; i ++)
+		{
+			if (DBController.univDBlib.university_getNamesWithEmphases()[i][0].equals("TestRemove3"))
+			{
+				System.out.println("Still in DB: " + DBController.univDBlib.university_getNamesWithEmphases()[i][1]);
+				dbEmp.add(DBController.univDBlib.university_getNamesWithEmphases()[i][1]);
+				
+			}
+		}
+		Assert.assertTrue(dbEmp.size() == 1);
+	}
+	
+	@Test
+	public void testAddUniversityEmphasis() {
+		ArrayList<String> testEmp = new ArrayList<String>();
+		for(String s: emp) {
+			DBController.univDBlib.university_addUniversityEmphasis("TestAddEmp", s);
+		}
+		for (int i = 0; i < DBController.univDBlib.university_getNamesWithEmphases().length; i ++)
+		{
+			if (DBController.univDBlib.university_getNamesWithEmphases()[i][0].equals("TestAddEmp"))
+			{
+				System.out.println("in DB: " + DBController.univDBlib.university_getNamesWithEmphases()[i][1]);
+				testEmp.add(DBController.univDBlib.university_getNamesWithEmphases()[i][1]);
+				
+			}
+		}
+		Assert.assertEquals(emp, testEmp);
+	}
+	
+	@Test
+	public void testInvalidAddUniversityEmphasis() {
+		ArrayList<String> testEmp = new ArrayList<String>();
+		for(String s: emp) {
+			DBController.univDBlib.university_addUniversityEmphasis("InvalidUniversity", s);
+		}
+		for (int i = 0; i < DBController.univDBlib.university_getNamesWithEmphases().length; i ++)
+		{
+			if (DBController.univDBlib.university_getNamesWithEmphases()[i][0].equals("TestAddEmp"))
+			{
+				System.out.println("in DB: " + DBController.univDBlib.university_getNamesWithEmphases()[i][1]);
+				testEmp.add(DBController.univDBlib.university_getNamesWithEmphases()[i][1]);
+				
+			}
+		}
+		Assert.assertFalse(emp == testEmp);
 	}
 }
 	
