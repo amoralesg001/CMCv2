@@ -49,7 +49,7 @@ public class UserUITest {
 		Assert.assertTrue(UserUI.getUserInfo("juser", "user"));
 		//Test for admin		
 		Assert.assertTrue(UserUI.getUserInfo("nadmin", "admin"));
-		//Test for regular user
+		//Test for invalid user
 		Assert.assertFalse(UserUI.getUserInfo("luser", "user"));
 		
 	}
