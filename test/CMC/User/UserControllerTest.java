@@ -6,23 +6,31 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import CMC.Search.DBController;
 import junit.framework.Assert;
 
 public class UserControllerTest {
 
+	public Account testAccount;
+	
 	@Before
 	public void setUp() throws Exception {
+		testAccount = DBController.addUser("Jack", "Young", "jyoung001", "abcd1234", 'u');
 	}
 
 	@After
 	public void tearDown() throws Exception {
+		UserController.saveUserInfo("jyoung001", "abcd1234", "Jack", "Young");
 	}
 
 	// Testing U7: Save User Info
 	// Jack
 	@Test
 	public void testSaveUserInfo() {
-		fail("Not yet implemented");
+		Account savedAccount = UserController.saveUserInfo("jyoung001", "newPassword", "newFirstName", "Young");
+		Assert.assertFalse(savedAccount.getPassword().equals(this.testAccount.getPassword()));
+		Assert.assertTrue(!this.testAccount.getFirstName().equals(savedAccount.getFirstName()));
+		Assert.assertTrue(this.testAccount.getLastName().equals(savedAccount.getLastName()));
 	}
 	
 	@Test 

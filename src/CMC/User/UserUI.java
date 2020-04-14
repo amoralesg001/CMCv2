@@ -31,7 +31,7 @@ public class UserUI {
 	}
 	
 	//instead of using the goToPage method for my use case, I changed the method to this. Its more specific
-	public static void getUserInfo(String username, String password) { 
+	public static boolean getUserInfo(String username, String password) { 
 		Account account = UserController.getUserInfo(username, password);
 		String usernameTest = account.getUsername();
 		String passwordTest = account.getPassword();
@@ -41,7 +41,7 @@ public class UserUI {
 
 		if (usernameTest == null) {
 			System.out.println("User is blocked or does not exist");
-			
+			return false;
 		}
 		else {
 			System.out.println("Displaying user information for " + firstName);
@@ -51,6 +51,7 @@ public class UserUI {
 			System.out.println("Last Name: "  + lastName);
 			System.out.println("Status: " + status);
 			System.out.println("\n");
+			return true;
 		}
 	} 
 	
@@ -76,7 +77,8 @@ public class UserUI {
 	 *
 	 * @param university School you want to display information about
 	 */
-	public static void displayUniversityInfo(University university) {
+	public static boolean displayUniversityInfo(University university) {
+		if (university != null) {
 		System.out.println("School Name: "  + university.getuniversityName());
 		System.out.println("School State Location: " + university.getState());
 		System.out.println("School Location: " + university.getLocation());
@@ -108,7 +110,12 @@ public class UserUI {
 			}
 		}
 		System.out.println("BlackListed: " + university.isBlacklisted());
-
+		return true;
+		}
+		else {
+			System.out.println("The University you wanted to display is not valid");
+			return false;
+		}
 		
 	}
 	/**
@@ -146,9 +153,9 @@ public class UserUI {
 	 * 
 	 * @return boolean value if the school has been edited
 	 */
-	public static boolean saveSchoolInfo(String universityName, String state, String location, String control, int numStudents, int femalePer,
-			int verSAT, int mathSAT, double tuition, double finAid, double numApplicants, int admitPer, int enrolledPer,
-			int academicScale, int socialScale, int qoaScale, ArrayList<String> emphasis, boolean blacklist) {
+	public static boolean saveSchoolInfo(String universityName, String state, String location, String control, String numStudents, String femalePer,
+			String verSAT, String mathSAT, String tuition, String finAid, String numApplicants, String admitPer, String enrolledPer,
+			String academicScale, String socialScale, String qoaScale, ArrayList<String> emphasis, boolean blacklist) {
 		// TODO Auto-generated method stub
 		return UniversityController.editUniversityinfo(universityName, state, location, control, numStudents, femalePer,
 				verSAT, mathSAT, tuition, finAid, numApplicants, admitPer, enrolledPer, academicScale, socialScale,
@@ -188,8 +195,8 @@ public class UserUI {
 	 * 
 	 * @param universityname
 	 */
-	public static boolean removeUniversity(String username, String universityname) {
-		boolean remove = UniversityController.removeUniversity(username, universityname);
+	public static int removeUniversity(String username, String universityname) {
+		int remove = UniversityController.removeUniversity(username, universityname);
 		return remove;
 	}
 	/**
@@ -223,9 +230,9 @@ public class UserUI {
 	 * 
 	 * @return boolean value if the school has been added to the database
 	 */
-	public static boolean addSchool(String universityName, String state, String location, String control, int numStudents, int femalePer,
-			int verSAT, int mathSAT, double tuition, double finAid, int numApplicants, int admitPer, int enrolledPer,
-			int academicScale, int socialScale, int qoaScale, ArrayList<String> emphasis, boolean blacklist) {
+	public static boolean addSchool(String universityName, String state, String location, String control, String numStudents, String femalePer,
+			String verSAT, String mathSAT, String tuition, String finAid, String numApplicants, String admitPer, String enrolledPer,
+			String academicScale, String socialScale, String qoaScale, ArrayList<String> emphasis, boolean blacklist) {
 		// TODO Auto-generated method stub
 		 return UniversityController.addUniversity(universityName, state, location, control, numStudents, femalePer, verSAT, mathSAT, tuition, finAid, numApplicants, admitPer, enrolledPer, academicScale, socialScale, qoaScale, emphasis, blacklist);
 	}

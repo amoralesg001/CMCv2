@@ -7,18 +7,18 @@ public class University {
 	private String state;
 	private String location;
 	private String control;
-	private int numStudents;
-	private double femalePer;
-	private double verbalSAT;
-	private double mathSAT;
-	private double expenses;
-	private double finAidPer;
-	private int numApplicants;
-	private double admitPer;
-	private double enrolledPer;
-	private int academicScale;
-	private int socialScale;
-	private int qoaScale;
+	private String numStudents;
+	private String femalePer;
+	private String verbalSAT;
+	private String mathSAT;
+	private String expenses;
+	private String finAidPer;
+	private String numApplicants;
+	private String admitPer;
+	private String enrolledPer;
+	private String academicScale;
+	private String socialScale;
+	private String qoaScale;
 	private boolean blacklist;
 	private ArrayList<String> emphasis;
 	/**
@@ -47,9 +47,9 @@ public class University {
 	 * @param emphasis
 	 * @param blackList
 	 */
-	public University(String universityName, String state, String location, String control, int numStudents, double femalePer, double verbalSAT,
-		double mathSAT, double expenses, double finAidPer, int numApplicants, double admitPer, double enrolledPer,
-		int academicScale, int socialScale, int qoaScale, ArrayList<String> emphasis, boolean blacklist) {
+	public University(String universityName, String state, String location, String control, String numStudents, String femalePer, String verbalSAT,
+			String mathSAT, String expenses, String finAidPer, String numApplicants, String admitPer, String enrolledPer,
+			String academicScale, String socialScale, String qoaScale, ArrayList<String> emphasis, boolean blacklist) {
 		this.universityName = universityName;
 		this.state = state;
 		this.location = location;
@@ -113,148 +113,148 @@ public class University {
 	/**
 	 * @return the numStudents
 	 */
-	public long getNumStudents() {
-		return (long) numStudents;
+	public String getNumStudents() {
+		return  numStudents;
 	}
-	public int intGetNumStudents() {
+	public String intGetNumStudents() {
 		return numStudents;
 	}
 	/**
 	 * @param numStudents the numStudents to set
 	 */
-	public void setNumStudents(int numStudents) {
+	public void setNumStudents(String numStudents) {
 		this.numStudents = numStudents;
 	}
 	/**
 	 * @return the femalePer
 	 */
-	public double getFemalePer() {
+	public String getFemalePer() {
 		return femalePer;
 	}
 	/**
 	 * @param femalePer the femalePer to set
 	 */
-	public void setFemalePer(int femalePer) {
+	public void setFemalePer(String femalePer) {
 		this.femalePer = femalePer;
 	}
 	/**
 	 * @return the verSAT
 	 */
-	public double getVerSAT() {
+	public String getVerSAT() {
 		return verbalSAT;
 	}
 	/**
 	 * @param verSAT the verSAT to set
 	 */
-	public void setVerSAT(double verSAT) {
+	public void setVerSAT(String verSAT) {
 		this.verbalSAT = verSAT;
 	}
 	/**
 	 * @return the mathSAT
 	 */
-	public double getMathSAT() {
+	public String getMathSAT() {
 		return mathSAT;
 	}
 	/**
 	 * @param mathSAT the mathSAT to set
 	 */
-	public void setMathSAT(int mathSAT) {
+	public void setMathSAT(String mathSAT) {
 		this.mathSAT = mathSAT;
 	}
 	/**
 	 * @return the tuition
 	 */
-	public double getTuition() {
+	public String getTuition() {
 		return expenses;
 	}
 	/**
 	 * @param tuition the tuition to set
 	 */
-	public void setTuition(double expenses) {
+	public void setTuition(String expenses) {
 		this.expenses = expenses;
 	}
 	/**
 	 * @return the finAid
 	 */
-	public double getFinAid() {
+	public String getFinAid() {
 		return finAidPer;
 	}
 	/**
 	 * @param finAid the finAid to set
 	 */
-	public void setFinAid(double finAidPer) {
+	public void setFinAid(String finAidPer) {
 		this.finAidPer = finAidPer;
 	}
 	/**
 	 * @return the numApplicants
 	 */
-	public double getNumApplicants() {
+	public String getNumApplicants() {
 		return numApplicants;
 	}
 	/**
 	 * @param numApplicants the numApplicants to set
 	 */
-	public void setNumApplicants(int numApplicants) {
+	public void setNumApplicants(String numApplicants) {
 		this.numApplicants = numApplicants;
 	}
 	/**
 	 * @return the admitPer
 	 */
-	public double getAdmitPer() {
+	public String getAdmitPer() {
 		return admitPer;
 	}
 	/**
 	 * @param admitPer the admitPer to set
 	 */
-	public void setAdmitPer(double admitPer) {
+	public void setAdmitPer(String admitPer) {
 		this.admitPer = admitPer;
 	}
 	/**
 	 * @return the enrolledPer
 	 */
-	public double getEnrolledPer() {
+	public String getEnrolledPer() {
 		return enrolledPer;
 	}
 	/**
 	 * @param enrolledPer the enrolledPer to set
 	 */
-	public void setEnrolledPer(double enrolledPer) {
+	public void setEnrolledPer(String enrolledPer) {
 		this.enrolledPer = enrolledPer;
 	}
 	/**
 	 * @return the academicScale
 	 */
-	public int getAcademicScale() {
+	public String getAcademicScale() {
 		return academicScale;
 	}
 	/**
 	 * @param academicScale the academicScale to set
 	 */
-	public void setAcademicScale(int academicScale) {
+	public void setAcademicScale(String academicScale) {
 		this.academicScale = academicScale;
 	}
 	/**
 	 * @return the socialScale
 	 */
-	public int getSocialScale() {
+	public String getSocialScale() {
 		return socialScale;
 	}
 	/**
 	 * @param socialScale the socialScale to set
 	 */
-	public void setSocialScale(int socialScale) {
+	public void setSocialScale(String socialScale) {
 		this.socialScale = socialScale;
 	}
 	/**
 	 * @return the qoaScale
 	 */
-	public int getQoaScale() {
+	public String getQoaScale() {
 		return qoaScale;
 	}
 	/**
 	 * @param qoaScale the qoaSCale to set
 	 */
-	public void setQoaScale(int qoaScale) {
+	public void setQoaScale(String qoaScale) {
 		this.qoaScale = qoaScale;
 	}
 	/**

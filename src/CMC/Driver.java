@@ -82,6 +82,12 @@ public class Driver {
 		u6(AName, SName);
 		System.out.println("u6 done");
 		
+		String invalidUser = "asdf";
+		
+		System.out.println("u6 starting");
+		u6(invalidUser, SName);
+		System.out.println("u6 done");
+		
 		System.out.println("\nu ALTERNATE Scenerio: the user has no saved universities under their account");
 		u2("juser");
 		System.out.println("u2 done");
@@ -221,7 +227,7 @@ public class Driver {
 	 */
 	public static void u3(String username, String password) {
 		System.out.println("\n");
-		UserUI.getUserInfo(username, password);
+		boolean b = UserUI.getUserInfo(username, password);
 	}
 	
 	
@@ -255,8 +261,10 @@ public class Driver {
 	}
 
 	/**
+	 * @author Carter
 	 * U5: View Individual University
-	 * 
+	 * Calls UserUI with a university name not returning
+	 * anything back to the Driver.
 	 * @param universityName university name
 	 */
 	public static void u5(String universityName) {
@@ -264,17 +272,23 @@ public class Driver {
 		
 	}
 	/**
+	 * @author Carter
 	 * u6: Remove School From List
-	 * 
+	 * Calls UserUI to remove a university from the list
+	 * returning a boolean true if the university is in the list
+	 * and returning a boolean false if the university is not in the list.
 	 * @param university name of university
 	 */
 	public static void u6(String username, String universityname) {
-		boolean remove = UserUI.removeUniversity(username, universityname);
-		if (remove) {
+		int remove = UserUI.removeUniversity(username, universityname);
+		if (remove == 1) {
 			System.out.println(universityname + " was removed from the list");
 		}
-		else {
+		if (remove == 0) {
 			System.out.println(universityname + " was not in the saved schools list.");
+		}
+		if (remove == 2) {
+			System.out.println("user " + username + " is an invalid user");
 		}
 	}
 	
@@ -343,18 +357,18 @@ public class Driver {
 		String state = "MN";
 		String location = "SC";
 		String control = "Private";
-		int numStudents = 2;
-		int femalePer = 0;
-		int verSAT = 300;
-		int mathSAT = 300;
-		double tuition = 60000;
-		double finAid = 20000;
-		int numApplicants = 4000;
-		int admitPer = 20;
-		int enrolledPer = 80;
-		int academicScale = 5;
-		int socialScale = 5;
-		int qoaScale = 5;
+		String numStudents = "2";
+		String femalePer = "0";
+		String verSAT = "300";
+		String mathSAT = "300";
+		String tuition = "60000";
+		String finAid = "20000";
+		String numApplicants = "4000";
+		String admitPer = "20";
+		String enrolledPer = "80";
+		String academicScale = "5";
+		String socialScale = "5";
+		String qoaScale = "5";
 		boolean blacklist = true;
 		ArrayList<String> emphasis = new ArrayList<String>();
 		emphasis.add("Accounting");
@@ -395,18 +409,18 @@ public class Driver {
 		String state = "MN";
 		String location = "SC";
 		String control = "Private";
-		int numStudents = 2;
-		int femalePer = 0;
-		int verSAT = 300;
-		int mathSAT = 300;
-		double tuition = 60000;
-		double finAid = 20000;
-		int numApplicants = 4000;
-		int admitPer = 20;
-		int enrolledPer = 80;
-		int academicScale = 5;
-		int socialScale = 5;
-		int qoaScale = 5;
+		String numStudents = "2";
+		String femalePer = "0";
+		String verSAT = "300";
+		String mathSAT = "300";
+		String tuition = "60000";
+		String finAid = "20000";
+		String numApplicants = "4000";
+		String admitPer = "20";
+		String enrolledPer = "80";
+		String academicScale = "5";
+		String socialScale = "5";
+		String qoaScale = "5";
 		boolean blacklist = true;
 		ArrayList<String> emphasis = new ArrayList<String>();
 		
