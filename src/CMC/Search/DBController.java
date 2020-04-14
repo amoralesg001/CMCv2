@@ -134,73 +134,73 @@ public class DBController {
 					}
 					
 					//Number of Students
-					int numStudents = Integer.parseInt(un[i][4]);
-					if (numStudents == -1) {
-						numStudents = 0;
+					String numStudents = un[i][4];
+					if (numStudents.equals(-1)) {
+						numStudents = "N/A";
 					}
 					
 					//Percent Female
-					double femalePer = Double.parseDouble(un[i][5]);
-					if (femalePer == -1) {
-						femalePer = 0;
+					String femalePer = un[i][5];
+					if (femalePer.equals(-1)) {
+						femalePer = "N/A";
 					}
 					
 					//SAT Verbal
-					double verbalSAT = Double.parseDouble(un[i][6]);
-					if (verbalSAT == -1) {
-						verbalSAT = 0;
+					String verbalSAT = un[i][6];
+					if (verbalSAT.equals(-1)) {
+						verbalSAT = "N/A";
 					}
 					
 					//SAT Math
-					double mathSAT = Double.parseDouble(un[i][7]);
-					if (mathSAT == -1) {
-						mathSAT = 0;
+					String mathSAT = un[i][7];
+					if (mathSAT.equals(-1)) {
+						mathSAT = "N/A";
 					}
 					//Expenses
-					double expenses = Double.parseDouble(un[i][8]);
-					if (expenses == -1) {
-						expenses = 0;
+					String expenses = un[i][8];
+					if (expenses.equals(-1)) {
+						expenses = "N/A";
 					}
 					//Financial Aid Percent
-					double finAidPer = Double.parseDouble(un[i][9]);
-					if (finAidPer == -1) {
-						finAidPer = 0;
+					String finAidPer = un[i][9];
+					if (finAidPer.equals(-1)) {
+						finAidPer = "N/A";
 					}	
 					
 					//Number of Applicants
-					int numApplicants = Integer.parseInt(un[i][10]);
-					if (numApplicants == -1) {
-						numApplicants = 0;
+					String numApplicants = un[i][10];
+					if (numApplicants.equals(-1)) {
+						numApplicants = "N/A";
 					}
 					
 					//Admitted percent
-					double admittedPer = Double.parseDouble(un[i][11]);
-					if (admittedPer == -1) {
-						admittedPer = 0;
+					String admittedPer = un[i][11];
+					if (admittedPer.equals(-1)) {
+						admittedPer = "N/A";
 					}
 					
 					//Enrolled percent
-					double enrolledPer = Double.parseDouble(un[i][12]);
-					if (enrolledPer == -1) {
-						enrolledPer = 0;
+					String enrolledPer = un[i][12];
+					if (enrolledPer.equals(-1)) {
+						enrolledPer = "N/A";
 					}
 					
 					//Academic Scale
-					int academicsScale = Integer.parseInt(un[i][13]);
-					if (academicsScale == -1) {
-						academicsScale = 0;
+					String academicsScale = un[i][13];
+					if (academicsScale.equals(-1)) {
+						academicsScale = "N/A";
 					}
 					
 					//Social Scale
-					int socialScale = Integer.parseInt(un[i][14]);
-					if (socialScale == -1) {
-						socialScale = 0;
+					String socialScale = un[i][14];
+					if (socialScale.equals(-1)) {
+						socialScale = "N/A";
 					}
 					
 					//Quality of Life Scale
-					int qualityScale = Integer.parseInt(un[i][15]);
-					if (qualityScale == -1) {
-						qualityScale = 0;
+					String qualityScale = un[i][15];
+					if (qualityScale.equals(-1)) {
+						qualityScale = "N/A";
 					}
 					
 					//Emphasis
@@ -257,9 +257,9 @@ public class DBController {
 		 * 
 		 * @return boolean value if the school has been edited
 		 */
-		public static boolean updateUniversityDB(String universityName, String state, String location, String control, int numStudents,
-				int femalePer, int verSAT, int mathSAT, double tuition, double finAid, double numApplicants, int admitPer,
-				int enrolledPer, int academicScale, int socialScale, int qoaScale, ArrayList<String> emphasis, boolean blacklist) {
+		public static boolean updateUniversityDB(String universityName, String state, String location, String control, String numStudents,
+				String femalePer, String verSAT, String mathSAT, String tuition, String finAid, String numApplicants, String admitPer,
+				String enrolledPer, String academicScale, String socialScale, String qoaScale, ArrayList<String> emphasis, boolean blacklist) {
 			//String[][] un = univDBlib.university_getUniversities();
 			
 			boolean edited = false;
@@ -274,9 +274,9 @@ public class DBController {
 				University u = dbGetUniversity(universityName);
 				if( u.getuniversityName().equals(universityName))
 				{
-					univDBlib.university_editUniversity(u.getuniversityName(), state, location, control, numStudents, femalePer,
-							verSAT, mathSAT, tuition, finAid, (int) numApplicants, admitPer, enrolledPer, academicScale,
-							socialScale, qoaScale);
+					univDBlib.university_editUniversity(u.getuniversityName(), state, location, control, Integer.parseInt(numStudents), Double.parseDouble(femalePer),
+							Double.parseDouble(verSAT), Double.parseDouble(mathSAT), Double.parseDouble(tuition), Double.parseDouble(finAid), Integer.parseInt(numApplicants), Double.parseDouble(admitPer), 
+							Double.parseDouble(enrolledPer), Integer.parseInt(academicScale), Integer.parseInt(socialScale), Integer.parseInt(qoaScale));
 					System.out.println("University: " + u.getuniversityName() + " has been found and has been editted.");
 					edited = true;
 					u.setBlacklist(blacklist);
@@ -332,15 +332,17 @@ public class DBController {
 		 * 
 		 * @return boolean value if the school has been added
 		 */
-		public static boolean addUniversity(String universityName, String state, String location, String control, int numStudents, double femalePer, double verSAT,
-				double mathSAT, double tuition, double finAid, int numApplicants, double admitPer, double enrolledPer,
-				int academicScale, int socialScale, int qoaSCale, ArrayList<String> emphasis)  {//is this adding all information of a university or just on the saved list? 		
+		public static boolean addUniversity(String universityName, String state, String location, String control, String numStudents, String femalePer, String verSAT,
+				String mathSAT, String tuition, String finAid, String numApplicants, String admitPer, String enrolledPer,
+				String academicScale, String socialScale, String qoaScale, ArrayList<String> emphasis)  {//is this adding all information of a university or just on the saved list? 		
 			boolean added = false;
 	
 			
 			if (dbGetUniversity(universityName) == null)
 			{
-				univDBlib.university_addUniversity(universityName, state, location, control, numStudents, femalePer, verSAT, mathSAT, tuition, finAid, numApplicants, admitPer, enrolledPer, academicScale, socialScale, qoaSCale);
+				univDBlib.university_addUniversity(universityName, state, location, control, Integer.parseInt(numStudents), Double.parseDouble(femalePer),
+						Double.parseDouble(verSAT), Double.parseDouble(mathSAT), Double.parseDouble(tuition), Double.parseDouble(finAid), Integer.parseInt(numApplicants), Double.parseDouble(admitPer), 
+						Double.parseDouble(enrolledPer), Integer.parseInt(academicScale), Integer.parseInt(socialScale), Integer.parseInt(qoaScale));
 				for (String s: emphasis)
 				{
 					univDBlib.university_addUniversityEmphasis(universityName, s);
@@ -497,52 +499,52 @@ public class DBController {
             	if((!control.equals("")) && (!un[i][3].contains(control))) {
             		searchCondition = false; 
             	}
-            	if((!numStudents.equals("")) && (Double.parseDouble(un[i][4])!=Double.parseDouble(numStudents))){
+            	if((!numStudents.equals("")) && (!un[i][4].contains(numStudents))){
             		searchCondition = false; 
             		
         	    } 
             	
-            	if((!femalePer.equals("")) && (Double.parseDouble(un[i][5])!=Double.parseDouble(femalePer))){
+            	if((!femalePer.equals("")) && (!un[i][5].contains(femalePer))){
             		searchCondition = false; 
         	    } 
             	
-            	if((!verbalSAT.equals("")) && (Double.parseDouble(un[i][6])!=Double.parseDouble(verbalSAT))){
+            	if((!verbalSAT.equals("")) && (!un[i][6].contains(verbalSAT))){
             		searchCondition = false; 
         	    }           	
     
-            	if((!mathSAT.equals("")) && (Double.parseDouble(un[i][7])!=Double.parseDouble(mathSAT))){
+            	if((!mathSAT.equals("")) && (!un[i][7].contains(mathSAT))){
             		searchCondition = false; 
         	    } 
             	
-            	if((!expenses.equals("")) && (Double.parseDouble(un[i][8])!=Double.parseDouble(expenses))){
+            	if((!expenses.equals("")) && (!un[i][8].contains(expenses))){
             		searchCondition = false; 
         	    } 
             	
-            	if((!finAidPer.equals("")) && (Double.parseDouble(un[i][9])!=Double.parseDouble(finAidPer))){
+            	if((!finAidPer.equals("")) && (!un[i][9].contains(finAidPer))){
             		searchCondition = false; 
         	    } 
             	
-            	if((!numApplicants.equals("")) && (Double.parseDouble(un[i][10])!=Double.parseDouble(numApplicants))){
+            	if((!numApplicants.equals("")) && (!un[i][10].contains(numApplicants))){
             		searchCondition = false; 
         	    } 
             	
-            	if((!admitPer.equals("")) && (Double.parseDouble(un[i][11])!=Double.parseDouble(admitPer))){
+            	if((!admitPer.equals("")) && (!un[i][11].contains(admitPer))){
             		searchCondition = false; 
         	    } 
             	
-            	if((!enrolledPer.equals("")) && (Double.parseDouble(un[i][12])!=Double.parseDouble(enrolledPer))){
+            	if((!enrolledPer.equals("")) && (!un[i][12].contains(enrolledPer))){
             		searchCondition = false; 
         	    } 
             	
-            	if((!academicScale.equals("")) && (Double.parseDouble(un[i][13])!=Double.parseDouble(academicScale))){
+            	if((!academicScale.equals("")) && (!un[i][13].contains(academicScale))){
             		searchCondition = false; 
         	    } 
             	
-            	if((!socialScale.equals("")) && (Double.parseDouble(un[i][14])!=Double.parseDouble(socialScale))){
+            	if((!socialScale.equals("")) && (!un[i][14].contains(socialScale))){
             		searchCondition = false; 
         	    } 
             	
-            	if((!qoaScale.equals("")) && (Integer.parseInt(un[i][15])!=Integer.parseInt(qoaScale))){
+            	if((!qoaScale.equals("")) && (!un[i][15].contains(qoaScale))){
             		searchCondition = false; 
         	    } 
             	

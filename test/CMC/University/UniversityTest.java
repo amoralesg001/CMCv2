@@ -14,7 +14,7 @@ public class UniversityTest {
 		@Before
 		public void setUp() throws Exception {
 			//testing university methods: Alex
-			universityTest = new University("Alex University", "Alex State", "SC", "Public", 100, 50, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, null, true);
+			universityTest = new University("Alex University", "Alex State", "SC", "Public", "100", "50", "101", "102", "103", "104", "105", "106", "107", "108", "109", "110", null, true);
 			
 		}
 

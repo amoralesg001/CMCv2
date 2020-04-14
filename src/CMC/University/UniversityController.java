@@ -80,9 +80,9 @@ public class UniversityController {
 	 * @return boolean value if the school has been added
 	 */
 	public static boolean addUniversity(String universityName, String state, String location,
-			String control, int numStudents, double femalePer, double verSAT, double mathSAT,
-			double tuition, double finAid, int numApplicants, double admitPer, double enrolledPer,
-			int academicScale, int socialScale, int qoaSCale, ArrayList<String> emphasis,
+			String control, String numStudents, String femalePer, String verSAT, String mathSAT,
+			String tuition, String finAid, String numApplicants, String admitPer, String enrolledPer,
+			String academicScale, String socialScale, String qoaSCale, ArrayList<String> emphasis,
 			boolean blacklist) {
 		University u = new University(universityName, state, location, control, numStudents, femalePer, verSAT,
 				mathSAT, tuition, finAid, numApplicants, admitPer, enrolledPer, academicScale, socialScale,
@@ -112,62 +112,62 @@ public class UniversityController {
 			valid = false;
 			throw new UnsupportedOperationException("Must enter Control");
 		}
-		if(u.getNumStudents() < 0)
+		if(Integer.parseInt(u.getNumStudents()) <= 0)
 		{
 			valid = false;
 			throw new UnsupportedOperationException("Number of students must be greater than 0");
 		}
-		if(u.getFemalePer() < 0 || u.getFemalePer() > 100)
+		if(Integer.parseInt(u.getFemalePer()) < 0 || Integer.parseInt(u.getFemalePer()) > 100)
 		{
 			valid = false;
 			throw new UnsupportedOperationException("Female Percent must be between 0 - 100");
 		}
-		if(u.getVerSAT() < 200 || u.getVerSAT() > 800)
+		if(Integer.parseInt(u.getVerSAT()) < 200 || Integer.parseInt(u.getVerSAT()) > 800)
 		{
 			valid = false;
 			throw new UnsupportedOperationException("Verbal SAT must be between 200 - 800");
 		}
-		if(u.getMathSAT() < 200 || u.getMathSAT() > 800)
+		if(Integer.parseInt(u.getMathSAT()) < 200 || Integer.parseInt(u.getMathSAT()) > 800)
 		{
 			valid = false;
 			throw new UnsupportedOperationException("Math SAT must be between 200 - 800");
 		}
-		if(u.getTuition() < 0)
+		if(Integer.parseInt(u.getTuition()) < 0)
 		{
 			valid = false;
 			throw new UnsupportedOperationException("Tuition must not be negative");
 		}
-		if(u.getFinAid() < 0)
+		if(Integer.parseInt(u.getFinAid()) < 0)
 		{
 			valid = false;
 			throw new UnsupportedOperationException("Financial Aid Must cannot be negative");
 		}
-		if(u.getNumApplicants() < 0)
+		if(Integer.parseInt(u.getNumApplicants()) < 0)
 		{
 			valid = false;
 			throw new UnsupportedOperationException("Number of applicants must not be negative");
 		}
-		if(u.getAdmitPer() < 0 || u.getAdmitPer() > 100)
+		if(Integer.parseInt(u.getAdmitPer()) < 0 || Integer.parseInt(u.getAdmitPer()) > 100)
 		{
 			valid = false;
 			throw new UnsupportedOperationException("Admit percent must be from 0 - 100");
 		}
-		if(u.getEnrolledPer() < 0 || u.getEnrolledPer() > 100)
+		if(Integer.parseInt(u.getEnrolledPer()) < 0 || Integer.parseInt(u.getEnrolledPer()) > 100)
 		{
 			valid = false;
 			throw new UnsupportedOperationException("Enrolled Percent must be from 0 - 100");
 		}
-		if(u.getAcademicScale() < 1 || u.getAcademicScale() > 5)
+		if(Integer.parseInt(u.getAcademicScale()) < 1 || Integer.parseInt(u.getAcademicScale()) > 5)
 		{
 			valid = false;
 			throw new UnsupportedOperationException("Academic Scale must be from 1 - 5");
 		}
-		if(u.getSocialScale() < 1 || u.getSocialScale() > 5)
+		if(Integer.parseInt(u.getSocialScale()) < 1 || Integer.parseInt(u.getSocialScale()) > 5)
 		{
 			valid = false;
 			throw new UnsupportedOperationException("Social Scale must be from 1 - 5");
 		}
-		if(u.getQoaScale() < 1 || u.getQoaScale() > 5)
+		if(Integer.parseInt(u.getQoaScale()) < 1 || Integer.parseInt(u.getQoaScale()) > 5)
 		{
 			valid = false;
 			throw new UnsupportedOperationException("Academic Scale must be from 1 - 5");
@@ -247,12 +247,12 @@ public class UniversityController {
 	 * 
 	 * @return boolean value if the school has been edited
 	 */
-	public static boolean editUniversityinfo(String universityName, String state, String location, String control, int numStudents,
-			int femalePer, int verSAT, int mathSAT, double tuition, double finAid, double numApplicants, int admitPer,
-			int enrolledPer, int academicScale, int socialScale, int qoaScale, ArrayList<String> emphasis, boolean blacklist) {
+	public static boolean editUniversityinfo(String universityName, String state, String location, String control, String numStudents,
+			String femalePer, String verSAT, String mathSAT, String tuition, String finAid, String numApplicants, String admitPer,
+			String enrolledPer, String academicScale, String socialScale, String qoaScale, ArrayList<String> emphasis, boolean blacklist) {
 		
 		University u = new University(universityName, state, location, control, numStudents, femalePer, verSAT,
-				mathSAT, tuition, finAid, (int) numApplicants, admitPer, enrolledPer, academicScale, socialScale,
+				mathSAT, tuition, finAid, numApplicants, admitPer, enrolledPer, academicScale, socialScale,
 				qoaScale, emphasis, blacklist);
 		
 		boolean valid = true;
@@ -276,62 +276,62 @@ public class UniversityController {
 			valid = false;
 			throw new UnsupportedOperationException("Must enter Control");
 		}
-		if(u.getNumStudents() < 0)
+		if(Integer.parseInt(u.getNumStudents()) <= 0)
 		{
 			valid = false;
 			throw new UnsupportedOperationException("Number of students must be greater than 0");
 		}
-		if(u.getFemalePer() < 0 || u.getFemalePer() > 100)
+		if(Integer.parseInt(u.getFemalePer()) < 0 || Integer.parseInt(u.getFemalePer()) > 100)
 		{
 			valid = false;
 			throw new UnsupportedOperationException("Female Percent must be between 0 - 100");
 		}
-		if(u.getVerSAT() < 200 || u.getVerSAT() > 800)
+		if(Integer.parseInt(u.getVerSAT()) < 200 || Integer.parseInt(u.getVerSAT()) > 800)
 		{
 			valid = false;
 			throw new UnsupportedOperationException("Verbal SAT must be between 200 - 800");
 		}
-		if(u.getMathSAT() < 200 || u.getMathSAT() > 800)
+		if(Integer.parseInt(u.getMathSAT()) < 200 || Integer.parseInt(u.getMathSAT()) > 800)
 		{
 			valid = false;
 			throw new UnsupportedOperationException("Math SAT must be between 200 - 800");
 		}
-		if(u.getTuition() < 0)
+		if(Integer.parseInt(u.getTuition()) < 0)
 		{
 			valid = false;
 			throw new UnsupportedOperationException("Tuition must not be negative");
 		}
-		if(u.getFinAid() < 0)
+		if(Integer.parseInt(u.getFinAid()) < 0)
 		{
 			valid = false;
 			throw new UnsupportedOperationException("Financial Aid Must cannot be negative");
 		}
-		if(u.getNumApplicants() < 0)
+		if(Integer.parseInt(u.getNumApplicants()) < 0)
 		{
 			valid = false;
 			throw new UnsupportedOperationException("Number of applicants must not be negative");
 		}
-		if(u.getAdmitPer() < 0 || u.getAdmitPer() > 100)
+		if(Integer.parseInt(u.getAdmitPer()) < 0 || Integer.parseInt(u.getAdmitPer()) > 100)
 		{
 			valid = false;
 			throw new UnsupportedOperationException("Admit percent must be from 0 - 100");
 		}
-		if(u.getEnrolledPer() < 0 || u.getEnrolledPer() > 100)
+		if(Integer.parseInt(u.getEnrolledPer()) < 0 || Integer.parseInt(u.getEnrolledPer()) > 100)
 		{
 			valid = false;
 			throw new UnsupportedOperationException("Enrolled Percent must be from 0 - 100");
 		}
-		if(u.getAcademicScale() < 1 || u.getAcademicScale() > 5)
+		if(Integer.parseInt(u.getAcademicScale()) < 1 || Integer.parseInt(u.getAcademicScale()) > 5)
 		{
 			valid = false;
 			throw new UnsupportedOperationException("Academic Scale must be from 1 - 5");
 		}
-		if(u.getSocialScale() < 1 || u.getSocialScale() > 5)
+		if(Integer.parseInt(u.getSocialScale()) < 1 || Integer.parseInt(u.getSocialScale()) > 5)
 		{
 			valid = false;
 			throw new UnsupportedOperationException("Social Scale must be from 1 - 5");
 		}
-		if(u.getQoaScale() < 1 || u.getQoaScale() > 5)
+		if(Integer.parseInt(u.getQoaScale()) < 1 || Integer.parseInt(u.getQoaScale()) > 5)
 		{
 			valid = false;
 			throw new UnsupportedOperationException("Academic Scale must be from 1 - 5");
