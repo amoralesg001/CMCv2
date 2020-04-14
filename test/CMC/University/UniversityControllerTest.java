@@ -82,7 +82,7 @@ public class UniversityControllerTest {
 
 	}
 	
-//AddUniversityTest
+//AddUniversityTest BLACK BOX TESTING
 	   @Test (expected=UnsupportedOperationException.class)
 	   public void testNoLengthUniversityName(){
 	    UniversityController.addUniversity("", "MN", "Urban", "private", "100", "10", "200", "200", "1", "1", "1", "0", "0", "1", "1", "1", emp, true);
@@ -242,7 +242,7 @@ public class UniversityControllerTest {
 	     
 	   }
 	   
-//EditUniversityTest
+//EditUniversityTest BLACK BOx Testing
 	   @Test (expected=UnsupportedOperationException.class)
 	   public void testEditNoLengthUniversityName(){
 	    UniversityController.editUniversityinfo("", "MN", "Urban", "private", "100", "10", "200", "200", "1", "1", "1", "0", "0", "1", "1", "1", emp, true);
@@ -391,33 +391,7 @@ public class UniversityControllerTest {
 	   public void testEditEmptyCharEmphasis() {
 	    UniversityController.editUniversityinfo("STANFORD", "MN", "Urban", "private", "100", "10", "200", "200", "1", "1", "1", "0", "1", "1", "1", "1", invalidEmp, true);
 	   }
-	   //BLACK BOX TESTING
-	   @Test
-	   public void testUniversityNameWithEmphasis() {
-	    for (String universityName : uniNames)
-	    {
-	    	boolean found = false;
-	    	System.out.println(universityName + " emphases are:");
-	    	for (int i = 0; i < DBController.univDBlib.university_getNamesWithEmphases().length; i ++)
-	    	{
-	    		if (DBController.univDBlib.university_getNamesWithEmphases()[i][0].equals(universityName))
-	    		{
-	    			found = true;
-	    			System.out.println(DBController.univDBlib.university_getNamesWithEmphases()[i][1]);
-	     
-	    		}
-
-	    	}
-    		if (found)
-    		{
-    			System.out.println("University: " + universityName + " was found");
-    		}
-    		else
-    		{
-    			System.out.println("University: " + universityName + " was NOT found");
-    		}
-	    }
-	   }
+	  
 
 	   @Test (expected = NullPointerException.class)
 	   public void testValidParametersForNoUniversity(){
