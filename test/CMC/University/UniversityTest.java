@@ -109,6 +109,16 @@ public class UniversityTest {
 			Assert.assertEquals(null, universityTest.getEmphasis());
 		}
 		
+		@Test
+		public void testSetBlackList() {
+			universityTest.setBlacklist(true);
+			Assert.assertTrue(universityTest.isBlacklisted() == "Yes");
+		}
 		
+		@Test
+		public void testSetBlackListFalse() {
+			universityTest.setBlacklist(false);
+			Assert.assertTrue(universityTest.isBlacklisted() == "No");
+		}
 
 }
