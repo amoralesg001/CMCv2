@@ -198,6 +198,7 @@ public class Driver {
 	/**
 	 * U2: List Saved Universities
 	 * @author amoralesg001
+	 * @param username
 	 * This use case displays the saved Universities from the Account.
 	 */
 	public static void u2(String username) {
@@ -231,12 +232,31 @@ public class Driver {
 	}
 	
 	
-	/**
-	 * U4: Search For Schools
-	 * @author nlarson002
+/**	 * U4: Search For Schools
+ * @author nlarson002	 * 
+ *  @param universityName
+ * @param state
+ * @param location
+ * @param control
+ * @param numStudents
+ * @param femalePer
+ * @param verbalSAT
+ * @param mathSAT
+ * @param expenses
+ * @param finAidPer
+ * @param numApplicants
+ * @param admitPer
+ * @param enrolledPer
+ * @param academicScale
+ * @param socialScale
+ * @param qoaScale
+ * @param emphasis0
+ * @param emphasis1
+ * @param emphasis2
+ * @param emphasis3
+ * @param emphasis4
 	 * This allows the user to search for a school given any of the criterias in a universitiy 
 	 */
-
 	public static void u4(String universityName, String state, String location, String control, String numStudents, String femalePer, String verbalSAT,
             String mathSAT, String expenses, String finAidPer, String numApplicants, String admitPer, String enrolledPer,
             String academicScale, String socialScale, String qoaScale, String emphasis0, String emphasis1, String emphasis2, String emphasis3, String emphasis4) {
