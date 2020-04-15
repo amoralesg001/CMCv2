@@ -253,6 +253,25 @@ public class DBControllerTest {
 	}
 	
 	@Test
+	public void testRemoveEmphasesInvalidUniversity() {
+		ArrayList<String> dbEmp = new ArrayList<String>();
+		for(String s: emp) {
+			System.out.println("Valid Emphasis: " + s);
+			DBController.univDBlib.university_removeUniversityEmphasis("InvalidUniversity", s);
+		}
+		for (int i = 0; i < DBController.univDBlib.university_getNamesWithEmphases().length; i ++)
+		{
+			if (DBController.univDBlib.university_getNamesWithEmphases()[i][0].equals("InvalidUniversity"))
+			{
+				System.out.println("Still in DB: " + DBController.univDBlib.university_getNamesWithEmphases()[i][1]);
+				dbEmp.add(DBController.univDBlib.university_getNamesWithEmphases()[i][1]);
+				
+			}
+		}
+		Assert.assertTrue(dbEmp.size() == 0);
+	}
+	
+	@Test
 	public void testAddUniversityEmphasis() {
 		ArrayList<String> testEmp = new ArrayList<String>();
 		for(String s: emp) {
