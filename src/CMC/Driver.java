@@ -16,6 +16,8 @@ public class Driver {
 	//private University university = new University(null, null, null, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, null);
 
 	public static void main(String[] args) {
+		
+		u3("juser", "user");
 		String univTest = "SAINT JOHN'S";
 		String SName = "ADELPHI";
 		String AName = "juser";

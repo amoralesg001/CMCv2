@@ -50,6 +50,14 @@ public class DriverTest {
 			
 	}
 	
+	
+	@Test 
+	public void u3() {
+		Assert.assertTrue("Testing valid account", UserUI.getUserInfo("juser", "user"));
+		Assert.assertFalse("Testing invalid account", UserUI.getUserInfo("luser", "user"));
+		Assert.assertTrue("Testing valid admin account", UserUI.getUserInfo("nadmin", "admin"));
+	}
+	
 	//test case u4: Alex
 	@Test
 	public void testu4() {
