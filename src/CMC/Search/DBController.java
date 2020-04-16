@@ -135,71 +135,71 @@ public class DBController {
 					
 					//Number of Students
 					String numStudents = un[i][4];
-					if (numStudents.equals(-1)) {
+					if (numStudents.equals("-1")) {
 						numStudents = "N/A";
 					}
 					
 					//Percent Female
 					String femalePer = un[i][5];
-					if (femalePer.equals(-1)) {
+					if (femalePer.equals("-1")) {
 						femalePer = "N/A";
 					}
 					
 					//SAT Verbal
 					String verbalSAT = un[i][6];
-					if (verbalSAT.equals(-1)) {
+					if (verbalSAT.equals("-1")) {
 						verbalSAT = "N/A";
 					}
 					
 					//SAT Math
 					String mathSAT = un[i][7];
-					if (mathSAT.equals(-1)) {
+					if (mathSAT.equals("-1")) {
 						mathSAT = "N/A";
 					}
 					//Expenses
 					String expenses = un[i][8];
-					if (expenses.equals(-1)) {
+					if (expenses.equals("-1")) {
 						expenses = "N/A";
 					}
 					//Financial Aid Percent
 					String finAidPer = un[i][9];
-					if (finAidPer.equals(-1)) {
+					if (finAidPer.equals("-1")) {
 						finAidPer = "N/A";
 					}	
 					
 					//Number of Applicants
 					String numApplicants = un[i][10];
-					if (numApplicants.equals(-1)) {
+					if (numApplicants.equals("-1")) {
 						numApplicants = "N/A";
 					}
 					
 					//Admitted percent
 					String admittedPer = un[i][11];
-					if (admittedPer.equals(-1)) {
+					if (admittedPer.equals("-1")) {
 						admittedPer = "N/A";
 					}
 					
 					//Enrolled percent
 					String enrolledPer = un[i][12];
-					if (enrolledPer.equals(-1)) {
+					if (enrolledPer.equals("-1")) {
 						enrolledPer = "N/A";
 					}
 					
 					//Academic Scale
 					String academicsScale = un[i][13];
-					if (academicsScale.equals(-1)) {
+					if (academicsScale.equals("-1")) {
 						academicsScale = "N/A";
 					}
 					
 					//Social Scale
 					String socialScale = un[i][14];
-					if (socialScale.equals(-1)) {
+					if (socialScale.equals("-1")) {
 						socialScale = "N/A";
 					}
 					
 					//Quality of Life Scale
 					String qualityScale = un[i][15];
-					if (qualityScale.equals(-1)) {
+					if (qualityScale.equals("-1")) {
 						qualityScale = "N/A";
 					}
 					
@@ -416,8 +416,12 @@ public class DBController {
 		 * @param username Username as string
 		 * @param universityname name of university as string to remove
 		 */
-		public static int removeUniversity(String username, String universityname) {
-			int i = univDBlib.user_removeSchool(username, universityname);
+		public static int removeUniversity(String username, String universityName) {
+			University universityToRemove = DBController.dbGetUniversity(universityName);
+			if (universityToRemove == null) {
+				return 3;
+			}
+			int i = univDBlib.user_removeSchool(username, universityName);
 			return i;
 		}
 		/**
