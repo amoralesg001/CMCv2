@@ -46,21 +46,21 @@ public class Driver {
 		System.out.println("u3 done");
 		
 		System.out.println("u4 scenerio: all three criterias are correct");
-		u4("UNIVERS", "MINN", "UR","STATE", "40000","45" ,"490", "557", "13772", "50", "8500", "80","60", "4", "3", "4","","","","","");
+		u4("", "NEW YORK", "","","8000","","50","","600","650","600","","30000","","50","70", "3000","5000" ,"50", "61", "10", "30", "3", "5","2", "5", "3", "5","LKJ","ART-HISTORY","","","");
 		System.out.println("u4 done");
 		System.out.println("output should be: university with the follwoing criterias found: \nUNIVERSITY OF MINNESOTA");
 		System.out.println("\nu4 ALTERNATE Scenerio: all three criterias are incorrect: ");
-		u4("UNIVERS", "MINN", "", "STADFATE", "4000", "", "", "", "", "", "", "","","","","","","","","","");
+		//u4("", "MINN", "", "STATE", "4000", "", "", "", "", "", "", "","","","","","","","","","");
 		System.out.println("u4 done");
 		System.out.println("output should be: No Universities Found with that criteria \n ");
 	
-//		String username = "juser";
-//		String universityname = "waer2";
-//
-//		int i = DBController.removeUniversity(username, universityname);
-//		
+		String username = "juser";	
+		String universityname = "waer2";
+
+		int i = DBController.removeUniversity(username, universityname);
+		
 		System.out.println("\nU5 Starting\n");
-		u5("UNIVERSITY OF MINNESOTA");
+		u5("BARNARD");
 		System.out.println("\nU5 Done: Should dislpay the information of Adelphi. \n");		
 		//u6(universityToRemove);
 		//u7(universityToRemove, universityToRemove, universityToRemove, universityToRemove);
@@ -257,18 +257,20 @@ public class Driver {
  * @param emphasis4
 	 * This allows the user to search for a school given any of the criterias in a universitiy 
 	 */
-	public static void u4(String universityName, String state, String location, String control, String numStudents, String femalePer, String verbalSAT,
-            String mathSAT, String expenses, String finAidPer, String numApplicants, String admitPer, String enrolledPer,
-            String academicScale, String socialScale, String qoaScale, String emphasis0, String emphasis1, String emphasis2, String emphasis3, String emphasis4) {
+	public static void u4(String universityName, String state, String location, String control, String numStudents1, String numStudents2, String femalePer1, String femalePer2, String verbalSAT1, String verbalSAT2,
+            String mathSAT1, String mathSAT2, String expenses1, String expenses2, String finAidPer1, String finAidPer2, String numApplicants1, String numApplicants2, String admitPer1, String admitPer2, String enrolledPer1, String enrolledPer2,
+            String academicScale1, String academicScale2, String socialScale1, String socialScale2, String qoaScale1, String qoaScale2, String emphasis0, String emphasis1, String emphasis2, String emphasis3, String emphasis4) {
         String emphasis[] = new String[5];
         emphasis[0] = emphasis0;
         emphasis[1] = emphasis1;
         emphasis[2] = emphasis2;
         emphasis[3] = emphasis3;
         emphasis[4] = emphasis4;
-        ArrayList<String> uniSearch = UserUI.searchUniversity(universityName, state, location, control, numStudents, femalePer, verbalSAT,mathSAT,expenses, finAidPer,numApplicants,admitPer,enrolledPer,academicScale,socialScale,qoaScale, emphasis);
         
-        if (uniSearch.size() == 0) {
+        
+        ArrayList<String> uniSearch = UserUI.searchUniversity(universityName, state, location, control, numStudents1, numStudents2, femalePer1, femalePer2, verbalSAT1, verbalSAT2,mathSAT1, mathSAT2,expenses1, expenses2, finAidPer1, finAidPer2,numApplicants1, numApplicants2,admitPer1, admitPer2,enrolledPer1, enrolledPer2,academicScale1, academicScale2,socialScale1, socialScale2,qoaScale1, qoaScale2, emphasis);
+        
+        if (uniSearch.size() == 0 || uniSearch == null) {
             System.out.println("no Universities found with that criteria");
         }
         else {

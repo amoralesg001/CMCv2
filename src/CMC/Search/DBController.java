@@ -498,13 +498,28 @@ public class DBController {
 		 * @param academicScale
 		 * @param socialScale
 		 * @param qoaScale
+		 * @param qoaScale2 
+		 * @param qoaScale1 
+		 * @param socialScale2 
+		 * @param socialScale1 
+		 * @param academicScale2 
+		 * @param academicScale1 
+		 * @param enrolledPer2 
+		 * @param enrolledPer1 
+		 * @param admitPer2 
+		 * @param admitPer1 
+		 * @param numApplicants2 
+		 * @param numApplicants1 
+		 * @param finAidPer2 
+		 * @param finAidPer1 
 		 * @param emphasis
 		 * @return ArrayList of a string that has the universities that match those criterias
 		 */
-		public static ArrayList<String> dbSearchUniversity(String universityName, String state, String location, String control, String numStudents, String femalePer, String verbalSAT,
-	            String mathSAT, String expenses, String finAidPer, String numApplicants, String admitPer, String enrolledPer,
-	            String academicScale, String socialScale, String qoaScale, String[] emphasis) {    
+		public static ArrayList<String> dbSearchUniversity(String universityName, String state, String location, String control, String numStudents1, String numStudents2, String femalePer1, String femalePer2, String verbalSAT1, String verbalSAT2,
+	            String mathSAT1, String mathSAT2, String expenses1, String expenses2, String finAidPer1, String finAidPer2, String numApplicants1, String numApplicants2, String admitPer1, String admitPer2, String enrolledPer1, String enrolledPer2,
+	            String academicScale1, String academicScale2, String socialScale1, String socialScale2, String qoaScale1, String qoaScale2, String[] emphasis) {    
             String[][] un = univDBlib.university_getUniversities();
+            ArrayList<String> uniAndEmphasisMatch = new ArrayList<>();
             ArrayList<String> uniSearchFound = new ArrayList<>();
             boolean searchCondition=true; 
           
@@ -519,61 +534,194 @@ public class DBController {
             		searchCondition = false; 
         	    }  
 
-            	if((!location.equals("")) && (!un[i][2].contains(location))){	//still isnt working for some reason but the rest do!
-            		searchCondition = false; 
-        	    } 
+            	
             	if((!control.equals("")) && (!un[i][3].contains(control))) {
             		searchCondition = false; 
             	}
-            	if((!numStudents.equals("")) && (!un[i][4].contains(numStudents))){
-            		searchCondition = false; 
-            		
-        	    } 
+
+
+            
+            	int checkBetweennum = Integer.parseInt(un[i][4]);
+            	if(!numStudents1.equals("") && numStudents2 == "") {
+            		if(!(Integer.parseInt(numStudents1)<checkBetweennum)) {
+            			searchCondition=false;
+            		} 		
+            	}
+            	else if(!numStudents1.equals("") && !numStudents2.equals("")) {
+            		if((Integer.parseInt(numStudents1)>checkBetweennum) || (checkBetweennum> Integer.parseInt(numStudents2))) {
+            			searchCondition = false;
+            		}
+            	}
+            	else if(!(numStudents1.equals("")) && !numStudents2.equals("")) {
+            		searchCondition = false;
+            	}
             	
-            	if((!femalePer.equals("")) && (!un[i][5].contains(femalePer))){
-            		searchCondition = false; 
-        	    } 
-            	
-            	if((!verbalSAT.equals("")) && (!un[i][6].contains(verbalSAT))){
-            		searchCondition = false; 
-        	    }           	
-    
-            	if((!mathSAT.equals("")) && (!un[i][7].contains(mathSAT))){
-            		searchCondition = false; 
-        	    } 
-            	
-            	if((!expenses.equals("")) && (!un[i][8].contains(expenses))){
-            		searchCondition = false; 
-        	    } 
-            	
-            	if((!finAidPer.equals("")) && (!un[i][9].contains(finAidPer))){
-            		searchCondition = false; 
-        	    } 
-            	
-            	if((!numApplicants.equals("")) && (!un[i][10].contains(numApplicants))){
-            		searchCondition = false; 
-        	    } 
-            	
-            	if((!admitPer.equals("")) && (!un[i][11].contains(admitPer))){
-            		searchCondition = false; 
-        	    } 
-            	
-            	if((!enrolledPer.equals("")) && (!un[i][12].contains(enrolledPer))){
-            		searchCondition = false; 
-        	    } 
-            	
-            	if((!academicScale.equals("")) && (!un[i][13].contains(academicScale))){
-            		searchCondition = false; 
-        	    } 
-            	
-            	if((!socialScale.equals("")) && (!un[i][14].contains(socialScale))){
-            		searchCondition = false; 
-        	    } 
-            	
-            	if((!qoaScale.equals("")) && (!un[i][15].contains(qoaScale))){
-            		searchCondition = false; 
-        	    } 
-            	
+            	checkBetweennum = Integer.parseInt(un[i][5]); 	
+            	if(!femalePer1.equals("") && femalePer2.equals("")) {
+            		if(!(Integer.parseInt(femalePer1)<checkBetweennum)) {
+            			searchCondition=false;
+            		} 		
+            	}
+            	else if(!femalePer1.equals("") && !femalePer2.equals("")) {
+            		if((Integer.parseInt(femalePer1)>checkBetweennum) || (checkBetweennum> Integer.parseInt(femalePer2))) {
+            			searchCondition = false;
+            		}
+            	}
+            	else if(!(femalePer1.equals("")) && !femalePer2.equals("")) {
+            		searchCondition = false;
+            	}
+            	//verbal SAT
+            	checkBetweennum = Integer.parseInt(un[i][6]); 	
+            	if(!verbalSAT1.equals("") && verbalSAT2.equals("")) {
+            		if(!(Integer.parseInt(verbalSAT1)<checkBetweennum)) {
+            			searchCondition=false;
+            		} 		
+            	}
+            	else if(!verbalSAT1.equals("") && !verbalSAT2.equals("")) {
+            		if((Integer.parseInt(verbalSAT1)>checkBetweennum) || (checkBetweennum> Integer.parseInt(verbalSAT2))) {
+            			searchCondition = false;
+            		}
+            	}
+            	else if(!(verbalSAT1.equals("")) && !verbalSAT2.equals("")) {
+            		searchCondition = false;
+            	}
+            	//math SAT
+            	checkBetweennum = Integer.parseInt(un[i][7]); 	
+            	if(!mathSAT1.equals("") && mathSAT2.equals("")) {
+            		if(!(Integer.parseInt(mathSAT1)<checkBetweennum)) {
+            			searchCondition=false;
+            		} 		
+            	}
+            	else if(!mathSAT1.equals("") && !mathSAT2.equals("")) {
+            		if((Integer.parseInt(mathSAT1)>checkBetweennum) || (checkBetweennum> Integer.parseInt(mathSAT2))) {
+            			searchCondition = false;
+            		}
+            	}
+            	else if(!(mathSAT1.equals("")) && !mathSAT2.equals("")) {
+            		searchCondition = false;
+            	}
+            	//expenses
+            	checkBetweennum = Integer.parseInt(un[i][8]); 	
+            	if(!(expenses1.equals("")) && expenses2=="") {
+            		if(!(Integer.parseInt(expenses1)<checkBetweennum)) {
+            			searchCondition=false;
+            		} 		
+            	}
+            	else if(!expenses1.equals("") && !expenses2.equals("")) {
+            		if((Integer.parseInt(expenses1)>checkBetweennum) || (checkBetweennum> Integer.parseInt(expenses2))) {
+            			searchCondition = false;
+            		}
+            	}
+            	else if(!expenses1.equals("") && !expenses2.equals("")) {
+            		searchCondition = false;
+            	}
+            	//financial aid
+            	checkBetweennum = Integer.parseInt(un[i][9]); 	
+            	if(!(finAidPer1.equals("")) && finAidPer2=="") {
+            		if(!(Integer.parseInt(finAidPer1)<checkBetweennum)) {
+            			searchCondition=false;
+            		} 		
+            	}
+            	else if(!finAidPer1.equals("") && !finAidPer2.equals("")) {
+            		if((Integer.parseInt(finAidPer1)>checkBetweennum) || (checkBetweennum> Integer.parseInt(finAidPer2))) {
+            			searchCondition = false;
+            		}
+            	}
+            	else if(!finAidPer1.equals("") && !finAidPer2.equals("")) {
+            		searchCondition = false;
+            	}
+            	//number of applicants
+            	checkBetweennum = Integer.parseInt(un[i][10]); 	
+            	if(!(numApplicants1.equals("")) && numApplicants2=="") {
+            		if(!(Integer.parseInt(numApplicants1)<checkBetweennum)) {
+            			searchCondition=false;
+            		} 		
+            	}
+            	else if(!numApplicants1.equals("") && !numApplicants2.equals("")) {
+            		if((Integer.parseInt(numApplicants1)>checkBetweennum) || (checkBetweennum> Integer.parseInt(numApplicants2))) {
+            			searchCondition = false;
+            		}
+            	}
+            	else if(!numApplicants1.equals("") && !numApplicants2.equals("")) {
+            		searchCondition = false;
+            	}
+            	//percentage of admitted applicants
+            	checkBetweennum = Integer.parseInt(un[i][11]); 	
+            	if(!(admitPer1.equals("")) && admitPer2=="") {
+            		if(!(Integer.parseInt(admitPer1)<checkBetweennum)) {
+            			searchCondition=false;
+            		} 		
+            	}
+            	else if(!admitPer1.equals("") && !admitPer2.equals("")) {
+            		if((Integer.parseInt(admitPer1)>checkBetweennum) || (checkBetweennum> Integer.parseInt(admitPer2))) {
+            			searchCondition = false;
+            		}
+            	}
+            	else if(!admitPer1.equals("") && !admitPer2.equals("")) {
+            		searchCondition = false;
+            	}
+            	//percentage of enrolled
+            	checkBetweennum = Integer.parseInt(un[i][12]); 	
+            	if(!(enrolledPer1.equals("")) && enrolledPer2=="") {
+            		if(!(Integer.parseInt(enrolledPer1)<checkBetweennum)) {
+            			searchCondition=false;
+            		} 		
+            	}
+            	else if(!enrolledPer1.equals("") && !enrolledPer2.equals("")) {
+            		if((Integer.parseInt(enrolledPer1)>checkBetweennum) || (checkBetweennum> Integer.parseInt(enrolledPer2))) {
+            			searchCondition = false;
+            		}
+            	}
+            	else if(!enrolledPer1.equals("") && !enrolledPer2.equals("")) {
+            		searchCondition = false;
+            	}
+            	//Academic scale
+            	checkBetweennum = Integer.parseInt(un[i][13]); 	
+            	if(!(academicScale1.equals("")) && academicScale2=="") {
+            		if(!(Integer.parseInt(academicScale1)<checkBetweennum)) {
+            			searchCondition=false;
+            		} 		
+            	}
+            	else if(!academicScale1.equals("") && !academicScale2.equals("")) {
+            		if((Integer.parseInt(academicScale1)>checkBetweennum) || (checkBetweennum> Integer.parseInt(academicScale2))) {
+            			searchCondition = false;
+            		}
+            	}
+            	else if(!academicScale1.equals("") && !academicScale2.equals("")) {
+            		searchCondition = false;
+            	}
+            	//social scale
+            	checkBetweennum = Integer.parseInt(un[i][14]); 	
+            	if(!(socialScale1.equals("")) && socialScale2=="") {
+            		if(!(Integer.parseInt(socialScale1)<checkBetweennum)) {
+            			searchCondition=false;
+            		} 		
+            	}
+            	else if(!socialScale1.equals("") && !socialScale2.equals("")) {
+            		if((Integer.parseInt(socialScale1)>checkBetweennum) || (checkBetweennum> Integer.parseInt(socialScale2))) {
+            			searchCondition = false;
+            		}
+            	}
+            	else if(!socialScale1.equals("") && !socialScale2.equals("")) {
+            		searchCondition = false;
+            	}
+
+            	//QUOA Scale
+            	checkBetweennum = Integer.parseInt(un[i][15]); 	
+            	if(!(qoaScale1.equals("")) && qoaScale2=="") {
+            		if(!(Integer.parseInt(qoaScale1)<checkBetweennum)) {
+            			searchCondition=false;
+            		} 		
+            	}
+            	else if(!qoaScale1.equals("") && !qoaScale2.equals("")) {
+            		if((Integer.parseInt(qoaScale1)>checkBetweennum) || (checkBetweennum> Integer.parseInt(qoaScale2))) {
+            			searchCondition = false;
+            		}
+            	}
+            	else if(!qoaScale1.equals("") && !qoaScale2.equals("")) {
+            		searchCondition = false;
+            	}
+
             	if (searchCondition!=false) {
                 	String uniName = un[i][0];
             		uniSearchFound.add(uniName);
@@ -581,38 +729,72 @@ public class DBController {
             }
                     
 
-//                    //need to get another loop that gets emphasis
-//                    //Emphasis
-//                    String[][] em = univDBlib.university_getNamesWithEmphases();
-//                   boolean emphasisMatches;
-//                   ArrayList<String> emphasisFound = null;
-//                   for (int i=0; i<em.length;i++) {
-//                	   emphasisMatches = false;
-//                	   for(int j=0; j<em[i].length;j++) {	  
-//                		  if(em[i][j].contains(emphasis[0]) && emphasis[0]!="") {
-//                			  emphasisMatches=true;
-//                		  }
-//                		  if(em[i][j].contains(emphasis[1]) && emphasis[1]!="") {
-//                			  emphasisMatches=true;
-//                		  }
-//                		  if(em[i][j].contains(emphasis[2]) && emphasis[2]!="") {
-//                			  emphasisMatches=true;
-//                		  }
-//                		  if(em[i][j].contains(emphasis[3]) && emphasis[3]!="") {
-//                			  emphasisMatches=true;
-//                		  }
-//                		  if(em[i][j].contains(emphasis[4]) && emphasis[4]!="") {
-//                			  emphasisMatches=true;
-//                		  }
-//                	   }
-//                	   if (emphasisMatches!=false) {
-//                		   emphasisFound.add(em[i][0]);
-//                	   }
-//                	
-//                   }
-                   return uniSearchFound;
+                    //need to get another loop that gets emphasis
+                    //Emphasis
+                    String[][] em = univDBlib.university_getNamesWithEmphases();
+                   boolean emphasisMatches;
+                   ArrayList<String> emphasisFound = new ArrayList<String>();
+                   for (int i=0; i<em.length;i++) {
+                	   emphasisMatches = false;
+                	   for(int j=0; j<em[i].length;j++) {	  
+                		  if((em[i][j].equals(emphasis[0])) && !emphasis[0].equals("")) {
+                			  emphasisMatches=true;
+                		  }
+                		  if((em[i][j].contains(emphasis[1])) && emphasis[1]!="") {
+                			  emphasisMatches=true;
+                		  }
+                		  if((em[i][j].equals(emphasis[2])) && emphasis[2]!="") {
+                			  emphasisMatches=true;
+                		  }
+                		  if((em[i][j].equals(emphasis[3])) && emphasis[3]!="") {
+                			  emphasisMatches=true;
+                		  }
+                		  if((em[i][j].equals(emphasis[4])) && emphasis[4]!="") {
+                			  emphasisMatches=true;
+                		  }
+                	   
+                	   if (emphasisMatches!=false) {
+                		   String found =em[i][0];
+                		   emphasisFound.add(found);
+                	   }
+                	   }
+                	
+                   }
+                   //if the user had no criteria for emphasis, return the university criteria
+                   Object verbSAT;
+				if(emphasis[0].equals("") && emphasis[1].equals("") &&emphasis[2].equals("") &&emphasis[3].equals("") &&emphasis[4].equals("")) {
+                	   return uniSearchFound;
+                   }
+                   //do rest: if the all university criteria is empty, but their is criteria in emphasis
+                   else if(universityName.equals("")&& state.equals("") && numStudents1.equals("")&& control.equals("")&& numStudents1.equals("")&& femalePer1.equals("")&& verbalSAT1.equals("")
+                		   && mathSAT1.equals("") && expenses1.equals("")&& finAidPer1.equals("")&& numApplicants1.equals("")&& admitPer1.equals("")&& enrolledPer1.equals("")&& academicScale1.equals("")&& socialScale1.equals("")&& qoaScale1.equals("")) {
+                	return uniSearchFound;   
+                  }
+                   
+                   else if(uniSearchFound.size()>emphasisFound.size()) {
+                	   for(int i=0; i< uniSearchFound.size();i++) {
+                		  for(int k=0; k<emphasisFound.size();k++) {
+                			if(uniSearchFound.get(i).contains(emphasisFound.get(k)) && !uniAndEmphasisMatch.contains(uniSearchFound.get(i))){
+                			uniAndEmphasisMatch.add(uniSearchFound.get(i));	
+                			}
+                		  }
+                   }
+                   return uniAndEmphasisMatch;
 		}
-        
+                   else {
+                	   for(int i=0; i< emphasisFound.size();i++) {
+                 		  for(int k=0; k<uniSearchFound.size();k++) {
+                 			if(emphasisFound.get(i).contains(uniSearchFound.get(k)) && !uniAndEmphasisMatch.contains(uniSearchFound.get(k))){
+                 			uniAndEmphasisMatch.add(emphasisFound.get(i));	
+                 			}
+                 		  }  
+                 		 
+                   
+                   }
+                	   return uniAndEmphasisMatch;
+                   }
+                 
+		}
 		 /**
 		  * @author alex morales
 		  * this method is simply used for my testing JUNIT. I do not use this apart from that 
