@@ -100,7 +100,9 @@ public class DBController {
 					return account;
 				}
 			}
-			return null;	
+			Account tempA = new Account("errorError", "f", "f", "f", "f", "f");
+			//System.out.println("fail");
+			return tempA;	
 		}		  
 		//USED BY READYSON
 		public static University dbGetUniversity(String university) {	
