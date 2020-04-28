@@ -11,9 +11,9 @@
 	String password = (String)session.getAttribute("loggedInPassword");
 	UserController uc = (UserController)session.getAttribute("UserController");
 	ArrayList<Account> users = uc.getAllUsers();
-   int count = users.size();%>
-<% Account user = uc.getUserInfo(username, password); %>
-<% if (user.getUsername() != null) { %>
+   int count = users.size();
+ Account user = uc.getUserInfo(username, password); 
+  if (user.getUsername() != null) { %>
 	Hello User <%= user.getUsername() 
 	 %>
 <table style="text-align: left; width: 100%;" border="1" cellpadding="2"

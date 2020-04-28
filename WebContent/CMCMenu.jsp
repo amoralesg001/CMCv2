@@ -26,16 +26,13 @@ UserController uc = (UserController)session.getAttribute("UserController");
 </h2>
 <br>
 <h2>
-<A HREF="CMCManageMySavedSchools.jsp">]Manage My Saved Schools</A>
+<A HREF="CMCViewUsers.jsp">Manage Users</A>
 </h2>
 <br>
 <h2>
-<A HREF="CMCSearchForSchools.jsp">Search for Schools</A>
+<A HREF="CMCManageSchools.jsp">Manage Schools</A>
 </h2>
 <br>
-<h2>
-<A HREF="CMCViewUsers.jsp">View Users</A>
-</h2>
 </body>
 <% }
 else {
@@ -52,7 +49,7 @@ else {
 </h2>
 <br>
 <h2>
-<A HREF="CMCManageMySavedSchools.jsp">]Manage My Saved Schools</A>
+<A HREF="CMCManageMySavedSchools.jsp">Manage My Saved Schools</A>
 </h2>
 <br>
 <h2>

@@ -9,7 +9,7 @@ Edit User form:<br>
 <br>
 
 <%
-    out.println("Edit user : " + request.getParameter("Username"));
+    out.println("Edit user : " + (String)session.getAttribute("loggedInUsername"));
 %>
 <form method="post" action="Edit_action.jsp" name="editUser"><br>
 <table style="text-align: left; width: 266px; height: 228px;"
