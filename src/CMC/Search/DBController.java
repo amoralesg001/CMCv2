@@ -24,6 +24,16 @@ public class DBController {
 			Account user = dbGetUser(username);
 			//System.out.println(user.getPassword());
 			//System.out.println(user.getLoginStatus());
+			Account tempA = new Account("errorError", "f", "f", "f", "f", "f");
+			if (user.getUsername() == null) {
+				return tempA;
+			}
+			if (user.getPassword() == null) {
+				return tempA;
+			}
+			if (user.getLoginStatus() == null) {
+				return tempA;
+			}
 			String tempU = user.getUsername();
 			String tempP = user.getPassword();
 			String tempS = user.getLoginStatus();
@@ -34,7 +44,7 @@ public class DBController {
 				
 			}
 			else {
-				Account tempA = new Account("errorError", "f", "f", "f", "f", "f");
+				
 				//System.out.println("fail");
 				return tempA;
 			}
