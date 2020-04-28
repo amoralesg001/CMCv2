@@ -56,7 +56,7 @@ public class UserController {
 		String tempU = "";
 		String tempP = "";
 		String tempS = "";
-		if (account.getUsername() == null)
+		if (account.getUsername() == "errorError")
 		{
 			return false;
 		}

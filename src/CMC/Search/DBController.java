@@ -34,7 +34,7 @@ public class DBController {
 				
 			}
 			else {
-				Account tempA = new Account(null, null, null, null, null, null);
+				Account tempA = new Account("errorError", "f", "f", "f", "f", "f");
 				//System.out.println("fail");
 				return tempA;
 			}
