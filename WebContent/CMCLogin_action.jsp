@@ -9,12 +9,11 @@
 	
 	boolean status = uc.login(username, password);
 	if (status) {
-	response.sendRedirect("CMCMenu.jsp?username="+request.getParameter("Username")+
-			"&password="+request.getParameter("Password"));
-	session.setAttribute("LoggedInUser", username);
-	//session.setAttribute("SpecificUser", user);
+	response.sendRedirect("CMCMenu.jsp");
+	session.setAttribute("loggedInUsername", username);
+	session.setAttribute("loggedInPassword", password);
 	}
 	else {
 	response.sendRedirect("CMCindex.jsp?status=" + "0");
 	}
-	
+	%>

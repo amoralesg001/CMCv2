@@ -23,6 +23,7 @@ public class UniversityTest {
 			
 			
 		}
+	
 		
 		@Test
 		public void testGetUniversityName() {

@@ -16,21 +16,27 @@ import junit.framework.Assert;
 
 public class DBControllerTest {
 	public Account fakeAccount;
+
 	public Account fakeAccount2;
 	public University fakeUniv;
 	ArrayList<String> emptyEmp = new ArrayList<String>();
 	ArrayList<String> emp = new ArrayList<String>();
 	ArrayList<String> invalidEmp = new ArrayList<String>();
 	ArrayList<String> halfValid = new ArrayList<String>();
+
 	
 	@Before
 	public void setUp() throws Exception {
 		
+		/**
+		 * setup for u2: Alex
+		 */
 		fakeAccount= DBController.addUser("Alex", "Morales", "amoralesg001", "lakdjf", 'u');
 		DBController.updateSavedUniversities(fakeAccount.getUsername(), "ADELPHI");
+
 		fakeAccount2 = DBController.dbGetUser("juser");
 		fakeUniv = DBController.dbGetUniversity("ADELPHI");
-		//setup for u4: Alex
+		
 		invalidEmp.add("Art");
 		invalidEmp.add("PHSYCHOLOGY");
 		halfValid.add("Computer Science");
@@ -41,6 +47,7 @@ public class DBControllerTest {
 		DBController.addUniversity("TestRemove", "MN", "Urban", "private", "100", "10", "200", "200", "1", "1", "1", "0", "0", "1", "1", "1", emp);
 		DBController.addUniversity("TestRemove2", "MN", "Urban", "private", "100", "10", "200", "200", "1", "1", "1", "0", "0", "1", "1", "1", emp);
 		DBController.addUniversity("TestRemove3", "MN", "Urban", "private", "100", "10", "200", "200", "1", "1", "1", "0", "0", "1", "1", "1", emp);
+
 	}
 
 	@After
@@ -119,9 +126,12 @@ public class DBControllerTest {
 
 
 
-	//testing for my u2: Alex
+	/**
+	 * author: alex morales
+	 * white box testing for the method dbGetSavedUniversity that i use on my u2 use case:
+	 * searches for saved uviversities from speciic users
+	 */
 	@Test
-	
 	public void testdbGetSavedUniversityList() {
 	ArrayList<String> sizeA = new ArrayList<String>();
 	sizeA.add("ADELPHI");
@@ -130,6 +140,11 @@ public class DBControllerTest {
 
 	}
 	
+	/**
+	 * author morales
+	 * white box testing for the method dbsearchUniversity that i use on my u4 use case:
+	 * user searches university from different criterias and the method will return the universities that match the given criterias. 
+	 */
 	@Test
 	public void testDbSearchUniversity() {
 	

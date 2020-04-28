@@ -135,18 +135,4 @@ public class Account {
 		return success;
 	}
 
-
-	public ArrayList<String> getSavedUniversityList() {
-		//ArrayList<String> universityNamesList; //im only doing this for u2. Sooner or later i will need an ArrayList to. Will need a constructure that holds the arrays of the universities
-		ArrayList<String> universityNamesList = new ArrayList<String>();
-		universityNamesList.add("Saint Johns"); //$NON-NLS-1$
-		universityNamesList.add("Macalaster"); //$NON-NLS-1$
-		universityNamesList.add("University of Minnesota"); //$NON-NLS-1$
-		
-		return universityNamesList;
-	}
-	public ArrayList<University> getSavedUniversity() {
-		return universities;
-
-	}
 }
