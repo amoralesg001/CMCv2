@@ -545,7 +545,9 @@ public class DBController {
             	if((!state.equals("")) && (!un[i][1].contains(state))){
             		searchCondition = false; 
         	    }  
-
+            	if((!location.equals("")) && (!un[i][2].contains(location))){
+            		searchCondition = false; 
+        	    }  
             	
             	if((!control.equals("")) && (!un[i][3].contains(control))) {
             		searchCondition = false; 
@@ -773,7 +775,7 @@ public class DBController {
                 	
                    }
                    //if the user had no criteria for emphasis, return the university criteria
-                   Object verbSAT;
+               
 				if(emphasis[0].equals("") && emphasis[1].equals("") &&emphasis[2].equals("") &&emphasis[3].equals("") &&emphasis[4].equals("")) {
                 	   return uniSearchFound;
                    }
