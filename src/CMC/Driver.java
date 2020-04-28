@@ -48,7 +48,7 @@ public class Driver {
 		System.out.println("u3 done");
 		
 		System.out.println("u4 scenerio: all three criterias are correct");
-		u4("", "NEW YORK", "","","","","","","","","","","","","","", "","" ,"", "", "", "", "", "","", "", "", "","","","","","");
+		u4("BARNARD", "", "","","","","","","","","","","","","","", "","" ,"", "", "", "", "", "","", "", "", "","","","","","");
 		System.out.println("u4 done");
 		System.out.println("output should be: university with the follwoing criterias found: \nUNIVERSITY OF MINNESOTA");
 		System.out.println("\nu4 ALTERNATE Scenerio: all three criterias are incorrect: ");

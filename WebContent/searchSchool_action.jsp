@@ -3,13 +3,13 @@
 
 <%
 	UserUI ui = new UserUI();
-	session.setAttribute("UserUI", ui);
+	DBController dbCont = new DBController();
    String schoolName = request.getParameter("SchoolName");
-   String location = request.getParameter("location");
+   String state = request.getParameter("state");
    
-   ArrayList<String> universitiesFound = ui.searchUniversity(schoolName, location,"","","","","","","","","","","","","","", "","" ,"", "", "", "", "", "","", "", "", "",null);
+   ArrayList<String> universitiesFound = dbCont.dbSearchUniversity(schoolName, state,"","","","","","","","","","","","","","", "","" ,"", "", "", "", "", "","", "", "", "",null);
   if(universitiesFound.size()==0 || universitiesFound == null){
-	 response.sendRedirect("CMCSearchForSchools.jsp?status=" + "0");
+	 response.sendRedirect("CMCSearchForSchools.jsp?stat=" + "0");
   }
   else {
 	  response.sendRedirect("CMCSearchSchoolResults.jsp");
