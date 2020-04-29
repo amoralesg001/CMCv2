@@ -48,100 +48,100 @@ public class Driver {
 		System.out.println("u3 done");
 		
 		System.out.println("u4 scenerio: all three criterias are correct");
-		u4("BARNARD", "", "","","","","","","","","","","","","","", "","" ,"", "", "", "", "", "","", "", "", "","","","","","");
+		u4("", "", "","","","","","","","","","","","","","", "","" ,"", "", "", "", "", "","", "", "", "","","MATH","","","");
 		System.out.println("u4 done");
-		System.out.println("output should be: university with the follwoing criterias found: \nUNIVERSITY OF MINNESOTA");
-		System.out.println("\nu4 ALTERNATE Scenerio: all three criterias are incorrect: ");
-		//u4("", "MINN", "", "STATE", "4000", "", "", "", "", "", "", "","","","","","","","","","");
-		System.out.println("u4 done");
-		System.out.println("output should be: No Universities Found with that criteria \n ");
-	
-		String username = "juser";	
-		String universityname = "waer2";
-
-		int i = DBController.removeUniversity(username, universityname);
-		
-		System.out.println("\nU5 Starting\n");
-		u5("BARNARD");
-		System.out.println("\nU5 Done: Should dislpay the information of Adelphi. \n");		
-		//u6(universityToRemove);
-		//u7(universityToRemove, universityToRemove, universityToRemove, universityToRemove);
-	
-
-		System.out.println("u6 starting");
-		u6(AName, SName);
-		System.out.println("u6 done");
-		System.out.println("u9 starting");
-		u9(AName, SName);
-		System.out.println("u9 done");
-		
-		System.out.println("/nu Scenerio: A user has saved universities under their account");
-		u2("juser");
-		System.out.println("u2 done");
-		System.out.println("The Output should be: JUSER \n ADELPHI \n DATE ADDED\n");
-		
-		System.out.println("u6 starting");
-		u6(AName, SName);
-		System.out.println("u6 done");
-		
-		String invalidUser = "asdf";
-		
-		System.out.println("u6 starting");
-		u6(invalidUser, SName);
-		System.out.println("u6 done");
-		
-		System.out.println("\nu ALTERNATE Scenerio: the user has no saved universities under their account");
-		u2("juser");
-		System.out.println("u2 done");
-		System.out.println("The Output should be: No universities saved under this user");
-		
-		// Edit User Information (U7) Test @author: Jack
-		System.out.println("\nu7 (Edit User Info) starting...");
-		System.out.println("\nTesting user 'John' (in database / should not be null)");
-		u7("juser", "user", "John", "User");
-		System.out.println("\nTesting 'Jack' (NOT in database / should be null)");
-		u7("jyoung001", "jackpassword", "Jack", "Young");
-		System.out.println("\nu7 done\n");
-		
-		System.out.println("u8 starting");
-		//u8();
-		System.out.println("u8 done");
-		//System.out.println("u9 starting");
-		//u9(AName, SName);
-		//System.out.println("u9 done");
-		System.out.println("u10 starting");
-		//u10();
-		System.out.println("u10 done");
-		System.out.println("u11 starting");
-		//u11();
-		System.out.println("u11 done");
-		System.out.println("u12 should rb");
-		u12();
-		System.out.println("u12 done");
-		
-		System.out.println("u16 start");
-		u16();
-		
-		// Activate/Deactivate (for Phase 3) Test @author: Jack
-		System.out.println("\nchangeStatus (activate/deactivate) starting...");
-		System.out.println("-----Testing user 'Lynn'-----");
-		System.out.println("Changing to 'n'");
-		changeStatus("luser", "n");
-		System.out.println("Changing to 'Y'");
-		changeStatus("luser", "Y");
-		System.out.println("Changing back to 'N'");
-		changeStatus("luser", "N");
-		System.out.println("-----Testing user 'John'-----");
-		System.out.println("Changing to 'Y'");
-		changeStatus("juser", "Y");
-		System.out.println("Changing to 'y'");
-		changeStatus("juser", "y");
-		System.out.println("Changing to 'n'");
-		changeStatus("juser", "n");
-		System.out.println("Changing back to 'y'");
-		changeStatus("juser", "y");
-		System.out.println("changeStatus done\n");
-		
+//		System.out.println("output should be: university with the follwoing criterias found: \nUNIVERSITY OF MINNESOTA");
+//		System.out.println("\nu4 ALTERNATE Scenerio: all three criterias are incorrect: ");
+//		//u4("", "MINN", "", "STATE", "4000", "", "", "", "", "", "", "","","","","","","","","","");
+//		System.out.println("u4 done");
+//		System.out.println("output should be: No Universities Found with that criteria \n ");
+//	
+//		String username = "juser";	
+//		String universityname = "waer2";
+//
+//		int i = DBController.removeUniversity(username, universityname);
+//		
+//		System.out.println("\nU5 Starting\n");
+		u5("BENNINGTON");
+//		System.out.println("\nU5 Done: Should dislpay the information of Adelphi. \n");		
+//		//u6(universityToRemove);
+//		//u7(universityToRemove, universityToRemove, universityToRemove, universityToRemove);
+//	
+//
+//		System.out.println("u6 starting");
+//		u6(AName, SName);
+//		System.out.println("u6 done");
+//		System.out.println("u9 starting");
+//		u9(AName, SName);
+//		System.out.println("u9 done");
+//		
+//		System.out.println("/nu Scenerio: A user has saved universities under their account");
+//		u2("juser");
+//		System.out.println("u2 done");
+//		System.out.println("The Output should be: JUSER \n ADELPHI \n DATE ADDED\n");
+//		
+//		System.out.println("u6 starting");
+//		u6(AName, SName);
+//		System.out.println("u6 done");
+//		
+//		String invalidUser = "asdf";
+//		
+//		System.out.println("u6 starting");
+//		u6(invalidUser, SName);
+//		System.out.println("u6 done");
+//		
+//		System.out.println("\nu ALTERNATE Scenerio: the user has no saved universities under their account");
+//		u2("juser");
+//		System.out.println("u2 done");
+//		System.out.println("The Output should be: No universities saved under this user");
+//		
+//		// Edit User Information (U7) Test @author: Jack
+//		System.out.println("\nu7 (Edit User Info) starting...");
+//		System.out.println("\nTesting user 'John' (in database / should not be null)");
+//		u7("juser", "user", "John", "User");
+//		System.out.println("\nTesting 'Jack' (NOT in database / should be null)");
+//		u7("jyoung001", "jackpassword", "Jack", "Young");
+//		System.out.println("\nu7 done\n");
+//		
+//		System.out.println("u8 starting");
+//		//u8();
+//		System.out.println("u8 done");
+//		//System.out.println("u9 starting");
+//		//u9(AName, SName);
+//		//System.out.println("u9 done");
+//		System.out.println("u10 starting");
+//		//u10();
+//		System.out.println("u10 done");
+//		System.out.println("u11 starting");
+//		//u11();
+//		System.out.println("u11 done");
+//		System.out.println("u12 should rb");
+//		u12();
+//		System.out.println("u12 done");
+//		
+//		System.out.println("u16 start");
+//		u16();
+//		
+//		// Activate/Deactivate (for Phase 3) Test @author: Jack
+//		System.out.println("\nchangeStatus (activate/deactivate) starting...");
+//		System.out.println("-----Testing user 'Lynn'-----");
+//		System.out.println("Changing to 'n'");
+//		changeStatus("luser", "n");
+//		System.out.println("Changing to 'Y'");
+//		changeStatus("luser", "Y");
+//		System.out.println("Changing back to 'N'");
+//		changeStatus("luser", "N");
+//		System.out.println("-----Testing user 'John'-----");
+//		System.out.println("Changing to 'Y'");
+//		changeStatus("juser", "Y");
+//		System.out.println("Changing to 'y'");
+//		changeStatus("juser", "y");
+//		System.out.println("Changing to 'n'");
+//		changeStatus("juser", "n");
+//		System.out.println("Changing back to 'y'");
+//		changeStatus("juser", "y");
+//		System.out.println("changeStatus done\n");
+//		
 		
 	}
 	/**
