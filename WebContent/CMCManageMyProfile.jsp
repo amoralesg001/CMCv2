@@ -11,23 +11,22 @@
 	%>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>My Profile</title>
 </head>
 <body>
- <%Account user = uc.getUserInfo(username, password); 
-  if (user.getUsername() != null) { %>
-	Hello User <%= user.getUsername() 
-	 %>
+<%Account user = uc.getUserInfo(username, password);
+	if (user.getUsername() != null) { 
+	 if (user.getUserType().equals("u") || user.getUserType().equals("U")) { %>
+		Hello User <%= user.getUsername() %>
+<%   }
+	 else { %>
+	 	Hello Admin <%= user.getUsername() %>
+<%   } %>
+<br><br>
 <table style="text-align: left; width: 100%;" border="1" cellpadding="2"
 cellspacing="2">
 <tbody>
-<tr align="center">
 
-<td colspan="8" rowspan="1" style="vertical-align: top;"><a
-href="CMCAdd.jsp">ADD A USER</a>
-</td>
-
-</tr>
 <tr>
 <td style="vertical-align: top;">
 Edit</td>
@@ -41,14 +40,12 @@ Edit</td>
 </td>
 <td style="vertical-align: top; text-align: center;">Status
 </td>
-<td style="vertical-align: top;">Delete
-</td>
 </tr>
 <tr>
 	<% for (int j = 0; j < 7; j++) {
 			if (j == 0) { %>
 			<td style="vertical-align: top;">
-			<form method="post" action="Edit.jsp" name="Edit">
+			<form method="post" action="CMCEdit.jsp" name="Edit">
     			<input name="Edit" value="Edit" type="submit">
     			<input name="Username" value="???" type="hidden">
 			</form>
@@ -73,19 +70,12 @@ Edit</td>
 			<td style="vertical-align: top;"> <%= user.getLoginStatus() %>
 			</td>
 			<% } %>
-			<% if (j == 6) { %>
-			<td style="vertical-align: top;">
-<form method="post" action="Delete.jsp" name="Delete">
-    <input name="Delete" value="Delete" type="submit">
-    <input name="UsernameDelete" value="<%=user.getUsername()%>" type="hidden">
-    <input name="Username" value="username" type="hidden">
-</form>
-</td>
-			<% } %>
 			<% } %>
 			<% } %>
 	 </tr>
 </tbody>
 </table>
+<br><br>
+<A HREF="CMCMenu.jsp">Back To Menu</A>
 </body>
 </html>
