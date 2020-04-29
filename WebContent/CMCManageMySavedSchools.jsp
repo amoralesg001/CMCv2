@@ -30,7 +30,8 @@
 
 		   </tr>
 		   <%  int i = 0;
-		   while (i < items.size()) { %>
+		   while (i < items.size()) {
+			   if (i+2 < items.size()) {%>
 		   <tr>
 		   <td style="vertical-align: top;">
 		   <form method="post" action="CMCRemove_Saved_School_Action.jsp" name="Remove">
@@ -48,7 +49,8 @@
 		   </tr>
 			   
 		   <% i += 3;
-		   } %>
+		   } 
+		   }%>
 		   </tbody>
 		   </table>
 </body>
