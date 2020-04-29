@@ -2,7 +2,14 @@
     pageEncoding="UTF-8" import="CMC.User.*" import="CMC.Search.*" import="java.util.*"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<% ArrayList<String> universitiesFound = (ArrayList)session.getAttribute("UniversitiesFound"); %>
+<% ArrayList<String> universitiesFound = (ArrayList)session.getAttribute("UniversitiesFound"); 
+   String stat = request.getParameter("status"); 
+   if (stat != null) {
+	   if (stat.equals("1")) { %>
+		   University Saved Successful
+	   <%}
+   }
+   %>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Search Results</title>
@@ -19,8 +26,9 @@ cellspacing="2">
 	<% for (int j = 0; j < 3; j++) {
 			if (j == 0) { %>
 			<td style="vertical-align: top;">
-			<form method="post" action="CMCSave_action.jsp" name="Save">
+			<form method="post" action="CMCSave_School_action.jsp" name="Save">
     			<input name="Save" value="Save" type="submit">
+    			<input name="school" value= "<%= universitiesFound.get(i) %>" type="hidden">
 			</form>
 			</td> <% } %>
 			<% if (j == 1) { %>
