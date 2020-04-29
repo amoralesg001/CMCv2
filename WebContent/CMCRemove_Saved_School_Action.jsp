@@ -6,7 +6,7 @@
        UserUI.removeUniversity(username, school);
        response.sendRedirect("CMCSearchSchoolResults.jsp?status=" + "1");
    	}
-       }
+       
        else {
     	   System.out.println("Failure: user not logged in");
        }
