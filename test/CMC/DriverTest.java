@@ -56,8 +56,7 @@ public class DriverTest {
 		Assert.assertTrue("User has no saved schools or is not an existing member", UserUI.getSavedUniversityList(userName)== null);
 			
 	}
-	
-<<<<<<< HEAD
+
 	
 	@Test 
 	public void u3() {
@@ -67,7 +66,7 @@ public class DriverTest {
 	}
 	
 	//test case u4: Alex
-=======
+
 	/**
 	 * @author alex morales
 	 * black box testing for my use case method u4: 
@@ -79,18 +78,18 @@ public class DriverTest {
 	 * . If the user has just one of their muliple criterias incorrect in their input, the university will not be found.
 	 * ex. if the user puts in the name, location, control, but does input state corrects, the university will not be found. 
 	 */
->>>>>>> fefbdefedbf29d93414bd2a90895669881c69ebc
+
 	@Test
 	public void testu4() {
 	ArrayList<String> universitySearch = new ArrayList();
 	universitySearch.add("UNIVERSITY OF MINNESOTA");
 	
 	//scenerio 1: Search of university critera found. what should be returned is university of minnesota AND only that. So i checked if size was 1
-	Assert.assertTrue("universities with the following criteria:", UserUI.searchUniversity("UNIVERS", "MINN", "","STATE", "40000","45" ,"490", "557", "13772", "50", "8500", "80","60", "4", "3", "4", null).contains(universitySearch.get(0)));
-	Assert.assertTrue("universities with the following criteria:", UserUI.searchUniversity("UNIVERS", "MINN", "","STATE", "40000","45" ,"490", "557", "13772", "50", "8500", "80","60", "4", "3", "4", null).size()==1);
+	Assert.assertTrue("universities with the following criteria:", UserUI.searchUniversity("", "NEW YORK", "","","8000","","50","","600","650","600","","30000","","50","70", "3000","5000" ,"50", "61", "10", "30", "3", "5","2", "5", "3", "5", null).contains(universitySearch.get(0)));
+	Assert.assertTrue("universities with the following criteria:", UserUI.searchUniversity("", "NEW YORK", "","","8000","","50","","600","650","600","","30000","","50","70", "3000","5000" ,"50", "61", "10", "30", "3", "5","2", "5", "3", "5", null).size()==1);
 	
 	//scenerio 2: Search of university criteria not found
-	Assert.assertTrue("no universitties found with that criteria:", UserUI.searchUniversity("UNIVERSLKAJ", "MINN", "UR","STATE", "40000","45" ,"490", "557", "13772", "50", "850900", "1380","60", "4", "3", "4", null).size()==0);
+	Assert.assertTrue("no universitties found with that criteria:", UserUI.searchUniversity("", "NEW YORK", "","","8000","","50","","600","650","600","","30000","","50","70", "3000","5000" ,"50", "61", "10", "30", "3", "5","2", "5", "3", "5",null).size()==0);
 	}
 	
 	

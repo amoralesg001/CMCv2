@@ -545,7 +545,9 @@ public class DBController {
             	if((!state.equals("")) && (!un[i][1].contains(state))){
             		searchCondition = false; 
         	    }  
-
+            	if((!location.equals("")) && (!un[i][2].contains(location))){
+            		searchCondition = false; 
+        	    }  
             	
             	if((!control.equals("")) && (!un[i][3].contains(control))) {
             		searchCondition = false; 
@@ -749,19 +751,19 @@ public class DBController {
                    for (int i=0; i<em.length;i++) {
                 	   emphasisMatches = false;
                 	   for(int j=0; j<em[i].length;j++) {	  
-                		  if((em[i][j].equals(emphasis[0])) && !emphasis[0].equals("")) {
+                		  if((em[i][j].contains(emphasis[0])) && (!emphasis[0].equals(""))) {
                 			  emphasisMatches=true;
                 		  }
-                		  if((em[i][j].contains(emphasis[1])) && emphasis[1]!="") {
+                		  if((em[i][j].contains(emphasis[1])) && (!emphasis[1].equals(""))) {
                 			  emphasisMatches=true;
                 		  }
-                		  if((em[i][j].equals(emphasis[2])) && emphasis[2]!="") {
+                		  if((em[i][j].contains(emphasis[2])) && (!emphasis[2].equals(""))) {
                 			  emphasisMatches=true;
                 		  }
-                		  if((em[i][j].equals(emphasis[3])) && emphasis[3]!="") {
+                		  if((em[i][j].contains(emphasis[3])) && (!emphasis[3].equals(""))) {
                 			  emphasisMatches=true;
                 		  }
-                		  if((em[i][j].equals(emphasis[4])) && emphasis[4]!="") {
+                		  if((em[i][j].contains(emphasis[4])) && (!emphasis[4].equals(""))) {
                 			  emphasisMatches=true;
                 		  }
                 	   
@@ -773,14 +775,14 @@ public class DBController {
                 	
                    }
                    //if the user had no criteria for emphasis, return the university criteria
-                   Object verbSAT;
+               
 				if(emphasis[0].equals("") && emphasis[1].equals("") &&emphasis[2].equals("") &&emphasis[3].equals("") &&emphasis[4].equals("")) {
                 	   return uniSearchFound;
                    }
                    //do rest: if the all university criteria is empty, but their is criteria in emphasis
-                   else if(universityName.equals("")&& state.equals("") && numStudents1.equals("")&& control.equals("")&& numStudents1.equals("")&& femalePer1.equals("")&& verbalSAT1.equals("")
+                   else if(universityName.equals("")&& state.equals("") && location.equals("") && numStudents1.equals("")&& control.equals("")&& numStudents1.equals("")&& femalePer1.equals("")&& verbalSAT1.equals("")
                 		   && mathSAT1.equals("") && expenses1.equals("")&& finAidPer1.equals("")&& numApplicants1.equals("")&& admitPer1.equals("")&& enrolledPer1.equals("")&& academicScale1.equals("")&& socialScale1.equals("")&& qoaScale1.equals("")) {
-                	return uniSearchFound;   
+                	return emphasisFound;   
                   }
                    
                    else if(uniSearchFound.size()>emphasisFound.size()) {

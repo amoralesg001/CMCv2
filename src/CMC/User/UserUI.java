@@ -185,6 +185,9 @@ public class UserUI {
 	 * @param username the username of Account
 	 */
 	public static ArrayList<String> getSavedUniversityList(String username) {
+		if (username == null) {
+			return new ArrayList<String>();
+		}
 		
 		return UserController.getSavedUniversityList(username);
 	}
