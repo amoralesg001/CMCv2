@@ -30,7 +30,7 @@
 
 		   </tr>
 		   <%  int i = 0;
-		   for (i < items.size()) { %>
+		   while (i < items.size()) { %>
 		   <tr>
 		   <td style="vertical-align: top;">
 		   <form method="post" action="CMCRemove_Saved_School_Action.jsp" name="Remove">
