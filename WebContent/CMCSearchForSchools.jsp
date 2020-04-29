@@ -21,6 +21,7 @@
  
 	
 <head>
+<A HREF="CMCMenu.jsp">Back To Menu</A>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>SearchForSchoolPage</title>
 </head>

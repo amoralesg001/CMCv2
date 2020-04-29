@@ -11,6 +11,7 @@
    }
    %>
 <head>
+<A HREF="CMCSearchForSchools.jsp">Back To Search For Schools</A>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Search Results</title>
 </head>
