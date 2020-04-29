@@ -1,15 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" import="CMC.User.*" import="CMC.Search.*" import="java.util.ArrayList"%>
     <% 
-UserController uc = (UserController)session.getAttribute("UserController");
     String username = (String)session.getAttribute("loggedInUsername"); 
 	String password = (String)session.getAttribute("loggedInPassword");
-	ArrayList<String> schools = new ArrayList<String>();
+	ArrayList<String> items = new ArrayList<String>();
    if (username == null) {
 	   response.sendRedirect("CMCindex.jsp");
 	   }
    else {
-	   schools = UserUI.getSavedUniversityList(username);
+	   items = UserUI.getSavedUniversityList(username);
    }
    %>
 
@@ -30,24 +29,26 @@ UserController uc = (UserController)session.getAttribute("UserController");
 		   </td>
 
 		   </tr>
-		   <%  for (String School: schools) { %>
+		   <%  int i = 0;
+		   while (i < items.size()) { %>
 		   <tr>
 		   <td style="vertical-align: top;">
 		   <form method="post" action="CMCRemove_Saved_School_Action.jsp" name="Remove">
     			<input name="Remove" value="Remove" type="submit">
-    			<input name="school" value="<%= School %>" type="hidden">
+    			<input name="school" value="<%= items.get(i+1) %>" type="hidden">
 			</form> 
 			</td>
-		   <td style="vertical-align: top;"><%= School %> </td>
+		   <td style="vertical-align: top;"><%= items.get(i+1) %> (added on: <%= items.get(i+2) %>)</td>
 		   <td style="vertical-align: top;"> 
 		   <form method="post" action="CMCView_School.jsp" name="view">
     			<input name="view" value="view" type="submit">
-    			<input name="school" value="<%= School %>" type="hidden">
+    			<input name="school" value="<%= items.get(i+1) %>" type="hidden">
 			</form>
 		   </td>
 		   </tr>
 			   
-		   <% } %>
+		   <% i += 3;
+		   } %>
 		   </tbody>
 		   </table>
 </body>
