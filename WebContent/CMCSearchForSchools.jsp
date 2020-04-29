@@ -15,10 +15,8 @@
 	<%
 	if (status !=null){
 		if(status.equals("0")){%>
-	}
-		adf
-		<% }
-		}%>
+	University Not Valid		
+	<% } }%>
 	
  
 	

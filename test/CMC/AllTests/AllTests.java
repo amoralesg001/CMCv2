@@ -12,11 +12,7 @@ import CMC.User.UserControllerTest;
 import CMC.User.UserUITest;
 
 @RunWith(Suite.class)
-<<<<<<< HEAD
 @SuiteClasses({UniversityControllerTest.class, DBControllerTest.class, UniversityTest.class, AccountTest.class, UserControllerTest.class, UserUITest.class, DriverTest.class})
-=======
-@SuiteClasses({UniversityControllerTest.class, DBControllerTest.class, UniversityTest.class, AccountTest.class, UserControllerTest.class})
->>>>>>> fefbdefedbf29d93414bd2a90895669881c69ebc
 public class AllTests {
 
 }
