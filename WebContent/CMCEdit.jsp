@@ -79,6 +79,7 @@ name="Reset" type="reset"></td>
 <br>
 </form>
 <br>
+<A HREF="CMCManageMyProfile.jsp">Cancel</A>
 </body>
 </html>
 

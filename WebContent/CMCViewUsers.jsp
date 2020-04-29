@@ -1,7 +1,7 @@
 <%@page language="java" import="CMC.User.*" import="CMC.Search.*" import="java.util.*"%>
 <html>
 <head>
-<title></title>
+<title>All Users</title>
 </head>
 <body>
 <% String username = (String)session.getAttribute("loggedInUsername");
@@ -47,7 +47,7 @@ Edit</td>
 	<% for (int j = 0; j < 7; j++) {
 			if (j == 0) { %>
 			<td style="vertical-align: top;">
-			<form method="post" action="Edit.jsp" name="Edit">
+			<form method="post" action="CMCEdit.jsp" name="Edit">
     			<input name="Edit" value="Edit" type="submit">
     			<input name="Username" value="???" type="hidden">
 			</form>
@@ -87,6 +87,8 @@ Edit</td>
 <% } %>
 </tbody>
 </table>
+<br>
+<A HREF="CMCMenu.jsp">Back To Menu</A>
 </body>
 </html>
 
