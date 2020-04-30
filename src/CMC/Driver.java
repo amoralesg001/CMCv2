@@ -48,9 +48,9 @@ public class Driver {
 		System.out.println("u3 done");
 		
 		System.out.println("u4 scenerio: all three criterias are correct");
-		u4("BENNINGTON", "", "-1","","","","","","","","","","","","","", "","" ,"", "", "", "", "", "","", "", "", "","","MATH","","","");
+		u4("UNIVERSITY OF MINN", "MINN", "URBAN","STATE","30000","41000","40","50","450","500","500","600","13770","13773","40","60", "8400","8600" ,"70", "100", "50", "70", "2", "5","2", "4", "1", "5","AGRICULTURE","MATH","COMPUTER SCIENCE","","");
 		System.out.println("u4 done");		
-		System.out.println("output should be: university with the follwoing criterias found: \nUNIVERSITY OF MINNESOTA");
+		System.out.println("output should be: university with the follwoing criterias found: \n BENNINGTON");
 		System.out.println("\nu4 ALTERNATE Scenerio: all three criterias are incorrect: ");
 		//u4("", "MINN", "", "STATE", "4000", "", "", "", "", "", "", "","","","","","","","","","");
 		System.out.println("u4 done");
@@ -62,7 +62,7 @@ public class Driver {
 		int i = DBController.removeUniversity(username, universityname);
 		
 		System.out.println("\nU5 Starting\n");
-		u5("");
+		u5("UNIVERSITY OF MINNESOTA");
 		System.out.println("\nU5 Done: Should dislpay the information of Adelphi. \n");		
 		//u6(universityToRemove);
 		//u7(universityToRemove, universityToRemove, universityToRemove, universityToRemove);

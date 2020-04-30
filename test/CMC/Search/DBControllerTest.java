@@ -149,9 +149,13 @@ public class DBControllerTest {
 	public void testDbSearchUniversity() {
 	
 	String universityName =("UNIVERSITY OF MINNESOTA");//check if it contains this
-
-
-	Assert.assertTrue(DBController.dbSearchUniversity("", "NEW YORK", "","","8000","","50","","600","650","600","","30000","","50","70", "3000","5000" ,"50", "61", "10", "30", "3", "5","2", "5", "3", "5", null).contains(universityName));
+	String emphasis[] = new String[5];
+	emphasis[0]= "MATH";
+	emphasis[1]= "AGRICULTURE";
+	emphasis[2]= "COMPUTER SCIENCE";
+	emphasis[3]= "";
+	emphasis[4]= "";
+	Assert.assertTrue(DBController.dbSearchUniversity("UNIVERSITY OF MINN", "MINN", "URBAN","STATE","30000","41000","40","50","450","500","500","600","13770","13773","40","60", "8400","8600" ,"70", "100", "50", "70", "2", "5","2", "4", "1", "5",emphasis).contains(universityName));
 	}
 	
 	// Testing U7: Edit User Info && Activate/Deactivate: changeStatus

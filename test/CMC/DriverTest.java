@@ -83,13 +83,20 @@ public class DriverTest {
 	public void testu4() {
 	ArrayList<String> universitySearch = new ArrayList();
 	universitySearch.add("UNIVERSITY OF MINNESOTA");
+	String emphasis[] = new String[5];
+	emphasis[0]= "MATH";
+	emphasis[1]= "AGRICULTURE";
+	emphasis[2]= "COMPUTER SCIENCE";
+	emphasis[3]= "";
+	emphasis[4]= "";
 	
 	//scenerio 1: Search of university critera found. what should be returned is university of minnesota AND only that. So i checked if size was 1
-	Assert.assertTrue("universities with the following criteria:", UserUI.searchUniversity("", "NEW YORK", "","","8000","","50","","600","650","600","","30000","","50","70", "3000","5000" ,"50", "61", "10", "30", "3", "5","2", "5", "3", "5", null).contains(universitySearch.get(0)));
-	Assert.assertTrue("universities with the following criteria:", UserUI.searchUniversity("", "NEW YORK", "","","8000","","50","","600","650","600","","30000","","50","70", "3000","5000" ,"50", "61", "10", "30", "3", "5","2", "5", "3", "5", null).size()==1);
+	Assert.assertTrue("universities with the following criteria:", UserUI.searchUniversity("UNIVERSITY OF MINN", "MINN", "URBAN","STATE","30000","41000","40","50","450","500","500","600","13770","13773","40","60", "8400","8600" ,"70", "100", "50", "70", "2", "5","2", "4", "1", "5",emphasis).contains(universitySearch.get(0)));
+	
+	Assert.assertTrue("universities with the following criteria:", UserUI.searchUniversity("UNIVERSITY OF MINN", "MINN", "URBAN","STATE","30000","","40","","450","","500","","13770","","40","", "8400","" ,"70", "", "50", "", "2", "","2", "", "1", "",emphasis).size()==1);
 	
 	//scenerio 2: Search of university criteria not found
-	Assert.assertTrue("no universitties found with that criteria:", UserUI.searchUniversity("", "NEW YORK", "","","8000","","50","","600","650","600","","30000","","50","70", "3000","5000" ,"50", "61", "10", "30", "3", "5","2", "5", "3", "5",null).size()==0);
+	Assert.assertTrue("no universitties found with that criteria:", UserUI.searchUniversity("UNIVERSITY OF MINADSFN", "MINN", "URBAN","STATE","30000","41000","40","50","450","500","500","600","13770","13773","40","60", "8400","8600" ,"70", "100", "50", "70", "2", "5","2", "4", "1", "5",emphasis).size()==0);
 	}
 	
 	
